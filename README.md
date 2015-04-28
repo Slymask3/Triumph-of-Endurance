@@ -4,6 +4,8 @@ This is the source code for our Triumph of Endurance mod, you can check in here 
 
 <b>Description:</b> Adds a survival mode with waves of enemies to defeat.
 
+<b>Authors:</b> Slymask3 and HotMixtape
+
 <b>Forum Post:</b> 
 
 <b>Released Mod Version:</b> None
