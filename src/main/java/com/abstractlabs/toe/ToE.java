@@ -1,7 +1,7 @@
 package com.abstractlabs.toe;
 
-import com.abstractlabs.toe.init.addBlocks;
-import com.abstractlabs.toe.init.addItems;
+import com.abstractlabs.toe.init.ToeBlocks;
+import com.abstractlabs.toe.init.ToeItems;
 import com.abstractlabs.toe.reference.Reference;
 import com.abstractlabs.toe.utility.LogHelper;
 
@@ -12,16 +12,15 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION)
-public class ToE {
+public class Toe {
 	@Instance(Reference.MOD_ID)
-	public static ToE instance = new ToE();
-	
-	public static addBlocks ab = new addBlocks();
-	
-	public static addItems ai = new addItems();
+	public static Toe instance = new Toe();
 	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		ToeBlocks.init();
+		ToeItems.init();
+		
 		LogHelper.info("Pre Initialization Complete!");
 	}
 
