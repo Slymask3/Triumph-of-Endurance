@@ -1,0 +1,4 @@
+tile.toe:exteriorDesert.name=Exterior Desert Block
+tile.toe:exteriorForest.name=Exterior Forest Block
+
+itemGroup.toe=Triumph of Endurance
