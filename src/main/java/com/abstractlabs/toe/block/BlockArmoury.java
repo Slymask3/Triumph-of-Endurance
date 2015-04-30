@@ -1,21 +1,20 @@
 package com.abstractlabs.toe.block;
 
-import com.abstractlabs.toe.Toe;
-import com.abstractlabs.toe.blockgui.BlockArmouryGui;
-import com.abstractlabs.toe.creativetab.ToeTab;
-import com.abstractlabs.toe.reference.Reference;
-import com.abstractlabs.toe.tileentity.TileEntityBlockArmoury;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+
+import com.abstractlabs.toe.Toe;
+import com.abstractlabs.toe.blockgui.BlockArmouryGui;
+import com.abstractlabs.toe.creativetab.ToeTab;
+import com.abstractlabs.toe.reference.Reference;
+import com.abstractlabs.toe.tileentity.TileEntityBlockArmoury;
 
 public class BlockArmoury extends Block 
 {
