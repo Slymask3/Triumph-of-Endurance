@@ -8,6 +8,7 @@ import com.abstractlabs.toe.tileentity.TileEntityBlockArmoury;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -26,30 +27,21 @@ public class BlockArmoury extends Block
 
         this.setBlockName(Reference.MOD_ID + "BlockArmoury");
         setCreativeTab(ToeTab.TOE_TAB);
-        this.setBlockTextureName(Reference.MOD_ID + ":");
+        this.setBlockTextureName(Reference.MOD_ID + ":BlockArmoury");
     }
 
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadeta, float what, float these, float are)
     {
-    	TileEntity tileEntity = world.getTileEntity(x, y, z);
-    	
-    	if (tileEntity == null || player.isSneaking())
+    	if (world.isRemote)
     	{
-    		return false;
+    		return true;
     	}
-    	
-    	player.openGui(Toe.instance, 0, world, x, y, z);
-    	
-    	return true;
-    	/*
-        if (!world.isRemote) {
-            //System.out.print("block clicked, open gui.\n");
-            //System.out.print(Toe.instance != null);
-            player.openGui(Toe.instance, BlockArmouryGui.GUI_ID, world, x, y, z);
-        }
-        return true;
-        */
+    	else
+    	{
+    		Minecraft.getMinecraft().displayGuiScreen(new BlockArmouryGui());
+    		return true;
+    	}
     }
 
     @Override

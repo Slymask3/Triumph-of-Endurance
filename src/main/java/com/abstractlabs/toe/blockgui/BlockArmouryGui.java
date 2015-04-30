@@ -4,6 +4,7 @@ import org.lwjgl.opengl.GL11;
 
 import com.abstractlabs.toe.reference.Reference;
 
+import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.util.ResourceLocation;
@@ -23,8 +24,8 @@ public class BlockArmouryGui extends GuiScreen
     @Override
     public void initGui() 
     {
-        buttonList.clear();
-        buttonList.add(new GuiButton(0, 100, 100, 60, 60, "Button"));
+        //buttonList.clear();
+        //buttonList.add(new GuiButton(0, 100, 100, 60, 60, "Button"));
     }
 
     @Override
@@ -42,14 +43,8 @@ public class BlockArmouryGui extends GuiScreen
         drawDefaultBackground();
         mc.renderEngine.bindTexture(new ResourceLocation(Reference.MOD_ID, "textures/gui/armouryblock.png"));
         drawTexturedModalRect(x, y, 0, 0, xSize, ySize);
+        fontRendererObj.drawString("Armoury", guiX + 40, guiY + 5, 0xFFFFFF);
         super.drawScreen(x, y, ticks);
         System.out.print("drawing gui.\n");
-    }
-
-    @Override
-    public void actionPerformed(GuiButton button) 
-    {
-        System.out.print("button clicked.\n");
-
     }
 }
