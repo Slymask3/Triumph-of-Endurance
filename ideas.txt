@@ -8,6 +8,7 @@ general ideas:
 - will be able to purchase weapons and armor while completing the waves with points that you get from killing enemies. (also could give extra points for time limit, or if player took no damage during the wave)
 - all items earned from inside the dome will be removed when all waves are completed.
 - different exterior blocks for each different dome type?
+- hidden special blocks (sponges) that will give the player points when broken.
 
 dome ideas:
 - forest dome

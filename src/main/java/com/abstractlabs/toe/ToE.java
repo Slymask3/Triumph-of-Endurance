@@ -4,12 +4,14 @@ import com.abstractlabs.toe.init.ToeBlocks;
 import com.abstractlabs.toe.init.ToeItems;
 import com.abstractlabs.toe.reference.Reference;
 import com.abstractlabs.toe.utility.LogHelper;
+import com.abstractlabs.toe.worldgen.WorldGeneratorToe;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION)
 public class Toe {
@@ -26,6 +28,8 @@ public class Toe {
 
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
+		GameRegistry.registerWorldGenerator(new WorldGeneratorToe(), 1);
+		
 		LogHelper.info("Initialization Complete!");
 	}
 
