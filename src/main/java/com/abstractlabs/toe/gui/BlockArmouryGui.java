@@ -1,4 +1,4 @@
-package com.abstractlabs.toe.blockgui;
+package com.abstractlabs.toe.gui;
 
 import org.lwjgl.opengl.GL11;
 
