@@ -1,85 +1,74 @@
 package com.abstractlabs.toe.block;
 
-import org.lwjgl.opengl.GL11;
-
 import com.abstractlabs.toe.Toe;
+import com.abstractlabs.toe.blockgui.BlockArmouryGui;
+import com.abstractlabs.toe.creativetab.ToeTab;
 import com.abstractlabs.toe.reference.Reference;
-import com.google.common.base.Strings;
+import com.abstractlabs.toe.tileentity.TileEntityBlockArmoury;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.block.BlockContainer;
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-public class BlockArmoury extends BlockContainer
+public class BlockArmoury extends Block 
 {
-	protected BlockArmoury()
-	{
-		super(Material.rock);
-	}
+    private IIcon[] icons = new IIcon[6];
 
-	@SideOnly(Side.CLIENT)
-	private IIcon top;
-	@SideOnly(Side.CLIENT)
-	private IIcon front;
-	@SideOnly(Side.CLIENT)
-	private IIcon bottom;
-	
-	int guiWidth = 148;
-	int guiHeight = 80;
-	
-	public void registerBlockIcons(IIconRegister ir)
-	{
-		this.front = ir.registerIcon(Reference.MOD_ID + ":ArmouryFront");
-		this.top = ir.registerIcon(Reference.MOD_ID + ":ArmouryTop");
-		this.blockIcon = ir.registerIcon(Reference.MOD_ID + ":ArmourySide");
-	}
-	
-	public IIcon getIcon(int side, int meta)
-	{
-		if (side == 1)
-		{
-			return top;
-		}
-		else if (side == 3)
-		{
-			return front;
-		}
-		else
-		{
-			return this.blockIcon;
-		}
-	}
-	
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9) 
-	{
-		player.openGui(Toe.instance, 0, world, x, y, z);
-		return true;
-	}
+    public BlockArmoury() 
+    {
+        super(Material.iron);
 
-	public TileEntity createNewTileEntity(World world, int par2)
-	{
-		return new TileEntity();
-	}
-	
-	@SideOnly(Side.CLIENT)
-	public void onBlockAdded(World world, int x, int y, int z)
-	{
-		super.onBlockAdded(world, x, y, z);
-		this.direction(world, x, y, z);
-	}
-	
-	private void direction(World world, int x, int y, int z) 
-	{
-		
-	}
+        this.setBlockName(Reference.MOD_ID + "BlockArmoury");
+        setCreativeTab(ToeTab.TOE_TAB);
+        this.setBlockTextureName(Reference.MOD_ID + ":");
+    }
+
+    @Override
+    public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadeta, float what, float these, float are)
+    {
+    	TileEntity tileEntity = world.getTileEntity(x, y, z);
+    	
+    	if (tileEntity == null || player.isSneaking())
+    	{
+    		return false;
+    	}
+    	
+    	player.openGui(Toe.instance, 0, world, x, y, z);
+    	
+    	return true;
+    	/*
+        if (!world.isRemote) {
+            //System.out.print("block clicked, open gui.\n");
+            //System.out.print(Toe.instance != null);
+            player.openGui(Toe.instance, BlockArmouryGui.GUI_ID, world, x, y, z);
+        }
+        return true;
+        */
+    }
+
+    @Override
+    public void registerBlockIcons(IIconRegister reg) 
+    {
+        for (int i = 0; i < 6; i ++) 
+        {
+            this.icons[i] = reg.registerIcon(this.textureName + "_" + i);
+        }
+    }
+    
+    public TileEntity createNewTileEntity(World world)
+    {
+    	return new TileEntityBlockArmoury();
+    }
+
+    @Override
+    public IIcon getIcon(int side, int meta) 
+    {
+        return this.icons[side];
+    }
 }
