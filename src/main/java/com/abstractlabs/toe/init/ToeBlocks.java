@@ -20,6 +20,5 @@ public class ToeBlocks {
 		GameRegistry.registerBlock(exteriorDesert, "exteriorDesert");
 		GameRegistry.registerBlock(exteriorForest, "exteriorForest");
 		GameRegistry.registerBlock(exteriorGlass, "exteriorGlass");
-		GameRegistry.registerBlock(blockArmoury, "blockArmoury");
 	}
 }
