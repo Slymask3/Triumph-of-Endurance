@@ -5,6 +5,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 import com.abstractlabs.toe.reference.GuiID;
+import com.abstractlabs.toe.tileentity.TileEntityBlockArmoury;
 import com.abstractlabs.toe.tileentity.TileEntityWeaponry;
 
 import cpw.mods.fml.common.network.IGuiHandler;
@@ -29,8 +30,8 @@ public class GuiHandler implements IGuiHandler {
     		return null;
     	}
     	
-    	if (ID == BlockArmouryGui.GUI_ID) {
-        	return new BlockArmouryGui();
+    	if (ID == GuiID.ARMOURY.ordinal()) {
+        	return new BlockArmouryGui(player, (TileEntityBlockArmoury) e, world, x, y, z);
         } else if (ID == GuiID.WEAPONRY.ordinal()) {
         	return new GuiWeaponry(player, (TileEntityWeaponry) e, world, x, y, z);
         }

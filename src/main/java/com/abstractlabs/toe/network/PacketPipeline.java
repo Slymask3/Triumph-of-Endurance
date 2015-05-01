@@ -130,6 +130,7 @@ public class PacketPipeline extends MessageToMessageCodec<FMLProxyPacket, Abstra
     public void registerPackets() {
 //it's easier to add all packets in 1 method.
         registerPacket(PacketWeaponry.class);
+        registerPacket(PacketArmoury.class);
     }
  
     // Method to call from FMLPostInitializationEvent

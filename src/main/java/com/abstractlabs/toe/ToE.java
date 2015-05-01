@@ -7,6 +7,7 @@ import com.abstractlabs.toe.init.ToeBlocks;
 import com.abstractlabs.toe.init.ToeItems;
 import com.abstractlabs.toe.network.PacketPipeline;
 import com.abstractlabs.toe.reference.Reference;
+import com.abstractlabs.toe.tileentity.TileEntityBlockArmoury;
 import com.abstractlabs.toe.tileentity.TileEntityWeaponry;
 import com.abstractlabs.toe.utility.LogHelper;
 import com.abstractlabs.toe.worldgen.WorldGeneratorToe;
@@ -31,6 +32,7 @@ public class Toe {
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 		
 		TileEntity.addMapping(TileEntityWeaponry.class, "TileEntityWeaponry");
+		TileEntity.addMapping(TileEntityBlockArmoury.class, "TileEntityBlockArmoury");
 		
 		packetPipeline.initialise();
 		
