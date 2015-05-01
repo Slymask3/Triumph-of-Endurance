@@ -9,6 +9,7 @@ general ideas:
 - all items earned from inside the dome will be removed when all waves are completed.
 - different exterior blocks for each different dome type?
 - hidden special blocks (sponges) that will give the player points when broken.
+- quicksand in desert pyramid arena (slows and damages players).
 
 dome ideas:
 - forest dome

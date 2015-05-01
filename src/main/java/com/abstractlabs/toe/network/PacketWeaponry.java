@@ -72,6 +72,7 @@ public class PacketWeaponry extends AbstractPacket {
 			player.inventory.addItemStackToInventory(new ItemStack(Items.diamond_sword));
 		}
 		
+		
 		LogHelper.info("PacketWeaponry.handleServerSide();");
 	}
 }

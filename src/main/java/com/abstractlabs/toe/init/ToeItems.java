@@ -1,7 +1,17 @@
 package com.abstractlabs.toe.init;
 
+import net.minecraft.item.Item;
+
+import com.abstractlabs.toe.item.ItemFlashbang;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+
 public class ToeItems {
+	public static Item flashbang = new ItemFlashbang().setUnlocalizedName("flashbang");
+	public static Item grenade = new ItemFlashbang().setUnlocalizedName("grenade");
+	
 	public static void init() {
-		//todo
+		GameRegistry.registerItem(flashbang, "flashbang");
+		GameRegistry.registerItem(grenade, "grenade");
 	}
 }

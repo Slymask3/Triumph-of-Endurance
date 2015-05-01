@@ -5,7 +5,9 @@ import net.minecraft.tileentity.TileEntity;
 import com.abstractlabs.toe.gui.GuiHandler;
 import com.abstractlabs.toe.init.ToeBlocks;
 import com.abstractlabs.toe.init.ToeItems;
+import com.abstractlabs.toe.init.ToeRenders;
 import com.abstractlabs.toe.network.PacketPipeline;
+import com.abstractlabs.toe.proxy.IProxy;
 import com.abstractlabs.toe.reference.Reference;
 import com.abstractlabs.toe.tileentity.TileEntityBlockArmoury;
 import com.abstractlabs.toe.tileentity.TileEntityWeaponry;
@@ -14,6 +16,7 @@ import com.abstractlabs.toe.worldgen.WorldGeneratorToe;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -27,6 +30,9 @@ public class Toe {
 	
 	public static final PacketPipeline packetPipeline = new PacketPipeline();
 	
+	@SidedProxy(clientSide=Reference.CLIENT_PROXY_CLASS, serverSide=Reference.SERVER_PROXY_CLASS)
+	public static IProxy proxy;
+	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
@@ -38,14 +44,17 @@ public class Toe {
 		
 		ToeBlocks.init();
 		ToeItems.init();
+		ToeRenders.init();
+		
+		proxy.registerInformation();
 		
 		LogHelper.info("Pre Initialization Complete!");
 	}
 
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
-		GameRegistry.registerWorldGenerator(new WorldGeneratorToe(), 1);
-		
+		GameRegistry.registerWorldGenerator(new WorldGeneratorToe(), 100);
+
 		LogHelper.info("Initialization Complete!");
 	}
 

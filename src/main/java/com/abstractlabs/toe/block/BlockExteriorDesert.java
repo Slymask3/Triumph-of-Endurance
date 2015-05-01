@@ -15,6 +15,7 @@ public class BlockExteriorDesert extends BlockToe {
 	public BlockExteriorDesert() {
 		super(Material.sand, Block.soundTypeSand, "exteriorDesert");
 		setHardness(-1);
+		setLightOpacity(0);
 	}
     
 	public void registerBlockIcons(IIconRegister ir) {
@@ -24,5 +25,14 @@ public class BlockExteriorDesert extends BlockToe {
 	@SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
         return this.side;
+    }
+	
+	@SideOnly(Side.CLIENT)
+    public int getRenderBlockPass() {
+        return 0;
+    }
+	
+    public boolean renderAsNormalBlock() {
+        return false;
     }
 }

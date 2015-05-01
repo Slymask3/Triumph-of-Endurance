@@ -23,7 +23,7 @@ public class WorldGeneratorToe implements IWorldGenerator  {
 		int y = random.nextInt(60);
 		int z = blockZ + random.nextInt(16);
 		  
-		(new WorldGenDomeDesert()).generate(world, random, x, y, z);
+		(new WorldGenArenaDesert()).generate(world, random, x, y, z);
 	}
 	
 	private void generateNether(World world, Random random, int blockX, int blockZ) {
