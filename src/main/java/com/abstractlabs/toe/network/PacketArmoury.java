@@ -66,23 +66,38 @@ public class PacketArmoury extends AbstractPacket
 		
 		if(_armour.equalsIgnoreCase("leatherArmour")) 
 		{
-			player.inventory.addItemStackToInventory(new ItemStack(Items.wooden_sword));
+			player.inventory.armorInventory[0] = new ItemStack(Items.leather_helmet);
+			player.inventory.armorInventory[1] = new ItemStack(Items.leather_chestplate);
+			player.inventory.armorInventory[2] = new ItemStack(Items.leather_leggings);
+			player.inventory.armorInventory[3] = new ItemStack(Items.leather_boots);
 		} 
 		else if(_armour.equalsIgnoreCase("goldArmour")) 
 		{
-			player.inventory.addItemStackToInventory(new ItemStack(Items.stone_sword));
+			player.inventory.armorInventory[0] = new ItemStack(Items.golden_helmet);
+			player.inventory.armorInventory[1] = new ItemStack(Items.golden_chestplate);
+			player.inventory.armorInventory[2] = new ItemStack(Items.golden_leggings);
+			player.inventory.armorInventory[3] = new ItemStack(Items.golden_boots);
 		} 
 		else if(_armour.equalsIgnoreCase("chainArmour")) 
 		{
-			player.inventory.addItemStackToInventory(new ItemStack(Items.iron_sword));
+			player.inventory.armorInventory[0] = new ItemStack(Items.chainmail_helmet);
+			player.inventory.armorInventory[1] = new ItemStack(Items.chainmail_chestplate);
+			player.inventory.armorInventory[2] = new ItemStack(Items.chainmail_leggings);
+			player.inventory.armorInventory[3] = new ItemStack(Items.chainmail_boots);
 		} 
 		else if(_armour.equalsIgnoreCase("ironArmour")) 
 		{
-			player.inventory.addItemStackToInventory(new ItemStack(Items.golden_sword));
+			player.inventory.armorInventory[0] = new ItemStack(Items.iron_helmet);
+			player.inventory.armorInventory[1] = new ItemStack(Items.iron_chestplate);
+			player.inventory.armorInventory[2] = new ItemStack(Items.iron_leggings);
+			player.inventory.armorInventory[3] = new ItemStack(Items.iron_boots);
 		} 
 		else if(_armour.equalsIgnoreCase("diamondArmour")) 
 		{
-			player.inventory.addItemStackToInventory(new ItemStack(Items.diamond_sword));
+			player.inventory.armorInventory[0] = new ItemStack(Items.diamond_helmet);
+			player.inventory.armorInventory[1] = new ItemStack(Items.diamond_chestplate);
+			player.inventory.armorInventory[2] = new ItemStack(Items.diamond_leggings);
+			player.inventory.armorInventory[3] = new ItemStack(Items.diamond_boots);
 		}
 		
 		LogHelper.info("PacketArmoury.handleServerSide();");

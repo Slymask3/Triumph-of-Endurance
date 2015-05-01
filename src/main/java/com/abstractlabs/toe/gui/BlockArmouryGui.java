@@ -9,6 +9,7 @@ import com.abstractlabs.toe.network.PacketWeaponry;
 import com.abstractlabs.toe.reference.Reference;
 import com.abstractlabs.toe.tileentity.TileEntityBlockArmoury;
 import com.abstractlabs.toe.tileentity.TileEntityWeaponry;
+import com.abstractlabs.toe.utility.LogHelper;
 
 import cpw.mods.fml.client.config.GuiButtonExt;
 import cpw.mods.fml.relauncher.Side;
@@ -18,6 +19,9 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
@@ -62,13 +66,13 @@ public class BlockArmouryGui extends GuiScreen
         
         this.buttonList.add(this.done = new GuiButtonExt(1, width / 2 + 0 - 75, height / 2 + 75, 150, 20, I18n.format("gui.done", new Object[0])));
         
-        this.buttonList.add(this.leatherArmour = new GuiButtonExt(0, width / 2 - 75, height / 2 - 80, 150, 20, "$50- Buy Leather Set"));
+        this.buttonList.add(this.leatherArmour = new GuiButtonExt(0, width / 2 - 75, height / 2 - 80, 150, 20, "$50 - Buy Leather Set"));
         this.buttonList.add(this.goldArmour = new GuiButtonExt(2, width/2 - 75, height/2 - 60, 150, 20, "$100 - Buy Gold Set"));
         this.buttonList.add(this.chainArmour = new GuiButtonExt(3, width/2 - 75, height/2 - 40, 150, 20, "$150 - Buy Chain Set"));
         this.buttonList.add(this.ironArmour = new GuiButtonExt(4, width/2 - 75, height/2 - 20, 150, 20, "$200 - Buy Iron Set"));
         this.buttonList.add(this.diamondArmour = new GuiButtonExt(5, width/2 - 75, height/2, 150, 20, "$250 - Buy Diamond Set"));
     }
-
+    
     @Override
     public boolean doesGuiPauseGame() 
     {
@@ -80,33 +84,34 @@ public class BlockArmouryGui extends GuiScreen
     {
 		if (btn.enabled) 
 		{
-			if (btn.id == done.id) {
+			if (btn.id == done.id) 
+			{
 				Keyboard.enableRepeatEvents(false);
 				mc.displayGuiScreen(null);
 			} 
 			else if (btn.id == leatherArmour.id) 
 			{
-				buy("woodSword");
+				buy("leatherArmour");
 				Keyboard.enableRepeatEvents(false);
 			} 
 			else if (btn.id == goldArmour.id) 
 			{
-				buy("stoneSword");
+				buy("goldArmour");
 				Keyboard.enableRepeatEvents(false);
 			} 
 			else if (btn.id == chainArmour.id) 
 			{
-				buy("ironSword");
+				buy("chainArmour");
 				Keyboard.enableRepeatEvents(false);
 			} 
 			else if (btn.id == ironArmour.id) 
 			{
-				buy("goldSword");
+				buy("ironArmour");
 				Keyboard.enableRepeatEvents(false);
 			} 
 			else if (btn.id == diamondArmour.id) 
 			{
-				buy("diamondSword");
+				buy("diamondArmour");
 				Keyboard.enableRepeatEvents(false);
 			}
 		}
@@ -157,6 +162,6 @@ public class BlockArmouryGui extends GuiScreen
     public void buy(String armoury) 
     {
 		Toe.packetPipeline.sendToServer(new PacketArmoury(armoury));
-		//LogHelper.info(weapon + " bought!");
+		//LogHelper.info(armour + " bought!");
 	}
 }
