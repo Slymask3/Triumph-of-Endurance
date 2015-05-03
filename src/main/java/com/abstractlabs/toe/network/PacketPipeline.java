@@ -50,19 +50,16 @@ public class PacketPipeline extends MessageToMessageCodec<FMLProxyPacket, Abstra
      */
     public boolean registerPacket(Class<? extends AbstractPacket> clazz) {
         if (this.packets.size() > 256) {
-            // You should log here!!
     		LogHelper.info("registerPacket(): >256 false");
             return false;
         }
  
         if (this.packets.contains(clazz)) {
-            // You should log here!!
     		LogHelper.info("registerPacket(): already registered");
             return false;
         }
  
         if (this.isPostInitialised) {
-            // You should log here!!
     		LogHelper.info("registerPacket(): postinitialized");
             return false;
         }
@@ -122,13 +119,11 @@ public class PacketPipeline extends MessageToMessageCodec<FMLProxyPacket, Abstra
  
     // Method to call from FMLInitializationEvent
     public void initialise() {
-//pass your channel name in the NetworkRegistry#newChannel(String channel, ChannelHandler... handlers) parameters
         this.channels = NetworkRegistry.INSTANCE.newChannel(Reference.CHANNEL, this);
         this.registerPackets();
     }
    
     public void registerPackets() {
-//it's easier to add all packets in 1 method.
         registerPacket(PacketWeaponry.class);
         registerPacket(PacketArmoury.class);
         registerPacket(PacketUtility.class);

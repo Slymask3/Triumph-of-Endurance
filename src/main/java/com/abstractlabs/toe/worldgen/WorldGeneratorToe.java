@@ -8,7 +8,7 @@ import cpw.mods.fml.common.IWorldGenerator;
 
 public class WorldGeneratorToe implements IWorldGenerator  {
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		int gen = random.nextInt(100);
+		int gen = random.nextInt(500);
 		
 		if (gen == 0) {
 			switch (world.provider.dimensionId) {

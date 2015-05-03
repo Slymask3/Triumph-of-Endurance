@@ -24,6 +24,7 @@ import com.abstractlabs.toe.tileentity.TileEntityUtility;
 public class BlockUtility extends BlockContainer implements ITileEntityProvider
 {
 	private IIcon top;
+	private IIcon bottom;
 	private IIcon side;
 
     public BlockUtility() 
@@ -45,20 +46,21 @@ public class BlockUtility extends BlockContainer implements ITileEntityProvider
     public void registerBlockIcons(IIconRegister ir) 
     {
 		top = ir.registerIcon(Reference.MOD_ID + ":utility_top");
-		side = ir.registerIcon(Reference.MOD_ID + ":utility_side");
+		bottom = ir.registerIcon(Reference.MOD_ID + ":shop_bottom");
+		side = ir.registerIcon(Reference.MOD_ID + ":shop_side");
 	}
    
     public IIcon getIcon(int side, int meta) 
     {
-		if (side == 0) 
-		{
-			return Blocks.iron_block.getIcon(side, meta);
+    	if (side == 0)
+    	{
+			return bottom;
 		} 
-		else if (side == 1) 
+    	else if (side == 1)
 		{
 			return top;
 		} 
-		else 
+    	else
 		{
 			return this.side;
 		}

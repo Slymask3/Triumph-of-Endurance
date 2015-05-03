@@ -19,6 +19,7 @@ import com.abstractlabs.toe.tileentity.TileEntityWeaponry;
 
 public class BlockWeaponry extends BlockContainer implements ITileEntityProvider {
 	private IIcon top;
+	private IIcon bottom;
 	private IIcon side;
 	
 	public BlockWeaponry() {
@@ -31,12 +32,13 @@ public class BlockWeaponry extends BlockContainer implements ITileEntityProvider
     
 	public void registerBlockIcons(IIconRegister ir) {
 		top = ir.registerIcon(Reference.MOD_ID + ":weaponry_top");
-		side = ir.registerIcon(Reference.MOD_ID + ":weaponry_side");
+		bottom = ir.registerIcon(Reference.MOD_ID + ":shop_bottom");
+		side = ir.registerIcon(Reference.MOD_ID + ":shop_side");
 	}
     
 	public IIcon getIcon(int side, int meta) {
 		if (side == 0) {
-			return Blocks.iron_block.getIcon(side, meta);
+			return bottom;
 		} else if (side == 1) {
 			return top;
 		} else {

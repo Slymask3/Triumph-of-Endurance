@@ -1,7 +1,11 @@
 package com.abstractlabs.toe;
 
+import net.minecraft.command.ICommandManager;
+import net.minecraft.command.ServerCommandManager;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 
+import com.abstractlabs.toe.command.CommandToe;
 import com.abstractlabs.toe.gui.GuiHandler;
 import com.abstractlabs.toe.init.ToeBlocks;
 import com.abstractlabs.toe.init.ToeItems;
@@ -21,6 +25,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -55,7 +60,7 @@ public class Toe {
 
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
-		GameRegistry.registerWorldGenerator(new WorldGeneratorToe(), 100);
+		GameRegistry.registerWorldGenerator(new WorldGeneratorToe(), 1000);
 
 		LogHelper.info("Initialization Complete!");
 	}
@@ -63,5 +68,14 @@ public class Toe {
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		LogHelper.info("Post Initialization Complete!");
+	}
+	
+	@Mod.EventHandler
+	public void serverStart(FMLServerStartingEvent event) {
+		MinecraftServer server = MinecraftServer.getServer();
+		ICommandManager command = server.getCommandManager();
+		ServerCommandManager serverCommand = ((ServerCommandManager) command);
+		
+		serverCommand.registerCommand(new CommandToe());
 	}
 }

@@ -2,10 +2,10 @@
 {
 	"modid": "toe",
 	"name": "Triumph of Endurance",
-	"description": "This mod adds ",
+	"description": "This mod adds survival arenas to the world of miencraft.",
 	"version": "1.0.0",
 	"credits": "Created by Slymask3 and HotMixtape",
-	"logoFile": "/logo_1.5.5.png",
+	"logoFile": "/logo_1.0.0.png",
 	"mcversion": "1.7.10",
 	"url": "",
 	"updateUrl": "",
