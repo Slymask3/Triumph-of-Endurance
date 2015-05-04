@@ -1,5 +1,8 @@
 package com.abstractlabs.toe.network;
 
+import com.abstractlabs.toe.init.ToeBlocks;
+import com.abstractlabs.toe.init.ToeItems;
+import com.abstractlabs.toe.item.ItemToe;
 import com.abstractlabs.toe.utility.LogHelper;
 
 import io.netty.buffer.ByteBuf;
@@ -65,15 +68,15 @@ public class PacketUtility extends AbstractPacket
 		
 		if(_utility.equalsIgnoreCase("flashBang")) 
 		{
-			player.inventory.addItemStackToInventory(new ItemStack(Items.wooden_sword));
+			player.inventory.addItemStackToInventory(new ItemStack(ToeItems.flashbang));
 		} 
 		else if(_utility.equalsIgnoreCase("landMine")) 
 		{
-			player.inventory.addItemStackToInventory(new ItemStack(Items.stone_sword));
+			player.inventory.addItemStackToInventory(new ItemStack(ToeBlocks.landMine));
 		} 
 		else if(_utility.equalsIgnoreCase("grenade")) 
 		{
-			player.inventory.addItemStackToInventory(new ItemStack(Items.iron_sword));
+			player.inventory.addItemStackToInventory(new ItemStack(ToeItems.grenade));
 		} 
 		else if(_utility.equalsIgnoreCase("bois")) 
 		{

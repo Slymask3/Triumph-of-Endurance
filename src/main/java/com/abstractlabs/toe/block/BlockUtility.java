@@ -31,7 +31,7 @@ public class BlockUtility extends BlockContainer implements ITileEntityProvider
     {
     	super(Material.anvil);
 		setCreativeTab(ToeTab.TOE_TAB);
-		setBlockName(Reference.MOD_ID + ":armoury");
+		setBlockName(Reference.MOD_ID + ":utility");
 		setStepSound(Block.soundTypeAnvil);
 		setHardness(-1);
     }

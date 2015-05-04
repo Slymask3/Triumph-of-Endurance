@@ -1,5 +1,6 @@
 package com.abstractlabs.toe.item;
 
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -14,8 +15,8 @@ public class ItemToe extends Item {
         super();
         this.setCreativeTab(ToeTab.TOE_TAB);
     }
-
-    @Override
+	
+	@Override
     public String getUnlocalizedName() {
         return String.format("item.%s%s", "toe" + ":", getUnwrappedUnlocalizedName(super.getUnlocalizedName()));
     }
