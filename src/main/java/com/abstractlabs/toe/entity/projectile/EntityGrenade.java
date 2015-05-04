@@ -1,5 +1,7 @@
 package com.abstractlabs.toe.entity.projectile;
 
+import com.abstractlabs.toe.utility.LogHelper;
+
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
@@ -23,14 +25,17 @@ public class EntityGrenade extends EntityThrowable {
      * Called when this EntityThrowable hits a block or entity.
      */
     protected void onImpact(MovingObjectPosition mop) {
-        if (mop.entityHit != null) {
-            mop.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 4F);
-        }
+        //if (mop.entityHit != null) {
+        //    mop.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 4F);
+        //}
 
-        for (int i = 0; i < 8; ++i) {
-            this.worldObj.spawnParticle("hugeexplosion", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
-        }
+        this.worldObj.createExplosion(this, this.posX, this.posY, this.posZ, 3F, true);
 
+        //for (int i = 0; i < 8; ++i) {
+        //    this.worldObj.spawnParticle("hugeexplosion", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
+        //}
+        
+        
         if (!this.worldObj.isRemote) {
             this.setDead();
         }

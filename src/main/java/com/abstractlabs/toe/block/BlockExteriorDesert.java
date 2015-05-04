@@ -15,6 +15,7 @@ public class BlockExteriorDesert extends BlockToe {
 	public BlockExteriorDesert() {
 		super(Material.sand, Block.soundTypeSand, "exteriorDesert");
 		setHardness(-1);
+		setResistance(6000000.0F);
 		setLightOpacity(0);
 	}
     

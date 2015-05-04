@@ -15,6 +15,8 @@ public class BlockExteriorForest extends BlockToe {
 	public BlockExteriorForest() {
 		super(Material.wood, Block.soundTypeWood, "exteriorForest");
 		setHardness(-1);
+		setResistance(6000000.0F);
+		setLightOpacity(0);
 	}
     
 	public void registerBlockIcons(IIconRegister ir) {
@@ -24,5 +26,14 @@ public class BlockExteriorForest extends BlockToe {
 	@SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
         return this.side;
+    }
+	
+	@SideOnly(Side.CLIENT)
+    public int getRenderBlockPass() {
+        return 0;
+    }
+	
+    public boolean renderAsNormalBlock() {
+        return false;
     }
 }

@@ -34,6 +34,7 @@ public class BlockUtility extends BlockContainer implements ITileEntityProvider
 		setBlockName(Reference.MOD_ID + ":utility");
 		setStepSound(Block.soundTypeAnvil);
 		setHardness(-1);
+		setResistance(6000000.0F);
     }
 
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadeta, float what, float these, float are)

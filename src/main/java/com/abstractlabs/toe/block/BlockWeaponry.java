@@ -28,6 +28,7 @@ public class BlockWeaponry extends BlockContainer implements ITileEntityProvider
 		setBlockName(Reference.MOD_ID + ":weaponry");
 		setStepSound(Block.soundTypeAnvil);
 		setHardness(-1);
+		setResistance(6000000.0F);
 	}
     
 	public void registerBlockIcons(IIconRegister ir) {

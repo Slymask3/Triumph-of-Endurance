@@ -20,6 +20,7 @@ public class BlockExteriorGlass extends BlockGlass {
 		setCreativeTab(ToeTab.TOE_TAB);
 		setBlockName(Reference.MOD_ID + ":exteriorGlass");
 		setStepSound(Block.soundTypeGlass);
+		setResistance(6000000.0F);
 	}
 	
 	@SideOnly(Side.CLIENT)

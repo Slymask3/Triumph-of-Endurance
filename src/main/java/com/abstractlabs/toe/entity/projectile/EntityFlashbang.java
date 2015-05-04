@@ -26,7 +26,7 @@ public class EntityFlashbang extends EntityThrowable {
         if (mop.entityHit != null) {
             mop.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), 1F);
         }
-
+        
         for (int i = 0; i < 8; ++i) {
             this.worldObj.spawnParticle("hugeexplosion", this.posX, this.posY, this.posZ, 0.0D, 0.0D, 0.0D);
         }
