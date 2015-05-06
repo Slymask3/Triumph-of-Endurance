@@ -9,6 +9,7 @@ import com.abstractlabs.toe.command.CommandToe;
 import com.abstractlabs.toe.gui.GuiHandler;
 import com.abstractlabs.toe.init.ToeBlocks;
 import com.abstractlabs.toe.init.ToeItems;
+import com.abstractlabs.toe.init.ToeMobs;
 import com.abstractlabs.toe.init.ToeRenders;
 import com.abstractlabs.toe.network.PacketPipeline;
 import com.abstractlabs.toe.proxy.IProxy;
@@ -52,6 +53,7 @@ public class Toe {
 		ToeBlocks.init();
 		ToeItems.init();
 		ToeRenders.init();
+		ToeMobs.init();
 		
 		proxy.registerInformation();
 		

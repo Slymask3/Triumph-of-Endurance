@@ -32,8 +32,4 @@ public class BlockExteriorForest extends BlockToe {
     public int getRenderBlockPass() {
         return 0;
     }
-	
-    public boolean renderAsNormalBlock() {
-        return false;
-    }
 }
