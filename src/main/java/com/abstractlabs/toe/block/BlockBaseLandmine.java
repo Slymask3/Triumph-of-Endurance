@@ -220,24 +220,6 @@ public abstract class BlockBaseLandmine extends Block
         world.notifyBlocksOfNeighborChange(x, y - 1, z, this);
     }
     
-    public int isProvidingWeakPower(IBlockAccess world, int a, int b, int c, int d)
-    {
-        return this.func_150060_c(world.getBlockMetadata(a, b, c));
-    }
-
-    public int isProvidingStrongPower(IBlockAccess world, int a, int b, int c_, int d)
-    {
-        return d == 1 ? this.func_150060_c(world.getBlockMetadata(a, b, c_)) : 0;
-    }
-    
-    /**
-     * Can this block provide power. Only wire currently seems to have this change based on its state.
-     */
-    public boolean canProvidePower()
-    {
-        return true;
-    }
-
     /**
      * Sets the block's bounds for rendering it as an item
      */
@@ -264,18 +246,6 @@ public abstract class BlockBaseLandmine extends Block
 
     protected abstract int func_150066_d(int p_150066_1_);
 
-	/**
-	  * Triggered whenever an entity collides with this block (enters into the block). Args: world, x, y, z, entity
-	  */
-	 /*
-	 public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity)
-	 {
-		 if (entity.isCollided)
-		 {
-			 this.setStateIfMobInteractsWithPlate(world, x, y, z);
-		 }
-	 }
-	*/
 
 	 @SideOnly(Side.CLIENT)
 	 public void registerBlockIcons(IIconRegister ir)

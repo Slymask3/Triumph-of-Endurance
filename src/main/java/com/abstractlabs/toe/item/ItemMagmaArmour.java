@@ -1,9 +1,13 @@
 package com.abstractlabs.toe.item;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.world.World;
 
 import com.abstractlabs.toe.creativetab.ToeTab;
 import com.abstractlabs.toe.init.ToeItems;
