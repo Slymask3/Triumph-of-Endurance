@@ -14,4 +14,8 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityFlashbang.class, new RenderFlashbang(ToeItems.flashbang));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderGrenade(ToeItems.grenade));
 	}
+	
+	public int addArmor(String armor){
+		return RenderingRegistry.addNewArmourRendererPrefix(armor);
+	}
 }
