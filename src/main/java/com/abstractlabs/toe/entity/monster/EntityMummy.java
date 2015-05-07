@@ -63,7 +63,7 @@ public class EntityMummy extends EntityMob {
     }
 	
 	protected String getLivingSound() {
-        return "mob.wither.say";
+        return "mob.zombie.say";
     }
 
     protected String getHurtSound() {

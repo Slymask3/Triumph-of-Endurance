@@ -48,7 +48,7 @@ public class WorldGenArenaDesert extends WorldGenerator {
         
         buildPyramidInterior(world, x, y, z, arenaSize);
         
-        LogHelper.info("Generated at [" + x + ", " + y + ", " + z + "]");
+        LogHelper.info("Desert Arena Generated at [" + x + ", " + y + ", " + z + "]");
         
         return true;
 	}
@@ -62,20 +62,7 @@ public class WorldGenArenaDesert extends WorldGenerator {
 		
 		cleanInsidePyramidFromTop(world, x, y, z, size-2);
 
-		//BuildHelper.buildQuicksandPool(world, x, y, z);
-		//BuildHelper.buildQuicksandPool(world, x+10, y, z);
-		//BuildHelper.buildQuicksandPool(world, x-10, y, z);
-		//BuildHelper.buildQuicksandPool(world, x, y, z+10);
-		//BuildHelper.buildQuicksandPool(world, x, y, z-10);
-		
-		//BuildHelper.buildSphere(world, x, y+10, z, Blocks.gold_block, 10, false);
-		
-		EntityMummy mummy = new EntityMummy(world);
-		mummy.posX = x;
-		mummy.posY = y;
-		mummy.posZ = z;
-		//mummy.is
-		world.spawnEntityInWorld(mummy);
+		world.setBlock(x, y+34, z, ToeBlocks.entranceDesert);
 	}
 	
 	private void cleanInsidePyramid(World world, int x, int y, int z, int size) {

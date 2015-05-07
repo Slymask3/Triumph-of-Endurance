@@ -12,9 +12,11 @@ import org.lwjgl.opengl.GL11;
 
 import com.abstractlabs.toe.Toe;
 import com.abstractlabs.toe.network.PacketWeaponry;
-import com.abstractlabs.toe.player.PlayerExtra;
+import com.abstractlabs.toe.player.Cash;
+import com.abstractlabs.toe.reference.Price;
 import com.abstractlabs.toe.reference.Reference;
 import com.abstractlabs.toe.tileentity.TileEntityWeaponry;
+import com.abstractlabs.toe.utility.LogHelper;
 
 import cpw.mods.fml.client.config.GuiButtonExt;
 import cpw.mods.fml.relauncher.Side;
@@ -29,7 +31,7 @@ public class GuiWeaponry extends GuiScreen {
 	private int y;
 	private int z;
 	
-	private PlayerExtra pe = new PlayerExtra(player);
+	//private PlayerExtra pe = new PlayerExtra(player);
 
     private GuiButtonExt done;
     
@@ -58,11 +60,11 @@ public class GuiWeaponry extends GuiScreen {
         
         this.buttonList.add(this.done = new GuiButtonExt(1, width / 2 + 0 - 75, height/2 + 75, 150, 20, I18n.format("gui.done", new Object[0])));
         
-        this.buttonList.add(this.woodSword = new GuiButtonExt(0, width/2 - 75, height/2 - 80, 150, 20, "$5 - Buy Wooden Sword"));
-        this.buttonList.add(this.stoneSword = new GuiButtonExt(2, width/2 - 75, height/2 - 60, 150, 20, "$10 - Buy Stone Sword"));
-        this.buttonList.add(this.ironSword = new GuiButtonExt(3, width/2 - 75, height/2 - 40, 150, 20, "$20 - Buy Iron Sword"));
-        this.buttonList.add(this.goldSword = new GuiButtonExt(4, width/2 - 75, height/2 - 20, 150, 20, "$10 - Buy Golden Sword"));
-        this.buttonList.add(this.diamondSword = new GuiButtonExt(5, width/2 - 75, height/2, 150, 20, "$50 - Buy Diamond Sword"));
+        this.buttonList.add(this.woodSword = new GuiButtonExt(0, width/2 - 75, height/2 - 80, 150, 20, "$" + Price.woodSword + " - Buy Wooden Sword"));
+        this.buttonList.add(this.stoneSword = new GuiButtonExt(2, width/2 - 75, height/2 - 60, 150, 20, "$" + Price.stoneSword + " - Buy Stone Sword"));
+        this.buttonList.add(this.ironSword = new GuiButtonExt(3, width/2 - 75, height/2 - 40, 150, 20, "$" + Price.ironSword + " - Buy Iron Sword"));
+        this.buttonList.add(this.goldSword = new GuiButtonExt(4, width/2 - 75, height/2 - 20, 150, 20, "$" + Price.goldSword + " - Buy Golden Sword"));
+        this.buttonList.add(this.diamondSword = new GuiButtonExt(5, width/2 - 75, height/2, 150, 20, "$" + Price.diamondSword + " - Buy Diamond Sword"));
 	}
 	
 	@Override
@@ -77,19 +79,19 @@ public class GuiWeaponry extends GuiScreen {
 				Keyboard.enableRepeatEvents(false);
 				mc.displayGuiScreen(null);
 			} else if (btn.id == woodSword.id) {
-				buy("woodSword");
+				buy("woodSword", Price.woodSword);
 				Keyboard.enableRepeatEvents(false);
 			} else if (btn.id == stoneSword.id) {
-				buy("stoneSword");
+				buy("stoneSword", Price.stoneSword);
 				Keyboard.enableRepeatEvents(false);
 			} else if (btn.id == ironSword.id) {
-				buy("ironSword");
+				buy("ironSword", Price.ironSword);
 				Keyboard.enableRepeatEvents(false);
 			} else if (btn.id == goldSword.id) {
-				buy("goldSword");
+				buy("goldSword", Price.goldSword);
 				Keyboard.enableRepeatEvents(false);
 			} else if (btn.id == diamondSword.id) {
-				buy("diamondSword");
+				buy("diamondSword", Price.diamondSword);
 				Keyboard.enableRepeatEvents(false);
 			}
 		}
@@ -122,13 +124,14 @@ public class GuiWeaponry extends GuiScreen {
         mc.renderEngine.bindTexture(new ResourceLocation(Reference.MOD_ID, "textures/gui/weaponry.png"));
         drawTexturedModalRect(guiX, guiY, 0, 0, xSize, ySize);
 		
-        this.drawCenteredString(this.fontRendererObj, "Weaponry Shop   Cash: $" + pe.getMoney(), width/2, height/2 - 100, 0x00AAAA);
+        this.drawCenteredString(this.fontRendererObj, "Weaponry Shop   Cash: $" + Cash.getCash(player), width/2, height/2 - 100, 0x00AAAA);
         
 		super.drawScreen(par1, par2, par3);
 	}
 	
-	public void buy(String weapon) {
-		Toe.packetPipeline.sendToServer(new PacketWeaponry(weapon));
+	public void buy(String weapon, int price) {
+		LogHelper.info("gui.price: " + price);
+		Toe.packetPipeline.sendToServer(new PacketWeaponry(weapon, price));
 		//LogHelper.info(weapon + " bought!");
 	}
 }

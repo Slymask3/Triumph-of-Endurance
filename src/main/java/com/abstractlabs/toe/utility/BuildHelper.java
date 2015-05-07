@@ -409,8 +409,4 @@ public class BuildHelper {
     private static double lengthSq(double x, double y, double z) {
         return (x * x) + (y * y) + (z * z);
     }
-
-    private static double lengthSq(double x, double z) {
-        return (x * x) + (z * z);
-    }
 }

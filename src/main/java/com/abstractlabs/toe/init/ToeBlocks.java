@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
 import com.abstractlabs.toe.block.BlockArmoury;
+import com.abstractlabs.toe.block.BlockEntranceDesert;
 import com.abstractlabs.toe.block.BlockExteriorDesert;
 import com.abstractlabs.toe.block.BlockExteriorForest;
 import com.abstractlabs.toe.block.BlockExteriorGlass;
@@ -23,6 +24,7 @@ public class ToeBlocks {
 	public static Block exteriorGlass = new BlockExteriorGlass();
 	public static Block landMine = new BlockLandmine("obsidian", Material.rock, BlockLandmine.Sensitivity.everything);
 	public static Block quicksand = new BlockQuicksand();
+	public static Block entranceDesert = new BlockEntranceDesert();
 	
 	public static void init() {
 		GameRegistry.registerBlock(blockArmoury, "blockArmoury");
@@ -33,5 +35,6 @@ public class ToeBlocks {
 		GameRegistry.registerBlock(exteriorGlass, "exteriorGlass");
 		GameRegistry.registerBlock(landMine, "landmine");
 		GameRegistry.registerBlock(quicksand, "quicksand");
+		GameRegistry.registerBlock(entranceDesert, "entranceDesert");
 	}
 }
