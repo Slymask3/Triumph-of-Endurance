@@ -7,6 +7,8 @@ import net.minecraft.tileentity.TileEntity;
 
 import com.abstractlabs.toe.command.CommandToe;
 import com.abstractlabs.toe.gui.GuiHandler;
+import com.abstractlabs.toe.handler.ConfigurationHandler;
+import com.abstractlabs.toe.handler.ConnectionHandler;
 import com.abstractlabs.toe.init.ToeBlocks;
 import com.abstractlabs.toe.init.ToeItems;
 import com.abstractlabs.toe.init.ToeMobs;
@@ -20,6 +22,7 @@ import com.abstractlabs.toe.tileentity.TileEntityWeaponry;
 import com.abstractlabs.toe.utility.LogHelper;
 import com.abstractlabs.toe.worldgen.WorldGeneratorToe;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
@@ -30,7 +33,7 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION)
+@Mod(modid=Reference.MOD_ID, name=Reference.MOD_NAME, version=Reference.VERSION, guiFactory=Reference.GUI_FACTORY_CLASS)
 public class Toe {
 	@Instance(Reference.MOD_ID)
 	public static Toe instance = new Toe();
@@ -42,6 +45,11 @@ public class Toe {
 	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+		
+		FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+		FMLCommonHandler.instance().bus().register(new ConnectionHandler());
+		
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 		
 		TileEntity.addMapping(TileEntityWeaponry.class, "TileEntityWeaponry");
