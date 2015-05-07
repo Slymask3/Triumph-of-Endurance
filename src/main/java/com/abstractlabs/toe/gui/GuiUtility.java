@@ -43,6 +43,7 @@ public class GuiUtility extends GuiScreen
 	private GuiButtonExt grenade;
 	private GuiButtonExt bois;
 	private GuiButtonExt selfRevive;
+	private GuiButtonExt exp;
 	
 	public GuiUtility(EntityPlayer player, TileEntityUtility entity, World world, int x, int y, int z) 
     {
@@ -68,6 +69,7 @@ public class GuiUtility extends GuiScreen
         this.buttonList.add(this.grenade = new GuiButtonExt(3, width/2 - 75, height/2 - 40, 150, 20, "$150 - Buy Grenade"));
         this.buttonList.add(this.bois = new GuiButtonExt(4, width/2 - 75, height/2 - 20, 150, 20, "$200 - Buy Backup"));
         this.buttonList.add(this.selfRevive = new GuiButtonExt(5, width/2 - 75, height/2, 150, 20, "$250 - Buy Self Revive"));
+        this.buttonList.add(this.exp = new GuiButtonExt(6, width/2 - 75, height/2 + 0, 150, 20, "$500 - Buy Experience"));
     }
 	
 	@Override
@@ -111,6 +113,11 @@ public class GuiUtility extends GuiScreen
 				buy("selfRevive");
 				Keyboard.enableRepeatEvents(false);
 			}
+			else if (btn.id == exp.id) 
+			{
+				buy("exp");
+				Keyboard.enableRepeatEvents(false);
+			}
 		}
 	}
 	
@@ -140,6 +147,10 @@ public class GuiUtility extends GuiScreen
 		else if (id == selfRevive.id) 
 		{
 			actionPerformed(selfRevive);
+		}
+		else if (id == exp.id) 
+		{
+			actionPerformed(exp);
 		}
 	}
 	

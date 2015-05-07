@@ -20,4 +20,8 @@ public class ClientProxy extends CommonProxy {
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityMummy.class, new RenderMummy(new ModelZombie(), 0.5F));
 	}
+	
+	public int addArmor(String armor){
+		return RenderingRegistry.addNewArmourRendererPrefix(armor);
+	}
 }
