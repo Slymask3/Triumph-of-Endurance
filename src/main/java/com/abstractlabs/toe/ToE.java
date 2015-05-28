@@ -2,14 +2,22 @@ package com.abstractlabs.toe;
 
 import net.minecraft.command.ICommandManager;
 import net.minecraft.command.ServerCommandManager;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.DamageSource;
+import net.minecraftforge.common.MinecraftForge;
 
 import com.abstractlabs.toe.command.CommandToe;
 import com.abstractlabs.toe.gui.GuiHandler;
+import com.abstractlabs.toe.handler.BiomeHandler;
 import com.abstractlabs.toe.handler.ConfigurationHandler;
 import com.abstractlabs.toe.handler.ConnectionHandler;
+import com.abstractlabs.toe.handler.EntityHandler;
+import com.abstractlabs.toe.handler.PlayerHandler;
+import com.abstractlabs.toe.init.ToeBiomes;
 import com.abstractlabs.toe.init.ToeBlocks;
+import com.abstractlabs.toe.init.ToeDimensions;
 import com.abstractlabs.toe.init.ToeItems;
 import com.abstractlabs.toe.init.ToeMobs;
 import com.abstractlabs.toe.init.ToeRenders;
@@ -39,7 +47,7 @@ public class Toe {
 	public static Toe instance = new Toe();
 	
 	public static final PacketPipeline packetPipeline = new PacketPipeline();
-	
+
 	@SidedProxy(clientSide=Reference.CLIENT_PROXY_CLASS, serverSide=Reference.SERVER_PROXY_CLASS)
 	public static IProxy proxy;
 	
@@ -62,6 +70,8 @@ public class Toe {
 		ToeItems.init();
 		ToeRenders.init();
 		ToeMobs.init();
+		ToeBiomes.mainRegistry();
+		ToeDimensions.mainRegistry();
 		
 		proxy.registerInformation();
 		
@@ -71,13 +81,17 @@ public class Toe {
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
 		GameRegistry.registerWorldGenerator(new WorldGeneratorToe(), 1000);
-
+		MinecraftForge.EVENT_BUS.register(new EntityHandler());
+		MinecraftForge.EVENT_BUS.register(new PlayerHandler());
+		//MinecraftForge.TERRAIN_GEN_BUS.register(new BiomeHandler());
 		LogHelper.info("Initialization Complete!");
 	}
 
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
 		LogHelper.info("Post Initialization Complete!");
+		
+		//WorldType HOLLOWS = new WorldTypesToe("hollows");
 	}
 	
 	@Mod.EventHandler

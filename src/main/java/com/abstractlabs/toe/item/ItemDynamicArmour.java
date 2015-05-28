@@ -16,13 +16,13 @@ import com.abstractlabs.toe.creativetab.ToeTab;
 import com.abstractlabs.toe.init.ToeItems;
 import com.abstractlabs.toe.reference.Reference;
 
-public class ItemNimbleArmour extends ItemArmor
+public class ItemDynamicArmour extends ItemArmor
 {
 	public String textureName;
 	
 	public PotionEffect pf;
 
-	public ItemNimbleArmour(String unlocalizedName, ArmorMaterial material, String textureName, int type) 
+	public ItemDynamicArmour(String unlocalizedName, ArmorMaterial material, String textureName, int type) 
 	{
 		super(material, 0, type);
 		this.textureName = textureName;
@@ -33,13 +33,13 @@ public class ItemNimbleArmour extends ItemArmor
 
 	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) 
 	{
-		if (stack.getItem() == ToeItems.nimbleHelmet || stack.getItem() == ToeItems.nimblePlate || stack.getItem() == ToeItems.nimbleBoots) 
+		if (stack.getItem() == ToeItems.dynamicHelmet || stack.getItem() == ToeItems.dynamicPlate || stack.getItem() == ToeItems.dynamicBoots) 
 		{
-			return Reference.MOD_ID + ":textures/armor/nimbleArmor1.png";
+			return Reference.MOD_ID + ":textures/armor/dynamicArmor1.png";
 		}
-		else if(stack.getItem() == ToeItems.nimblePants)
+		else if(stack.getItem() == ToeItems.dynamicPants)
 		{
-			return Reference.MOD_ID + ":textures/armor/nimbleArmor2.png";
+			return Reference.MOD_ID + ":textures/armor/dynamicArmor2.png";
 		}
 		else
 		{
@@ -50,12 +50,12 @@ public class ItemNimbleArmour extends ItemArmor
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) 
 	{	
-		if (player.getCurrentArmor(0) != null && player.getCurrentArmor(0).getItem().equals(ToeItems.nimbleBoots) && 
-				player.getCurrentArmor(1) != null && player.getCurrentArmor(1).getItem().equals(ToeItems.nimblePants) &&
-				player.getCurrentArmor(2) != null && player.getCurrentArmor(2).getItem().equals(ToeItems.nimblePlate) &&
-				player.getCurrentArmor(3) != null && player.getCurrentArmor(3).getItem().equals(ToeItems.nimbleHelmet))
+		if (player.getCurrentArmor(0) != null && player.getCurrentArmor(0).getItem().equals(ToeItems.dynamicBoots) && 
+				player.getCurrentArmor(1) != null && player.getCurrentArmor(1).getItem().equals(ToeItems.dynamicPants) &&
+				player.getCurrentArmor(2) != null && player.getCurrentArmor(2).getItem().equals(ToeItems.dynamicPlate) &&
+				player.getCurrentArmor(3) != null && player.getCurrentArmor(3).getItem().equals(ToeItems.dynamicHelmet))
 		{
-			player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 40));
+			player.addPotionEffect(new PotionEffect(Potion.jump.id, 40));
 		}
 	}
 

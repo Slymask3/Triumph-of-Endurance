@@ -1,6 +1,12 @@
 package com.abstractlabs.toe.item;
 
+import java.util.List;
+
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -17,6 +23,12 @@ public class ItemMagmaArmour extends ItemArmor
 {
 	public String textureName;
 
+	//public Entity entity;
+	
+	public EnumCreatureType m;
+	
+	public EntityLivingBase el;
+	
 	public ItemMagmaArmour(String unlocalizedName, ArmorMaterial material, String textureName, int type) 
 	{
 		super(material, 0, type);
@@ -31,11 +43,11 @@ public class ItemMagmaArmour extends ItemArmor
 
 		if (stack.getItem() == ToeItems.magmaHelmet || stack.getItem() == ToeItems.magmaPlate || stack.getItem() == ToeItems.magmaBoots) 
 		{
-			return Reference.MOD_ID + ":textures/armour/magmaArmour1.png";
+			return Reference.MOD_ID + ":textures/armor/magmaArmor1.png";
 		}
 		else if(stack.getItem() == ToeItems.magmaPants)
 		{
-			return Reference.MOD_ID + ":textures/armour/magmaArmour2.png";
+			return Reference.MOD_ID + ":textures/armor/magmaArmor2.png";
 		}
 		else
 		{
