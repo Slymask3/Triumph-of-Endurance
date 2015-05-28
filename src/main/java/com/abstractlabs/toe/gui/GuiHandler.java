@@ -32,7 +32,7 @@ public class GuiHandler implements IGuiHandler {
     	}
     	
     	if (ID == GuiID.ARMOURY.ordinal()) {
-        	return new BlockArmouryGui(player, (TileEntityBlockArmoury) e, world, x, y, z);
+        	return new GuiArmoury(player, (TileEntityBlockArmoury) e, world, x, y, z);
         } else if (ID == GuiID.WEAPONRY.ordinal()) {
         	return new GuiWeaponry(player, (TileEntityWeaponry) e, world, x, y, z);
         } else if (ID == GuiID.UTILITY.ordinal()) {

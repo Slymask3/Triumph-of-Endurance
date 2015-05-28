@@ -1,28 +1,24 @@
 package com.abstractlabs.toe;
 
-import net.minecraft.command.ICommandManager;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.tileentity.TileEntity;
 
 import com.abstractlabs.toe.command.CommandToe;
 import com.abstractlabs.toe.gui.GuiHandler;
 import com.abstractlabs.toe.handler.ConfigurationHandler;
-import com.abstractlabs.toe.handler.ConnectionHandler;
 import com.abstractlabs.toe.init.ToeBlocks;
+import com.abstractlabs.toe.init.ToeBusses;
 import com.abstractlabs.toe.init.ToeItems;
 import com.abstractlabs.toe.init.ToeMobs;
+import com.abstractlabs.toe.init.ToePackets;
 import com.abstractlabs.toe.init.ToeRenders;
+import com.abstractlabs.toe.init.ToeTiles;
 import com.abstractlabs.toe.network.PacketPipeline;
 import com.abstractlabs.toe.proxy.IProxy;
 import com.abstractlabs.toe.reference.Reference;
-import com.abstractlabs.toe.tileentity.TileEntityBlockArmoury;
-import com.abstractlabs.toe.tileentity.TileEntityUtility;
-import com.abstractlabs.toe.tileentity.TileEntityWeaponry;
 import com.abstractlabs.toe.utility.LogHelper;
 import com.abstractlabs.toe.worldgen.WorldGeneratorToe;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
@@ -47,21 +43,17 @@ public class Toe {
 	public void preInit(FMLPreInitializationEvent event) {
 		ConfigurationHandler.init(event.getSuggestedConfigurationFile());
 		
-		FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
-		FMLCommonHandler.instance().bus().register(new ConnectionHandler());
-		
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 		
-		TileEntity.addMapping(TileEntityWeaponry.class, "TileEntityWeaponry");
-		TileEntity.addMapping(TileEntityUtility.class, "TileEntityUtility");
-		TileEntity.addMapping(TileEntityBlockArmoury.class, "TileEntityBlockArmoury");
-		
-		packetPipeline.initialise();
+		packetPipeline.init();
 		
 		ToeBlocks.init();
 		ToeItems.init();
 		ToeRenders.init();
 		ToeMobs.init();
+		ToePackets.init();
+		ToeBusses.init();
+		ToeTiles.init();
 		
 		proxy.registerInformation();
 		
@@ -83,9 +75,9 @@ public class Toe {
 	@Mod.EventHandler
 	public void serverStart(FMLServerStartingEvent event) {
 		MinecraftServer server = MinecraftServer.getServer();
-		ICommandManager command = server.getCommandManager();
-		ServerCommandManager serverCommand = ((ServerCommandManager) command);
+		ServerCommandManager command = (ServerCommandManager) server.getCommandManager();
+		//ServerCommandManager serverCommand = ((ServerCommandManager) command);
 		
-		serverCommand.registerCommand(new CommandToe());
+		command.registerCommand(new CommandToe());
 	}
 }

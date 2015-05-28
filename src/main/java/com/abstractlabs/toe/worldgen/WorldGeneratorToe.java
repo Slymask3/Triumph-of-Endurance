@@ -2,7 +2,6 @@ package com.abstractlabs.toe.worldgen;
 
 import java.util.Random;
 
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -17,8 +16,8 @@ public class WorldGeneratorToe implements IWorldGenerator  {
 	}
 
 	private void generateSurface(World world, Random random, int blockX, int blockZ) {
-		generateArena(world, random, blockX + random.nextInt(16), random.nextInt(60), blockZ + random.nextInt(16), new WorldGenArenaDesert(), 500);
-		generateArena(world, random, blockX + random.nextInt(16), random.nextInt(60), blockZ + random.nextInt(16), new WorldGenArenaUnderwater(), 300);
+		generateArena(world, random, blockX + random.nextInt(16), random.nextInt(60), blockZ + random.nextInt(16), new WorldGenArenaDesert(), 200); //500
+		//generateArena(world, random, blockX + random.nextInt(16), random.nextInt(60), blockZ + random.nextInt(16), new WorldGenArenaUnderwater(), 300);
 	}
 	
 	private void generateNether(World world, Random random, int blockX, int blockZ) {

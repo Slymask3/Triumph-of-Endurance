@@ -26,7 +26,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 @SideOnly(Side.CLIENT)
-public class BlockArmouryGui extends GuiScreen 
+public class GuiArmoury extends GuiScreen 
 {
 	private EntityPlayer player;
 	private TileEntityBlockArmoury tileEntity;
@@ -47,7 +47,7 @@ public class BlockArmouryGui extends GuiScreen
 	private GuiButtonExt ironArmour;
 	private GuiButtonExt diamondArmour;
 	
-    public BlockArmouryGui(EntityPlayer player, TileEntityBlockArmoury entity, World world, int x, int y, int z) 
+    public GuiArmoury(EntityPlayer player, TileEntityBlockArmoury entity, World world, int x, int y, int z) 
     {
 		this.player = player;
 		this.tileEntity = entity;

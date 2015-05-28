@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 
 import com.abstractlabs.toe.Toe;
 import com.abstractlabs.toe.creativetab.ToeTab;
-import com.abstractlabs.toe.gui.BlockArmouryGui;
+import com.abstractlabs.toe.gui.GuiArmoury;
 import com.abstractlabs.toe.reference.GuiID;
 import com.abstractlabs.toe.reference.Reference;
 import com.abstractlabs.toe.tileentity.TileEntityBlockArmoury;

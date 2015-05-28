@@ -18,13 +18,12 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 import com.abstractlabs.toe.skill.arenalism.ArenalismHelper;
-import com.abstractlabs.toe.utility.LogHelper;
 
-public class EntityMummy extends EntityMob {
+public class EntityScorpion extends EntityMob {
 
-	public EntityMummy(World world) {
+	public EntityScorpion(World world) {
 		super(world);
-		this.setSize(0.6F, 1.8F);
+		this.setSize(1.4F, 0.9F);
 		this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, true));
         this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1.0D));
@@ -38,7 +37,7 @@ public class EntityMummy extends EntityMob {
 	protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(40.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25D);
+        this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.30D);
         this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(3.0D);
     }
 	
@@ -72,22 +71,19 @@ public class EntityMummy extends EntityMob {
         
 //        if(ArenalismHelper.getProperties(Minecraft.getMinecraft().thePlayer).inArena() && !this.worldObj.isRemote) {
 //        	ArenalismHelper.getProperties(Minecraft.getMinecraft().thePlayer).updateEnemies(ArenalismHelper.getProperties(Minecraft.getMinecraft().thePlayer).getEnemiesRemaining()-1);
-//            LogHelper.info("mummy died and in if statement.");
 //        }
-//        
-//        LogHelper.info("mummy died.");
     }
 	
 	protected String getLivingSound() {
-        return "mob.zombie.say";
+        return "mob.spider.say";
     }
 
     protected String getHurtSound() {
-        return "mob.wither.hurt";
+        return "mob.spider.say";
     }
     
     protected String getDeathSound() {
-        return "mob.wither.death";
+        return "mob.spider.death";
     }
     
     public EnumCreatureAttribute getCreatureAttribute() {

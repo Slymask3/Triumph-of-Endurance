@@ -409,4 +409,42 @@ public class BuildHelper {
     private static double lengthSq(double x, double y, double z) {
         return (x * x) + (y * y) + (z * z);
     }
+    
+    /**
+     * Replaces a certain block with another in a radius.
+     * @param world World object.
+     * @param X Center x position.
+     * @param Y Center y position.
+     * @param Z Center z position.
+     * @param radius Radius of the area.
+     * @param oldBlock Block to look for.
+     * @param newBlock Block to replace with.
+     */
+    public static void replaceBlocks(World world, int X, int Y, int Z, int radius, Block oldBlock, Block newBlock) {
+        int x = (int) (X -radius);
+        int y = (int) (Y +radius);
+        int z = (int) (Z -radius);
+   
+        int bx = x;
+        int bz = z;
+ 
+        for (int i=0; i<radius*2+1; i++) {
+            for (int j=0; j<radius*2+1; j++) {
+                for (int k=0; k<radius*2+1; k++) {
+                    Block curBlock = world.getBlock(x, y, z);
+                    
+                    if(curBlock == oldBlock) {
+                    	world.setBlock(x, y, z, newBlock);
+                    }
+                    
+                    x++;
+                }
+                z++;
+                x = bx;
+            }
+            z = bz;
+            x = bx;
+            y--;
+        }
+    }
 }

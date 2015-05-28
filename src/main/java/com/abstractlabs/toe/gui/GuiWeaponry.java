@@ -12,9 +12,9 @@ import org.lwjgl.opengl.GL11;
 
 import com.abstractlabs.toe.Toe;
 import com.abstractlabs.toe.network.PacketWeaponry;
-import com.abstractlabs.toe.player.Cash;
 import com.abstractlabs.toe.reference.Price;
 import com.abstractlabs.toe.reference.Reference;
+import com.abstractlabs.toe.skill.arenalism.ArenalismHelper;
 import com.abstractlabs.toe.tileentity.TileEntityWeaponry;
 import com.abstractlabs.toe.utility.LogHelper;
 
@@ -124,7 +124,7 @@ public class GuiWeaponry extends GuiScreen {
         mc.renderEngine.bindTexture(new ResourceLocation(Reference.MOD_ID, "textures/gui/weaponry.png"));
         drawTexturedModalRect(guiX, guiY, 0, 0, xSize, ySize);
 		
-        this.drawCenteredString(this.fontRendererObj, "Weaponry Shop   Cash: $" + Cash.getCash(player), width/2, height/2 - 100, 0x00AAAA);
+        this.drawCenteredString(this.fontRendererObj, "Weaponry Shop   Cash: $" + ArenalismHelper.getProperties(player).getCash(), width/2, height/2 - 100, 0x00AAAA);
         
 		super.drawScreen(par1, par2, par3);
 	}

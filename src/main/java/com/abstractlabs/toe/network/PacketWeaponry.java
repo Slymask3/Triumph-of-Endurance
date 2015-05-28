@@ -6,7 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
-import com.abstractlabs.toe.player.Cash;
+import com.abstractlabs.toe.skill.arenalism.ArenalismHelper;
 import com.abstractlabs.toe.utility.LogHelper;
 
 import cpw.mods.fml.common.network.ByteBufUtils;
@@ -47,8 +47,8 @@ public class PacketWeaponry extends AbstractPacket {
 		LogHelper.info("packet.price: " + _price);
 		
 		
-		if(Cash.doesPlayerHaveEnough(player, _price)) {
-			Cash.buyItem(player, _price);
+		if(ArenalismHelper.getProperties(player).doesPlayerHaveEnough(_price)) {
+			ArenalismHelper.getProperties(player).buyItem(_price);
 			
 			if(_weapon.equalsIgnoreCase("woodSword")) {
 				player.inventory.addItemStackToInventory(new ItemStack(Items.wooden_sword));

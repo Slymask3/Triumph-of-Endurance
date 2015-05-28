@@ -118,7 +118,7 @@ public class PacketPipeline extends MessageToMessageCodec<FMLProxyPacket, Abstra
     }
  
     // Method to call from FMLInitializationEvent
-    public void initialise() {
+    public void init() {
         this.channels = NetworkRegistry.INSTANCE.newChannel(Reference.CHANNEL, this);
         this.registerPackets();
     }
@@ -127,6 +127,8 @@ public class PacketPipeline extends MessageToMessageCodec<FMLProxyPacket, Abstra
         registerPacket(PacketWeaponry.class);
         registerPacket(PacketArmoury.class);
         registerPacket(PacketUtility.class);
+        registerPacket(PacketArena.class);
+        //registerPacket(PacketArenalism.class);
     }
  
     // Method to call from FMLPostInitializationEvent
