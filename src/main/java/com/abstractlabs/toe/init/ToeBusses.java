@@ -5,6 +5,7 @@ import net.minecraftforge.common.MinecraftForge;
 import com.abstractlabs.toe.handler.BlockHandler;
 import com.abstractlabs.toe.handler.ConfigurationHandler;
 import com.abstractlabs.toe.handler.ConnectionHandler;
+import com.abstractlabs.toe.handler.EntityHandler;
 import com.abstractlabs.toe.handler.MobHandler;
 import com.abstractlabs.toe.handler.PlayerHandler;
 import com.abstractlabs.toe.handler.TickHandler;
@@ -17,6 +18,7 @@ public class ToeBusses {
 		addEventBus(new PlayerHandler());
 		addEventBus(new MobHandler());
 		addEventBus(new BlockHandler());
+		addEventBus(new EntityHandler());
 		
 		addSpecialEventBus(new ConfigurationHandler());
 		addSpecialEventBus(new ConnectionHandler());

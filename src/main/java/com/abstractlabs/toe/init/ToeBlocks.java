@@ -10,10 +10,13 @@ import com.abstractlabs.toe.block.BlockEntranceDesert;
 import com.abstractlabs.toe.block.BlockExteriorDesert;
 import com.abstractlabs.toe.block.BlockExteriorForest;
 import com.abstractlabs.toe.block.BlockExteriorGlass;
+import com.abstractlabs.toe.block.BlockHollowsPortal;
 import com.abstractlabs.toe.block.BlockLandmine;
 import com.abstractlabs.toe.block.BlockQuicksand;
+import com.abstractlabs.toe.block.BlockToeFire;
 import com.abstractlabs.toe.block.BlockUtility;
 import com.abstractlabs.toe.block.BlockWeaponry;
+import com.abstractlabs.toe.block.HollowBlock;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -29,6 +32,9 @@ public class ToeBlocks {
 	public static Block entranceDesert = new BlockEntranceDesert();
 	public static Block breakableDesert = new BlockBreakableDesert();
 	public static Block cash = new BlockCash();
+	public static BlockHollowsPortal hollowPortal = new BlockHollowsPortal("hollowPortal");
+	public static Block blockHollow = new HollowBlock();
+	public static BlockToeFire hollowFire = new BlockToeFire("hollowFire");
 	
 	public static void init() {
 		GameRegistry.registerBlock(blockArmoury, "blockArmoury");
@@ -42,5 +48,8 @@ public class ToeBlocks {
 		GameRegistry.registerBlock(entranceDesert, "entranceDesert");
 		GameRegistry.registerBlock(breakableDesert, "breakableDesert");
 		GameRegistry.registerBlock(cash, "cash");
+		GameRegistry.registerBlock(hollowPortal, "hollowPortal");
+		GameRegistry.registerBlock(blockHollow, "blockHollow");
+		GameRegistry.registerBlock(hollowFire, "hollowFire");
 	}
 }

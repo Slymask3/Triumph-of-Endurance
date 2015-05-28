@@ -1,6 +1,7 @@
 package com.abstractlabs.toe.utility;
 
 import cpw.mods.fml.common.FMLLog;
+
 import org.apache.logging.log4j.Level;
 
 public class LogHelper {
@@ -39,4 +40,5 @@ public class LogHelper {
     public static void warn(Object object) {
         log(Level.WARN, object);
     }
+
 }
