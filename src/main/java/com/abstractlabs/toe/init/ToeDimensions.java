@@ -1,21 +1,19 @@
 package com.abstractlabs.toe.init;
 
-import com.abstractlabs.toe.spookydimension.WorldProviderHollows;
-
 import net.minecraftforge.common.DimensionManager;
 
-public class ToeDimensions 
-{
-	public static void mainRegistry()
-	{
-		registerDimension();
-	}
+import com.abstractlabs.toe.dimension.arenalism.WorldProviderFlat;
+import com.abstractlabs.toe.dimension.hollows.WorldProviderHollows;
+
+public class ToeDimensions {
+	public static int hollows = 8;
+	public static int flat = 9;
 	
-	public static final int hollowsID = 8;
-	
-	public static void registerDimension()
-	{
-		DimensionManager.registerProviderType(hollowsID, WorldProviderHollows.class, false);
-		DimensionManager.registerDimension(hollowsID, hollowsID);
+	public static void init() {
+		DimensionManager.registerProviderType(hollows, WorldProviderHollows.class, false);
+		DimensionManager.registerProviderType(flat, WorldProviderFlat.class, false);
+		
+		DimensionManager.registerDimension(hollows, hollows);
+		DimensionManager.registerDimension(flat, flat);
 	}
 }

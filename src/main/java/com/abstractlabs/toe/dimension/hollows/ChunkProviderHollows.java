@@ -1,4 +1,4 @@
-package com.abstractlabs.toe.spookydimension;
+package com.abstractlabs.toe.dimension.hollows;
 
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE;
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.RAVINE;

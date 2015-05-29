@@ -16,7 +16,7 @@ public class WorldGeneratorToe implements IWorldGenerator  {
 	}
 
 	private void generateSurface(World world, Random random, int blockX, int blockZ) {
-		generateArena(world, random, blockX + random.nextInt(16), random.nextInt(60), blockZ + random.nextInt(16), new WorldGenArenaDesert(), 200); //500
+		//generateArena(world, random, blockX + random.nextInt(16), random.nextInt(60), blockZ + random.nextInt(16), new WorldGenArenaDesert(), 200); //500
 		//generateArena(world, random, blockX + random.nextInt(16), random.nextInt(60), blockZ + random.nextInt(16), new WorldGenArenaUnderwater(), 300);
 	}
 	

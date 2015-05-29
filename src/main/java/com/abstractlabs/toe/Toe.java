@@ -2,13 +2,10 @@ package com.abstractlabs.toe;
 
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.server.MinecraftServer;
-import net.minecraftforge.common.MinecraftForge;
 
 import com.abstractlabs.toe.command.CommandToe;
 import com.abstractlabs.toe.gui.GuiHandler;
 import com.abstractlabs.toe.handler.ConfigurationHandler;
-import com.abstractlabs.toe.handler.EntityHandler;
-import com.abstractlabs.toe.handler.PlayerHandler;
 import com.abstractlabs.toe.init.ToeBiomes;
 import com.abstractlabs.toe.init.ToeBlocks;
 import com.abstractlabs.toe.init.ToeBusses;
@@ -59,9 +56,9 @@ public class Toe {
 		ToePackets.init();
 		ToeBusses.init();
 		ToeTiles.init();
+		ToeDimensions.init();
 		
 		ToeBiomes.mainRegistry();
-		ToeDimensions.mainRegistry();
 		
 		proxy.registerInformation();
 		

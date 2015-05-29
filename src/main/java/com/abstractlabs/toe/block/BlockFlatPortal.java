@@ -19,23 +19,23 @@ import net.minecraft.world.World;
 import com.abstractlabs.toe.creativetab.ToeTab;
 import com.abstractlabs.toe.init.ToeBlocks;
 import com.abstractlabs.toe.init.ToeDimensions;
-import com.abstractlabs.toe.teleporter.TeleporterHollows;
+import com.abstractlabs.toe.teleporter.TeleporterArenalism;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockHollowsPortal extends BlockBreakable
+public class BlockFlatPortal extends BlockBreakable
 {
 	public static final int[][] field_150001_a = new int[][] {new int[0], {3, 1}, {2, 0}};
 	@SuppressWarnings("unused")
 	private static final String __OBFID = "CL_00000284";
 	
-	public BlockHollowsPortal(String name)
+	public BlockFlatPortal(String name)
 	{
 		super("toe:" + name, Material.portal, false);
 		this.setTickRandomly(true);
 		this.setBlockName(name);
-		this.setBlockTextureName("tutorial:" + name);
+		this.setBlockTextureName("toe:" + name);
 		this.setCreativeTab(ToeTab.TOE_TAB);
 	}
 
@@ -99,8 +99,8 @@ public class BlockHollowsPortal extends BlockBreakable
 	
 	public boolean getPortalSize(World world, int x, int y, int z) 
 	{
-		BlockHollowsPortal.Size size = new BlockHollowsPortal.Size(world, x, y, z, 1);
-		BlockHollowsPortal.Size size1 = new BlockHollowsPortal.Size(world, x, y, z, 2);
+		BlockFlatPortal.Size size = new BlockFlatPortal.Size(world, x, y, z, 1);
+		BlockFlatPortal.Size size1 = new BlockFlatPortal.Size(world, x, y, z, 2);
 		if (size.func_150860_b() && size.field_150864_e == 0) 
 		{
 			size.func_150859_c();
@@ -124,8 +124,8 @@ public class BlockHollowsPortal extends BlockBreakable
     public void onNeighborBlockChange(World world, int x, int y, int z, Block block)
     {
         int l = func_149999_b(world.getBlockMetadata(x, y, z));
-        BlockHollowsPortal.Size size = new BlockHollowsPortal.Size(world, x, y, z, 1);
-        BlockHollowsPortal.Size size1 = new BlockHollowsPortal.Size(world, x, y, z, 2);
+        BlockFlatPortal.Size size = new BlockFlatPortal.Size(world, x, y, z, 1);
+        BlockFlatPortal.Size size1 = new BlockFlatPortal.Size(world, x, y, z, 2);
         if (l == 1 && (!size.func_150860_b() || size.field_150864_e < size.field_150868_h * size.field_150862_g))
         {
             world.setBlock(x, y, z, Blocks.air);
@@ -198,15 +198,15 @@ public class BlockHollowsPortal extends BlockBreakable
 			{
 				thePlayer.timeUntilPortal = 10;
 			} 
-			else if (thePlayer.dimension != ToeDimensions.hollows) 
+			else if (thePlayer.dimension != ToeDimensions.flat) 
 			{
 				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, ToeDimensions.hollows, new TeleporterHollows(thePlayer.mcServer.worldServerForDimension(ToeDimensions.hollows)));
+				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, ToeDimensions.flat, new TeleporterArenalism(thePlayer.mcServer.worldServerForDimension(ToeDimensions.flat)));
 			} 
-			else if (thePlayer.dimension == ToeDimensions.hollows)
+			else if (thePlayer.dimension == ToeDimensions.flat)
 			{
 				thePlayer.timeUntilPortal = 10;
-				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterHollows(thePlayer.mcServer.worldServerForDimension(0)));
+				thePlayer.mcServer.getConfigurationManager().transferPlayerToDimension(thePlayer, 0, new TeleporterArenalism(thePlayer.mcServer.worldServerForDimension(0)));
 			}
 		}
 	}
@@ -293,8 +293,8 @@ public class BlockHollowsPortal extends BlockBreakable
 		{
 			this.worldObj = p_i45415_1_;
 			this.field_150865_b = p_i45415_5_;
-			this.field_150863_d = BlockHollowsPortal.field_150001_a[p_i45415_5_][0];
-			this.field_150866_c = BlockHollowsPortal.field_150001_a[p_i45415_5_][1];
+			this.field_150863_d = BlockFlatPortal.field_150001_a[p_i45415_5_][0];
+			this.field_150866_c = BlockFlatPortal.field_150001_a[p_i45415_5_][1];
 
 			for (int i1 = p_i45415_3_; p_i45415_3_ > i1 - 21 && p_i45415_3_ > 0 && this.getBlockMaterial(p_i45415_1_.getBlock(p_i45415_2_, p_i45415_3_ - 1, p_i45415_4_)); --p_i45415_3_)
 			{
@@ -339,14 +339,14 @@ public class BlockHollowsPortal extends BlockBreakable
 
 				Block block1 = this.worldObj.getBlock(x + j1 * i1, y - 1, z + k1 * i1);
 
-				if (block1 != Blocks.stone)
+				if (block1 != Blocks.dirt)
 				{
 					break;
 				}
 			}
 
 			block = this.worldObj.getBlock(x + j1 * i1, y, z + k1 * i1);
-			return block == Blocks.stone ? i1 : 0;
+			return block == Blocks.dirt ? i1 : 0;
 		}
 
 		protected int func_150858_a()
@@ -381,16 +381,16 @@ public class BlockHollowsPortal extends BlockBreakable
 						{
 							block = this.worldObj.getBlock(k + Direction.offsetX[BlockFlatPortal.field_150001_a[this.field_150865_b][0]], i, l + Direction.offsetZ[BlockFlatPortal.field_150001_a[this.field_150865_b][0]]);
 
-							if (block != Blocks.stone)
+							if (block != Blocks.dirt)
 							{
 								break label56;
 							}
 						}
 						else if (j == this.field_150868_h - 1)
 						{
-							block = this.worldObj.getBlock(k + Direction.offsetX[BlockHollowsPortal.field_150001_a[this.field_150865_b][1]], i, l + Direction.offsetZ[BlockHollowsPortal.field_150001_a[this.field_150865_b][1]]);
+							block = this.worldObj.getBlock(k + Direction.offsetX[BlockFlatPortal.field_150001_a[this.field_150865_b][1]], i, l + Direction.offsetZ[BlockFlatPortal.field_150001_a[this.field_150865_b][1]]);
 
-							if (block != Blocks.stone)
+							if (block != Blocks.dirt)
 							{
 								break label56;
 							}
@@ -400,11 +400,11 @@ public class BlockHollowsPortal extends BlockBreakable
 
 			for (i = 0; i < this.field_150868_h; ++i)
 			{
-				j = this.field_150861_f.posX + i * Direction.offsetX[BlockHollowsPortal.field_150001_a[this.field_150865_b][1]];
+				j = this.field_150861_f.posX + i * Direction.offsetX[BlockFlatPortal.field_150001_a[this.field_150865_b][1]];
 				k = this.field_150861_f.posY + this.field_150862_g;
-				l = this.field_150861_f.posZ + i * Direction.offsetZ[BlockHollowsPortal.field_150001_a[this.field_150865_b][1]];
+				l = this.field_150861_f.posZ + i * Direction.offsetZ[BlockFlatPortal.field_150001_a[this.field_150865_b][1]];
 
-				if (this.worldObj.getBlock(j, k, l) != Blocks.stone)
+				if (this.worldObj.getBlock(j, k, l) != Blocks.dirt)
 				{
 					this.field_150862_g = 0;
 					break;
@@ -426,7 +426,7 @@ public class BlockHollowsPortal extends BlockBreakable
 		
 		protected boolean getBlockMaterial(Block block)
 		{
-			return block.getMaterial() == Material.air || block == ToeBlocks.hollowFire || block == ToeBlocks.hollowPortal;
+			return block.getMaterial() == Material.air || block == ToeBlocks.hollowFire || block == ToeBlocks.flatPortal;
 		}
 
 		public boolean func_150860_b()
@@ -444,7 +444,7 @@ public class BlockHollowsPortal extends BlockBreakable
 				for (int l = 0; l < this.field_150862_g; ++l)
 				{
 					int i1 = this.field_150861_f.posY + l;
-					this.worldObj.setBlock(j, i1, k, ToeBlocks.hollowPortal, this.field_150865_b, 2);
+					this.worldObj.setBlock(j, i1, k, ToeBlocks.flatPortal, this.field_150865_b, 2);
 				}
 			}
 		}

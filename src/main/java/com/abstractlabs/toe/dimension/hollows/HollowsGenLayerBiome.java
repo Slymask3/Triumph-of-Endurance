@@ -1,4 +1,4 @@
-package com.abstractlabs.toe.spookydimension;
+package com.abstractlabs.toe.dimension.hollows;
 
 import com.abstractlabs.toe.init.ToeBiomes;
 

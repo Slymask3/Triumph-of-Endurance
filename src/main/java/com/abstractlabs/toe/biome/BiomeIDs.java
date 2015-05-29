@@ -1,4 +1,4 @@
-package com.abstractlabs.toe.biomes;
+package com.abstractlabs.toe.biome;
 
 public class BiomeIDs 
 {

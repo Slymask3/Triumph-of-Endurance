@@ -1,4 +1,4 @@
-package com.abstractlabs.toe.spookydimension;
+package com.abstractlabs.toe.dimension;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

@@ -1,6 +1,6 @@
 package com.abstractlabs.toe.biomedecorator;
 
-import com.abstractlabs.toe.biomes.BiomeHollows;
+import com.abstractlabs.toe.biome.BiomeHollows;
 import com.abstractlabs.toe.init.ToeBiomes;
 
 import net.minecraft.block.Block;

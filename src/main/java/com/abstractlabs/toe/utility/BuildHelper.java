@@ -22,12 +22,28 @@ public class BuildHelper {
 	 * @param zTimesTotal How many layers to build into the z axis. (Minimum: 1)
 	 */
 	public static void build(World world, int x, int y, int z, Block block, int xTimesTotal, int yTimesTotal, int zTimesTotal) {
+		build(world, x, y, z, block, 0, xTimesTotal, yTimesTotal, zTimesTotal);
+	}
+	
+	/**
+	 * Builds multiple blocks with metadata.
+	 * @param world World object.
+	 * @param x Starting x position.
+	 * @param y Starting y position.
+	 * @param z Starting z position.
+	 * @param block Block to build with.
+	 * @param meta The metadata of the block.
+	 * @param xTimesTotal How many layers to build into the x axis. (Minimum: 1)
+	 * @param yTimesTotal How many layers to build into the y axis. (Minimum: 1)
+	 * @param zTimesTotal How many layers to build into the z axis. (Minimum: 1)
+	 */
+	public static void build(World world, int x, int y, int z, Block block, int meta, int xTimesTotal, int yTimesTotal, int zTimesTotal) {
 		int z2 = z;
 		int x2 = x;
 		for (int yTimes = 0; yTimes < yTimesTotal; yTimes++) {
 			for (int zTimes = 0; zTimes < zTimesTotal; zTimes++) {
 				for (int xTimes = 0; xTimes < xTimesTotal; xTimes++) {
-					world.setBlock(x2, y, z2, block);
+					world.setBlock(x2, y, z2, block, meta, 2);
 					z2++;
 				}
 				z2 = z;
@@ -48,14 +64,28 @@ public class BuildHelper {
 	 * @param size The size to build with. (Preferably an odd number)
 	 */
 	public static void buildHR(World world, int x, int y, int z, Block block, int size) {
+		buildHR(world, x, y, z, block, 0, size);
+	}
+	
+	/**
+	 * Builds a hollow rectangle from around the coordinates with metadata.
+	 * @param world World object.
+	 * @param x Center x position of the rectangle.
+	 * @param y Center y position of the rectangle.
+	 * @param z Center z position of the rectangle.
+	 * @param block Block to build with.
+	 * @param meta Metadata of the block.
+	 * @param size The size to build with. (Preferably an odd number)
+	 */
+	public static void buildHR(World world, int x, int y, int z, Block block, int meta, int size) {
 		int x2 = x - (size/2);
 		int z2 = z - (size/2);
 
-		build(world, x2, y, z2, block, size, 1, 1);
-		build(world, x2, y, z2, block, 1, 1, size);
+		build(world, x2, y, z2, block, meta, size, 1, 1);
+		build(world, x2, y, z2, block, meta, 1, 1, size);
 		
-		build(world, x2+(size-1), y, z2, block, size, 1, 1);
-		build(world, x2, y, z2+(size-1), block, 1, 1, size);
+		build(world, x2+(size-1), y, z2, block, meta, size, 1, 1);
+		build(world, x2, y, z2+(size-1), block, meta, 1, 1, size);
 	}
 	
 	/**
@@ -68,10 +98,24 @@ public class BuildHelper {
 	 * @param size The size to build with. (Preferably an odd number)
 	 */
 	public static void buildR(World world, int x, int y, int z, Block block, int size) {
+		buildR(world, x, y, z, block, 0, size);
+	}
+	
+	/**
+	 * Builds a solid rectangle from around the coordinates.
+	 * @param world World object.
+	 * @param x Center x position of the rectangle.
+	 * @param y Center y position of the rectangle.
+	 * @param z Center z position of the rectangle.
+	 * @param block Block to build with.
+	 * @param meta Metadat of the block.
+	 * @param size The size to build with. (Preferably an odd number)
+	 */
+	public static void buildR(World world, int x, int y, int z, Block block, int meta, int size) {
 		int x2 = x - (size/2);
 		int z2 = z - (size/2);
 
-		build(world, x2, y, z2, block, size, 1, size);
+		build(world, x2, y, z2, block, meta, size, 1, size);
 	}
 	
 	/**

@@ -1,21 +1,21 @@
-package com.abstractlabs.toe.spookydimension;
+package com.abstractlabs.toe.dimension.arenalism;
 
 import net.minecraft.world.WorldType;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerVoronoiZoom;
 import net.minecraft.world.gen.layer.GenLayerZoom;
 
-public class HollowsGenLayer extends GenLayer
+public class FlatGenLayer extends GenLayer
 {
 
-	public HollowsGenLayer(long seed)
+	public FlatGenLayer(long seed)
 	{
 		super(seed);
 	}
 
 	public static GenLayer[] makeTheWorld(long seed, WorldType type)
 	{
-		GenLayer biomes = new HollowsGenLayerBiome(1L);
+		GenLayer biomes = new FlatGenLayerBiome(1L);
 		biomes = new GenLayerZoom(1000L, biomes);
 		biomes = new GenLayerZoom(1001L, biomes);
 		biomes = new GenLayerZoom(1002L, biomes);

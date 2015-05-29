@@ -1,7 +1,5 @@
 package com.abstractlabs.toe.handler;
 
-import com.abstractlabs.toe.spookydimension.HollowsGenLayerBiome;
-
 import net.minecraft.world.WorldType;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerAddIsland;
@@ -23,6 +21,9 @@ import net.minecraft.world.gen.layer.GenLayerSmooth;
 import net.minecraft.world.gen.layer.GenLayerVoronoiZoom;
 import net.minecraft.world.gen.layer.GenLayerZoom;
 import net.minecraftforge.event.terraingen.WorldTypeEvent.InitBiomeGens;
+
+import com.abstractlabs.toe.dimension.hollows.HollowsGenLayerBiome;
+
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class BiomeHandler 

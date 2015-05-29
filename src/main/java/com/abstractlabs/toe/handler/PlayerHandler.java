@@ -38,10 +38,10 @@ public class PlayerHandler {
 	
 	@SubscribeEvent
 	public void onAttack(AttackEntityEvent event) {
-		if (event.entityPlayer.getHeldItem() != null && event.entityPlayer.getHeldItem().getItem() == ToeItems.cane && !ItemCane.playerExists(event.entityPlayer)) {
-			ItemCane.addPlayer(null, event.entityPlayer, 0);
+		//if (event.entityPlayer.getHeldItem() != null && event.entityPlayer.getHeldItem().getItem() == ToeItems.cane && !ItemCane.playerExists(event.entityPlayer)) {
+			//ItemCane.addPlayer(null, event.entityPlayer, 0);
 			//LogHelper.info("added player to hashmap");
-		}
+		//}
 		//LogHelper.info(event.entityPlayer.getHeldItem());
 		//LogHelper.info(event.entityPlayer.getHeldItem().getItem());
 		//LogHelper.info(!ItemCane.playerExists(event.entityPlayer));

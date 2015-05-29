@@ -1,16 +1,14 @@
 package com.abstractlabs.toe.handler;
 
-import com.abstractlabs.toe.init.ToeItems;
-import com.abstractlabs.toe.item.ItemCane;
-import com.abstractlabs.toe.utility.LogHelper;
-import com.google.common.eventbus.Subscribe;
-
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+
+import com.abstractlabs.toe.init.ToeItems;
+
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class EntityHandler 
 {
@@ -23,10 +21,17 @@ public class EntityHandler
 			EntityPlayer player = (EntityPlayer) event.source.getEntity();
 			if (player.getHeldItem().getItem() != null && player.getHeldItem().getItem() == ToeItems.cane)
 			{
-				ItemCane.update(player, ItemCane.getStacks(player) + 1);
+				//ItemCane.update(player, ItemCane.getStacks(player) + 1);
+				ItemStack stack = player.getHeldItem();
+				
+				if (stack.stackTagCompound != null) {
+					int stacks = stack.stackTagCompound.getInteger("stacks");
+					stack.stackTagCompound.setInteger("stacks", stacks+1);
+				}
+				
 			}
 		}
-		LogHelper.info("onDeath");
+		//LogHelper.info("onDeath");
 	}
 	
 	@SubscribeEvent

@@ -1,33 +1,32 @@
-package com.abstractlabs.toe.spookydimension;
+package com.abstractlabs.toe.dimension.arenalism;
 
-import com.abstractlabs.toe.Toe;
-import com.abstractlabs.toe.init.ToeBiomes;
-import com.abstractlabs.toe.init.ToeDimensions;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 
-public class WorldProviderHollows extends WorldProvider
+import com.abstractlabs.toe.init.ToeBiomes;
+import com.abstractlabs.toe.init.ToeDimensions;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
+public class WorldProviderFlat extends WorldProvider
 {
 	private float[] colorsSunriseSunset = new float[4];
 	public void registerWorldChunkManager()
 	{
-		this.worldChunkMgr = new WorldChunkManagerHell(ToeBiomes.biomeHollows, 1.2F);
-		this.dimensionId = ToeDimensions.hollowsID;
+		this.worldChunkMgr = new WorldChunkManagerHell(ToeBiomes.biomeFlat, 1.2F);
+		this.dimensionId = ToeDimensions.flat;
 		this.hasNoSky = false;
 	}
 	
 	@Override
 	public IChunkProvider createChunkGenerator()
 	{
-		return new ChunkProviderHollows(worldObj, worldObj.getSeed(), true);
+		return new ChunkProviderFlat(worldObj, worldObj.getSeed(), true);
 	}
 	
 	public int getAverageGroundLevel()
@@ -41,7 +40,7 @@ public class WorldProviderHollows extends WorldProvider
 	}
 	public String getDimensionName()
 	{
-		return "Hollows";
+		return "Flat";
 	}
 	public boolean renderStars()
 	{
@@ -114,9 +113,9 @@ public class WorldProviderHollows extends WorldProvider
 	@SideOnly(Side.CLIENT)
 	public String getWelcomeMessage()
 	{
-		if ((this instanceof WorldProviderHollows))
+		if ((this instanceof WorldProviderFlat))
 		{
-			return "Entering Hollows";
+			return "Entering Arenalism";
 		}
 		return null;
 	}

@@ -5,7 +5,7 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 
-import com.abstractlabs.toe.handler.EntityHandler;
+import com.abstractlabs.toe.item.ItemArenalismLighter;
 import com.abstractlabs.toe.item.ItemCane;
 import com.abstractlabs.toe.item.ItemDynamicArmour;
 import com.abstractlabs.toe.item.ItemFlashbang;
@@ -20,6 +20,7 @@ public class ToeItems {
 	public static Item flashbang = new ItemFlashbang().setUnlocalizedName("flashbang");
 	public static Item grenade = new ItemGrenade().setUnlocalizedName("grenade");
 	public static Item hollowLighter = new ItemHollowLighter().setUnlocalizedName("hollowLighter");
+	public static Item arenalismLighter = new ItemArenalismLighter().setUnlocalizedName("arenalismLighter");
 	
 	public static ArmorMaterial magmaMaterial = EnumHelper.addArmorMaterial("Magma Material", 33, new int[]{2, 5, 4, 2}, 10);
 	
@@ -54,6 +55,7 @@ public class ToeItems {
 		GameRegistry.registerItem(flashbang, "flashbang");
 		GameRegistry.registerItem(grenade, "grenade");
 		GameRegistry.registerItem(hollowLighter, "hollowLighter");
+		GameRegistry.registerItem(arenalismLighter, "arenalismLighter");
 		
 		// MAGMA ARMOUR
 		GameRegistry.registerItem(magmaHelmet = new ItemMagmaArmour("magmaHelmet", magmaMaterial, "magmaHelmet", 0), "magmaHelmet"); //0 for helmet
