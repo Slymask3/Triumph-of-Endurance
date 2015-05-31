@@ -19,6 +19,7 @@ import com.abstractlabs.toe.render.RenderMummy;
 import com.abstractlabs.toe.render.RenderScorpion;
 import com.abstractlabs.toe.skill.arenalism.ArenalismGUI;
 import com.abstractlabs.toe.skill.mining.MiningGUI;
+import com.abstractlabs.toe.skill.theiving.ThievingGUI;
 import com.abstractlabs.toe.skill.woodcutting.WoodcuttingGUI;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -29,6 +30,7 @@ public class ClientProxy extends CommonProxy {
 		MinecraftForge.EVENT_BUS.register(new ArenalismGUI());
 		MinecraftForge.EVENT_BUS.register(new MiningGUI());
 		MinecraftForge.EVENT_BUS.register(new WoodcuttingGUI());
+		MinecraftForge.EVENT_BUS.register(new ThievingGUI());
 		MinecraftForge.EVENT_BUS.register(new GuiArenaOverlay());
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityFlashbang.class, new RenderFlashbang(ToeItems.flashbang));

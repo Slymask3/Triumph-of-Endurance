@@ -10,6 +10,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
 import com.abstractlabs.toe.creativetab.ToeTab;
@@ -57,7 +58,7 @@ public class ItemCane extends ItemSword {
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean boo) {
 		if (stack.stackTagCompound != null) {
 			int stacks = stack.stackTagCompound.getInteger("stacks");
-			list.add("Stacks: " + stacks);
+			list.add(EnumChatFormatting.GOLD + "Stacks: " + stacks);
 		}
 	}
 	

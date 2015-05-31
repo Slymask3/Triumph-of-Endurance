@@ -30,7 +30,7 @@ public class MiningGUI extends Gui {
 		int h = scaledresolution.getScaledHeight();
 		int w = scaledresolution.getScaledWidth();
 		this.mc.renderEngine.bindTexture(new ResourceLocation(texture));
-		int y = 5;
+		int y = yPos;
 		int x = w - xPos;
 		this.drawTexturedModalRect(x, y, 0, 0, 25, 25);
       

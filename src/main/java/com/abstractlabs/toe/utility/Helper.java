@@ -103,11 +103,11 @@ public class Helper {
 		}
 	}
 
-	private static void addRandomAmount(TileEntityChest chest, Item item, int min, int max) {
+	public static void addRandomAmount(TileEntityChest chest, Item item, int min, int max) {
 		addRandomAmount(chest, item, 0, min, max);
 	}
 
-	private static void addRandomAmount(TileEntityChest chest, Item item, int meta, int min, int max) {
+	public static void addRandomAmount(TileEntityChest chest, Item item, int meta, int min, int max) {
 		Random rand = new Random();
 		int amount = rand.nextInt(max-min) + min;
 		

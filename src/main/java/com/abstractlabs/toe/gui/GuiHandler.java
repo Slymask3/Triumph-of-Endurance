@@ -6,6 +6,7 @@ import net.minecraft.world.World;
 
 import com.abstractlabs.toe.reference.GuiID;
 import com.abstractlabs.toe.tileentity.TileEntityBlockArmoury;
+import com.abstractlabs.toe.tileentity.TileEntityRecall;
 import com.abstractlabs.toe.tileentity.TileEntityUtility;
 import com.abstractlabs.toe.tileentity.TileEntityWeaponry;
 
@@ -37,6 +38,8 @@ public class GuiHandler implements IGuiHandler {
         	return new GuiWeaponry(player, (TileEntityWeaponry) e, world, x, y, z);
         } else if (ID == GuiID.UTILITY.ordinal()) {
         	return new GuiUtility(player, (TileEntityUtility) e, world, x, y, z);
+        } else if (ID == GuiID.RECALL.ordinal()) {
+        	return new GuiRecall(player, (TileEntityRecall) e, world, x, y, z);
         }
 
         return null;

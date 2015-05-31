@@ -11,8 +11,10 @@ import com.abstractlabs.toe.item.ItemDynamicArmour;
 import com.abstractlabs.toe.item.ItemFlashbang;
 import com.abstractlabs.toe.item.ItemGrenade;
 import com.abstractlabs.toe.item.ItemHollowLighter;
+import com.abstractlabs.toe.item.ItemLockpick;
 import com.abstractlabs.toe.item.ItemMagmaArmour;
 import com.abstractlabs.toe.item.ItemNimbleArmour;
+import com.abstractlabs.toe.item.ItemRecall;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -21,6 +23,8 @@ public class ToeItems {
 	public static Item grenade = new ItemGrenade().setUnlocalizedName("grenade");
 	public static Item hollowLighter = new ItemHollowLighter().setUnlocalizedName("hollowLighter");
 	public static Item arenalismLighter = new ItemArenalismLighter().setUnlocalizedName("arenalismLighter");
+	public static Item recall = new ItemRecall().setUnlocalizedName("recall");
+	public static Item lockpick = new ItemLockpick(10).setUnlocalizedName("lockpick");
 	
 	public static ArmorMaterial magmaMaterial = EnumHelper.addArmorMaterial("Magma Material", 33, new int[]{2, 5, 4, 2}, 10);
 	
@@ -56,6 +60,8 @@ public class ToeItems {
 		GameRegistry.registerItem(grenade, "grenade");
 		GameRegistry.registerItem(hollowLighter, "hollowLighter");
 		GameRegistry.registerItem(arenalismLighter, "arenalismLighter");
+		GameRegistry.registerItem(recall, "recall");
+		GameRegistry.registerItem(lockpick, "lockpick");
 		
 		// MAGMA ARMOUR
 		GameRegistry.registerItem(magmaHelmet = new ItemMagmaArmour("magmaHelmet", magmaMaterial, "magmaHelmet", 0), "magmaHelmet"); //0 for helmet

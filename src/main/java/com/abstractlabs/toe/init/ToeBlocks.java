@@ -14,7 +14,9 @@ import com.abstractlabs.toe.block.BlockExteriorGlass;
 import com.abstractlabs.toe.block.BlockFlatPortal;
 import com.abstractlabs.toe.block.BlockHollowsPortal;
 import com.abstractlabs.toe.block.BlockLandmine;
+import com.abstractlabs.toe.block.BlockLockedChest;
 import com.abstractlabs.toe.block.BlockQuicksand;
+import com.abstractlabs.toe.block.BlockRecall;
 import com.abstractlabs.toe.block.BlockTester;
 import com.abstractlabs.toe.block.BlockToeFire;
 import com.abstractlabs.toe.block.BlockUtility;
@@ -41,6 +43,8 @@ public class ToeBlocks {
 	public static Block beam = new BlockBeam();
 	public static Block tester = new BlockTester();
 	public static Block flatPortal = new BlockFlatPortal("flatPortal");
+	public static Block destination = new BlockRecall();
+	public static Block lockedChest = new BlockLockedChest();
 	
 	public static void init() {
 		GameRegistry.registerBlock(blockArmoury, "blockArmoury");
@@ -60,5 +64,7 @@ public class ToeBlocks {
 		GameRegistry.registerBlock(beam, "beam");
 		GameRegistry.registerBlock(tester, "tester");
 		GameRegistry.registerBlock(flatPortal, "flatPortal");
+		GameRegistry.registerBlock(destination, "destination");
+		GameRegistry.registerBlock(lockedChest, "lockedChest");
 	}
 }

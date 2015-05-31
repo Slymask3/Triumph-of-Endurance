@@ -2,18 +2,13 @@ package com.abstractlabs.toe.handler;
 
 import net.minecraft.world.EnumDifficulty;
 
-import com.abstractlabs.toe.Toe;
-import com.abstractlabs.toe.arena.Arena;
-import com.abstractlabs.toe.network.PacketArena;
 import com.abstractlabs.toe.reference.Color;
 import com.abstractlabs.toe.skill.arenalism.ArenalismHelper;
-import com.abstractlabs.toe.skill.mining.MiningHelper;
 import com.abstractlabs.toe.utility.Helper;
 import com.abstractlabs.toe.utility.LogHelper;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.PlayerTickEvent;
-import cpw.mods.fml.common.gameevent.TickEvent.ServerTickEvent;
 
 public class TickHandler {
 	@SubscribeEvent
@@ -24,12 +19,12 @@ public class TickHandler {
 			LogHelper.info("peaceful detected..");
 		}
 		
-		if(MiningHelper.getProperties(e.player) != null) {
-//			MiningHelper.getProperties(e.player).addExperience(1);
-//	        ArenalismHelper.getProperties(e.player).addExperience(5);
-//	        WoodcuttingHelper.getProperties(e.player).addExperience(10);
-			//LogHelper.info("1 exp added..");
-		}
+//		if(MiningHelper.getProperties(e.player) != null) {
+////			MiningHelper.getProperties(e.player).addExperience(1);
+////	        ArenalismHelper.getProperties(e.player).addExperience(5);
+////	        WoodcuttingHelper.getProperties(e.player).addExperience(10);
+//			//LogHelper.info("1 exp added..");
+//		}
 	}
 
 //	private static Arena arena;

@@ -14,6 +14,8 @@ import com.abstractlabs.toe.skill.arenalism.ArenalismHelper;
 import com.abstractlabs.toe.skill.arenalism.ArenalismPacket;
 import com.abstractlabs.toe.skill.mining.MiningHelper;
 import com.abstractlabs.toe.skill.mining.MiningPacket;
+import com.abstractlabs.toe.skill.theiving.ThievingHelper;
+import com.abstractlabs.toe.skill.theiving.ThievingPacket;
 import com.abstractlabs.toe.skill.woodcutting.WoodcuttingHelper;
 import com.abstractlabs.toe.skill.woodcutting.WoodcuttingPacket;
 import com.abstractlabs.toe.utility.Helper;
@@ -88,6 +90,7 @@ public class ConnectionHandler {
 		        ToePackets.network.sendTo(new ArenalismPacket(ArenalismHelper.getProperties(p).getLevel(), ArenalismHelper.getProperties(p).progressPercentage(), ArenalismHelper.getProperties(p).inArena(), ArenalismHelper.getProperties(p).getCash()), (EntityPlayerMP)p);
 		        ToePackets.network.sendTo(new MiningPacket(MiningHelper.getProperties(p).getLevel(), MiningHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
 		        ToePackets.network.sendTo(new WoodcuttingPacket(WoodcuttingHelper.getProperties(p).getLevel(), WoodcuttingHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
+		        ToePackets.network.sendTo(new ThievingPacket(ThievingHelper.getProperties(p).getLevel(), ThievingHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
 		        //have to update packets (wave, enemiesLeft, maxWaves)
 			}
 	    } 

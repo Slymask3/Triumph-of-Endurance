@@ -1,4 +1,4 @@
-package com.abstractlabs.toe.skill.woodcutting;
+package com.abstractlabs.toe.skill.theiving;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
@@ -9,14 +9,14 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
-public class WoodcuttingGUI extends Gui {
+public class ThievingGUI extends Gui {
 	Minecraft mc = Minecraft.getMinecraft();
 	public static int value;
 	public static int percent;
 	
-	private String texture = "toe:textures/gui/woodcutting.png";
+	private String texture = "toe:textures/gui/thieving.png";
 	private int xPos = 27;
-	private int yPos = 5;
+	private int yPos = 35;
 
 	@SubscribeEvent
 	public void onRenderExperienceBar(RenderGameOverlayEvent.Post event) {
