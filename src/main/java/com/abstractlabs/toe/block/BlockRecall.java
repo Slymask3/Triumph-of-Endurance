@@ -26,21 +26,30 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockRecall extends BlockToe implements ITileEntityProvider {
-	public static IIcon side;
+	public static IIcon top;
 	
 	public BlockRecall() {
-		super(Material.circuits, Block.soundTypeMetal, "recall");
+		super(Material.iron, Block.soundTypeMetal, "recall");
 		setHardness(3);
 		setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
+		setLightOpacity(0);
 	}
+	
+	public boolean isOpaqueCube() {
+        return false;
+    }
     
 	public void registerBlockIcons(IIconRegister ir) {
-		side = ir.registerIcon(Reference.MOD_ID + ":recall");
+		top = ir.registerIcon(Reference.MOD_ID + ":destination");
 	}
 	
 	@SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        return Blocks.beacon.getIcon(side, meta);
+        if(side == 1) {
+        	return top;
+        } else {
+        	return Blocks.anvil.getIcon(0, 0);
+        }
     }
 	
 	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack is) {
