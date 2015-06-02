@@ -19,34 +19,58 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
 public class ItemCane extends ItemSword {
-	//private static HashMap<EntityPlayer, Integer> map = new HashMap<EntityPlayer, Integer>();
-	
-	private float weaponDamage;
+	//private float weaponDamage;
 	
 	public ItemCane(String unlocalizedName, ToolMaterial material) {
 		super(material);
 		this.setUnlocalizedName(unlocalizedName);
 		this.setTextureName(Reference.MOD_ID + ":" + unlocalizedName);
 		this.setCreativeTab(ToeTab.TOE_TAB);
-		this.weaponDamage = 1.0F;
+		//this.weaponDamage = 1.0F;
 	}
 	
 	public void onUpdate(ItemStack is, World world, Entity entity, int par4, boolean par5) {
-	    //LogHelper.info("stackTagCompound == " + is.stackTagCompound);
 		if (is.stackTagCompound == null) {
 			is.stackTagCompound = new NBTTagCompound();
 		    is.stackTagCompound.setInteger("stacks", 0);
-		    //LogHelper.info("cane created on update..");
 		}
+		
+//		EntityPlayer player = (EntityPlayer) entity;
+		
+//		if(player.getHeldItem() != null && player.getHeldItem().getItem() == this) {
+////			EntityScorpion e = new EntityScorpion(world);
+////			Helper.createEntity(e, 0, 10, 0);
+////			entity.mountEntity(e);
+////			LogHelper.info("mounted");
+//			//player.setInvisible(true);
+//			int x = (int) Math.floor(player.posX);
+//			int y = (int) Math.floor(player.posY);
+//			int z = (int) Math.floor(player.posZ);
+////			world.getBlock(x, y, z).setLightLevel(1);
+////			world.getBlock(x, y+1, z).setLightLevel(1);
+////			world.setBlock(x, y-2, z, Blocks.glowstone);
+//			if(!world.isRemote && world.getBlock(x, y-1, z) == Blocks.water) {
+//				world.setBlock(x+1, y-1, z+1, Blocks.ice);
+//				world.setBlock(x+1, y-1, z, Blocks.ice);
+//				world.setBlock(x+1, y-1, z-1, Blocks.ice);
+//				world.setBlock(x, y-1, z+1, Blocks.ice);
+//				world.setBlock(x, y-1, z, Blocks.ice);
+//				world.setBlock(x, y-1, z-1, Blocks.ice);
+//				world.setBlock(x-1, y-1, z+1, Blocks.ice);
+//				world.setBlock(x-1, y-1, z, Blocks.ice);
+//				world.setBlock(x-1, y-1, z-1, Blocks.ice);
+//				LogHelper.info("iced");
+//			}
+//			
+//		} else {
+//			//player.setInvisible(false);
+////			int x = (int) player.posX;
+////			int y = (int) player.posY;
+////			int z = (int) player.posZ;
+////			world.getBlock(x, y, z).setLightLevel(0);
+////			world.getBlock(x, y+1, z).setLightLevel(0);
+//		}
 	}
-	
-//	@Override
-//	public void onCreated(ItemStack itemStack, World world, EntityPlayer player) {
-//	    itemStack.stackTagCompound = new NBTTagCompound();
-//	    itemStack.stackTagCompound.setInteger("stacks", 0);
-//	    
-//	    LogHelper.info("cane created..");
-//	}
 	
 	@Override
 	public boolean hitEntity(ItemStack itemStack, EntityLivingBase elb, EntityLivingBase elb2) {
@@ -68,63 +92,9 @@ public class ItemCane extends ItemSword {
 		
 		if (stack.stackTagCompound != null) {
 			int stacks = stack.stackTagCompound.getInteger("stacks");
-			multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", (double)this.weaponDamage + (stacks / 10), 0));
+			multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "Weapon modifier", 1 + (stacks / 10), 0));
 		}
 		
 		return multimap;
 	}
-	
-//	public static void addPlayer(ItemStack is, EntityPlayer player, int stacks) {
-//		map.put(player, stacks);
-//	}
-//	
-//	public static void update(EntityPlayer player, int stacks)
-//	{
-//		if (map.containsKey(player))
-//		{
-//			map.put(player, stacks);
-//		}
-//		else
-//		{
-//			LogHelper.info("Doesnt contatin player");
-//		}
-//	}
-//	
-//	public static void removePlayer(EntityPlayer player, int stacks)
-//	{
-//		if (map.containsKey(player))
-//		{
-//			map.remove(player);
-//		}
-//		else
-//		{
-//			LogHelper.info("Doesnt contatin player");
-//		}
-//	}
-//	
-//	public static int getStacks(EntityPlayer player)
-//	{
-//		if (map.containsKey(player))
-//		{
-//			return map.get(player);
-//		}
-//		else
-//		{
-//			LogHelper.info("Doesnt contatin player");
-//			return 0;
-//		}
-//	}
-//	
-//	public static boolean playerExists(EntityPlayer player)
-//	{
-//		if (map.containsKey(player))
-//		{
-//			return true;
-//		}
-//		else
-//		{
-//			LogHelper.info("Player doesnt exist");
-//			return false;
-//		}
-//	}
 }

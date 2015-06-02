@@ -1,4 +1,4 @@
-package com.abstractlabs.toe.render;
+package com.abstractlabs.toe.renderer;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;

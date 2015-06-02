@@ -40,9 +40,9 @@ public class ItemRecall extends ItemToe {
 	        		
 	        		player.setPositionAndUpdate(x+0.5, y+0.5, z+0.5);
 	        		
-	            	Helper.msg(player, "Teleported successfully to " + name + ".", Color.lime);
+	            	Helper.msgClean(player, "Teleported successfully to " + name + ".", Color.lime);
 	    		} else {
-	            	Helper.msg(player, "The destination block has been obscructed. Please connect to a new destination.", Color.red);
+	            	Helper.msgClean(player, "The destination block has been obscructed. Please connect to a new destination.", Color.red);
 	            	is.stackTagCompound = null;
 	    		}
     		}

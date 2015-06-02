@@ -1,4 +1,4 @@
-package com.abstractlabs.toe.render;
+package com.abstractlabs.toe.renderer;
 
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
@@ -16,18 +16,18 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderFlashbang extends Render {
-	private static final ResourceLocation texture = new ResourceLocation(Reference.MOD_ID, "textures/entity/flashbang.png");
+public class RenderGrenade extends Render {
+	private static final ResourceLocation texture = new ResourceLocation(Reference.MOD_ID, "textures/entity/grenade.png");
 	
     private Item item;
     private int meta;
 
-    public RenderFlashbang(Item item, int meta) {
+    public RenderGrenade(Item item, int meta) {
         this.item = item;
         this.meta = meta;
     }
 
-    public RenderFlashbang(Item item) {
+    public RenderGrenade(Item item) {
         this(item, 0);
     }
 

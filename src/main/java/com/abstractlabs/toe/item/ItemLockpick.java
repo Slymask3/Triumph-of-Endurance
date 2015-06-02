@@ -2,32 +2,57 @@ package com.abstractlabs.toe.item;
 
 import java.util.List;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import net.minecraftforge.common.DimensionManager;
 
-import com.abstractlabs.toe.reference.Color;
-import com.abstractlabs.toe.reference.Reference;
-import com.abstractlabs.toe.utility.Helper;
+import com.abstractlabs.toe.skill.theiving.ThievingHelper;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemLockpick extends ItemToe {
-	public ItemLockpick(int maxdmg) {
+	private int lvl;
+	private double chance;
+	
+	public ItemLockpick(int maxdmg, int lvl, double chance) {
 		super();
 		this.maxStackSize = 1;
 		this.setMaxDamage(maxdmg);
+		this.lvl = lvl;
+		this.chance = chance;
 	}
 	
 	public ItemStack onItemRightClick(ItemStack is, World world, EntityPlayer player) {
-        
-        
+		//unlocking chest code in locked chest class
         return is;
     }
 	
+	@SideOnly(Side.CLIENT)
+    public boolean isFull3D() {
+        return true;
+    }
+	
+	public int getLvl() {
+		return this.lvl;
+	}
+	
+	public double getChance() {
+		return this.chance;
+	}
+	
 	public void addInformation(ItemStack is, EntityPlayer player, List list, boolean par4) {
-		//might add some info later
+		int max = (is.getMaxDamage()) + 1;
+		int dmg = (is.getMaxDamage() - is.getItemDamage()) + 1;
+
+		if(ThievingHelper.getProperties(player).getLevel() >= this.lvl) {
+			list.add(EnumChatFormatting.GREEN + "Level Required: " + this.lvl);
+		} else {
+			list.add(EnumChatFormatting.RED + "Level Required: " + this.lvl);
+		}
+		
+		list.add(EnumChatFormatting.AQUA + "Chance: " + this.chance*100 + "%");
+		list.add(EnumChatFormatting.GREEN + "Uses: " + dmg + "/" + max);
 	}
 }
