@@ -48,12 +48,12 @@ public class Toe {
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 		
 		packetPipeline.init();
-		
+
+		ToePackets.init();
 		ToeBlocks.init();
 		ToeItems.init();
 		ToeRenders.init();
 		ToeMobs.init();
-		ToePackets.init();
 		ToeBusses.init();
 		ToeTiles.init();
 		ToeDimensions.init();

@@ -3,6 +3,7 @@ package com.abstractlabs.toe.utility;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -138,4 +139,13 @@ public class Helper {
             }
         }
     }
+	
+	
+	public static void drawStringWithBorder(Minecraft mc, int x, int y, Object o, int textColor, int borderColor) {
+		mc.fontRenderer.drawString(o+"", x, y+1, borderColor);
+		mc.fontRenderer.drawString(o+"", x, y-1, borderColor);
+		mc.fontRenderer.drawString(o+"", x+1, y, borderColor);
+		mc.fontRenderer.drawString(o+"", x-1, y, borderColor);
+		mc.fontRenderer.drawString(o+"", x, y, textColor);
+	}
 }
