@@ -1,5 +1,9 @@
 package com.abstractlabs.toe.proxy;
 
+import java.lang.reflect.Field;
+import java.util.List;
+
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelZombie;
 import net.minecraft.client.settings.KeyBinding;
@@ -13,9 +17,12 @@ import com.abstractlabs.toe.entity.passive.EntityBoi;
 import com.abstractlabs.toe.entity.projectile.EntityFlashbang;
 import com.abstractlabs.toe.entity.projectile.EntityGrenade;
 import com.abstractlabs.toe.gui.GuiArenaOverlay;
+import com.abstractlabs.toe.gui.GuiScreenOverlay;
 import com.abstractlabs.toe.handler.KeyHandler;
+import com.abstractlabs.toe.handler.ResourceLoc;
 import com.abstractlabs.toe.init.ToeItems;
 import com.abstractlabs.toe.model.ModelScorpion;
+import com.abstractlabs.toe.renderer.RenderATM;
 import com.abstractlabs.toe.renderer.RenderBoi;
 import com.abstractlabs.toe.renderer.RenderFlashbang;
 import com.abstractlabs.toe.renderer.RenderGrenade;
@@ -23,6 +30,7 @@ import com.abstractlabs.toe.renderer.RenderLandmine;
 import com.abstractlabs.toe.renderer.RenderLockedChest;
 import com.abstractlabs.toe.renderer.RenderMummy;
 import com.abstractlabs.toe.renderer.RenderScorpion;
+import com.abstractlabs.toe.renderer.RenderStatueBiped;
 import com.abstractlabs.toe.skill.DescriptionGUI;
 import com.abstractlabs.toe.skill.agility.AgilityGUI;
 import com.abstractlabs.toe.skill.arenalism.ArenalismGUI;
@@ -40,8 +48,10 @@ import com.abstractlabs.toe.skill.smelting.SmeltingGUI;
 import com.abstractlabs.toe.skill.swords.SwordsGUI;
 import com.abstractlabs.toe.skill.theiving.ThievingGUI;
 import com.abstractlabs.toe.skill.woodcutting.WoodcuttingGUI;
+import com.abstractlabs.toe.tileentity.TileEntityATM;
 import com.abstractlabs.toe.tileentity.TileEntityLandmine;
 import com.abstractlabs.toe.tileentity.TileEntityLockedChest;
+import com.abstractlabs.toe.tileentity.TileEntityStatueBiped;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -52,6 +62,8 @@ public class ClientProxy extends CommonProxy {
 	
 	@Override
 	public void registerInformation() {
+		//ConfigHandler.init(new File(Reference.MOD_ID + "_client.cfg"));
+		
 		MinecraftForge.EVENT_BUS.register(new SwordsGUI());
 		MinecraftForge.EVENT_BUS.register(new RangedGUI());
 		MinecraftForge.EVENT_BUS.register(new MagicGUI());
@@ -71,6 +83,8 @@ public class ClientProxy extends CommonProxy {
 		
 		MinecraftForge.EVENT_BUS.register(new DescriptionGUI());
 		MinecraftForge.EVENT_BUS.register(new GuiArenaOverlay());
+		MinecraftForge.EVENT_BUS.register(new GuiScreenOverlay());
+//		MinecraftForge.EVENT_BUS.register(new GuiATMOverlay());
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityFlashbang.class, new RenderFlashbang(ToeItems.flashbang));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderGrenade(ToeItems.grenade));
@@ -81,10 +95,17 @@ public class ClientProxy extends CommonProxy {
 
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLockedChest.class, new RenderLockedChest());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLandmine.class, new RenderLandmine());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStatueBiped.class, new RenderStatueBiped());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityATM.class, new RenderATM());
+		
+		//MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ToeBlocks.atm), new ItemRenderATM(new RenderATM(), new TileEntityATM()));
 		
 		registerKeys();
 		
 		FMLCommonHandler.instance().bus().register(new KeyHandler());
+		
+		
+		registerTexturePacks();
 	}
 	
 	public int addArmor(String armor){
@@ -102,4 +123,25 @@ public class ClientProxy extends CommonProxy {
 		    ClientRegistry.registerKeyBinding(keyBindings[i]);
 		}
 	}
+
+//	@Override
+//	public void createConfigFile(File file) {
+//		ConfigurationHandler.init(file);
+//		LogHelper.info("[ClientProxy] Created config file.");
+//	}
+	
+	private void registerTexturePacks() {
+		try {
+            Field f = Minecraft.class.getDeclaredField("defaultResourcePacks");
+            f.setAccessible(true);
+            List list = (List) f.get(Minecraft.getMinecraft());
+            list.add(new ResourceLoc());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+	}
+	
+//	private String getDeclaredFieldDefaultResourcePacks(){
+//		return developmentEnvironment ? "defaultResourcePacks" : "field_110449_ao";
+//	}
 }

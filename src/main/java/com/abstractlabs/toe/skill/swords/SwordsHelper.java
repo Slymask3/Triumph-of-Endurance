@@ -8,6 +8,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IExtendedEntityProperties;
 
 import com.abstractlabs.toe.init.ToePackets;
+import com.abstractlabs.toe.reference.Skill;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
@@ -79,13 +80,13 @@ public class SwordsHelper implements IExtendedEntityProperties {
 	}
 	
 	public void levelUp() {
-		if (this.level != 100)
+		if (this.level != Skill.maxLevel)
 			//this.player.field_70170_p.func_72956_a(this.player, "nevermine:LevelUp", 3.85F, 1.0F);
 			this.level += 1;
-		if (this.level == 100)
+		if (this.level == Skill.maxLevel)
 			//this.player.field_70170_p.func_72956_a(this.player, "nevermine:Level100", 3.85F, 1.0F);
-		if (this.level == 101)
-			this.level = 100;
+		if (this.level == Skill.maxLevel+1)
+			this.level = Skill.maxLevel;
 		this.exp = 0.0F;
 		if (this.player instanceof EntityPlayerMP)
 			ToePackets.network.sendTo(new SwordsPacket(this.level, progressPercentage()), (EntityPlayerMP)this.player);

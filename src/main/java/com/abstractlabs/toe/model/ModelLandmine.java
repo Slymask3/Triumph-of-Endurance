@@ -15,6 +15,7 @@ public class ModelLandmine extends ModelBase {
     ModelRenderer RightOut;
     ModelRenderer LeftIn;
     ModelRenderer LeftOut;
+    ModelRenderer Button;
   
   public ModelLandmine() {
     textureWidth = 64;
@@ -74,6 +75,12 @@ public class ModelLandmine extends ModelBase {
       LeftOut.setTextureSize(64, 32);
       LeftOut.mirror = true;
       setRotation(LeftOut, 0F, 0F, 0F);
+      Button = new ModelRenderer(this, 44, 0);
+      Button.addBox(0F, 0F, 0F, 2, 1, 2);
+      Button.setRotationPoint(-1F, 22F, -1F);
+      Button.setTextureSize(64, 32);
+      Button.mirror = true;
+      setRotation(Button, 0F, 0F, 0F);
   }
   
   public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)  {
@@ -88,6 +95,7 @@ public class ModelLandmine extends ModelBase {
     RightOut.render(f5);
     LeftIn.render(f5);
     LeftOut.render(f5);
+    Button.render(f5);
   }
   
   public void renderModel(float f5) {
@@ -100,6 +108,7 @@ public class ModelLandmine extends ModelBase {
 	RightOut.render(f5);
 	LeftIn.render(f5);
 	LeftOut.render(f5);
+    Button.render(f5);
   }
   
   private void setRotation(ModelRenderer model, float x, float y, float z) {

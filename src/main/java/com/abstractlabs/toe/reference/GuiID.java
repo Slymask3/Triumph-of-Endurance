@@ -4,5 +4,6 @@ public enum GuiID {
     ARMOURY,
     UTILITY,
     WEAPONRY,
-    RECALL;
+    RECALL,
+    ATM;
 }

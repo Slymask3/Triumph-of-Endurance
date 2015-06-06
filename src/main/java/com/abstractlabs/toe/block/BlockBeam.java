@@ -1,26 +1,17 @@
 package com.abstractlabs.toe.block;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.Facing;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import com.abstractlabs.toe.reference.Color;
+import com.abstractlabs.toe.gui.GuiScreenOverlay;
 import com.abstractlabs.toe.reference.Reference;
-import com.abstractlabs.toe.skill.arenalism.ArenalismHelper;
-import com.abstractlabs.toe.utility.Helper;
-import com.abstractlabs.toe.utility.LogHelper;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -45,12 +36,12 @@ public class BlockBeam extends BlockToe {
     }
 	
 	@Override
-	public int getRenderBlockPass(){
+	public int getRenderBlockPass() {
 		return 1;
 	}
 	
 	@Override
-	public boolean renderAsNormalBlock(){
+	public boolean renderAsNormalBlock() {
 		return false;
 	}
     
@@ -93,6 +84,14 @@ public class BlockBeam extends BlockToe {
         //entity.motionY += 0.05;
         //entity.serverPosY += 0.05;
         //entity.moveFlying(0F, 1F, 0F);
+//        if(!world.isRemote && entity instanceof EntityPlayer) {
+//        	Toe.packetPipeline.sendTo(new PacketScreenOverlay(5, 1), (EntityPlayerMP) entity);
+//        }
+        
+        if(world.isRemote) {
+        	GuiScreenOverlay.showTicks = 5;
+    		GuiScreenOverlay.image = 1;
+        }
     }
     
     public void onEntityWalking(World world, int x, int y, int z, Entity entity) {

@@ -85,7 +85,7 @@ public class BlockLandmine extends BlockBaseLandmine implements ITileEntityProvi
     }
 
     public int getRenderType() {
-        return 50;
+        return -1;
     }
     
 	@Override

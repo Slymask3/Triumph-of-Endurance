@@ -129,6 +129,8 @@ public class PacketPipeline extends MessageToMessageCodec<FMLProxyPacket, Abstra
         registerPacket(PacketUtility.class);
         registerPacket(PacketArena.class);
         registerPacket(PacketRecall.class);
+        registerPacket(PacketScreenOverlay.class);
+        registerPacket(PacketATM.class);
         //registerPacket(PacketArenalism.class);
     }
  

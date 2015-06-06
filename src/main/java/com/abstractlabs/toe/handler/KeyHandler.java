@@ -24,16 +24,16 @@ public class KeyHandler {
 	    if (keyBindings[0].isPressed()) {
 	        //System.out.println("Key binding ="+keyBindings[0].getKeyDescription());
 	        
-	        if(DescriptionGUI.isOn) {
-	        	DescriptionGUI.isOn = false;
+	        if(ConfigHandler.skillDesc) {
+	        	ConfigHandler.skillDesc = false;
 	        	LogHelper.info("turned off");
-	        } else if (!DescriptionGUI.isOn) {
-	        	DescriptionGUI.isOn = true;
+	        } else if (!ConfigHandler.skillDesc) {
+	        	ConfigHandler.skillDesc = true;
 	        	LogHelper.info("turned on");
 	        }
 	    }
 	    
-	    if(DescriptionGUI.isOn && keyBindings[1].isPressed()) {
+	    if(ConfigHandler.skillDesc && keyBindings[1].isPressed()) {
 	    	DescriptionGUI.skillSelected--;
 	    	
 	    	if(DescriptionGUI.skillSelected < 1) {
@@ -41,7 +41,7 @@ public class KeyHandler {
 	    	}
 	    }
 	    
-	    if(DescriptionGUI.isOn && keyBindings[2].isPressed()) {
+	    if(ConfigHandler.skillDesc && keyBindings[2].isPressed()) {
 	    	DescriptionGUI.skillSelected++;
 	    	
 	    	if(DescriptionGUI.skillSelected > 16) {

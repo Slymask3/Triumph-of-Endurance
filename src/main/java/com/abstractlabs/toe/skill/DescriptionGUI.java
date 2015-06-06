@@ -7,6 +7,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 
+import com.abstractlabs.toe.handler.ConfigHandler;
 import com.abstractlabs.toe.reference.Skill;
 import com.abstractlabs.toe.utility.Helper;
 
@@ -15,7 +16,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 public class DescriptionGUI extends Gui {
 	Minecraft mc = Minecraft.getMinecraft();
 	
-	public static boolean isOn = true;
+	//public static boolean isOn = true;
 	
 	public static int skillSelected = 1;
 	
@@ -96,7 +97,7 @@ public class DescriptionGUI extends Gui {
 			return;
 		}
 		
-		if(!isOn) {
+		if(!ConfigHandler.skillDesc) {
 			return;
 		}
 		
@@ -179,7 +180,7 @@ public class DescriptionGUI extends Gui {
 		int width = scaledresolution.getScaledWidth();
 		int height = scaledresolution.getScaledHeight();
 		
-		if(lvl == 100) {
+		if(lvl == Skill.maxLevel) {
 			this.mc.renderEngine.bindTexture(new ResourceLocation(gold));
 		} else {
 			this.mc.renderEngine.bindTexture(new ResourceLocation(normal));

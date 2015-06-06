@@ -19,6 +19,7 @@ public class FarmingGUI extends Gui {
 	public static int percent;
 
 	private String texture = Skill.texture_farming;
+	private String texture_gold = Skill.texture_farming_gold;
 	private int xPos = Skill.guiX_7;
 	private int yPos = Skill.guiY_7;
 
@@ -32,7 +33,12 @@ public class FarmingGUI extends Gui {
 		int h = scaledresolution.getScaledHeight();
 		int w = scaledresolution.getScaledWidth();
 		
-		this.mc.renderEngine.bindTexture(new ResourceLocation(texture));
+		if(lvl == Skill.maxLevel) {
+			this.mc.renderEngine.bindTexture(new ResourceLocation(texture_gold));
+		} else {
+			this.mc.renderEngine.bindTexture(new ResourceLocation(texture));
+		}
+		
 		int y = yPos;
 		int x = w - xPos;
 		this.drawTexturedModalRect(x, y, 0, 0, 16, 16);
@@ -42,7 +48,7 @@ public class FarmingGUI extends Gui {
 		this.mc.renderEngine.bindTexture(new ResourceLocation("toe:textures/gui/percentageBar.png"));
 		y += 14;
       
-		if (lvl != 100) {
+		if (lvl != Skill.maxLevel) {
 			this.drawTexturedModalRect(x, y, 0, 0, 15, 1);
 			this.drawTexturedModalRect(x, y, 0, 1, (int)(15D * (percent / 100D)), 2);
 		} else {

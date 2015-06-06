@@ -7,7 +7,10 @@ import java.util.Scanner;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 
+import com.abstractlabs.toe.Toe;
 import com.abstractlabs.toe.init.ToePackets;
+import com.abstractlabs.toe.network.PacketATM;
+import com.abstractlabs.toe.player.ATM;
 import com.abstractlabs.toe.reference.Color;
 import com.abstractlabs.toe.reference.Reference;
 import com.abstractlabs.toe.skill.agility.AgilityHelper;
@@ -112,25 +115,24 @@ public class ConnectionHandler {
 			EntityPlayer p = e.player;
 			if (p instanceof EntityPlayerMP) {
 				//have to update packets (wave, enemiesLeft, maxWaves)
-
-				//if(SwordsHelper.getProperties(p) != null) {
-			        ToePackets.network.sendTo(new SwordsPacket(SwordsHelper.getProperties(p).getLevel(), SwordsHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
-			        ToePackets.network.sendTo(new RangedPacket(RangedHelper.getProperties(p).getLevel(), RangedHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
-			        ToePackets.network.sendTo(new MagicPacket(MagicHelper.getProperties(p).getLevel(), MagicHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
-			        ToePackets.network.sendTo(new MiningPacket(MiningHelper.getProperties(p).getLevel(), MiningHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
-			        ToePackets.network.sendTo(new WoodcuttingPacket(WoodcuttingHelper.getProperties(p).getLevel(), WoodcuttingHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
-			        ToePackets.network.sendTo(new FishingPacket(FishingHelper.getProperties(p).getLevel(), FishingHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
-			        ToePackets.network.sendTo(new FarmingPacket(FarmingHelper.getProperties(p).getLevel(), FarmingHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
-			        ToePackets.network.sendTo(new CookingPacket(CookingHelper.getProperties(p).getLevel(), CookingHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
-			        ToePackets.network.sendTo(new SmeltingPacket(SmeltingHelper.getProperties(p).getLevel(), SmeltingHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
-			        ToePackets.network.sendTo(new BrewingPacket(BrewingHelper.getProperties(p).getLevel(), BrewingHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
-			        ToePackets.network.sendTo(new RunemakingPacket(RunemakingHelper.getProperties(p).getLevel(), RunemakingHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
-			        ToePackets.network.sendTo(new PrayerPacket(PrayerHelper.getProperties(p).getLevel(), PrayerHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
-			        ToePackets.network.sendTo(new SlayerPacket(SlayerHelper.getProperties(p).getLevel(), SlayerHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
-			        ToePackets.network.sendTo(new AgilityPacket(AgilityHelper.getProperties(p).getLevel(), AgilityHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
-			        ToePackets.network.sendTo(new ThievingPacket(ThievingHelper.getProperties(p).getLevel(), ThievingHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
-			        ToePackets.network.sendTo(new ArenalismPacket(ArenalismHelper.getProperties(p).getLevel(), ArenalismHelper.getProperties(p).progressPercentage(), ArenalismHelper.getProperties(p).inArena(), ArenalismHelper.getProperties(p).getCash()), (EntityPlayerMP)p);
-				//}
+		        ToePackets.network.sendTo(new SwordsPacket(SwordsHelper.getProperties(p).getLevel(), SwordsHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
+		        ToePackets.network.sendTo(new RangedPacket(RangedHelper.getProperties(p).getLevel(), RangedHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
+		        ToePackets.network.sendTo(new MagicPacket(MagicHelper.getProperties(p).getLevel(), MagicHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
+		        ToePackets.network.sendTo(new MiningPacket(MiningHelper.getProperties(p).getLevel(), MiningHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
+		        ToePackets.network.sendTo(new WoodcuttingPacket(WoodcuttingHelper.getProperties(p).getLevel(), WoodcuttingHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
+		        ToePackets.network.sendTo(new FishingPacket(FishingHelper.getProperties(p).getLevel(), FishingHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
+		        ToePackets.network.sendTo(new FarmingPacket(FarmingHelper.getProperties(p).getLevel(), FarmingHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
+		        ToePackets.network.sendTo(new CookingPacket(CookingHelper.getProperties(p).getLevel(), CookingHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
+		        ToePackets.network.sendTo(new SmeltingPacket(SmeltingHelper.getProperties(p).getLevel(), SmeltingHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
+		        ToePackets.network.sendTo(new BrewingPacket(BrewingHelper.getProperties(p).getLevel(), BrewingHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
+		        ToePackets.network.sendTo(new RunemakingPacket(RunemakingHelper.getProperties(p).getLevel(), RunemakingHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
+		        ToePackets.network.sendTo(new PrayerPacket(PrayerHelper.getProperties(p).getLevel(), PrayerHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
+		        ToePackets.network.sendTo(new SlayerPacket(SlayerHelper.getProperties(p).getLevel(), SlayerHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
+		        ToePackets.network.sendTo(new AgilityPacket(AgilityHelper.getProperties(p).getLevel(), AgilityHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
+		        ToePackets.network.sendTo(new ThievingPacket(ThievingHelper.getProperties(p).getLevel(), ThievingHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
+		        ToePackets.network.sendTo(new ArenalismPacket(ArenalismHelper.getProperties(p).getLevel(), ArenalismHelper.getProperties(p).progressPercentage(), ArenalismHelper.getProperties(p).inArena(), ArenalismHelper.getProperties(p).getCash()), (EntityPlayerMP)p);
+		        
+		        Toe.packetPipeline.sendTo(new PacketATM(2, ATM.getProperties(p).getCopperCoins(), ATM.getProperties(p).getSilverCoins(), ATM.getProperties(p).getGoldCoins()), (EntityPlayerMP)p);
 			}
 	    }
 	}

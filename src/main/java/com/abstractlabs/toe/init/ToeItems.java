@@ -15,6 +15,8 @@ import com.abstractlabs.toe.item.ItemLockpick;
 import com.abstractlabs.toe.item.ItemMagmaArmour;
 import com.abstractlabs.toe.item.ItemNimbleArmour;
 import com.abstractlabs.toe.item.ItemRecall;
+import com.abstractlabs.toe.item.ItemTester;
+import com.abstractlabs.toe.item.ItemToe;
 import com.abstractlabs.toe.reference.Thieving;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -34,6 +36,10 @@ public class ToeItems {
 	public static Item paperclip = new ItemLockpick(Thieving.paperclipUses-1, Thieving.paperclipLvl, Thieving.paperclipChance).setUnlocalizedName("paperclip");
 	public static Item lockpick = new ItemLockpick(Thieving.lockpickUses-1, Thieving.lockpickLvl, Thieving.lockpickChance).setUnlocalizedName("lockpick");
 	public static Item masterKey = new ItemLockpick(Thieving.masterKeyUses-1, Thieving.masterKeyLvl, Thieving.masterKeyChance).setUnlocalizedName("masterKey");
+	public static Item tester = new ItemTester().setUnlocalizedName("testerItem");
+	public static Item coinCopper = new ItemToe().setUnlocalizedName("coinCopper");
+	public static Item coinSilver = new ItemToe().setUnlocalizedName("coinSilver");
+	public static Item coinGold = new ItemToe().setUnlocalizedName("coinGold");
 	
 	public static Item magmaHelmet = new ItemMagmaArmour("magmaHelmet", magmaMaterial, "magmaHelmet", 0);
 	public static Item magmaPlate = new ItemMagmaArmour("magmaPlate", magmaMaterial, "magmaPlate", 1);
@@ -57,7 +63,11 @@ public class ToeItems {
 		GameRegistry.registerItem(paperclip, "paperclip");
 		GameRegistry.registerItem(lockpick, "lockpick");
 		GameRegistry.registerItem(masterKey, "masterKey");
+		GameRegistry.registerItem(tester, "testerItem");
 		GameRegistry.registerItem(cane, "cane");
+		GameRegistry.registerItem(coinCopper, "coinCopper");
+		GameRegistry.registerItem(coinSilver, "coinSilver");
+		GameRegistry.registerItem(coinGold, "coinGold");
 		
 		GameRegistry.registerItem(magmaHelmet, "magmaHelmet");
 		GameRegistry.registerItem(magmaPlate, "magmaPlate");
