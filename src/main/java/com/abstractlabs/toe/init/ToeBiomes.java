@@ -15,6 +15,7 @@ import net.minecraftforge.common.BiomeManager;
 
 import com.abstractlabs.toe.biome.BiomeFlat;
 import com.abstractlabs.toe.biome.BiomeHollows;
+import com.abstractlabs.toe.biomedecorator.BiomeDecoratorToe;
 
 public class ToeBiomes extends BiomeGenBase
 {
@@ -27,7 +28,7 @@ public class ToeBiomes extends BiomeGenBase
 	public ToeBiomes(int biomeId)
 	{
 		super(biomeId);
-		this.theBiomeDecorator = new BiomeDecorator();
+		this.theBiomeDecorator = new BiomeDecoratorToe();
 	}
 	
 	public static void mainRegistry()

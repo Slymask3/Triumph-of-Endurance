@@ -363,8 +363,8 @@ public class BlockHollowsPortal extends BlockBreakable
 
 					for (j = 0; j < this.field_150868_h; ++j)
 					{
-						k = this.field_150861_f.posX + j * Direction.offsetX[BlockFlatPortal.field_150001_a[this.field_150865_b][1]];
-						l = this.field_150861_f.posZ + j * Direction.offsetZ[BlockFlatPortal.field_150001_a[this.field_150865_b][1]];
+						k = this.field_150861_f.posX + j * Direction.offsetX[BlockHollowsPortal.field_150001_a[this.field_150865_b][1]];
+						l = this.field_150861_f.posZ + j * Direction.offsetZ[BlockHollowsPortal.field_150001_a[this.field_150865_b][1]];
 						Block block = this.worldObj.getBlock(k, i, l);
 
 						if (!this.getBlockMaterial(block))
@@ -372,14 +372,14 @@ public class BlockHollowsPortal extends BlockBreakable
 							break label56;
 						}
 
-						if (block == ToeBlocks.flatPortal)
+						if (block == ToeBlocks.hollowPortal)
 						{
 							++this.field_150864_e;
 						}
 
 						if (j == 0)
 						{
-							block = this.worldObj.getBlock(k + Direction.offsetX[BlockFlatPortal.field_150001_a[this.field_150865_b][0]], i, l + Direction.offsetZ[BlockFlatPortal.field_150001_a[this.field_150865_b][0]]);
+							block = this.worldObj.getBlock(k + Direction.offsetX[BlockHollowsPortal.field_150001_a[this.field_150865_b][0]], i, l + Direction.offsetZ[BlockHollowsPortal.field_150001_a[this.field_150865_b][0]]);
 
 							if (block != Blocks.stone)
 							{

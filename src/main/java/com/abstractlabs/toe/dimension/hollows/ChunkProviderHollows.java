@@ -14,6 +14,7 @@ import java.util.Random;
 import java.util.logging.Level;
 
 import com.abstractlabs.toe.init.ToeBiomes;
+import com.abstractlabs.toe.init.ToeBlocks;
 import com.abstractlabs.toe.utility.LogHelper;
 
 import net.minecraft.block.Block;
@@ -174,7 +175,7 @@ public class ChunkProviderHollows implements IChunkProvider {
 							double d15 = d10 - d16;
 							for (int k3 = 0; k3 < 4; ++k3) {
 								if ((d15 += d16) > 0.0D) {
-									blocks[j3 += short1] = Blocks.grass;//these can be set to custom blocks
+									blocks[j3 += short1] = ToeBlocks.hollowGrass;//these can be set to custom blocks
 								} else if (k2 * 8 + l2 < b0) {
 									blocks[j3 += short1] = Blocks.water;//these can be set to custom blocks
 								} else {

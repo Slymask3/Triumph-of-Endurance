@@ -39,9 +39,10 @@ public class BiomeDecoratorHelper
 			/** get blocks at the given locations **/
 			Block block;
 			Block blockA;
-			/** Generates Small tree **/
+			/** Generates some other tree **/
 			for (int a = 0; a < i; ++a)
 			{
+				/*
 				if (i == BiomeDecoratorToe.randomGenerator.nextInt(8))
 				{
 					chunkX = BiomeDecoratorToe.chunk_X + BiomeDecoratorToe.randomGenerator.nextInt(16) + 8;
@@ -57,7 +58,8 @@ public class BiomeDecoratorHelper
 						}
 					}
 				}
-				/** Generates Big tree **/
+				*/
+				/** Generates Hollow tree **/
 				if (i == BiomeDecoratorToe.randomGenerator.nextInt(15))
 				{
 					chunkX = BiomeDecoratorToe.chunk_X + BiomeDecoratorToe.randomGenerator.nextInt(16) + 8;
@@ -69,13 +71,13 @@ public class BiomeDecoratorHelper
 					{
 						if (blockA != Blocks.air || blockA != Blocks.water)
 						{
-							//BiomeDecoratorToe.bigTree.generate(BiomeDecoratorToe.currentWorld, BiomeDecoratorToe.randomGenerator, chunkX, y, chunkZ);
+							BiomeDecoratorToe.hollowTree.generate(BiomeDecoratorToe.currentWorld, BiomeDecoratorToe.randomGenerator, chunkX, y, chunkZ);
 						}
 					}
 				}
 			}
 			// if(biome == ToeBiomes.something){
-			//GENERARTE DARK FOREST STUFF HERE 
+			//GENERARTE biome STUFF HERE 
 			//}
 		}
 	}

@@ -1,11 +1,6 @@
 package com.abstractlabs.toe.dimension.hollows;
 
-import com.abstractlabs.toe.Toe;
-import com.abstractlabs.toe.init.ToeBiomes;
-import com.abstractlabs.toe.init.ToeDimensions;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
@@ -13,6 +8,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
+
+import com.abstractlabs.toe.init.ToeBiomes;
+import com.abstractlabs.toe.init.ToeDimensions;
+
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class WorldProviderHollows extends WorldProvider
 {
@@ -156,4 +157,13 @@ public class WorldProviderHollows extends WorldProvider
 		f1 = f2 + (f1 - f2) / 3.0F;
 		return f1;
 	}
+	
+	/*
+	@Override
+    public Vector3 getSkyColor()
+    {
+        float f = 1.0F - this.getStarBrightness(1.0F);
+        return new Vector3(154 / 255.0F * f, 114 / 255.0F * f, 66 / 255.0F * f);
+    }
+    */
 }

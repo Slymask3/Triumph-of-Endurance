@@ -2,13 +2,15 @@ package com.abstractlabs.toe.biomedecorator;
 
 import java.util.Random;
 
-import com.abstractlabs.toe.init.ToeBiomes;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+
+import com.abstractlabs.toe.init.ToeBiomes;
+import com.abstractlabs.toe.worldgen.WorldGenEffectTree;
+import com.abstractlabs.toe.worldgen.WorldGenForestHollowTree;
 
 public class BiomeDecoratorToe extends BiomeDecorator
 {
@@ -27,25 +29,18 @@ public class BiomeDecoratorToe extends BiomeDecorator
 
 	/** Dimension Trees **/
 	//public static WorldGenForestTrees smallTree;
-	//public static WorldGenForestBigTree bigTree;
-	//public static WorldGenEffectTree effectTree;
+	public static WorldGenForestHollowTree hollowTree;
+	public static WorldGenEffectTree effectTree;
 
 	@SuppressWarnings("unused")
 	private static final String __OBFID = "CL_00000164";
 
 	public BiomeDecoratorToe() 
 	{
-		coalGen = new WorldGenMinable(Blocks.coal_ore, 16, Blocks.coal_ore);
-		ironGen = new WorldGenMinable(Blocks.iron_ore, 8, Blocks.iron_ore);
-		goldGen = new WorldGenMinable(Blocks.gold_ore, 8, Blocks.grass);
-		redstoneGen = new WorldGenMinable(Blocks.redstone_ore, 7, Blocks.redstone_ore);
-		diamondGen = new WorldGenMinable(Blocks.diamond_ore, 7, Blocks.diamond_ore);
-		lapisGen = new WorldGenMinable(Blocks.lapis_ore, 6, Blocks.lapis_ore);
-
 		// TREES
 		//smallTree = new WorldGenForestTrees(true);
-		//bigTree = new WorldGenForestBigTree(true, 10, 1, 5);
-		//effectTree = new WorldGenEffectTree(true);
+		hollowTree = new WorldGenForestHollowTree(true);
+		effectTree = new WorldGenEffectTree(true);
 
 		// generates lakes and lava lakes in dimension.
 		generateLakes = true;

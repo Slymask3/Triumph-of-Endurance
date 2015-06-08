@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
 import com.abstractlabs.toe.block.BlockArmoury;
+import com.abstractlabs.toe.block.BlockBasic;
 import com.abstractlabs.toe.block.BlockBeam;
 import com.abstractlabs.toe.block.BlockBreakableDesert;
 import com.abstractlabs.toe.block.BlockCash;
@@ -12,6 +13,10 @@ import com.abstractlabs.toe.block.BlockExteriorDesert;
 import com.abstractlabs.toe.block.BlockExteriorForest;
 import com.abstractlabs.toe.block.BlockExteriorGlass;
 import com.abstractlabs.toe.block.BlockFlatPortal;
+import com.abstractlabs.toe.block.BlockHollowGrass;
+import com.abstractlabs.toe.block.BlockHollowLeaf;
+import com.abstractlabs.toe.block.BlockHollowLog;
+import com.abstractlabs.toe.block.BlockHollowSapling;
 import com.abstractlabs.toe.block.BlockHollowsPortal;
 import com.abstractlabs.toe.block.BlockLandmine;
 import com.abstractlabs.toe.block.BlockQuicksand;
@@ -41,6 +46,11 @@ public class ToeBlocks {
 	public static Block beam = new BlockBeam();
 	public static Block tester = new BlockTester();
 	public static Block flatPortal = new BlockFlatPortal("flatPortal");
+	public static Block hollowLog = new BlockHollowLog("hollowLog", "log");
+	public static Block hollowLeaf = new BlockHollowLeaf("hollowLeaf", "hollow");
+	public static Block hollowSapling = new BlockHollowSapling("hollowSapling", "hollow");
+	public static Block hollowDirt = new BlockBasic(Material.rock, "hollowDirt", "hollowDirt", Block.soundTypeGrass);
+	public static Block hollowGrass = new BlockHollowGrass(Material.rock, "hollowGrass", Block.soundTypeGrass);
 	
 	public static void init() {
 		GameRegistry.registerBlock(blockArmoury, "blockArmoury");
@@ -60,5 +70,10 @@ public class ToeBlocks {
 		GameRegistry.registerBlock(beam, "beam");
 		GameRegistry.registerBlock(tester, "tester");
 		GameRegistry.registerBlock(flatPortal, "flatPortal");
+		GameRegistry.registerBlock(hollowLog, "hollowLog");
+		GameRegistry.registerBlock(hollowLeaf, "hollowLeaf");
+		GameRegistry.registerBlock(hollowSapling, "hollowSapling");
+		GameRegistry.registerBlock(hollowDirt, "hollowDirt");
+		GameRegistry.registerBlock(hollowGrass, "hollowGrass");
 	}
 }
