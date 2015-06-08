@@ -1,8 +1,17 @@
 package com.abstractlabs.toe.utility;
 
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Random;
 
+import javax.imageio.ImageIO;
+
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -10,16 +19,17 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 import com.abstractlabs.toe.arena.Arena;
 import com.abstractlabs.toe.arena.ArenaDesert;
-import com.abstractlabs.toe.handler.ConfigurationHandler;
+import com.abstractlabs.toe.handler.ConfigHandler;
 import com.abstractlabs.toe.reference.Reference;
 
 public class Helper {
 	public static void msg(EntityPlayer player, String msg, String color) {
-		if (ConfigurationHandler.msg == true) {
+		if (ConfigHandler.msg == true) {
 			if (player.worldObj.isRemote) { //IF CLIENT	
 				msgBypassClean(player, msg, color);
 			}
@@ -33,7 +43,7 @@ public class Helper {
 	}
 	
 	public static void msgClean(EntityPlayer player, String msg, String color) {
-		if (ConfigurationHandler.msg == true) {
+		if (ConfigHandler.msg == true) {
 			msgBypassClean(player, msg, color);
 		}
 	}
@@ -103,11 +113,11 @@ public class Helper {
 		}
 	}
 
-	private static void addRandomAmount(TileEntityChest chest, Item item, int min, int max) {
+	public static void addRandomAmount(TileEntityChest chest, Item item, int min, int max) {
 		addRandomAmount(chest, item, 0, min, max);
 	}
 
-	private static void addRandomAmount(TileEntityChest chest, Item item, int meta, int min, int max) {
+	public static void addRandomAmount(TileEntityChest chest, Item item, int meta, int min, int max) {
 		Random rand = new Random();
 		int amount = rand.nextInt(max-min) + min;
 		
@@ -138,4 +148,229 @@ public class Helper {
             }
         }
     }
+	
+
+	public static void drawStringWithBorder(Minecraft mc, int x, int y, Object o, int textColor, int borderColor) {
+		mc.fontRenderer.drawString(o+"", x, y+1, borderColor);
+		mc.fontRenderer.drawString(o+"", x, y-1, borderColor);
+		mc.fontRenderer.drawString(o+"", x+1, y, borderColor);
+		mc.fontRenderer.drawString(o+"", x-1, y, borderColor);
+		mc.fontRenderer.drawString(o+"", x, y, textColor);
+	}
+	
+	public static void drawCenteredStringWithBorder(Minecraft mc, int x, int y, Object o, int textColor, int borderColor) {
+		drawStringWithBorder(mc, x-mc.fontRenderer.getStringWidth(o+"")/2, y, o, textColor, borderColor);
+	}
+	
+	public static void drawStringWithBorderAndShadow(Minecraft mc, int x, int y, Object o, int textColor, int borderColor) {
+		mc.fontRenderer.drawStringWithShadow(o+"", x, y+1, borderColor);
+		mc.fontRenderer.drawStringWithShadow(o+"", x, y-1, borderColor);
+		mc.fontRenderer.drawStringWithShadow(o+"", x+1, y, borderColor);
+		mc.fontRenderer.drawStringWithShadow(o+"", x-1, y, borderColor);
+		mc.fontRenderer.drawStringWithShadow(o+"", x, y, textColor);
+	}
+	
+	public static void drawCenteredStringWithBorderWithShadow(Minecraft mc, int x, int y, Object o, int textColor, int borderColor) {
+		drawStringWithBorderAndShadow(mc, x-mc.fontRenderer.getStringWidth(o+"")/2, y, o, textColor, borderColor);
+	}
+
+	public static ResourceLocation getResourceLocation(String username) {
+		try {
+			URL url = new URL("http://skins.minecraft.net/MinecraftSkins/"+username+".png");
+			BufferedImage imageColored = ImageIO.read(url);
+			BufferedImage image = new BufferedImage(64, 32, BufferedImage.TYPE_BYTE_GRAY);
+			Graphics g = image.getGraphics();
+			g.drawImage(imageColored, 0, 0, null);
+			g.dispose();
+
+//			createFolder("mods");
+//			createFolder("mods\\ToE.jar");
+//			createFolder("mods\\ToE.jar\\assets");
+//			createFolder("mods\\ToE.jar\\assets\\textures");
+//			createFolder("mods\\ToE.jar\\assets\\textures\\statues");
+
+			createFolder("resourcepacks");
+			createFolder("resourcepacks\\toe_statues");
+			createFolder("resourcepacks\\toe_statues\\assets");
+			createFolder("resourcepacks\\toe_statues\\assets\\toe_statues");
+			
+			//File file = new File(System.getProperty("user.dir")+"\\assets\\toe\\textures\\statues\\"+username+".png");
+			File file = new File(System.getProperty("user.dir")+"\\resourcepacks\\toe_statues\\assets\\toe_statues\\"+username+".png");
+			
+//			FileOutputStream fos = new FileOutputStream("mods\\ToE.jar");
+//			ZipOutputStream zos = new ZipOutputStream(fos);
+			
+			//AbstractClientPlayer.getDownloadImageSkin(new ResourceLocation(Reference.MOD_ID + ":" + "textures/statues"), username);
+			
+			ImageIO.write(image, "png", file);
+			
+			//((SimpleReloadableResourceManager)Minecraft.getMinecraft().getResourceManager()).reloadResourcePack(new ResourceLoc());
+			
+			return new ResourceLocation("toe" + ":" + username+".png");
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+			return null;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	private static void createFolder(String folder) {
+		File theDir = new File(folder);
+
+		if (!theDir.exists()) {
+		    LogHelper.info("Creating /"+folder+"/ directory.");
+		    boolean result = false;
+
+		    try{
+		    	theDir.mkdir();
+		        result = true;
+		    } catch(SecurityException se){}  
+		    
+		    if(result) { 
+		    	LogHelper.info("/"+folder+"/ directory created.");
+		    }
+		}
+	}
+
+	
+	
+//	public static void addItemToInventory(EntityPlayer player, Item item, int amount, int meta) {
+//		for (int i=0; i<player.inventory.mainInventory.length; i++) {
+//			ItemStack is = new ItemStack(item, amount, meta);
+//			
+//			if (player.inventory.mainInventory[i] != null && player.inventory.mainInventory[i].getItem() == is.getItem() && player.inventory.mainInventory[i].getItemDamage() == is.getItemDamage() && player.inventory.mainInventory[i].stackSize < 64) {
+//				player.inventory.mainInventory[i] = new ItemStack(item, amount + player.inventory.mainInventory[i].stackSize, meta);
+//				break;
+//			} else if (player.inventory.mainInventory[i] != null && player.inventory.mainInventory[i].getItem() == is.getItem() && player.inventory.mainInventory[i].getItemDamage() == is.getItemDamage() && player.inventory.mainInventory[i].stackSize > 64) {
+//				chest.setInventorySlotContents(i+1, new ItemStack(item, amount, meta));
+//				break;
+//			} else if (player.inventory.mainInventory[i] == null) {
+//				chest.setInventorySlotContents(i, new ItemStack(item, amount, meta));
+//				break;
+//			} else {
+//			}
+//		}
+//	}
+	
+	public static void addItemToInventory(EntityPlayer player, Item item) {
+		for (int i=0; i<player.inventory.mainInventory.length; i++) {
+			if (player.inventory.mainInventory[i] != null && player.inventory.mainInventory[i].getItem() == item && player.inventory.mainInventory[i].stackSize < 64) {
+				player.inventory.mainInventory[i] = new ItemStack(item, player.inventory.mainInventory[i].stackSize + 1, 0);
+				break;
+			} else if (player.inventory.mainInventory[i] == null) {
+				player.inventory.mainInventory[i] = new ItemStack(item, 1, 0);
+				break;
+			}
+		}
+	}
+	
+	public static void removeItemFromInventory(EntityPlayer player, Item item) {
+		for (int i=0; i<player.inventory.mainInventory.length; i++) {
+			if (player.inventory.mainInventory[i] != null && player.inventory.mainInventory[i].getItem() == item && player.inventory.mainInventory[i].stackSize > 1) {
+				player.inventory.mainInventory[i] = new ItemStack(item, player.inventory.mainInventory[i].stackSize - 1, 0);
+				break;
+			} else if (player.inventory.mainInventory[i] != null && player.inventory.mainInventory[i].getItem() == item && player.inventory.mainInventory[i].stackSize == 1) {
+				player.inventory.mainInventory[i] = null;
+				break;
+			}
+		}
+	}
+	
+	
+	public static int getItemAmountInInventory(EntityPlayer player, Item item) {
+		ItemStack is;
+		int amount = 0;
+		
+		for (int i = 0; i < player.inventory.mainInventory.length; i++) {
+            is = player.inventory.mainInventory[i];
+
+            if (is != null && is.getItem() == item) {
+                amount += is.stackSize;
+            }
+        }
+		
+		return amount;
+	}
+
+	public static void removeItemsFromInventory(EntityPlayer player, Item item) {
+		ItemStack is;
+		
+		for (int i = 0; i < player.inventory.mainInventory.length; i++) {
+            is = player.inventory.mainInventory[i];
+
+            if (is != null && is.getItem() == item) {
+            	player.inventory.mainInventory[i] = null;
+            }
+        }
+	}
+	
+//	public static void removeItemsFromInventory(EntityPlayer player, Item item, int amount) {
+//		ItemStack is;
+//		int amnt = 0;
+//		
+//		while(amnt < amount) {
+//			for (int i = 0; i < player.inventory.mainInventory.length; i++) {
+//		        is = player.inventory.mainInventory[i];
+//		
+//		        if (is != null && is.getItem() == item) {
+//		        	player.inventory.mainInventory[i].stackSize--;
+//		        	amnt++;
+//		        	
+//		        	if(amnt == amount) {
+//		        		break;
+//		        	}
+//		        }
+//		    }
+//		}
+//	}
+
+//	public static boolean doesPlayerHaveEnoughSpace(EntityPlayer player, int amount) {
+//		int slots = (int) Math.ceil(amount/64);
+//		ItemStack is;
+//		
+//		LogHelper.info(slots);
+//		
+//		for (int i = 0; i < player.inventory.mainInventory.length; i++) {
+//	        is = player.inventory.mainInventory[i];
+//	
+//	        if (is == null) {
+//	        	slots--;
+//	        	
+//	        	if(slots == -1) {
+//	        		return true;
+//	        	}
+//	        }
+//	    }
+//		
+//		return false;
+//	}
+	
+	public static boolean doesPlayerHaveEnoughSpace(EntityPlayer player, int amount) {
+		ItemStack is;
+		int slots = 0;
+		
+		for (int i = 0; i < player.inventory.mainInventory.length; i++) {
+	        is = player.inventory.mainInventory[i];
+	
+	        if (is == null) {
+	        	slots++;
+	        }
+	    }
+		
+		return amount <= (slots*64);
+	}
+
+	public static void addItemsToInventory(EntityPlayer player, Item item, int amount) {
+		for(int i=0; i<amount; i++) {
+			addItemToInventory(player, item);
+		}
+	}
+
+	public static void removeItemsFromInventory(EntityPlayer player, Item item, int amount) {
+		for(int i=0; i<amount; i++) {
+			removeItemFromInventory(player, item);
+		}
+	}
 }

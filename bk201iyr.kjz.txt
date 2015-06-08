@@ -1,0 +1,245 @@
+﻿Merge remote-tracking branch 'origin/master'
+
+Conflicts:
+	src/main/java/com/abstractlabs/toe/block/BlockTester.java
+	src/main/java/com/abstractlabs/toe/init/ToeBlocks.java
+	src/main/java/com/abstractlabs/toe/worldgen/WorldGeneratorToe.java
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 5 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   README.md
+#	deleted:    ideas.txt
+#	modified:   src/main/java/com/abstractlabs/toe/Toe.java
+#	new file:   src/main/java/com/abstractlabs/toe/block/BlockATM.java
+#	modified:   src/main/java/com/abstractlabs/toe/block/BlockBeam.java
+#	modified:   src/main/java/com/abstractlabs/toe/block/BlockLandmine.java
+#	new file:   src/main/java/com/abstractlabs/toe/block/BlockLockedChest.java
+#	new file:   src/main/java/com/abstractlabs/toe/block/BlockRandomOre.java
+#	new file:   src/main/java/com/abstractlabs/toe/block/BlockRecall.java
+#	new file:   src/main/java/com/abstractlabs/toe/block/BlockStatueBiped.java
+#	modified:   src/main/java/com/abstractlabs/toe/block/BlockTester.java
+#	new file:   src/main/java/com/abstractlabs/toe/gui/GuiATM.java
+#	new file:   src/main/java/com/abstractlabs/toe/gui/GuiATMOverlay.java
+#	modified:   src/main/java/com/abstractlabs/toe/gui/GuiConfigToe.java
+#	modified:   src/main/java/com/abstractlabs/toe/gui/GuiHandler.java
+#	new file:   src/main/java/com/abstractlabs/toe/gui/GuiRecall.java
+#	new file:   src/main/java/com/abstractlabs/toe/gui/GuiScreenOverlay.java
+#	renamed:    src/main/java/com/abstractlabs/toe/handler/ConfigurationHandler.java -> src/main/java/com/abstractlabs/toe/handler/ConfigHandler.java
+#	modified:   src/main/java/com/abstractlabs/toe/handler/ConnectionHandler.java
+#	modified:   src/main/java/com/abstractlabs/toe/handler/EntityHandler.java
+#	new file:   src/main/java/com/abstractlabs/toe/handler/KeyHandler.java
+#	modified:   src/main/java/com/abstractlabs/toe/handler/PlayerHandler.java
+#	new file:   src/main/java/com/abstractlabs/toe/handler/ResourceLoc.java
+#	modified:   src/main/java/com/abstractlabs/toe/handler/TickHandler.java
+#	modified:   src/main/java/com/abstractlabs/toe/init/ToeBlocks.java
+#	modified:   src/main/java/com/abstractlabs/toe/init/ToeBusses.java
+#	modified:   src/main/java/com/abstractlabs/toe/init/ToeItems.java
+#	modified:   src/main/java/com/abstractlabs/toe/init/ToePackets.java
+#	modified:   src/main/java/com/abstractlabs/toe/init/ToeTiles.java
+#	modified:   src/main/java/com/abstractlabs/toe/item/ItemCane.java
+#	new file:   src/main/java/com/abstractlabs/toe/item/ItemLockpick.java
+#	new file:   src/main/java/com/abstractlabs/toe/item/ItemRecall.java
+#	new file:   src/main/java/com/abstractlabs/toe/item/ItemTester.java
+#	new file:   src/main/java/com/abstractlabs/toe/model/ModelATM.java
+#	new file:   src/main/java/com/abstractlabs/toe/model/ModelLandmine.java
+#	new file:   src/main/java/com/abstractlabs/toe/model/ModelStatueBiped.java
+#	new file:   src/main/java/com/abstractlabs/toe/network/PacketATM.java
+#	modified:   src/main/java/com/abstractlabs/toe/network/PacketPipeline.java
+#	new file:   src/main/java/com/abstractlabs/toe/network/PacketRecall.java
+#	new file:   src/main/java/com/abstractlabs/toe/network/PacketScreenOverlay.java
+#	new file:   src/main/java/com/abstractlabs/toe/player/ATM.java
+#	modified:   src/main/java/com/abstractlabs/toe/proxy/ClientProxy.java
+#	modified:   src/main/java/com/abstractlabs/toe/proxy/CommonProxy.java
+#	modified:   src/main/java/com/abstractlabs/toe/proxy/IProxy.java
+#	new file:   src/main/java/com/abstractlabs/toe/reference/ChestType.java
+#	modified:   src/main/java/com/abstractlabs/toe/reference/GuiID.java
+#	modified:   src/main/java/com/abstractlabs/toe/reference/Reference.java
+#	new file:   src/main/java/com/abstractlabs/toe/reference/Skill.java
+#	new file:   src/main/java/com/abstractlabs/toe/reference/Thieving.java
+#	new file:   src/main/java/com/abstractlabs/toe/renderer/ItemRenderATM.java
+#	new file:   src/main/java/com/abstractlabs/toe/renderer/RenderATM.java
+#	renamed:    src/main/java/com/abstractlabs/toe/render/RenderBoi.java -> src/main/java/com/abstractlabs/toe/renderer/RenderBoi.java
+#	renamed:    src/main/java/com/abstractlabs/toe/render/RenderFlashbang.java -> src/main/java/com/abstractlabs/toe/renderer/RenderFlashbang.java
+#	renamed:    src/main/java/com/abstractlabs/toe/render/RenderGrenade.java -> src/main/java/com/abstractlabs/toe/renderer/RenderGrenade.java
+#	new file:   src/main/java/com/abstractlabs/toe/renderer/RenderLandmine.java
+#	new file:   src/main/java/com/abstractlabs/toe/renderer/RenderLockedChest.java
+#	renamed:    src/main/java/com/abstractlabs/toe/render/RenderMummy.java -> src/main/java/com/abstractlabs/toe/renderer/RenderMummy.java
+#	renamed:    src/main/java/com/abstractlabs/toe/render/RenderScorpion.java -> src/main/java/com/abstractlabs/toe/renderer/RenderScorpion.java
+#	new file:   src/main/java/com/abstractlabs/toe/renderer/RenderStatueBiped.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/DescriptionGUI.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/agility/AgilityGUI.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/agility/AgilityHelper.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/agility/AgilityPacket.java
+#	modified:   src/main/java/com/abstractlabs/toe/skill/arenalism/ArenalismGUI.java
+#	modified:   src/main/java/com/abstractlabs/toe/skill/arenalism/ArenalismHelper.java
+#	modified:   src/main/java/com/abstractlabs/toe/skill/arenalism/ArenalismPacket.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/brewing/BrewingGUI.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/brewing/BrewingHelper.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/brewing/BrewingPacket.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/cooking/CookingGUI.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/cooking/CookingHelper.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/cooking/CookingPacket.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/farming/FarmingGUI.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/farming/FarmingHelper.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/farming/FarmingPacket.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/fishing/FishingGUI.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/fishing/FishingHelper.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/fishing/FishingPacket.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/magic/MagicGUI.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/magic/MagicHelper.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/magic/MagicPacket.java
+#	modified:   src/main/java/com/abstractlabs/toe/skill/mining/MiningGUI.java
+#	modified:   src/main/java/com/abstractlabs/toe/skill/mining/MiningHelper.java
+#	modified:   src/main/java/com/abstractlabs/toe/skill/mining/MiningPacket.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/prayer/PrayerGUI.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/prayer/PrayerHelper.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/prayer/PrayerPacket.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/ranged/RangedGUI.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/ranged/RangedHelper.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/ranged/RangedPacket.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/runemaking/RunemakingGUI.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/runemaking/RunemakingHelper.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/runemaking/RunemakingPacket.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/slayer/SlayerGUI.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/slayer/SlayerHelper.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/slayer/SlayerPacket.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/smelting/SmeltingGUI.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/smelting/SmeltingHelper.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/smelting/SmeltingPacket.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/swords/SwordsGUI.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/swords/SwordsHelper.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/swords/SwordsPacket.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/theiving/ThievingGUI.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/theiving/ThievingHelper.java
+#	new file:   src/main/java/com/abstractlabs/toe/skill/theiving/ThievingPacket.java
+#	modified:   src/main/java/com/abstractlabs/toe/skill/woodcutting/WoodcuttingGUI.java
+#	modified:   src/main/java/com/abstractlabs/toe/skill/woodcutting/WoodcuttingHelper.java
+#	modified:   src/main/java/com/abstractlabs/toe/skill/woodcutting/WoodcuttingPacket.java
+#	new file:   src/main/java/com/abstractlabs/toe/structures/UFO.java
+#	new file:   src/main/java/com/abstractlabs/toe/tileentity/TileEntityATM.java
+#	deleted:    src/main/java/com/abstractlabs/toe/tileentity/TileEntityArena.java
+#	new file:   src/main/java/com/abstractlabs/toe/tileentity/TileEntityLandmine.java
+#	new file:   src/main/java/com/abstractlabs/toe/tileentity/TileEntityLockedChest.java
+#	new file:   src/main/java/com/abstractlabs/toe/tileentity/TileEntityRecall.java
+#	new file:   src/main/java/com/abstractlabs/toe/tileentity/TileEntityStatueBiped.java
+#	modified:   src/main/java/com/abstractlabs/toe/utility/Helper.java
+#	new file:   src/main/java/com/abstractlabs/toe/worldgen/WorldGenUFO.java
+#	modified:   src/main/java/com/abstractlabs/toe/worldgen/WorldGeneratorToe.java
+#	new file:   src/main/resources/assets/toe/HotMixtape.png
+#	new file:   src/main/resources/assets/toe/textures/blocks/atm_front.png
+#	new file:   src/main/resources/assets/toe/textures/blocks/atm_side.png
+#	new file:   src/main/resources/assets/toe/textures/blocks/beam_side.png
+#	new file:   src/main/resources/assets/toe/textures/blocks/beam_side.png.mcmeta
+#	new file:   src/main/resources/assets/toe/textures/blocks/beam_top.png
+#	modified:   src/main/resources/assets/toe/textures/blocks/cash.png
+#	new file:   src/main/resources/assets/toe/textures/blocks/chest_front.png
+#	new file:   src/main/resources/assets/toe/textures/blocks/chest_side.png
+#	new file:   src/main/resources/assets/toe/textures/blocks/chest_top.png
+#	new file:   src/main/resources/assets/toe/textures/blocks/destination.png
+#	new file:   src/main/resources/assets/toe/textures/blocks/destination.png.mcmeta
+#	new file:   src/main/resources/assets/toe/textures/blocks/randomOre.png
+#	new file:   src/main/resources/assets/toe/textures/gui/agility.png
+#	new file:   src/main/resources/assets/toe/textures/gui/agility_gold.png
+#	modified:   src/main/resources/assets/toe/textures/gui/arenalism.png
+#	new file:   src/main/resources/assets/toe/textures/gui/arenalism_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/atm.png
+#	new file:   src/main/resources/assets/toe/textures/gui/brewing.png
+#	new file:   src/main/resources/assets/toe/textures/gui/brewing_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/cooking.png
+#	new file:   src/main/resources/assets/toe/textures/gui/cooking_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc1.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc10.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc10_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc11.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc11_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc12.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc12_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc13.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc13_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc14.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc14_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc15.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc15_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc16.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc16_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc1_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc2.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc2_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc3.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc3_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc4.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc4_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc5.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc5_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc6.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc6_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc7.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc7_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc8.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc8_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc9.png
+#	new file:   src/main/resources/assets/toe/textures/gui/desc9_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/farming.png
+#	new file:   src/main/resources/assets/toe/textures/gui/farming_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/fishing.png
+#	new file:   src/main/resources/assets/toe/textures/gui/fishing_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/magic.png
+#	new file:   src/main/resources/assets/toe/textures/gui/magic_gold.png
+#	modified:   src/main/resources/assets/toe/textures/gui/mining.png
+#	new file:   src/main/resources/assets/toe/textures/gui/mining_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/overlay/beam.png
+#	modified:   src/main/resources/assets/toe/textures/gui/percentageBar.png
+#	new file:   src/main/resources/assets/toe/textures/gui/prayer.png
+#	new file:   src/main/resources/assets/toe/textures/gui/prayer_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/ranged.png
+#	new file:   src/main/resources/assets/toe/textures/gui/ranged_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/runemaking.png
+#	new file:   src/main/resources/assets/toe/textures/gui/runemaking_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/skill.png
+#	new file:   src/main/resources/assets/toe/textures/gui/skill_center.png
+#	new file:   src/main/resources/assets/toe/textures/gui/skill_center_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/skill_left.png
+#	new file:   src/main/resources/assets/toe/textures/gui/skill_left_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/skill_right.png
+#	new file:   src/main/resources/assets/toe/textures/gui/skill_right_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/slayer.png
+#	new file:   src/main/resources/assets/toe/textures/gui/slayer_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/smelting.png
+#	new file:   src/main/resources/assets/toe/textures/gui/smelting_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/swords.png
+#	new file:   src/main/resources/assets/toe/textures/gui/swords_gold.png
+#	new file:   src/main/resources/assets/toe/textures/gui/thieving.png
+#	new file:   src/main/resources/assets/toe/textures/gui/thieving_gold.png
+#	modified:   src/main/resources/assets/toe/textures/gui/woodcutting.png
+#	new file:   src/main/resources/assets/toe/textures/gui/woodcutting_gold.png
+#	modified:   src/main/resources/assets/toe/textures/items/cane.png
+#	new file:   src/main/resources/assets/toe/textures/items/coinCopper.png
+#	new file:   src/main/resources/assets/toe/textures/items/coinGold.png
+#	new file:   src/main/resources/assets/toe/textures/items/coinSilver.png
+#	new file:   src/main/resources/assets/toe/textures/items/lockpick.png
+#	new file:   src/main/resources/assets/toe/textures/items/masterKey.png
+#	new file:   src/main/resources/assets/toe/textures/items/paperclip.png
+#	new file:   src/main/resources/assets/toe/textures/items/recall.png
+#	new file:   src/main/resources/assets/toe/textures/items/testerItem_0.png
+#	new file:   src/main/resources/assets/toe/textures/items/testerItem_1.png
+#	new file:   src/main/resources/assets/toe/textures/items/testerItem_2.png
+#	new file:   src/main/resources/assets/toe/textures/model/atm.png
+#	new file:   src/main/resources/assets/toe/textures/model/landmine.png
+#	new file:   src/main/resources/assets/toe/textures/model/lockedChest.png
+#	new file:   src/main/resources/assets/toe/textures/statues/Slymask3.png
+#
+

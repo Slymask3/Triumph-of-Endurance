@@ -1,11 +1,17 @@
 package com.abstractlabs.toe;
 
+import java.util.List;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.IResourcePack;
+import net.minecraft.client.resources.SimpleReloadableResourceManager;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.server.MinecraftServer;
 
 import com.abstractlabs.toe.command.CommandToe;
 import com.abstractlabs.toe.gui.GuiHandler;
-import com.abstractlabs.toe.handler.ConfigurationHandler;
+import com.abstractlabs.toe.handler.ConfigHandler;
+import com.abstractlabs.toe.handler.ResourceLoc;
 import com.abstractlabs.toe.init.ToeBiomes;
 import com.abstractlabs.toe.init.ToeBlocks;
 import com.abstractlabs.toe.init.ToeBusses;
@@ -23,6 +29,7 @@ import com.abstractlabs.toe.worldgen.WorldGeneratorToe;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
@@ -43,17 +50,17 @@ public class Toe {
 	
 	@Mod.EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		ConfigurationHandler.init(event.getSuggestedConfigurationFile());
+		ConfigHandler.init(event.getSuggestedConfigurationFile());
 		
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 		
 		packetPipeline.init();
-		
+
+		ToePackets.init();
 		ToeBlocks.init();
 		ToeItems.init();
 		ToeRenders.init();
 		ToeMobs.init();
-		ToePackets.init();
 		ToeBusses.init();
 		ToeTiles.init();
 		ToeDimensions.init();
@@ -69,6 +76,12 @@ public class Toe {
 	public void init(FMLInitializationEvent event) {
 		GameRegistry.registerWorldGenerator(new WorldGeneratorToe(), 1000);
 		//MinecraftForge.TERRAIN_GEN_BUS.register(new BiomeHandler());
+		
+//		List<IResourcePack> defaultResourcePacks = ObfuscationReflectionHelper.getPrivateValue(Minecraft.class, Minecraft.getMinecraft(), "defaultResourcePacks", "field_110449_ao");
+//		defaultResourcePacks.add(new ResourceLoc());
+		
+		
+		
 		LogHelper.info("Initialization Complete!");
 	}
 
@@ -83,7 +96,6 @@ public class Toe {
 	public void serverStart(FMLServerStartingEvent event) {
 		MinecraftServer server = MinecraftServer.getServer();
 		ServerCommandManager command = (ServerCommandManager) server.getCommandManager();
-		//ServerCommandManager serverCommand = ((ServerCommandManager) command);
 		
 		command.registerCommand(new CommandToe());
 	}

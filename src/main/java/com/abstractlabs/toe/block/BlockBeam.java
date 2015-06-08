@@ -1,44 +1,73 @@
 package com.abstractlabs.toe.block;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.Facing;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import com.abstractlabs.toe.reference.Color;
+import com.abstractlabs.toe.gui.GuiScreenOverlay;
 import com.abstractlabs.toe.reference.Reference;
-import com.abstractlabs.toe.skill.arenalism.ArenalismHelper;
-import com.abstractlabs.toe.utility.Helper;
-import com.abstractlabs.toe.utility.LogHelper;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockBeam extends BlockToe {
+	public static IIcon top;
 	public static IIcon side;
+//	public static IIcon side2;
+//	public static IIcon side3;
+//	public static IIcon side4;
 	
 	public BlockBeam() {
 		super(Material.portal, Block.soundTypeSnow, "beam");
 		setHardness(1);
+		setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 1.0F, 0.9F);
+		setLightOpacity(0);
+		setLightLevel(0.75F);
+	}
+	
+	public boolean isOpaqueCube() {
+        return false;
+    }
+	
+	@Override
+	public int getRenderBlockPass() {
+		return 1;
+	}
+	
+	@Override
+	public boolean renderAsNormalBlock() {
+		return false;
 	}
     
 	public void registerBlockIcons(IIconRegister ir) {
-		side = ir.registerIcon(Reference.MOD_ID + ":beam");
+		top = ir.registerIcon(Reference.MOD_ID + ":beam_top");
+		side = ir.registerIcon(Reference.MOD_ID + ":beam_side");
+//		side2 = ir.registerIcon(Reference.MOD_ID + ":beam_side_2");
+//		side3 = ir.registerIcon(Reference.MOD_ID + ":beam_side_3");
+//		side4 = ir.registerIcon(Reference.MOD_ID + ":beam_side_4");
 	}
 	
 	@SideOnly(Side.CLIENT)
     public IIcon getIcon(int side, int meta) {
-        return Blocks.portal.getIcon(side, meta);
+        if(side == 0 || side == 1) {
+        	return top;
+        }/* else if(side == 2) {
+        	return this.side;
+        } else if(side == 3) {
+        	return this.side2;
+        } else if(side == 4) {
+        	return this.side3;
+        } else if(side == 5) {
+        	return this.side4;
+        }*/ else {
+        	return this.side;
+        }
     }
 	
     public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
@@ -55,144 +84,102 @@ public class BlockBeam extends BlockToe {
         //entity.motionY += 0.05;
         //entity.serverPosY += 0.05;
         //entity.moveFlying(0F, 1F, 0F);
+//        if(!world.isRemote && entity instanceof EntityPlayer) {
+//        	Toe.packetPipeline.sendTo(new PacketScreenOverlay(5, 1), (EntityPlayerMP) entity);
+//        }
+        
+        if(world.isRemote) {
+        	GuiScreenOverlay.showTicks = 5;
+    		GuiScreenOverlay.image = 1;
+        }
     }
     
     public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
         //entity.addVelocity(0, -0.5, 0);
         //LogHelper.info("entity walking.");
     }
+
+	int bot = 0;    //y-
+	int topp = 1;   //y+
+	int blue = 2;   //z-
+	int purple = 3; //z+
+	int green = 4;  //x-
+	int red = 5;    //x+
     
-//    public void velocityToAddToEntity(World p_149640_1_, int p_149640_2_, int p_149640_3_, int p_149640_4_, Entity p_149640_5_, Vec3 p_149640_6_)
-//    {
-//        Vec3 vec31 = this.getFlowVector(p_149640_1_, p_149640_2_, p_149640_3_, p_149640_4_);
-//        p_149640_6_.xCoord += vec31.xCoord;
-//        p_149640_6_.yCoord += vec31.yCoord;
-//        p_149640_6_.zCoord += vec31.zCoord;
-//    }
+//    @SideOnly(Side.CLIENT)
+//	public boolean shouldSideBeRendered(IBlockAccess ba, int x, int y, int z, int side) {
+//		boolean f1 = ba.getBlock(x, y-1, z) == this && side == 0;
+//		boolean f2 = ba.getBlock(x, y+1, z) == this && side == 1;
+//		boolean f3 = ba.getBlock(x, y, z-1) == this && side == blue;
+//		boolean f4 = ba.getBlock(x, y, z+1) == this && side == purple;
+//		boolean f5 = ba.getBlock(x-1, y, z) == this && side == green;
+//		boolean f6 = ba.getBlock(x+1, y, z) == this && side == red;
+////		boolean f7 = ba.getBlock(x-1, y, z) == this && side == blue;
+////		boolean f8 = ba.getBlock(x+1, y, z) == this && side == purple;
+////		boolean f9 = ba.getBlock(x, y, z-1) == this && side == green;
+////		boolean f10 = ba.getBlock(x, y, z+1) == this && side == red;
+////		boolean f3 = ba.getBlock(x+1, y, z) == this && side == blue;
+////		boolean f4 = ba.getBlock(x-1, y, z) == this && side == purple;
+////		boolean f5 = ba.getBlock(x, y, z+1) == this && side == green;
+////		boolean f6 = ba.getBlock(x, y, z-1) == this && side == red;
+////		boolean f7 = ba.getBlock(x-1, y, z) == this && side == blue;
+////		boolean f8 = ba.getBlock(x+1, y, z) == this && side == purple;
+////		boolean f9 = ba.getBlock(x, y, z-1) == this && side == green;
+////		boolean f10 = ba.getBlock(x, y, z+1) == this && side == red;
+////		
+////		if(f1 || f2 || f3 || f4 || f5 || f6){// || f7 || f8 || f9 || f10) {
+////			return false;
+////		} else {
+//			return true;
+//		//}
+//	}
     
-//    private Vec3 getFlowVector(IBlockAccess p_149800_1_, int p_149800_2_, int p_149800_3_, int p_149800_4_)
-//    {
-//        Vec3 vec3 = Vec3.createVectorHelper(0.0D, 0.0D, 0.0D);
-//        int l = this.getEffectiveFlowDecay(p_149800_1_, p_149800_2_, p_149800_3_, p_149800_4_);
-//
-//        for (int i1 = 0; i1 < 4; ++i1)
-//        {
-//            int j1 = p_149800_2_;
-//            int k1 = p_149800_4_;
-//
-//            if (i1 == 0)
-//            {
-//                j1 = p_149800_2_ - 1;
-//            }
-//
-//            if (i1 == 1)
-//            {
-//                k1 = p_149800_4_ - 1;
-//            }
-//
-//            if (i1 == 2)
-//            {
-//                ++j1;
-//            }
-//
-//            if (i1 == 3)
-//            {
-//                ++k1;
-//            }
-//
-//            int l1 = this.getEffectiveFlowDecay(p_149800_1_, j1, p_149800_3_, k1);
-//            int i2;
-//
-//            if (l1 < 0)
-//            {
-//                if (!p_149800_1_.getBlock(j1, p_149800_3_, k1).getMaterial().blocksMovement())
-//                {
-//                    l1 = this.getEffectiveFlowDecay(p_149800_1_, j1, p_149800_3_ - 1, k1);
-//
-//                    if (l1 >= 0)
-//                    {
-//                        i2 = l1 - (l - 8);
-//                        vec3 = vec3.addVector((double)((j1 - p_149800_2_) * i2), (double)((p_149800_3_ - p_149800_3_) * i2), (double)((k1 - p_149800_4_) * i2));
-//                    }
-//                }
-//            }
-//            else if (l1 >= 0)
-//            {
-//                i2 = l1 - l;
-//                vec3 = vec3.addVector((double)((j1 - p_149800_2_) * i2), (double)((p_149800_3_ - p_149800_3_) * i2), (double)((k1 - p_149800_4_) * i2));
-//            }
-//        }
-//
-//        if (p_149800_1_.getBlockMetadata(p_149800_2_, p_149800_3_, p_149800_4_) >= 8)
-//        {
-//            boolean flag = false;
-//
-//            if (flag || this.isBlockSolid(p_149800_1_, p_149800_2_, p_149800_3_, p_149800_4_ - 1, 2))
-//            {
-//                flag = true;
-//            }
-//
-//            if (flag || this.isBlockSolid(p_149800_1_, p_149800_2_, p_149800_3_, p_149800_4_ + 1, 3))
-//            {
-//                flag = true;
-//            }
-//
-//            if (flag || this.isBlockSolid(p_149800_1_, p_149800_2_ - 1, p_149800_3_, p_149800_4_, 4))
-//            {
-//                flag = true;
-//            }
-//
-//            if (flag || this.isBlockSolid(p_149800_1_, p_149800_2_ + 1, p_149800_3_, p_149800_4_, 5))
-//            {
-//                flag = true;
-//            }
-//
-//            if (flag || this.isBlockSolid(p_149800_1_, p_149800_2_, p_149800_3_ + 1, p_149800_4_ - 1, 2))
-//            {
-//                flag = true;
-//            }
-//
-//            if (flag || this.isBlockSolid(p_149800_1_, p_149800_2_, p_149800_3_ + 1, p_149800_4_ + 1, 3))
-//            {
-//                flag = true;
-//            }
-//
-//            if (flag || this.isBlockSolid(p_149800_1_, p_149800_2_ - 1, p_149800_3_ + 1, p_149800_4_, 4))
-//            {
-//                flag = true;
-//            }
-//
-//            if (flag || this.isBlockSolid(p_149800_1_, p_149800_2_ + 1, p_149800_3_ + 1, p_149800_4_, 5))
-//            {
-//                flag = true;
-//            }
-//
-//            if (flag)
-//            {
-//                vec3 = vec3.normalize().addVector(0.0D, -6.0D, 0.0D);
-//            }
-//        }
-//
-//        vec3 = vec3.normalize();
-//        return vec3;
-//    }
-//    
-//    protected int getEffectiveFlowDecay(IBlockAccess p_149798_1_, int p_149798_2_, int p_149798_3_, int p_149798_4_)
-//    {
-//        if (p_149798_1_.getBlock(p_149798_2_, p_149798_3_, p_149798_4_).getMaterial() != this.blockMaterial)
-//        {
-//            return -1;
-//        }
-//        else
-//        {
-//            int l = p_149798_1_.getBlockMetadata(p_149798_2_, p_149798_3_, p_149798_4_);
-//
-//            if (l >= 8)
-//            {
-//                l = 0;
-//            }
-//
-//            return l;
-//        }
-//    }
+	@SideOnly(Side.CLIENT)
+    public boolean shouldSideBeRendered(IBlockAccess ba, int x, int y, int z, int side) {
+        Block block = ba.getBlock(x, y, z);
+
+        if (ba.getBlockMetadata(x, y, z) != ba.getBlockMetadata(x - Facing.offsetsXForSide[side], y - Facing.offsetsYForSide[side], z - Facing.offsetsZForSide[side])) {
+            return true;
+        }
+
+        if (block == this) {
+            return false;
+        }
+
+        return  block == this ? false : super.shouldSideBeRendered(ba, x, y, z, side);
+    }
+	
+    public void setBlockBoundsBasedOnState(IBlockAccess ba, int x, int y, int z) {
+        boolean flag = this.canConnect(ba, x, y, z - 1);
+        boolean flag1 = this.canConnect(ba, x, y, z + 1);
+        boolean flag2 = this.canConnect(ba, x - 1, y, z);
+        boolean flag3 = this.canConnect(ba, x + 1, y, z);
+        float f = 0.1F;
+        float f1 = 0.9F;
+        float f2 = 0.1F;
+        float f3 = 0.9F;
+
+        if (flag) {
+            f2 = 0.0F;
+        }
+
+        if (flag1) {
+            f3 = 1.0F;
+        }
+
+        if (flag2) {
+            f = 0.0F;
+        }
+
+        if (flag3) {
+            f1 = 1.0F;
+        }
+
+        this.setBlockBounds(f, 0.0F, f2, f1, 1.0F, f3);
+    }
+    
+    private boolean canConnect(IBlockAccess ba, int x, int y, int z) {
+        Block block = ba.getBlock(x, y, z);
+        return block == this;
+    }
 }

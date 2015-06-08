@@ -1,8 +1,12 @@
 package com.abstractlabs.toe.handler;
 
+import java.util.Random;
+
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
@@ -32,6 +36,25 @@ public class EntityHandler
 			}
 		}
 		//LogHelper.info("onDeath");
+		
+		if(event.entityLiving instanceof EntityMob) {
+			if(!event.entityLiving.worldObj.isRemote) {
+				Random rand = new Random();
+				int r = rand.nextInt(100)+1;
+				
+				if(r==100) { // 1%
+					event.entityLiving.entityDropItem(new ItemStack(ToeItems.coinGold, 1, 0), 1.0F);
+				} else if(r<=99 && r>=90) { // 10%
+					event.entityLiving.entityDropItem(new ItemStack(ToeItems.coinSilver, 1, 0), 1.0F);
+				} else if(r<=89 && r>=50) { // 40%
+					event.entityLiving.entityDropItem(new ItemStack(ToeItems.coinCopper, 2, 0), 1.0F);
+				} else if(r<=49 && r>=20) { // 30%
+					event.entityLiving.entityDropItem(new ItemStack(ToeItems.coinCopper, 1, 0), 1.0F);
+				} else { // 19%
+					//drop no coins
+				}
+			}
+		}
 	}
 	
 	@SubscribeEvent

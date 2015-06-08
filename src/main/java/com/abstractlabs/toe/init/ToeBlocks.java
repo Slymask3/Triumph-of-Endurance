@@ -3,6 +3,7 @@ package com.abstractlabs.toe.init;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
+import com.abstractlabs.toe.block.BlockATM;
 import com.abstractlabs.toe.block.BlockArmoury;
 import com.abstractlabs.toe.block.BlockBasic;
 import com.abstractlabs.toe.block.BlockBeam;
@@ -19,7 +20,11 @@ import com.abstractlabs.toe.block.BlockHollowLog;
 import com.abstractlabs.toe.block.BlockHollowSapling;
 import com.abstractlabs.toe.block.BlockHollowsPortal;
 import com.abstractlabs.toe.block.BlockLandmine;
+import com.abstractlabs.toe.block.BlockLockedChest;
 import com.abstractlabs.toe.block.BlockQuicksand;
+import com.abstractlabs.toe.block.BlockRandomOre;
+import com.abstractlabs.toe.block.BlockRecall;
+import com.abstractlabs.toe.block.BlockStatueBiped;
 import com.abstractlabs.toe.block.BlockTester;
 import com.abstractlabs.toe.block.BlockToeFire;
 import com.abstractlabs.toe.block.BlockUtility;
@@ -51,6 +56,11 @@ public class ToeBlocks {
 	public static Block hollowSapling = new BlockHollowSapling("hollowSapling", "hollow");
 	public static Block hollowDirt = new BlockBasic(Material.rock, "hollowDirt", "hollowDirt", Block.soundTypeGrass);
 	public static Block hollowGrass = new BlockHollowGrass(Material.rock, "hollowGrass", Block.soundTypeGrass);
+	public static Block destination = new BlockRecall();
+	public static Block lockedChest = new BlockLockedChest();
+	public static Block randomOre = new BlockRandomOre();
+	public static Block statueBiped = new BlockStatueBiped();
+	public static Block atm = new BlockATM();
 	
 	public static void init() {
 		GameRegistry.registerBlock(blockArmoury, "blockArmoury");
@@ -75,5 +85,10 @@ public class ToeBlocks {
 		GameRegistry.registerBlock(hollowSapling, "hollowSapling");
 		GameRegistry.registerBlock(hollowDirt, "hollowDirt");
 		GameRegistry.registerBlock(hollowGrass, "hollowGrass");
+		GameRegistry.registerBlock(destination, "destination");
+		GameRegistry.registerBlock(lockedChest, "lockedChest");
+		GameRegistry.registerBlock(randomOre, "randomOre");
+		GameRegistry.registerBlock(statueBiped, "statueBiped");
+		GameRegistry.registerBlock(atm, "atm");
 	}
 }

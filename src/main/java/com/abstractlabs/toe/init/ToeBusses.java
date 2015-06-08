@@ -3,7 +3,7 @@ package com.abstractlabs.toe.init;
 import net.minecraftforge.common.MinecraftForge;
 
 import com.abstractlabs.toe.handler.BlockHandler;
-import com.abstractlabs.toe.handler.ConfigurationHandler;
+import com.abstractlabs.toe.handler.ConfigHandler;
 import com.abstractlabs.toe.handler.ConnectionHandler;
 import com.abstractlabs.toe.handler.EntityHandler;
 import com.abstractlabs.toe.handler.MobHandler;
@@ -20,7 +20,7 @@ public class ToeBusses {
 		addEventBus(new BlockHandler());
 		addEventBus(new EntityHandler());
 		
-		addSpecialEventBus(new ConfigurationHandler());
+		addSpecialEventBus(new ConfigHandler());
 		addSpecialEventBus(new ConnectionHandler());
 		addSpecialEventBus(new TickHandler());
 	}

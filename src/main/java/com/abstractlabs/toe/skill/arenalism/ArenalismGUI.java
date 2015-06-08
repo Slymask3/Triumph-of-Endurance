@@ -3,20 +3,25 @@ package com.abstractlabs.toe.skill.arenalism;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
+
+import com.abstractlabs.toe.reference.Skill;
+import com.abstractlabs.toe.utility.Helper;
+
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class ArenalismGUI extends Gui {
 	Minecraft mc = Minecraft.getMinecraft();
-	public static int value;
+	
+	public static int lvl;
 	public static int percent;
 
-	private String texture = "toe:textures/gui/arenalism.png";
-	private int xPos = 79;
-	private int yPos = 5;
+	private String texture = Skill.texture_arenalism;
+	private String texture_gold = Skill.texture_arenalism_gold;
+	private int xPos = Skill.guiX_16;
+	private int yPos = Skill.guiY_16;
 
 	@SubscribeEvent
 	public void onRenderExperienceBar(RenderGameOverlayEvent.Post event) {
@@ -24,35 +29,30 @@ public class ArenalismGUI extends Gui {
 			return;
 		}
 		
-		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
-		
 		ScaledResolution scaledresolution = new ScaledResolution(this.mc, this.mc.displayWidth, this.mc.displayHeight);
 		int h = scaledresolution.getScaledHeight();
 		int w = scaledresolution.getScaledWidth();
-		this.mc.renderEngine.bindTexture(new ResourceLocation(texture));
-		int y = 5;
-		int x = w - xPos;
-		this.drawTexturedModalRect(x, y, 0, 0, 25, 25);
-      
-		if (value == 100)
-			x -= 8;
-		mc.fontRenderer.drawString("" + value, x + 8, y - 1, 0);
-		mc.fontRenderer.drawString("" + value, x + 8, y - 3, 0);
-		mc.fontRenderer.drawString("" + value, x + 9, y - 2, 0);
-		mc.fontRenderer.drawString("" + value, x + 7, y - 2, 0);
-      
-		mc.fontRenderer.drawString("" + value, x + 8, y - 2, 16777215);
-		if (value == 100) {
-			x += 8;
-		}
-		this.mc.renderEngine.bindTexture(new ResourceLocation("toe:textures/gui/percentageBar.png"));
-		y += 20;
-      
-		if (value != 100) {
-			this.drawTexturedModalRect(x, y, 0, 0, 25, 5);
-			this.drawTexturedModalRect(x, y, 0, 5, (int)(3.125D * (percent / 13.5D)), 10);
+		
+		if(lvl == Skill.maxLevel) {
+			this.mc.renderEngine.bindTexture(new ResourceLocation(texture_gold));
 		} else {
-			this.drawTexturedModalRect(x, y, 0, 5, 25, 10);
+			this.mc.renderEngine.bindTexture(new ResourceLocation(texture));
+		}
+		
+		int y = yPos;
+		int x = w - xPos;
+		this.drawTexturedModalRect(x, y, 0, 0, 16, 16);
+      
+		Helper.drawStringWithBorder(mc, x, y-2, lvl, 16777215, 0);
+      
+		this.mc.renderEngine.bindTexture(new ResourceLocation("toe:textures/gui/percentageBar.png"));
+		y += 14;
+	      
+		if (lvl != Skill.maxLevel) {
+			this.drawTexturedModalRect(x, y, 0, 0, 14, 1);
+			this.drawTexturedModalRect(x, y, 0, 1, (int)(14D * (percent / 100D)), 2);
+		} else {
+			this.drawTexturedModalRect(x, y, 0, 1, 14, 2);
 		}
 	}
 }

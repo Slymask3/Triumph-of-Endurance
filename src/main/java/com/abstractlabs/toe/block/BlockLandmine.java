@@ -3,16 +3,19 @@ package com.abstractlabs.toe.block;
 import java.util.Iterator;
 import java.util.List;
 
-import com.abstractlabs.toe.creativetab.ToeTab;
-import com.abstractlabs.toe.reference.Reference;
-
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockLandmine extends BlockBaseLandmine
+import com.abstractlabs.toe.creativetab.ToeTab;
+import com.abstractlabs.toe.reference.Reference;
+import com.abstractlabs.toe.tileentity.TileEntityLandmine;
+
+public class BlockLandmine extends BlockBaseLandmine implements ITileEntityProvider
 {
     private BlockLandmine.Sensitivity field_150069_a;
     private static final String __OBFID = "CL_00000289";
@@ -80,4 +83,13 @@ public class BlockLandmine extends BlockBaseLandmine
 
         private static final String __OBFID = "CL_00000290";
     }
+
+    public int getRenderType() {
+        return -1;
+    }
+    
+	@Override
+	public TileEntity createNewTileEntity(World world, int par2) {
+		return new TileEntityLandmine();
+	}
 }
