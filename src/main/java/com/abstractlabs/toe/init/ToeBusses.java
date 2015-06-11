@@ -9,6 +9,7 @@ import com.abstractlabs.toe.handler.EntityHandler;
 import com.abstractlabs.toe.handler.MobHandler;
 import com.abstractlabs.toe.handler.NBTRespawnHandler;
 import com.abstractlabs.toe.handler.PlayerHandler;
+import com.abstractlabs.toe.handler.PrayerHandler;
 import com.abstractlabs.toe.handler.TickHandler;
 import com.abstractlabs.toe.handler.skill.MiningHandler;
 import com.abstractlabs.toe.handler.skill.SmeltingHandler;
@@ -26,6 +27,7 @@ public class ToeBusses {
 //		addEventBus(new PlayerDeathHandler());
 		addEventBus(new MiningHandler());
 		addEventBus(new WoodcuttingHandler());
+		addEventBus(new PrayerHandler());
 		
 		addSpecialEventBus(new ConfigHandler());
 		addSpecialEventBus(new ConnectionHandler());

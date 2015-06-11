@@ -20,6 +20,8 @@ import com.abstractlabs.toe.item.ItemToe;
 import com.abstractlabs.toe.item.ItemToeAxe;
 import com.abstractlabs.toe.item.ItemToeAxepick;
 import com.abstractlabs.toe.item.ItemToePickaxe;
+import com.abstractlabs.toe.item.ItemUndeadBatBone;
+import com.abstractlabs.toe.reference.BoneType;
 import com.abstractlabs.toe.reference.Thieving;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -60,6 +62,7 @@ public class ToeItems {
 	public static Item diamondAxepick_pick = new ItemToeAxepick(ToolMaterial.EMERALD).setUnlocalizedName("diamondAxepick_pick");
 	public static Item timberAxe = new ItemToeAxe(timberMaterial).setUnlocalizedName("timberAxe");
 	public static Item ruby = new ItemToe().setUnlocalizedName("ruby");
+	public static Item undeadbatBone = new ItemUndeadBatBone(BoneType.boneLvl).setUnlocalizedName("undeadbatBone");
 	
 	public static Item magmaHelmet = new ItemMagmaArmour("magmaHelmet", magmaMaterial, "magmaHelmet", 0);
 	public static Item magmaPlate = new ItemMagmaArmour("magmaPlate", magmaMaterial, "magmaPlate", 1);
@@ -102,6 +105,9 @@ public class ToeItems {
 		GameRegistry.registerItem(paperclip, "paperclip");
 		GameRegistry.registerItem(lockpick, "lockpick");
 		GameRegistry.registerItem(masterKey, "masterKey");
+		
+		//Prayer Bones
+		GameRegistry.registerItem(undeadbatBone, "undeadbatBone");
 		
 		//Coins
 		GameRegistry.registerItem(coinCopper, "coinCopper");
