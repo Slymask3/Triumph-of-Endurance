@@ -36,7 +36,7 @@ public class BlockATM extends BlockContainer implements ITileEntityProvider {
     }
 
     public int getRenderType() {
-        return -1;
+        return 7356;
     }
 	
 	public static int getDirection(int meta) {

@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.world.World;
 import net.minecraftforge.event.world.BlockEvent;
 
 import com.abstractlabs.toe.init.ToeBlocks;
@@ -16,8 +17,12 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 public class BlockHandler {
 	@SubscribeEvent
 	public void onBreak(BlockEvent.BreakEvent e) {
-		Block block = e.block;
 		EntityPlayer player = e.getPlayer();
+		Block block = e.block;
+		World world = e.world;
+		int x = e.x;
+		int y = e.y;
+		int z = e.z;
 		
 		if(ArenalismHelper.getProperties(player).inArena() && !e.world.isRemote) { //if the player is in an arena && if its serverside (used for better random)
 			if(block == ToeBlocks.cash) { //if the block breaking is the cash block

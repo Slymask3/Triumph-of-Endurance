@@ -22,9 +22,15 @@ import com.abstractlabs.toe.handler.KeyHandler;
 import com.abstractlabs.toe.handler.ResourceLoc;
 import com.abstractlabs.toe.init.ToeItems;
 import com.abstractlabs.toe.model.ModelScorpion;
+import com.abstractlabs.toe.reference.Smelting;
 import com.abstractlabs.toe.renderer.RenderATM;
 import com.abstractlabs.toe.renderer.RenderBoi;
 import com.abstractlabs.toe.renderer.RenderFlashbang;
+import com.abstractlabs.toe.renderer.RenderFurnaceDiamond;
+import com.abstractlabs.toe.renderer.RenderFurnaceEmerald;
+import com.abstractlabs.toe.renderer.RenderFurnaceGold;
+import com.abstractlabs.toe.renderer.RenderFurnaceIron;
+import com.abstractlabs.toe.renderer.RenderFurnaceRedstone;
 import com.abstractlabs.toe.renderer.RenderGrenade;
 import com.abstractlabs.toe.renderer.RenderLandmine;
 import com.abstractlabs.toe.renderer.RenderLockedChest;
@@ -97,6 +103,15 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLandmine.class, new RenderLandmine());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStatueBiped.class, new RenderStatueBiped());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityATM.class, new RenderATM());
+		
+		//ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFurnaceIron.class, new RenderFurnaceIron());
+		RenderingRegistry.registerBlockHandler(Smelting.furnaceRenderID_Iron, new RenderFurnaceIron());
+		RenderingRegistry.registerBlockHandler(Smelting.furnaceRenderID_Gold, new RenderFurnaceGold());
+		RenderingRegistry.registerBlockHandler(Smelting.furnaceRenderID_Diamond, new RenderFurnaceDiamond());
+		RenderingRegistry.registerBlockHandler(Smelting.furnaceRenderID_Emerald, new RenderFurnaceEmerald());
+		RenderingRegistry.registerBlockHandler(Smelting.furnaceRenderID_Redstone, new RenderFurnaceRedstone());
+
+		RenderingRegistry.registerBlockHandler(7356, new RenderATM());
 		
 		//MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ToeBlocks.atm), new ItemRenderATM(new RenderATM(), new TileEntityATM()));
 		

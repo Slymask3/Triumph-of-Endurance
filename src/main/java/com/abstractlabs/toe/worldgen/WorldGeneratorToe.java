@@ -30,6 +30,7 @@ public class WorldGeneratorToe implements IWorldGenerator  {
 	private void generateSurface(World world, Random random, int x, int z) {
 		generateStructure(world, random, x + random.nextInt(16), random.nextInt(60), z + random.nextInt(16), new WorldGenUFO(), 300);
 		generateOre(ToeBlocks.randomOre, world, random, x, z, 16, 16, 4 + random.nextInt(3), 5, 5, 50);
+		generateOre(ToeBlocks.rubyOre, world, random, x, z, 16, 16, 4 + random.nextInt(3), 4, 5, 30);
 	}
 
 	private void generateArena(World world, Random random, int x, int y, int z, WorldGenerator gen, int rarity) {

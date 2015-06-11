@@ -5,5 +5,10 @@ public enum GuiID {
     UTILITY,
     WEAPONRY,
     RECALL,
-    ATM;
+    ATM,
+    FURNACE_IRON,
+    FURNACE_GOLD,
+    FURNACE_DIAMOND,
+    FURNACE_EMERALD,
+    FURNACE_REDSTONE;
 }

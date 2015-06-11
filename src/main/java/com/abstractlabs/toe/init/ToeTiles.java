@@ -5,6 +5,11 @@ import net.minecraft.tileentity.TileEntity;
 import com.abstractlabs.toe.arena.Arena;
 import com.abstractlabs.toe.tileentity.TileEntityATM;
 import com.abstractlabs.toe.tileentity.TileEntityBlockArmoury;
+import com.abstractlabs.toe.tileentity.TileEntityFurnaceDiamond;
+import com.abstractlabs.toe.tileentity.TileEntityFurnaceEmerald;
+import com.abstractlabs.toe.tileentity.TileEntityFurnaceGold;
+import com.abstractlabs.toe.tileentity.TileEntityFurnaceIron;
+import com.abstractlabs.toe.tileentity.TileEntityFurnaceRedstone;
 import com.abstractlabs.toe.tileentity.TileEntityLandmine;
 import com.abstractlabs.toe.tileentity.TileEntityLockedChest;
 import com.abstractlabs.toe.tileentity.TileEntityRecall;
@@ -22,6 +27,11 @@ public class ToeTiles {
 		TileEntity.addMapping(TileEntityLandmine.class, "TileEntityLandmine");
 		TileEntity.addMapping(TileEntityStatueBiped.class, "TileEntityStatueBiped");
 		TileEntity.addMapping(TileEntityATM.class, "TileEntityATM");
+		TileEntity.addMapping(TileEntityFurnaceIron.class, "TileEntityFurnaceIron");
+		TileEntity.addMapping(TileEntityFurnaceGold.class, "TileEntityFurnaceGold");
+		TileEntity.addMapping(TileEntityFurnaceDiamond.class, "TileEntityFurnaceDiamond");
+		TileEntity.addMapping(TileEntityFurnaceEmerald.class, "TileEntityFurnaceEmerald");
+		TileEntity.addMapping(TileEntityFurnaceRedstone.class, "TileEntityFurnaceRedstone");
 		TileEntity.addMapping(Arena.class, "TileEntityArena");
 	}
 }

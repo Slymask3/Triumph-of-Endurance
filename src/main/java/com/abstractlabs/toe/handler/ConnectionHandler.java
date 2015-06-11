@@ -46,6 +46,7 @@ import com.abstractlabs.toe.skill.theiving.ThievingPacket;
 import com.abstractlabs.toe.skill.woodcutting.WoodcuttingHelper;
 import com.abstractlabs.toe.skill.woodcutting.WoodcuttingPacket;
 import com.abstractlabs.toe.utility.Helper;
+import com.abstractlabs.toe.utility.LogHelper;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;
@@ -133,6 +134,8 @@ public class ConnectionHandler {
 		        ToePackets.network.sendTo(new ArenalismPacket(ArenalismHelper.getProperties(p).getLevel(), ArenalismHelper.getProperties(p).progressPercentage(), ArenalismHelper.getProperties(p).inArena(), ArenalismHelper.getProperties(p).getCash()), (EntityPlayerMP)p);
 		        
 		        Toe.packetPipeline.sendTo(new PacketATM(2, ATM.getProperties(p).getCopperCoins(), ATM.getProperties(p).getSilverCoins(), ATM.getProperties(p).getGoldCoins()), (EntityPlayerMP)p);
+
+				LogHelper.info("[ConnectionHandler] onPlayerLogin()");
 			}
 	    }
 	}

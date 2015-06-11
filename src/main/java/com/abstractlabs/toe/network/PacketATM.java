@@ -3,6 +3,7 @@ package com.abstractlabs.toe.network;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 
 import com.abstractlabs.toe.gui.GuiATM;
 import com.abstractlabs.toe.init.ToeItems;
@@ -175,5 +176,11 @@ public class PacketATM extends AbstractPacket {
 		} else {
 			LogHelper.error("[Packet ATM] Unknown Packet = " + packet);
 		}
+		
+		NBTTagCompound atmTag = player.getEntityData().getCompoundTag("ATM");
+		
+		LogHelper.info("[PacketATM] handleServerSide() - Copper == " + atmTag.getInteger("CopperCoins") + " (atmTag)");
+		LogHelper.info("[PacketATM] handleServerSide() - Silver == " + atmTag.getInteger("SilverCoins") + " (atmTag)");
+		LogHelper.info("[PacketATM] handleServerSide() - Gold == " + atmTag.getInteger("GoldCoins") + " (atmTag)");
 	}
 }

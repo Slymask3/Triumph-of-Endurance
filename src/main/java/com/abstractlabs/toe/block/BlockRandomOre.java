@@ -2,8 +2,6 @@ package com.abstractlabs.toe.block;
 
 import java.util.Random;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -14,12 +12,11 @@ import com.abstractlabs.toe.reference.Reference;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockRandomOre extends BlockToe {
+public class BlockRandomOre extends BlockToeOre {
 	public static IIcon side;
 	
 	public BlockRandomOre() {
-		super(Material.rock, Block.soundTypeStone, "randomOre");
-		setHardness(1);
+		super("randomOre", 3);
 	}
     
 	public void registerBlockIcons(IIconRegister ir) {

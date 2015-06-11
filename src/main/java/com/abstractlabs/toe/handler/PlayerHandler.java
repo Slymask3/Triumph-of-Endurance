@@ -21,13 +21,14 @@ import com.abstractlabs.toe.skill.smelting.SmeltingHelper;
 import com.abstractlabs.toe.skill.swords.SwordsHelper;
 import com.abstractlabs.toe.skill.theiving.ThievingHelper;
 import com.abstractlabs.toe.skill.woodcutting.WoodcuttingHelper;
+import com.abstractlabs.toe.utility.LogHelper;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class PlayerHandler {
 	@SubscribeEvent
 	public void onEntityConstructing(EntityConstructing event) {
-		if (event.entity instanceof EntityPlayer) {
+		if (/*!event.entity.worldObj.isRemote && */event.entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer)event.entity;
 
 			if(SwordsHelper.getProperties((EntityPlayer)event.entity) == null) {
@@ -148,6 +149,8 @@ public class PlayerHandler {
 			} else {
 				ATM.getProperties((EntityPlayer)event.entity).sync();
 			}
+			
+			LogHelper.info("[PlayerHandler] onEntityConstructing()");
 		}
 	}
 	

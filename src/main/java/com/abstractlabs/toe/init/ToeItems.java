@@ -17,15 +17,23 @@ import com.abstractlabs.toe.item.ItemNimbleArmour;
 import com.abstractlabs.toe.item.ItemRecall;
 import com.abstractlabs.toe.item.ItemTester;
 import com.abstractlabs.toe.item.ItemToe;
+import com.abstractlabs.toe.item.ItemToeAxe;
+import com.abstractlabs.toe.item.ItemToeAxepick;
+import com.abstractlabs.toe.item.ItemToePickaxe;
 import com.abstractlabs.toe.reference.Thieving;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ToeItems {
-	public static ArmorMaterial magmaMaterial = EnumHelper.addArmorMaterial("Magma Material", 33, new int[]{2, 5, 4, 2}, 10);
-	public static ArmorMaterial nimbleMaterial = EnumHelper.addArmorMaterial("Nimble Material", 33, new int[]{2, 5, 4, 2}, 10);
-	public static ArmorMaterial dynamicMaterial = EnumHelper.addArmorMaterial("Dynamic Material", 33, new int[]{2, 5, 4, 2}, 10);
-	public static ToolMaterial caneMaterial = EnumHelper.addToolMaterial("Cane Material", 0, 300, 2.0F, 1.0F, 30);
+	private static ArmorMaterial magmaMaterial = EnumHelper.addArmorMaterial("Magma Material", 33, new int[]{2, 5, 4, 2}, 10);
+	private static ArmorMaterial nimbleMaterial = EnumHelper.addArmorMaterial("Nimble Material", 33, new int[]{2, 5, 4, 2}, 10);
+	private static ArmorMaterial dynamicMaterial = EnumHelper.addArmorMaterial("Dynamic Material", 33, new int[]{2, 5, 4, 2}, 10);
+	private static ToolMaterial caneMaterial = EnumHelper.addToolMaterial("Cane Material", 0, 300, 2.0F, 1.0F, 30);
+	private static ToolMaterial specialMaterial = EnumHelper.addToolMaterial("Special", 3, 1561, 8.0F, 3.0F, 10);
+	private static ToolMaterial veinMaterial = EnumHelper.addToolMaterial("Vein", 3, 1561, 8.0F, 3.0F, 10);
+	private static ToolMaterial smeltingMaterial = EnumHelper.addToolMaterial("Smelting", 0, 1561, 8.0F, 3.0F, 10);
+	private static ToolMaterial stripMaterial = EnumHelper.addToolMaterial("Strip", 3, 1561, 16.0F, 3.0F, 10);
+	private static ToolMaterial timberMaterial = EnumHelper.addToolMaterial("Timber", 3, 1561, 8.0F, 3.0F, 10);
 	
 	public static Item flashbang = new ItemFlashbang().setUnlocalizedName("flashbang");
 	public static Item grenade = new ItemGrenade().setUnlocalizedName("grenade");
@@ -40,6 +48,18 @@ public class ToeItems {
 	public static Item coinCopper = new ItemToe().setUnlocalizedName("coinCopper");
 	public static Item coinSilver = new ItemToe().setUnlocalizedName("coinSilver");
 	public static Item coinGold = new ItemToe().setUnlocalizedName("coinGold");
+	public static Item specialPickaxe = new ItemToePickaxe(specialMaterial).setUnlocalizedName("specialPickaxe");
+	public static Item veinPickaxe = new ItemToePickaxe(veinMaterial).setUnlocalizedName("veinPickaxe");
+	public static Item smeltingPickaxe = new ItemToePickaxe(smeltingMaterial).setUnlocalizedName("smeltingPickaxe");
+	public static Item stripPickaxe = new ItemToePickaxe(stripMaterial).setUnlocalizedName("stripPickaxe");
+	public static Item woodAxepick = new ItemToeAxepick(ToolMaterial.WOOD).setUnlocalizedName("woodAxepick");
+	public static Item goldAxepick = new ItemToeAxepick(ToolMaterial.GOLD).setUnlocalizedName("goldAxepick");
+	public static Item stoneAxepick = new ItemToeAxepick(ToolMaterial.STONE).setUnlocalizedName("stoneAxepick");
+	public static Item ironAxepick = new ItemToeAxepick(ToolMaterial.IRON).setUnlocalizedName("ironAxepick");
+	public static Item diamondAxepick = new ItemToeAxepick(ToolMaterial.EMERALD).setUnlocalizedName("diamondAxepick");
+	public static Item diamondAxepick_pick = new ItemToeAxepick(ToolMaterial.EMERALD).setUnlocalizedName("diamondAxepick_pick");
+	public static Item timberAxe = new ItemToeAxe(timberMaterial).setUnlocalizedName("timberAxe");
+	public static Item ruby = new ItemToe().setUnlocalizedName("ruby");
 	
 	public static Item magmaHelmet = new ItemMagmaArmour("magmaHelmet", magmaMaterial, "magmaHelmet", 0);
 	public static Item magmaPlate = new ItemMagmaArmour("magmaPlate", magmaMaterial, "magmaPlate", 1);
@@ -55,20 +75,45 @@ public class ToeItems {
 	public static Item dynamicBoots = new ItemDynamicArmour("dynamicBoots", dynamicMaterial, "dynamicBoots", 3);
 	
 	public static void init() {
+		//Weapons
+		GameRegistry.registerItem(cane, "cane");
+
+		//Tools
+		GameRegistry.registerItem(woodAxepick, "woodAxepick");
+		GameRegistry.registerItem(goldAxepick, "goldAxepick");
+		GameRegistry.registerItem(stoneAxepick, "stoneAxepick");
+		GameRegistry.registerItem(ironAxepick, "ironAxepick");
+		GameRegistry.registerItem(diamondAxepick, "diamondAxepick");
+		GameRegistry.registerItem(diamondAxepick_pick, "diamondAxepick_pick");
+		GameRegistry.registerItem(specialPickaxe, "specialPickaxe");
+		GameRegistry.registerItem(veinPickaxe, "veinPickaxe");
+		GameRegistry.registerItem(smeltingPickaxe, "smeltingPickaxe");
+		GameRegistry.registerItem(stripPickaxe, "stripPickaxe");
+		GameRegistry.registerItem(timberAxe, "timberAxe");
+		
+		//Magic
+		GameRegistry.registerItem(recall, "recall");
+		
+		//Projectiles
 		GameRegistry.registerItem(flashbang, "flashbang");
 		GameRegistry.registerItem(grenade, "grenade");
-		GameRegistry.registerItem(hollowLighter, "hollowLighter");
-		GameRegistry.registerItem(arenalismLighter, "arenalismLighter");
-		GameRegistry.registerItem(recall, "recall");
+		
+		//Thieving Lockpicks
 		GameRegistry.registerItem(paperclip, "paperclip");
 		GameRegistry.registerItem(lockpick, "lockpick");
 		GameRegistry.registerItem(masterKey, "masterKey");
-		GameRegistry.registerItem(tester, "testerItem");
-		GameRegistry.registerItem(cane, "cane");
+		
+		//Coins
 		GameRegistry.registerItem(coinCopper, "coinCopper");
 		GameRegistry.registerItem(coinSilver, "coinSilver");
 		GameRegistry.registerItem(coinGold, "coinGold");
 		
+		//Other
+		GameRegistry.registerItem(hollowLighter, "hollowLighter");
+		GameRegistry.registerItem(arenalismLighter, "arenalismLighter");
+		GameRegistry.registerItem(ruby, "ruby");
+		
+		//Armor
 		GameRegistry.registerItem(magmaHelmet, "magmaHelmet");
 		GameRegistry.registerItem(magmaPlate, "magmaPlate");
 		GameRegistry.registerItem(magmaPants, "magmaPants");
@@ -81,5 +126,8 @@ public class ToeItems {
 		GameRegistry.registerItem(dynamicPlate, "dynamicPlate");
 		GameRegistry.registerItem(dynamicPants, "dynamicPants");
 		GameRegistry.registerItem(dynamicBoots, "dynamicBoots");
+
+		//To be removed
+		GameRegistry.registerItem(tester, "testerItem");
 	}
 }

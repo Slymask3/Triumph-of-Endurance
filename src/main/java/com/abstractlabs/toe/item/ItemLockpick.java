@@ -43,16 +43,18 @@ public class ItemLockpick extends ItemToe {
 	}
 	
 	public void addInformation(ItemStack is, EntityPlayer player, List list, boolean par4) {
-		int max = (is.getMaxDamage()) + 1;
-		int dmg = (is.getMaxDamage() - is.getItemDamage()) + 1;
-
-		if(ThievingHelper.getProperties(player).getLevel() >= this.lvl) {
-			list.add(EnumChatFormatting.GREEN + "Level Required: " + this.lvl);
-		} else {
-			list.add(EnumChatFormatting.RED + "Level Required: " + this.lvl);
+		if(!player.worldObj.isRemote) {
+			int max = (is.getMaxDamage()) + 1;
+			int dmg = (is.getMaxDamage() - is.getItemDamage()) + 1;
+	
+			if(ThievingHelper.getProperties(player).getLevel() >= this.lvl) {
+				list.add(EnumChatFormatting.GREEN + "Level Required: " + this.lvl);
+			} else {
+				list.add(EnumChatFormatting.RED + "Level Required: " + this.lvl);
+			}
+			
+			list.add(EnumChatFormatting.AQUA + "Chance: " + this.chance*100 + "%");
+			list.add(EnumChatFormatting.GREEN + "Uses: " + dmg + "/" + max);
 		}
-		
-		list.add(EnumChatFormatting.AQUA + "Chance: " + this.chance*100 + "%");
-		list.add(EnumChatFormatting.GREEN + "Uses: " + dmg + "/" + max);
 	}
 }
