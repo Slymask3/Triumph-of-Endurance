@@ -20,8 +20,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 import com.abstractlabs.toe.creativetab.ToeTab;
 import com.abstractlabs.toe.init.ToeBlocks;
 import com.abstractlabs.toe.reference.Reference;
-import com.abstractlabs.toe.worldgen.WorldGenEffectTree;
-import com.abstractlabs.toe.worldgen.WorldGenForestHollowTree;
+import com.abstractlabs.toe.world.gen.WorldGenEffectTree;
+import com.abstractlabs.toe.world.gen.WorldGenForestHollowTree;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

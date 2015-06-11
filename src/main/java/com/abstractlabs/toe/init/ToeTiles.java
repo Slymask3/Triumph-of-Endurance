@@ -2,7 +2,6 @@ package com.abstractlabs.toe.init;
 
 import net.minecraft.tileentity.TileEntity;
 
-import com.abstractlabs.toe.arena.Arena;
 import com.abstractlabs.toe.tileentity.TileEntityATM;
 import com.abstractlabs.toe.tileentity.TileEntityBlockArmoury;
 import com.abstractlabs.toe.tileentity.TileEntityFurnaceDiamond;
@@ -16,6 +15,7 @@ import com.abstractlabs.toe.tileentity.TileEntityRecall;
 import com.abstractlabs.toe.tileentity.TileEntityStatueBiped;
 import com.abstractlabs.toe.tileentity.TileEntityUtility;
 import com.abstractlabs.toe.tileentity.TileEntityWeaponry;
+import com.abstractlabs.toe.world.arena.Arena;
 
 public class ToeTiles {
 	public static void init() {

@@ -22,7 +22,7 @@ import net.minecraft.world.gen.layer.GenLayerVoronoiZoom;
 import net.minecraft.world.gen.layer.GenLayerZoom;
 import net.minecraftforge.event.terraingen.WorldTypeEvent.InitBiomeGens;
 
-import com.abstractlabs.toe.dimension.hollows.HollowsGenLayerBiome;
+import com.abstractlabs.toe.world.dimension.hollows.HollowsGenLayerBiome;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 

@@ -22,10 +22,10 @@ import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-import com.abstractlabs.toe.arena.Arena;
-import com.abstractlabs.toe.arena.ArenaDesert;
 import com.abstractlabs.toe.handler.ConfigHandler;
 import com.abstractlabs.toe.reference.Reference;
+import com.abstractlabs.toe.world.arena.Arena;
+import com.abstractlabs.toe.world.arena.ArenaDesert;
 
 public class Helper {
 	public static void msg(EntityPlayer player, String msg, String color) {

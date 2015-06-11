@@ -3,14 +3,9 @@ package com.abstractlabs.toe.network;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
 
-import com.abstractlabs.toe.gui.GuiScreenOverlay;
-import com.abstractlabs.toe.skill.arenalism.ArenalismHelper;
+import com.abstractlabs.toe.client.gui.GuiScreenOverlay;
 import com.abstractlabs.toe.utility.LogHelper;
-
-import cpw.mods.fml.common.network.ByteBufUtils;
 
 public class PacketScreenOverlay extends AbstractPacket {
 	int ticks;

@@ -2,7 +2,7 @@ package com.abstractlabs.toe.skill.arenalism;
 
 import io.netty.buffer.ByteBuf;
 
-import com.abstractlabs.toe.gui.GuiArenaOverlay;
+import com.abstractlabs.toe.client.gui.GuiArenaOverlay;
 import com.abstractlabs.toe.skill.DescriptionGUI;
 
 import cpw.mods.fml.common.network.simpleimpl.IMessage;

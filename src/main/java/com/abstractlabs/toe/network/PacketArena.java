@@ -6,9 +6,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.common.DimensionManager;
 
-import com.abstractlabs.toe.arena.Arena;
-import com.abstractlabs.toe.gui.GuiArenaOverlay;
+import com.abstractlabs.toe.client.gui.GuiArenaOverlay;
 import com.abstractlabs.toe.utility.LogHelper;
+import com.abstractlabs.toe.world.arena.Arena;
 
 public class PacketArena extends AbstractPacket {
 	int _packet; //0 = Wave Update, 1 = End Game, 2 = Update, 3 = Timer and Seconds

@@ -2,8 +2,8 @@ package com.abstractlabs.toe.init;
 
 import net.minecraftforge.common.DimensionManager;
 
-import com.abstractlabs.toe.dimension.arenalism.WorldProviderFlat;
-import com.abstractlabs.toe.dimension.hollows.WorldProviderHollows;
+import com.abstractlabs.toe.world.dimension.arenalism.WorldProviderFlat;
+import com.abstractlabs.toe.world.dimension.hollows.WorldProviderHollows;
 
 public class ToeDimensions {
 	public static int hollows = 8;

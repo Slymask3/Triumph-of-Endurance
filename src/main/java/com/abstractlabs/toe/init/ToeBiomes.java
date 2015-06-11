@@ -5,7 +5,6 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -13,9 +12,9 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
 
-import com.abstractlabs.toe.biome.BiomeFlat;
-import com.abstractlabs.toe.biome.BiomeHollows;
-import com.abstractlabs.toe.biomedecorator.BiomeDecoratorToe;
+import com.abstractlabs.toe.world.biome.BiomeFlat;
+import com.abstractlabs.toe.world.biome.BiomeHollows;
+import com.abstractlabs.toe.world.biomedecorator.BiomeDecoratorToe;
 
 public class ToeBiomes extends BiomeGenBase
 {

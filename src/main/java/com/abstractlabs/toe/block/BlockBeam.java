@@ -10,7 +10,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import com.abstractlabs.toe.gui.GuiScreenOverlay;
+import com.abstractlabs.toe.client.gui.GuiScreenOverlay;
 import com.abstractlabs.toe.reference.Reference;
 
 import cpw.mods.fml.relauncher.Side;

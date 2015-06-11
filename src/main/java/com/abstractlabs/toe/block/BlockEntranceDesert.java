@@ -11,12 +11,12 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
-import com.abstractlabs.toe.arena.ArenaDesert;
 import com.abstractlabs.toe.reference.Color;
 import com.abstractlabs.toe.reference.Reference;
 import com.abstractlabs.toe.skill.arenalism.ArenalismHelper;
 import com.abstractlabs.toe.utility.Helper;
 import com.abstractlabs.toe.utility.LogHelper;
+import com.abstractlabs.toe.world.arena.ArenaDesert;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

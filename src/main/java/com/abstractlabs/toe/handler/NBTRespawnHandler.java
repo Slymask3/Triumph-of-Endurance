@@ -7,9 +7,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
-import com.abstractlabs.toe.player.ATM;
-import com.abstractlabs.toe.player.Coins;
-import com.abstractlabs.toe.player.ToeSkills;
+import com.abstractlabs.toe.entity.player.ATM;
+import com.abstractlabs.toe.entity.player.Coins;
+import com.abstractlabs.toe.entity.player.ToeSkills;
 import com.abstractlabs.toe.reference.Color;
 import com.abstractlabs.toe.skill.agility.AgilityHelper;
 import com.abstractlabs.toe.skill.arenalism.ArenalismHelper;

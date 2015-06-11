@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 import com.abstractlabs.toe.creativetab.ToeTab;
 import com.abstractlabs.toe.init.ToeBlocks;
 import com.abstractlabs.toe.init.ToeDimensions;
-import com.abstractlabs.toe.teleporter.TeleporterHollows;
+import com.abstractlabs.toe.world.teleporter.TeleporterHollows;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

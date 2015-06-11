@@ -4,7 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.IExtendedEntityProperties;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
 
-import com.abstractlabs.toe.player.ATM;
+import com.abstractlabs.toe.entity.player.ATM;
 import com.abstractlabs.toe.skill.agility.AgilityHelper;
 import com.abstractlabs.toe.skill.arenalism.ArenalismHelper;
 import com.abstractlabs.toe.skill.brewing.BrewingHelper;

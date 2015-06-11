@@ -1,17 +1,11 @@
 package com.abstractlabs.toe;
 
-import java.util.List;
-
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.IResourcePack;
-import net.minecraft.client.resources.SimpleReloadableResourceManager;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.server.MinecraftServer;
 
+import com.abstractlabs.toe.client.gui.GuiHandler;
 import com.abstractlabs.toe.command.CommandToe;
-import com.abstractlabs.toe.gui.GuiHandler;
 import com.abstractlabs.toe.handler.ConfigHandler;
-import com.abstractlabs.toe.handler.ResourceLoc;
 import com.abstractlabs.toe.init.ToeBiomes;
 import com.abstractlabs.toe.init.ToeBlocks;
 import com.abstractlabs.toe.init.ToeBusses;
@@ -25,11 +19,10 @@ import com.abstractlabs.toe.network.PacketPipeline;
 import com.abstractlabs.toe.proxy.IProxy;
 import com.abstractlabs.toe.reference.Reference;
 import com.abstractlabs.toe.utility.LogHelper;
-import com.abstractlabs.toe.worldgen.WorldGeneratorToe;
+import com.abstractlabs.toe.world.gen.WorldGeneratorToe;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;

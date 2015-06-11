@@ -8,9 +8,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 import com.abstractlabs.toe.Toe;
+import com.abstractlabs.toe.entity.player.ATM;
 import com.abstractlabs.toe.init.ToePackets;
 import com.abstractlabs.toe.network.PacketATM;
-import com.abstractlabs.toe.player.ATM;
 import com.abstractlabs.toe.reference.Color;
 import com.abstractlabs.toe.reference.Reference;
 import com.abstractlabs.toe.skill.agility.AgilityHelper;
