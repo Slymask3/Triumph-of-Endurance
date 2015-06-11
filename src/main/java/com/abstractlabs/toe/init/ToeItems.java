@@ -6,6 +6,7 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 
 import com.abstractlabs.toe.item.ItemArenalismLighter;
+import com.abstractlabs.toe.item.ItemUndeadBatBone;
 import com.abstractlabs.toe.item.ItemCane;
 import com.abstractlabs.toe.item.ItemDynamicArmour;
 import com.abstractlabs.toe.item.ItemFlashbang;
@@ -17,6 +18,7 @@ import com.abstractlabs.toe.item.ItemNimbleArmour;
 import com.abstractlabs.toe.item.ItemRecall;
 import com.abstractlabs.toe.item.ItemTester;
 import com.abstractlabs.toe.item.ItemToe;
+import com.abstractlabs.toe.reference.BoneType;
 import com.abstractlabs.toe.reference.Thieving;
 
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -40,6 +42,7 @@ public class ToeItems {
 	public static Item coinCopper = new ItemToe().setUnlocalizedName("coinCopper");
 	public static Item coinSilver = new ItemToe().setUnlocalizedName("coinSilver");
 	public static Item coinGold = new ItemToe().setUnlocalizedName("coinGold");
+	public static Item undeadbatBone = new ItemUndeadBatBone(BoneType.boneLvl).setUnlocalizedName("undeadbatBone");
 	
 	public static Item magmaHelmet = new ItemMagmaArmour("magmaHelmet", magmaMaterial, "magmaHelmet", 0);
 	public static Item magmaPlate = new ItemMagmaArmour("magmaPlate", magmaMaterial, "magmaPlate", 1);
@@ -68,6 +71,7 @@ public class ToeItems {
 		GameRegistry.registerItem(coinCopper, "coinCopper");
 		GameRegistry.registerItem(coinSilver, "coinSilver");
 		GameRegistry.registerItem(coinGold, "coinGold");
+		GameRegistry.registerItem(undeadbatBone, "undeadbatBone");
 		
 		GameRegistry.registerItem(magmaHelmet, "magmaHelmet");
 		GameRegistry.registerItem(magmaPlate, "magmaPlate");

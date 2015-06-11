@@ -14,6 +14,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import com.abstractlabs.toe.biomedecorator.BiomeDecoratorToe;
 import com.abstractlabs.toe.init.ToeBiomes;
 import com.abstractlabs.toe.init.ToeBlocks;
+import com.abstractlabs.toe.worldgen.WorldGenForestHollowTree;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

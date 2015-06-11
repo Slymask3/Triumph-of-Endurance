@@ -8,6 +8,7 @@ import com.abstractlabs.toe.handler.ConnectionHandler;
 import com.abstractlabs.toe.handler.EntityHandler;
 import com.abstractlabs.toe.handler.MobHandler;
 import com.abstractlabs.toe.handler.PlayerHandler;
+import com.abstractlabs.toe.handler.PrayerHandler;
 import com.abstractlabs.toe.handler.TickHandler;
 import com.abstractlabs.toe.utility.LogHelper;
 
@@ -19,6 +20,7 @@ public class ToeBusses {
 		addEventBus(new MobHandler());
 		addEventBus(new BlockHandler());
 		addEventBus(new EntityHandler());
+		addEventBus(new PrayerHandler());
 		
 		addSpecialEventBus(new ConfigHandler());
 		addSpecialEventBus(new ConnectionHandler());
