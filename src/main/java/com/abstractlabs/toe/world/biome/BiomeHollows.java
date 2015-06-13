@@ -9,11 +9,11 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-import com.abstractlabs.toe.init.ToeBiomes;
+import com.abstractlabs.toe.init.ToeGenBiome;
 import com.abstractlabs.toe.init.ToeBlocks;
 import com.abstractlabs.toe.world.biomedecorator.BiomeDecoratorToe;
 
-public class BiomeHollows extends ToeBiomes
+public class BiomeHollows extends ToeGenBiome
 {
 	public static int treesPerChunk;
 

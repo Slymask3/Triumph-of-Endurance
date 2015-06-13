@@ -7,7 +7,7 @@ import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 
-import com.abstractlabs.toe.init.ToeBiomes;
+import com.abstractlabs.toe.init.ToeGenBiome;
 import com.abstractlabs.toe.init.ToeDimensions;
 
 import cpw.mods.fml.relauncher.Side;
@@ -18,7 +18,7 @@ public class WorldProviderHollows extends WorldProvider
 	private float[] colorsSunriseSunset = new float[4];
 	public void registerWorldChunkManager()
 	{
-		this.worldChunkMgr = new WorldChunkManagerHell(ToeBiomes.biomeHollows, 1.2F);
+		this.worldChunkMgr = new WorldChunkManagerHell(ToeGenBiome.biomeHollows, 1.2F);
 		this.dimensionId = ToeDimensions.hollows;
 		this.hasNoSky = false;
 	}

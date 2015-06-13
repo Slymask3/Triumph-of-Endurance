@@ -6,8 +6,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 
-import com.abstractlabs.toe.world.gen.WorldGenEffectTree;
-import com.abstractlabs.toe.world.gen.WorldGenForestHollowTree;
+import com.abstractlabs.toe.world.gen.structure.WorldGenEffectTree;
+import com.abstractlabs.toe.world.gen.structure.WorldGenForestHollowTree;
 
 public class BiomeDecoratorToe extends BiomeDecorator
 {

@@ -9,6 +9,7 @@ import com.abstractlabs.toe.item.ItemArenalismLighter;
 import com.abstractlabs.toe.item.ItemCane;
 import com.abstractlabs.toe.item.ItemDynamicArmour;
 import com.abstractlabs.toe.item.ItemFlashbang;
+import com.abstractlabs.toe.item.ItemGhostblade;
 import com.abstractlabs.toe.item.ItemGrenade;
 import com.abstractlabs.toe.item.ItemHollowLighter;
 import com.abstractlabs.toe.item.ItemLockpick;
@@ -54,15 +55,20 @@ public class ToeItems {
 	public static Item veinPickaxe = new ItemToePickaxe(veinMaterial).setUnlocalizedName("veinPickaxe");
 	public static Item smeltingPickaxe = new ItemToePickaxe(smeltingMaterial).setUnlocalizedName("smeltingPickaxe");
 	public static Item stripPickaxe = new ItemToePickaxe(stripMaterial).setUnlocalizedName("stripPickaxe");
-	public static Item woodAxepick = new ItemToeAxepick(ToolMaterial.WOOD).setUnlocalizedName("woodAxepick");
-	public static Item goldAxepick = new ItemToeAxepick(ToolMaterial.GOLD).setUnlocalizedName("goldAxepick");
-	public static Item stoneAxepick = new ItemToeAxepick(ToolMaterial.STONE).setUnlocalizedName("stoneAxepick");
-	public static Item ironAxepick = new ItemToeAxepick(ToolMaterial.IRON).setUnlocalizedName("ironAxepick");
-	public static Item diamondAxepick = new ItemToeAxepick(ToolMaterial.EMERALD).setUnlocalizedName("diamondAxepick");
-	public static Item diamondAxepick_pick = new ItemToeAxepick(ToolMaterial.EMERALD).setUnlocalizedName("diamondAxepick_pick");
+	public static Item woodAxepick = new ItemToeAxepick(ToolMaterial.WOOD, true).setUnlocalizedName("woodAxepick");
+	public static Item goldAxepick = new ItemToeAxepick(ToolMaterial.GOLD, true).setUnlocalizedName("goldAxepick");
+	public static Item stoneAxepick = new ItemToeAxepick(ToolMaterial.STONE, true).setUnlocalizedName("stoneAxepick");
+	public static Item ironAxepick = new ItemToeAxepick(ToolMaterial.IRON, true).setUnlocalizedName("ironAxepick");
+	public static Item diamondAxepick = new ItemToeAxepick(ToolMaterial.EMERALD, true).setUnlocalizedName("diamondAxepick");
+	public static Item woodAxepick_pick = new ItemToeAxepick(ToolMaterial.WOOD, false).setUnlocalizedName("woodAxepick_pick");
+	public static Item goldAxepick_pick = new ItemToeAxepick(ToolMaterial.GOLD, false).setUnlocalizedName("goldAxepick_pick");
+	public static Item stoneAxepick_pick = new ItemToeAxepick(ToolMaterial.STONE, false).setUnlocalizedName("stoneAxepick_pick");
+	public static Item ironAxepick_pick = new ItemToeAxepick(ToolMaterial.IRON, false).setUnlocalizedName("ironAxepick_pick");
+	public static Item diamondAxepick_pick = new ItemToeAxepick(ToolMaterial.EMERALD, false).setUnlocalizedName("diamondAxepick_pick");
 	public static Item timberAxe = new ItemToeAxe(timberMaterial).setUnlocalizedName("timberAxe");
 	public static Item ruby = new ItemToe().setUnlocalizedName("ruby");
 	public static Item undeadbatBone = new ItemUndeadBatBone(BoneType.boneLvl).setUnlocalizedName("undeadbatBone");
+	public static Item ghostblade = new ItemGhostblade().setUnlocalizedName("ghostblade");
 	
 	public static Item magmaHelmet = new ItemMagmaArmour("magmaHelmet", magmaMaterial, "magmaHelmet", 0);
 	public static Item magmaPlate = new ItemMagmaArmour("magmaPlate", magmaMaterial, "magmaPlate", 1);
@@ -80,6 +86,7 @@ public class ToeItems {
 	public static void init() {
 		//Weapons
 		GameRegistry.registerItem(cane, "cane");
+		GameRegistry.registerItem(ghostblade, "ghostblade");
 
 		//Tools
 		GameRegistry.registerItem(woodAxepick, "woodAxepick");
@@ -87,6 +94,10 @@ public class ToeItems {
 		GameRegistry.registerItem(stoneAxepick, "stoneAxepick");
 		GameRegistry.registerItem(ironAxepick, "ironAxepick");
 		GameRegistry.registerItem(diamondAxepick, "diamondAxepick");
+		GameRegistry.registerItem(woodAxepick_pick, "woodAxepick_pick");
+		GameRegistry.registerItem(goldAxepick_pick, "goldAxepick_pick");
+		GameRegistry.registerItem(stoneAxepick_pick, "stoneAxepick_pick");
+		GameRegistry.registerItem(ironAxepick_pick, "ironAxepick_pick");
 		GameRegistry.registerItem(diamondAxepick_pick, "diamondAxepick_pick");
 		GameRegistry.registerItem(specialPickaxe, "specialPickaxe");
 		GameRegistry.registerItem(veinPickaxe, "veinPickaxe");

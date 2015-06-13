@@ -42,15 +42,15 @@ public class WoodcuttingHandler {
 			if(player.getHeldItem() != null) {
 				Item tool = player.getHeldItem().getItem();
 				
-				if(tool == Items.wooden_axe || tool == ToeItems.woodAxepick) {
+				if(tool == Items.wooden_pickaxe || tool == ToeItems.woodAxepick || tool == ToeItems.woodAxepick_pick) {
 					boost = 1.01F;
-				} else if(tool == Items.stone_axe || tool == ToeItems.stoneAxepick) {
+				} else if(tool == Items.stone_axe || tool == ToeItems.stoneAxepick || tool == ToeItems.stoneAxepick_pick) {
 					boost = 1.02F;
-				} else if(tool == Items.iron_axe || tool == ToeItems.ironAxepick) {
+				} else if(tool == Items.iron_axe || tool == ToeItems.ironAxepick || tool == ToeItems.ironAxepick_pick) {
 					boost = 1.05F;
-				} else if(tool == Items.golden_axe || tool == ToeItems.goldAxepick) {
+				} else if(tool == Items.golden_axe || tool == ToeItems.goldAxepick || tool == ToeItems.goldAxepick_pick) {
 					boost = 2.00F;
-				} else if(tool == Items.diamond_axe || tool == ToeItems.diamondAxepick) {
+				} else if(tool == Items.diamond_axe || tool == ToeItems.diamondAxepick || tool == ToeItems.diamondAxepick_pick) {
 					boost = 1.10F;
 				} else if(tool == Items.shears) {
 					boost = 2.00F;

@@ -1,4 +1,4 @@
-package com.abstractlabs.toe.world.gen;
+package com.abstractlabs.toe.world.gen.structure;
 
 import java.util.Random;
 

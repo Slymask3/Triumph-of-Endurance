@@ -9,6 +9,7 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 import com.abstractlabs.toe.init.ToeBlocks;
+import com.abstractlabs.toe.world.gen.structure.WorldGenUFO;
 
 import cpw.mods.fml.common.IWorldGenerator;
 
