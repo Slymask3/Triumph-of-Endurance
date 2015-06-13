@@ -6,10 +6,12 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
 
 import com.abstractlabs.toe.item.ItemArenalismLighter;
+import com.abstractlabs.toe.item.ItemBone;
 import com.abstractlabs.toe.item.ItemCane;
 import com.abstractlabs.toe.item.ItemDynamicArmour;
 import com.abstractlabs.toe.item.ItemFlashbang;
 import com.abstractlabs.toe.item.ItemGrenade;
+import com.abstractlabs.toe.item.ItemHealingTablet;
 import com.abstractlabs.toe.item.ItemHollowLighter;
 import com.abstractlabs.toe.item.ItemLockpick;
 import com.abstractlabs.toe.item.ItemMagmaArmour;
@@ -20,7 +22,6 @@ import com.abstractlabs.toe.item.ItemToe;
 import com.abstractlabs.toe.item.ItemToeAxe;
 import com.abstractlabs.toe.item.ItemToeAxepick;
 import com.abstractlabs.toe.item.ItemToePickaxe;
-import com.abstractlabs.toe.item.ItemUndeadBatBone;
 import com.abstractlabs.toe.reference.BoneType;
 import com.abstractlabs.toe.reference.Thieving;
 
@@ -62,7 +63,8 @@ public class ToeItems {
 	public static Item diamondAxepick_pick = new ItemToeAxepick(ToolMaterial.EMERALD).setUnlocalizedName("diamondAxepick_pick");
 	public static Item timberAxe = new ItemToeAxe(timberMaterial).setUnlocalizedName("timberAxe");
 	public static Item ruby = new ItemToe().setUnlocalizedName("ruby");
-	public static Item undeadbatBone = new ItemUndeadBatBone(BoneType.boneLvl).setUnlocalizedName("undeadbatBone");
+	public static Item undeadbatBone = new ItemBone(BoneType.undeadbatBoneLvl).setUnlocalizedName("undeadbatBone");
+	public static Item healingTab = new ItemHealingTablet(BoneType.healLvl).setUnlocalizedName("healingTablet");
 	
 	public static Item magmaHelmet = new ItemMagmaArmour("magmaHelmet", magmaMaterial, "magmaHelmet", 0);
 	public static Item magmaPlate = new ItemMagmaArmour("magmaPlate", magmaMaterial, "magmaPlate", 1);
@@ -108,6 +110,7 @@ public class ToeItems {
 		
 		//Prayer Bones
 		GameRegistry.registerItem(undeadbatBone, "undeadbatBone");
+		GameRegistry.registerItem(healingTab, "healingTablet");
 		
 		//Coins
 		GameRegistry.registerItem(coinCopper, "coinCopper");
