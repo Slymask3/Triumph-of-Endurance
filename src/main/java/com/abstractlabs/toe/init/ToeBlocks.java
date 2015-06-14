@@ -9,6 +9,10 @@ import com.abstractlabs.toe.block.BlockBasic;
 import com.abstractlabs.toe.block.BlockBeam;
 import com.abstractlabs.toe.block.BlockBreakableDesert;
 import com.abstractlabs.toe.block.BlockCash;
+import com.abstractlabs.toe.block.BlockCrystal;
+import com.abstractlabs.toe.block.BlockCrystalIce;
+import com.abstractlabs.toe.block.BlockCrystalIceOre;
+import com.abstractlabs.toe.block.BlockCrystalOre;
 import com.abstractlabs.toe.block.BlockEntranceDesert;
 import com.abstractlabs.toe.block.BlockExteriorDesert;
 import com.abstractlabs.toe.block.BlockExteriorForest;
@@ -19,12 +23,15 @@ import com.abstractlabs.toe.block.BlockFurnaceEmerald;
 import com.abstractlabs.toe.block.BlockFurnaceGold;
 import com.abstractlabs.toe.block.BlockFurnaceIron;
 import com.abstractlabs.toe.block.BlockFurnaceRedstone;
+import com.abstractlabs.toe.block.BlockGlassLava;
+import com.abstractlabs.toe.block.BlockGlassWater;
 import com.abstractlabs.toe.block.BlockHollowGrass;
 import com.abstractlabs.toe.block.BlockHollowLeaf;
 import com.abstractlabs.toe.block.BlockHollowLog;
 import com.abstractlabs.toe.block.BlockHollowSapling;
 import com.abstractlabs.toe.block.BlockHollowsPortal;
 import com.abstractlabs.toe.block.BlockLandmine;
+import com.abstractlabs.toe.block.BlockLapisLamp;
 import com.abstractlabs.toe.block.BlockLockedChest;
 import com.abstractlabs.toe.block.BlockMoonRock;
 import com.abstractlabs.toe.block.BlockPortalCallisto;
@@ -84,6 +91,13 @@ public class ToeBlocks {
 	public static Block rubyBlock = new BlockRuby();
 	public static Block portalCallisto = new BlockPortalCallisto();
 	public static Block moonRock = new BlockMoonRock();
+	public static Block lapisLamp = new BlockLapisLamp();
+	public static Block crystalOre = new BlockCrystalOre();
+	public static Block crystalIceOre = new BlockCrystalIceOre();
+	public static Block crystalBlock = new BlockCrystal();
+	public static Block crystalIceBlock = new BlockCrystalIce();
+	public static Block glassLava = new BlockGlassLava();
+	public static Block glassWater = new BlockGlassWater();
 	
 	public static void init() {
 		//World Generation
@@ -99,9 +113,14 @@ public class ToeBlocks {
 		//Ores
 		GameRegistry.registerBlock(randomOre, "randomOre");
 		GameRegistry.registerBlock(rubyOre, "rubyOre");
+		GameRegistry.registerBlock(crystalOre, "crystalOre");
+		GameRegistry.registerBlock(crystalIceOre, "crystalIceOre");
+		//moon ore ideas: lanthanum, noibium, neodymium, bismuth, antimony, lead, silver, tin
 		
 		//Ore Blocks
 		GameRegistry.registerBlock(rubyBlock, "rubyBlock");
+		GameRegistry.registerBlock(crystalBlock, "crystalBlock");
+		GameRegistry.registerBlock(crystalIceBlock, "crystalIceBlock");
 
 		//Furnaces
 		GameRegistry.registerBlock(furnaceIron, "furnaceIron");
@@ -123,6 +142,9 @@ public class ToeBlocks {
 		GameRegistry.registerBlock(hollowFire, "hollowFire");
 		GameRegistry.registerBlock(statueBiped, "statueBiped");
 		GameRegistry.registerBlock(atm, "atm");
+		GameRegistry.registerBlock(lapisLamp, "lapisLamp");
+		GameRegistry.registerBlock(glassWater, "glassWater");
+		GameRegistry.registerBlock(glassLava, "glassLava");
 		
 		//Portal
 		GameRegistry.registerBlock(hollowPortal, "hollowPortal");

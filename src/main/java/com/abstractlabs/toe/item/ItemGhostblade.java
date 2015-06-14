@@ -26,15 +26,15 @@ public class ItemGhostblade extends ItemToeSword {
 	public void onUpdate(ItemStack is, World world, Entity entity, int par4, boolean par5) {
 		if (is.stackTagCompound == null) {
 			is.stackTagCompound = new NBTTagCompound();
-		    is.stackTagCompound.setBoolean("activeAvaliable", true);
+		    is.stackTagCompound.setBoolean("activeAvailable", true);
 		    is.stackTagCompound.setInteger("ticks", 0);
 		} else if(is.stackTagCompound != null) {
-			if(!is.stackTagCompound.getBoolean("activeAvaliable")) {
+			if(!is.stackTagCompound.getBoolean("activeAvailable")) {
 				if(is.stackTagCompound.getInteger("ticks") >= 0) {
 					//ticks--;
 					is.stackTagCompound.setInteger("ticks", is.stackTagCompound.getInteger("ticks")-1);
 				} else {
-					is.stackTagCompound.setBoolean("activeAvaliable", true);
+					is.stackTagCompound.setBoolean("activeAvailable", true);
 				}
 			}
 		}
@@ -43,7 +43,7 @@ public class ItemGhostblade extends ItemToeSword {
 	@Override
 	public boolean onItemUse(ItemStack is, EntityPlayer player, World world, int par4, int par5, int par6, int par7, float par8, float par9, float par10) {
 		if (is.stackTagCompound != null) {
-			if(is.stackTagCompound.getBoolean("activeAvaliable")) {
+			if(is.stackTagCompound.getBoolean("activeAvailable")) {
 				player.addPotionEffect(new PotionEffect(1, 5*20, 2));
 				player.addPotionEffect(new PotionEffect(5, 5*20, 2));
 				
@@ -51,7 +51,7 @@ public class ItemGhostblade extends ItemToeSword {
 
 				//ticks = 2000;
 				is.stackTagCompound.setInteger("ticks", 3600); //3min
-				is.stackTagCompound.setBoolean("activeAvaliable", false);
+				is.stackTagCompound.setBoolean("activeAvailable", false);
 				
 				LogHelper.info("onItemUse Ghostblade");
 		        return true;
@@ -72,7 +72,7 @@ public class ItemGhostblade extends ItemToeSword {
 	@Override
 	public void addInformation(ItemStack is, EntityPlayer player, List list, boolean boo) {
 		if (is.stackTagCompound != null) {
-			boolean active = is.stackTagCompound.getBoolean("activeAvaliable");
+			boolean active = is.stackTagCompound.getBoolean("activeAvailable");
 			int ticks = is.stackTagCompound.getInteger("ticks");
 			if(active) {
 				list.add(EnumChatFormatting.AQUA + "Active Avaliable: Yes");

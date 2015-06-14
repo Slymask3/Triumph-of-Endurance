@@ -72,14 +72,14 @@ public class ChunkProviderCallisto implements IChunkProvider
     private double[] stoneNoise = new double[256];
     private MapGenBase caveGenerator = new MapGenCaves();
     /** Holds Stronghold Generator */
-    private MapGenStronghold strongholdGenerator = new MapGenStronghold();
+    //private MapGenStronghold strongholdGenerator = new MapGenStronghold();
     /** Holds Village Generator */
-    private MapGenVillage villageGenerator = new MapGenVillage();
+    //private MapGenVillage villageGenerator = new MapGenVillage();
     /** Holds Mineshaft Generator */
-    private MapGenMineshaft mineshaftGenerator = new MapGenMineshaft();
+    //private MapGenMineshaft mineshaftGenerator = new MapGenMineshaft();
     private MapGenScatteredFeature scatteredFeatureGenerator = new MapGenScatteredFeature();
     /** Holds ravine generator */
-    private MapGenBase ravineGenerator = new MapGenRavine();
+    //private MapGenBase ravineGenerator = new MapGenRavine();
     /** The biomes that are used to generate the chunk */
     private BiomeGenBase[] biomesForGeneration;
     double[] field_147427_d;
@@ -91,19 +91,19 @@ public class ChunkProviderCallisto implements IChunkProvider
 
     {
         caveGenerator = TerrainGen.getModdedMapGen(caveGenerator, CAVE);
-        strongholdGenerator = (MapGenStronghold) TerrainGen.getModdedMapGen(strongholdGenerator, STRONGHOLD);
-        villageGenerator = (MapGenVillage) TerrainGen.getModdedMapGen(villageGenerator, VILLAGE);
-        mineshaftGenerator = (MapGenMineshaft) TerrainGen.getModdedMapGen(mineshaftGenerator, MINESHAFT);
+        //strongholdGenerator = (MapGenStronghold) TerrainGen.getModdedMapGen(strongholdGenerator, STRONGHOLD);
+        //villageGenerator = (MapGenVillage) TerrainGen.getModdedMapGen(villageGenerator, VILLAGE);
+        //mineshaftGenerator = (MapGenMineshaft) TerrainGen.getModdedMapGen(mineshaftGenerator, MINESHAFT);
         scatteredFeatureGenerator = (MapGenScatteredFeature) TerrainGen.getModdedMapGen(scatteredFeatureGenerator, SCATTERED_FEATURE);
-        ravineGenerator = TerrainGen.getModdedMapGen(ravineGenerator, RAVINE);
+        //ravineGenerator = TerrainGen.getModdedMapGen(ravineGenerator, RAVINE);
     }
 
-    public ChunkProviderCallisto(World p_i2006_1_, long p_i2006_2_, boolean p_i2006_4_)
+    public ChunkProviderCallisto(World world, long par2, boolean mapFeatures)
     {
-        this.worldObj = p_i2006_1_;
-        this.mapFeaturesEnabled = p_i2006_4_;
-        this.field_147435_p = p_i2006_1_.getWorldInfo().getTerrainType();
-        this.rand = new Random(p_i2006_2_);
+        this.worldObj = world;
+        this.mapFeaturesEnabled = mapFeatures;
+        this.field_147435_p = world.getWorldInfo().getTerrainType();
+        this.rand = new Random(par2);
         this.field_147431_j = new NoiseGeneratorOctaves(this.rand, 16);
         this.field_147432_k = new NoiseGeneratorOctaves(this.rand, 16);
         this.field_147429_l = new NoiseGeneratorOctaves(this.rand, 8);
@@ -124,7 +124,7 @@ public class ChunkProviderCallisto implements IChunkProvider
         }
 
         NoiseGenerator[] noiseGens = {field_147431_j, field_147432_k, field_147429_l, field_147430_m, noiseGen5, noiseGen6, mobSpawnerNoise};
-        noiseGens = TerrainGen.getModdedNoiseGenerators(p_i2006_1_, this.rand, noiseGens);
+        noiseGens = TerrainGen.getModdedNoiseGenerators(world, this.rand, noiseGens);
         this.field_147431_j = (NoiseGeneratorOctaves)noiseGens[0];
         this.field_147432_k = (NoiseGeneratorOctaves)noiseGens[1];
         this.field_147429_l = (NoiseGeneratorOctaves)noiseGens[2];
@@ -189,7 +189,7 @@ public class ChunkProviderCallisto implements IChunkProvider
                                 }
                                 else if (k2 * 8 + l2 < b0)
                                 {
-                                    p_147424_3_[j3 += short1] = Blocks.water;
+                                    p_147424_3_[j3 += short1] = null;
                                 }
                                 else
                                 {
@@ -251,13 +251,13 @@ public class ChunkProviderCallisto implements IChunkProvider
         this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, p_73154_1_ * 16, p_73154_2_ * 16, 16, 16);
         this.replaceBlocksForBiome(p_73154_1_, p_73154_2_, ablock, abyte, this.biomesForGeneration);
         this.caveGenerator.func_151539_a(this, this.worldObj, p_73154_1_, p_73154_2_, ablock);
-        this.ravineGenerator.func_151539_a(this, this.worldObj, p_73154_1_, p_73154_2_, ablock);
+        //this.ravineGenerator.func_151539_a(this, this.worldObj, p_73154_1_, p_73154_2_, ablock);
 
         if (this.mapFeaturesEnabled)
         {
-            this.mineshaftGenerator.func_151539_a(this, this.worldObj, p_73154_1_, p_73154_2_, ablock);
-            this.villageGenerator.func_151539_a(this, this.worldObj, p_73154_1_, p_73154_2_, ablock);
-            this.strongholdGenerator.func_151539_a(this, this.worldObj, p_73154_1_, p_73154_2_, ablock);
+            //this.mineshaftGenerator.func_151539_a(this, this.worldObj, p_73154_1_, p_73154_2_, ablock);
+            //this.villageGenerator.func_151539_a(this, this.worldObj, p_73154_1_, p_73154_2_, ablock);
+            //this.strongholdGenerator.func_151539_a(this, this.worldObj, p_73154_1_, p_73154_2_, ablock);
             this.scatteredFeatureGenerator.func_151539_a(this, this.worldObj, p_73154_1_, p_73154_2_, ablock);
         }
 
@@ -422,9 +422,9 @@ public class ChunkProviderCallisto implements IChunkProvider
 
         if (this.mapFeaturesEnabled)
         {
-            this.mineshaftGenerator.generateStructuresInChunk(this.worldObj, this.rand, p_73153_2_, p_73153_3_);
-            flag = this.villageGenerator.generateStructuresInChunk(this.worldObj, this.rand, p_73153_2_, p_73153_3_);
-            this.strongholdGenerator.generateStructuresInChunk(this.worldObj, this.rand, p_73153_2_, p_73153_3_);
+            //this.mineshaftGenerator.generateStructuresInChunk(this.worldObj, this.rand, p_73153_2_, p_73153_3_);
+            //flag = this.villageGenerator.generateStructuresInChunk(this.worldObj, this.rand, p_73153_2_, p_73153_3_);
+            //this.strongholdGenerator.generateStructuresInChunk(this.worldObj, this.rand, p_73153_2_, p_73153_3_);
             this.scatteredFeatureGenerator.generateStructuresInChunk(this.worldObj, this.rand, p_73153_2_, p_73153_3_);
         }
 
@@ -432,62 +432,62 @@ public class ChunkProviderCallisto implements IChunkProvider
         int l1;
         int i2;
 
-        if (biomegenbase != BiomeGenBase.desert && biomegenbase != BiomeGenBase.desertHills && !flag && this.rand.nextInt(4) == 0
-            && TerrainGen.populate(p_73153_1_, worldObj, rand, p_73153_2_, p_73153_3_, flag, LAKE))
-        {
-            k1 = k + this.rand.nextInt(16) + 8;
-            l1 = this.rand.nextInt(256);
-            i2 = l + this.rand.nextInt(16) + 8;
-            (new WorldGenLakes(Blocks.water)).generate(this.worldObj, this.rand, k1, l1, i2);
-        }
-
-        if (TerrainGen.populate(p_73153_1_, worldObj, rand, p_73153_2_, p_73153_3_, flag, LAVA) && !flag && this.rand.nextInt(8) == 0)
-        {
-            k1 = k + this.rand.nextInt(16) + 8;
-            l1 = this.rand.nextInt(this.rand.nextInt(248) + 8);
-            i2 = l + this.rand.nextInt(16) + 8;
-
-            if (l1 < 63 || this.rand.nextInt(10) == 0)
-            {
-                (new WorldGenLakes(Blocks.lava)).generate(this.worldObj, this.rand, k1, l1, i2);
-            }
-        }
-
-        boolean doGen = TerrainGen.populate(p_73153_1_, worldObj, rand, p_73153_2_, p_73153_3_, flag, DUNGEON);
-        for (k1 = 0; doGen && k1 < 8; ++k1)
-        {
-            l1 = k + this.rand.nextInt(16) + 8;
-            i2 = this.rand.nextInt(256);
-            int j2 = l + this.rand.nextInt(16) + 8;
-            (new WorldGenDungeons()).generate(this.worldObj, this.rand, l1, i2, j2);
-        }
-
-        biomegenbase.decorate(this.worldObj, this.rand, k, l);
-        if (TerrainGen.populate(p_73153_1_, worldObj, rand, p_73153_2_, p_73153_3_, flag, ANIMALS))
-        {
-        SpawnerAnimals.performWorldGenSpawning(this.worldObj, biomegenbase, k + 8, l + 8, 16, 16, this.rand);
-        }
-        k += 8;
-        l += 8;
-
-        doGen = TerrainGen.populate(p_73153_1_, worldObj, rand, p_73153_2_, p_73153_3_, flag, ICE);
-        for (k1 = 0; doGen && k1 < 16; ++k1)
-        {
-            for (l1 = 0; l1 < 16; ++l1)
-            {
-                i2 = this.worldObj.getPrecipitationHeight(k + k1, l + l1);
-
-                if (this.worldObj.isBlockFreezable(k1 + k, i2 - 1, l1 + l))
-                {
-                    this.worldObj.setBlock(k1 + k, i2 - 1, l1 + l, Blocks.ice, 0, 2);
-                }
-
-                if (this.worldObj.func_147478_e(k1 + k, i2, l1 + l, true))
-                {
-                    this.worldObj.setBlock(k1 + k, i2, l1 + l, Blocks.snow_layer, 0, 2);
-                }
-            }
-        }
+//        if (biomegenbase != BiomeGenBase.desert && biomegenbase != BiomeGenBase.desertHills && !flag && this.rand.nextInt(4) == 0
+//            && TerrainGen.populate(p_73153_1_, worldObj, rand, p_73153_2_, p_73153_3_, flag, LAKE))
+//        {
+//            k1 = k + this.rand.nextInt(16) + 8;
+//            l1 = this.rand.nextInt(256);
+//            i2 = l + this.rand.nextInt(16) + 8;
+//            (new WorldGenLakes(Blocks.water)).generate(this.worldObj, this.rand, k1, l1, i2);
+//        }
+//
+//        if (TerrainGen.populate(p_73153_1_, worldObj, rand, p_73153_2_, p_73153_3_, flag, LAVA) && !flag && this.rand.nextInt(8) == 0)
+//        {
+//            k1 = k + this.rand.nextInt(16) + 8;
+//            l1 = this.rand.nextInt(this.rand.nextInt(248) + 8);
+//            i2 = l + this.rand.nextInt(16) + 8;
+//
+//            if (l1 < 63 || this.rand.nextInt(10) == 0)
+//            {
+//                (new WorldGenLakes(Blocks.lava)).generate(this.worldObj, this.rand, k1, l1, i2);
+//            }
+//        }
+//
+//        boolean doGen = TerrainGen.populate(p_73153_1_, worldObj, rand, p_73153_2_, p_73153_3_, flag, DUNGEON);
+//        for (k1 = 0; doGen && k1 < 8; ++k1)
+//        {
+//            l1 = k + this.rand.nextInt(16) + 8;
+//            i2 = this.rand.nextInt(256);
+//            int j2 = l + this.rand.nextInt(16) + 8;
+//            (new WorldGenDungeons()).generate(this.worldObj, this.rand, l1, i2, j2);
+//        }
+//
+//        biomegenbase.decorate(this.worldObj, this.rand, k, l);
+//        if (TerrainGen.populate(p_73153_1_, worldObj, rand, p_73153_2_, p_73153_3_, flag, ANIMALS))
+//        {
+//        SpawnerAnimals.performWorldGenSpawning(this.worldObj, biomegenbase, k + 8, l + 8, 16, 16, this.rand);
+//        }
+//        k += 8;
+//        l += 8;
+//
+//        doGen = TerrainGen.populate(p_73153_1_, worldObj, rand, p_73153_2_, p_73153_3_, flag, ICE);
+//        for (k1 = 0; doGen && k1 < 16; ++k1)
+//        {
+//            for (l1 = 0; l1 < 16; ++l1)
+//            {
+//                i2 = this.worldObj.getPrecipitationHeight(k + k1, l + l1);
+//
+//                if (this.worldObj.isBlockFreezable(k1 + k, i2 - 1, l1 + l))
+//                {
+//                    this.worldObj.setBlock(k1 + k, i2 - 1, l1 + l, Blocks.ice, 0, 2);
+//                }
+//
+//                if (this.worldObj.func_147478_e(k1 + k, i2, l1 + l, true))
+//                {
+//                    this.worldObj.setBlock(k1 + k, i2, l1 + l, Blocks.snow_layer, 0, 2);
+//                }
+//            }
+//        }
 
         MinecraftForge.EVENT_BUS.post(new PopulateChunkEvent.Post(p_73153_1_, worldObj, rand, p_73153_2_, p_73153_3_, flag));
 
@@ -544,7 +544,8 @@ public class ChunkProviderCallisto implements IChunkProvider
 
     public ChunkPosition func_147416_a(World p_147416_1_, String p_147416_2_, int p_147416_3_, int p_147416_4_, int p_147416_5_)
     {
-        return "Stronghold".equals(p_147416_2_) && this.strongholdGenerator != null ? this.strongholdGenerator.func_151545_a(p_147416_1_, p_147416_3_, p_147416_4_, p_147416_5_) : null;
+        //return "Stronghold".equals(p_147416_2_) && this.strongholdGenerator != null ? this.strongholdGenerator.func_151545_a(p_147416_1_, p_147416_3_, p_147416_4_, p_147416_5_) : null;
+    	return null;
     }
 
     public int getLoadedChunkCount()
@@ -556,9 +557,9 @@ public class ChunkProviderCallisto implements IChunkProvider
     {
         if (this.mapFeaturesEnabled)
         {
-            this.mineshaftGenerator.func_151539_a(this, this.worldObj, p_82695_1_, p_82695_2_, (Block[])null);
-            this.villageGenerator.func_151539_a(this, this.worldObj, p_82695_1_, p_82695_2_, (Block[])null);
-            this.strongholdGenerator.func_151539_a(this, this.worldObj, p_82695_1_, p_82695_2_, (Block[])null);
+            //this.mineshaftGenerator.func_151539_a(this, this.worldObj, p_82695_1_, p_82695_2_, (Block[])null);
+            //this.villageGenerator.func_151539_a(this, this.worldObj, p_82695_1_, p_82695_2_, (Block[])null);
+            //this.strongholdGenerator.func_151539_a(this, this.worldObj, p_82695_1_, p_82695_2_, (Block[])null);
             this.scatteredFeatureGenerator.func_151539_a(this, this.worldObj, p_82695_1_, p_82695_2_, (Block[])null);
         }
     }

@@ -69,6 +69,8 @@ public class ToeItems {
 	public static Item ruby = new ItemToe().setUnlocalizedName("ruby");
 	public static Item undeadbatBone = new ItemUndeadBatBone(BoneType.boneLvl).setUnlocalizedName("undeadbatBone");
 	public static Item ghostblade = new ItemGhostblade().setUnlocalizedName("ghostblade");
+	public static Item crystal = new ItemToe().setUnlocalizedName("crystal");
+	public static Item crystalIce = new ItemToe().setUnlocalizedName("crystalIce");
 	
 	public static Item magmaHelmet = new ItemMagmaArmour("magmaHelmet", magmaMaterial, "magmaHelmet", 0);
 	public static Item magmaPlate = new ItemMagmaArmour("magmaPlate", magmaMaterial, "magmaPlate", 1);
@@ -129,6 +131,8 @@ public class ToeItems {
 		GameRegistry.registerItem(hollowLighter, "hollowLighter");
 		GameRegistry.registerItem(arenalismLighter, "arenalismLighter");
 		GameRegistry.registerItem(ruby, "ruby");
+		GameRegistry.registerItem(crystal, "crystal");
+		GameRegistry.registerItem(crystalIce, "crystalIce");
 		
 		//Armor
 		GameRegistry.registerItem(magmaHelmet, "magmaHelmet");
