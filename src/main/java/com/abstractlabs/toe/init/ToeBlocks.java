@@ -26,6 +26,8 @@ import com.abstractlabs.toe.block.BlockHollowSapling;
 import com.abstractlabs.toe.block.BlockHollowsPortal;
 import com.abstractlabs.toe.block.BlockLandmine;
 import com.abstractlabs.toe.block.BlockLockedChest;
+import com.abstractlabs.toe.block.BlockMoonRock;
+import com.abstractlabs.toe.block.BlockPortalCallisto;
 import com.abstractlabs.toe.block.BlockQuicksand;
 import com.abstractlabs.toe.block.BlockRandomOre;
 import com.abstractlabs.toe.block.BlockRecall;
@@ -80,6 +82,8 @@ public class ToeBlocks {
 	public static Block furnaceRedstone = new BlockFurnaceRedstone(false);
 	public static Block furnaceRedstoneLit = new BlockFurnaceRedstone(true).setLightLevel(0.875F);
 	public static Block rubyBlock = new BlockRuby();
+	public static Block portalCallisto = new BlockPortalCallisto();
+	public static Block moonRock = new BlockMoonRock();
 	
 	public static void init() {
 		//World Generation
@@ -90,6 +94,7 @@ public class ToeBlocks {
 		GameRegistry.registerBlock(hollowDirt, "hollowDirt");
 		GameRegistry.registerBlock(hollowGrass, "hollowGrass");
 		GameRegistry.registerBlock(beam, "beam");
+		GameRegistry.registerBlock(moonRock, "moonRock");
 		
 		//Ores
 		GameRegistry.registerBlock(randomOre, "randomOre");
@@ -122,6 +127,7 @@ public class ToeBlocks {
 		//Portal
 		GameRegistry.registerBlock(hollowPortal, "hollowPortal");
 		GameRegistry.registerBlock(flatPortal, "flatPortal");
+		GameRegistry.registerBlock(portalCallisto, "portalCallisto");
 		
 		//Arenalism
 		GameRegistry.registerBlock(armoury, "armoury");

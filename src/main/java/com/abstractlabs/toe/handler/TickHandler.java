@@ -1,7 +1,9 @@
 package com.abstractlabs.toe.handler;
 
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.EnumDifficulty;
 
+import com.abstractlabs.toe.init.ToeDimensions;
 import com.abstractlabs.toe.reference.Color;
 import com.abstractlabs.toe.skill.arenalism.ArenalismHelper;
 import com.abstractlabs.toe.utility.Helper;
@@ -19,6 +21,10 @@ public class TickHandler {
 				Helper.msgClean(e.player, "You are not allowed to change to peaceful mode.", Color.red);
 				LogHelper.info("peaceful detected..");
 			}
+		}
+		
+		if(e.player.worldObj.provider.dimensionId == ToeDimensions.callisto) {
+			e.player.addPotionEffect(new PotionEffect(8, 20, 2));
 		}
 	}
 }

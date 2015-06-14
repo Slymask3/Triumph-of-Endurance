@@ -1,4 +1,4 @@
-package com.abstractlabs.toe.world.gen;
+package com.abstractlabs.toe.world.gen.structure;
 
 import java.util.Random;
 
@@ -9,7 +9,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import com.abstractlabs.toe.init.ToeBlocks;
 import com.abstractlabs.toe.utility.BuildHelper;
 import com.abstractlabs.toe.utility.LogHelper;
-import com.abstractlabs.toe.world.structures.UFO;
+import com.abstractlabs.toe.world.structure.UFO;
 
 public class WorldGenUFO extends WorldGenerator {
 	@Override

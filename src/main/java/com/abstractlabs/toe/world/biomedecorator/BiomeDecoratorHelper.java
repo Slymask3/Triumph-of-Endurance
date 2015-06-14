@@ -8,7 +8,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent;
 
-import com.abstractlabs.toe.init.ToeBiomes;
+import com.abstractlabs.toe.init.ToeGenBiome;
 import com.abstractlabs.toe.world.biome.BiomeHollows;
 
 public class BiomeDecoratorHelper 
@@ -28,7 +28,7 @@ public class BiomeDecoratorHelper
 		//GenerateOres
 		generateOreInBiome(biome);
 
-		if (biome == ToeBiomes.biomeHollows)
+		if (biome == ToeGenBiome.biomeHollows)
 		{
 			BiomeDecoratorToe.howMenyTrees = BiomeHollows.treesPerChunk;
 			int i = BiomeDecoratorToe.howMenyTrees;
@@ -97,7 +97,7 @@ public class BiomeDecoratorHelper
 	 */
 	private static void generateOreInBiome(BiomeGenBase biome)
 	{
-		if(biome == ToeBiomes.biomeHollows)
+		if(biome == ToeGenBiome.biomeHollows)
 		{
 			genStandardOre(20, bedRock, 0, 128);
 		}

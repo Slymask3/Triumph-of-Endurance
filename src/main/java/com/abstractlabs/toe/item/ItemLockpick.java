@@ -43,7 +43,7 @@ public class ItemLockpick extends ItemToe {
 	}
 	
 	public void addInformation(ItemStack is, EntityPlayer player, List list, boolean par4) {
-		if(!player.worldObj.isRemote) {
+		//if(!player.worldObj.isRemote) {
 			int max = (is.getMaxDamage()) + 1;
 			int dmg = (is.getMaxDamage() - is.getItemDamage()) + 1;
 	
@@ -55,6 +55,6 @@ public class ItemLockpick extends ItemToe {
 			
 			list.add(EnumChatFormatting.AQUA + "Chance: " + this.chance*100 + "%");
 			list.add(EnumChatFormatting.GREEN + "Uses: " + dmg + "/" + max);
-		}
+		//}
 	}
 }

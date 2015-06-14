@@ -1,4 +1,4 @@
-package com.abstractlabs.toe.world.structures;
+package com.abstractlabs.toe.world.structure;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;

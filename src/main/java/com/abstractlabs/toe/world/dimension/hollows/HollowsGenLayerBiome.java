@@ -5,13 +5,13 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.IntCache;
 
-import com.abstractlabs.toe.init.ToeBiomes;
+import com.abstractlabs.toe.init.ToeGenBiome;
 
 public class HollowsGenLayerBiome extends GenLayer 
 {
 	private BiomeGenBase[] field_151623_c;
 	// TODO: spawning with temperatures
-	protected BiomeGenBase[] allowedBiomes = {ToeBiomes.biomeHollows,};
+	protected BiomeGenBase[] allowedBiomes = {ToeGenBiome.biomeHollows,};
 
 	public HollowsGenLayerBiome(long seed) 
 	{
@@ -24,7 +24,7 @@ public class HollowsGenLayerBiome extends GenLayer
 		this.parent = genlayer;
 		if (type == WorldType.DEFAULT_1_1)
 		{
-			this.field_151623_c = new BiomeGenBase[] {BiomeGenBase.desert, BiomeGenBase.forest, BiomeGenBase.extremeHills, BiomeGenBase.swampland, BiomeGenBase.plains, BiomeGenBase.taiga, ToeBiomes.biomeHollows};
+			this.field_151623_c = new BiomeGenBase[] {BiomeGenBase.desert, BiomeGenBase.forest, BiomeGenBase.extremeHills, BiomeGenBase.swampland, BiomeGenBase.plains, BiomeGenBase.taiga, ToeGenBiome.biomeHollows};
 		}
 	}
 

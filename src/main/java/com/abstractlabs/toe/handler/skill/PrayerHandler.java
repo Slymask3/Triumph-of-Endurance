@@ -21,18 +21,19 @@ public class PrayerHandler
 	@SubscribeEvent
 	public boolean onPlayerUse(PlayerInteractEvent event)
 	{
-		LogHelper.info("test1");
+		//LogHelper.info("test1");
 		if (event.entity instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer) event.entity;
 			LogHelper.info("test2");
 			if (!event.world.isRemote && (player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemBone))
 			{
+				//LogHelper.info("test2");
 				if (event.action == Action.RIGHT_CLICK_BLOCK)
 				{
 					if (event.world.getBlock(event.x, event.y, event.z) == Blocks.grass || event.world.getBlock(event.x, event.y, event.z) == Blocks.sand)
 					{
-						LogHelper.info("test3");
+						//LogHelper.info("test3");
 						PrayerHelper helper = PrayerHelper.getProperties(player);
 						ItemStack is = player.getHeldItem();
 						ItemBone item = (ItemBone) is.getItem();
@@ -48,7 +49,7 @@ public class PrayerHandler
 						}
 						else
 						{
-							LogHelper.info("test5");
+							//LogHelper.info("test5");
 							Helper.msgClean(player, "Bone successfully burried.", Color.lime);
 							helper.addExperience(BoneType.undeadbatBoneExp);
 							is.stackSize -= 1;
@@ -58,10 +59,6 @@ public class PrayerHandler
 					{
 						Helper.msgClean(player, "Try burying somewhere else! The ground is too hard...", Color.purple);
 					}
-				}
-				else if (event.action == Action.LEFT_CLICK_BLOCK || event.action == Action.RIGHT_CLICK_AIR)
-				{
-					Helper.msgClean(player, "Try right clicking!", Color.purple);
 				}
 			}
 			else if (!event.world.isRemote && (player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemHealingTablet))
@@ -95,44 +92,7 @@ public class PrayerHandler
 						Helper.msgClean(player, "Try burying somewhere else! The ground is too hard...", Color.purple);
 					}
 				}
-				else if (event.action == Action.LEFT_CLICK_BLOCK || event.action == Action.RIGHT_CLICK_AIR)
-				{
-					Helper.msgClean(player, "Try right clicking!", Color.purple);
-				}
 			}
-//			else if (!event.world.isRemote && (player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemBone))
-//			{
-//				if (event.action == Action.RIGHT_CLICK_BLOCK)
-//				{
-//					if (event.world.getBlock(event.x, event.y, event.z) == Blocks.grass || event.world.getBlock(event.x, event.y, event.z) == Blocks.sand)
-//					{
-//						LogHelper.info("bonetest");
-//						PrayerHelper helper = PrayerHelper.getProperties(player);
-//						ItemStack is = player.getHeldItem();
-//						ItemBone item = (ItemBone) is.getItem();
-//
-//						int lvl = item.getLvl();
-//
-//						if (helper.getLevel() < lvl)
-//						{
-//							LogHelper.info("bonetest2");
-//							Helper.msgClean(player, "You have to have level " + BoneType.boneLvl + " prayer to bury this bone.", Color.red);
-//							return false;
-//						}
-//						else
-//						{
-//							LogHelper.info("bonetest3");
-//							Helper.msgClean(player, "Bone successfully burried.", Color.lime);
-//							helper.addExperience(BoneType.boneExp);
-//							is.stackSize -= 1;
-//						}
-//					}
-//					else
-//					{
-//						Helper.msgClean(player, "Try burying somewhere else! The ground is too hard...", Color.purple);
-//					}
-//				}
-//			}
 		}
 		return true;
 	}

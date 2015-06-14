@@ -9,7 +9,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 import com.abstractlabs.toe.reference.Reference;
-import com.abstractlabs.toe.world.structures.WizardTower;
+import com.abstractlabs.toe.world.structure.WizardTower;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

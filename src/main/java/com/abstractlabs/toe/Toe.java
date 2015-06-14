@@ -2,6 +2,7 @@ package com.abstractlabs.toe;
 
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.WorldType;
 
 import com.abstractlabs.toe.client.gui.GuiHandler;
 import com.abstractlabs.toe.command.CommandToe;
@@ -10,6 +11,7 @@ import com.abstractlabs.toe.init.ToeBiomes;
 import com.abstractlabs.toe.init.ToeBlocks;
 import com.abstractlabs.toe.init.ToeBusses;
 import com.abstractlabs.toe.init.ToeDimensions;
+import com.abstractlabs.toe.init.ToeGenBiome;
 import com.abstractlabs.toe.init.ToeItems;
 import com.abstractlabs.toe.init.ToeMobs;
 import com.abstractlabs.toe.init.ToePackets;
@@ -19,6 +21,7 @@ import com.abstractlabs.toe.network.PacketPipeline;
 import com.abstractlabs.toe.proxy.IProxy;
 import com.abstractlabs.toe.reference.Reference;
 import com.abstractlabs.toe.utility.LogHelper;
+import com.abstractlabs.toe.world.WorldTypeToe;
 import com.abstractlabs.toe.world.gen.WorldGeneratorToe;
 
 import cpw.mods.fml.common.Mod;
@@ -56,9 +59,10 @@ public class Toe {
 		ToeMobs.init();
 		ToeBusses.init();
 		ToeTiles.init();
+		ToeBiomes.init();
 		ToeDimensions.init();
 		
-		ToeBiomes.mainRegistry();
+		ToeGenBiome.mainRegistry();
 		
 		proxy.registerInformation();
 		
@@ -83,6 +87,8 @@ public class Toe {
 		LogHelper.info("Post Initialization Complete!");
 		
 		//WorldType HOLLOWS = new WorldTypesToe("hollows");
+		
+		WorldType MOON = new WorldTypeToe("moon");
 	}
 	
 	@Mod.EventHandler
