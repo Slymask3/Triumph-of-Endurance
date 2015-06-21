@@ -9,11 +9,9 @@ public class BoneType
 {
 	public static String undeadbatBone = "undeadbatBone";
 	public static String bone = "bone";
-	public static String healTab = "healTab";
 	
 	public static int undeadbatBoneLvl = 10;
 	public static int boneLvl = 1;
-	public static int healLvl = 1;
 
 	public static int undeadbatBoneExp = 200;
 	public static int boneExp = 100;

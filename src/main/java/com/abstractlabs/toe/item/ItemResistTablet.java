@@ -6,6 +6,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
@@ -17,11 +19,11 @@ import com.abstractlabs.toe.utility.LogHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemHealingTablet extends ItemToe
+public class ItemResistTablet extends ItemToe
 {
 	private int lvl;
 
-	public ItemHealingTablet(int lvl)
+	public ItemResistTablet(int lvl)
 	{
 		super();
 		this.maxStackSize = 1;
@@ -59,22 +61,22 @@ public class ItemHealingTablet extends ItemToe
 		{
 			if (is.stackTagCompound.getBoolean("activeAvailable"))
 			{
-				player.heal(4);
-				
+				player.addPotionEffect(new PotionEffect(12, 5*20, 2));
+
 				Helper.msg(player, "Tablet activated!", Color.magenta);
-				
+
 				//ticks = 2000
 				is.stackTagCompound.setInteger("ticks", 4800); //4min
 				is.stackTagCompound.setBoolean("activeAvailable", false);
-				
-				LogHelper.info("onItemUse HealingTab");
-				
+
+				LogHelper.info("onItemUse resistTab");
+
 				return true;
 			}
 			else 
 			{
-				Helper.msg(player, "Healing Tablet is on cooldown.", Color.red);
-		        return true;
+				Helper.msg(player, "Fire Resistance Tablet is on cooldown.", Color.red);
+				return true;
 			}
 		}
 		return false;
@@ -96,14 +98,15 @@ public class ItemHealingTablet extends ItemToe
 		if (is.stackTagCompound != null) 
 		{
 			boolean active = is.stackTagCompound.getBoolean("activeAvailable");
-			
+
 			int ticks = is.stackTagCompound.getInteger("ticks");
-			
+
 			if (active) 
 			{
 				list.add(EnumChatFormatting.AQUA + "Active Available: Yes");
 				list.add(EnumChatFormatting.GOLD + "Active Desccription: User is");
-				list.add(EnumChatFormatting.GOLD + "healed 2 hearts.");
+				list.add(EnumChatFormatting.GOLD + "given fire resistance for 5.");
+				list.add(EnumChatFormatting.GOLD + "seconds.");
 			} 
 			else if(!active) 
 			{
@@ -111,7 +114,7 @@ public class ItemHealingTablet extends ItemToe
 				list.add(EnumChatFormatting.RED + "Active Cooldown: " + ticks/20);
 			}
 		}
-		
+
 		if (PrayerHelper.getProperties(player).getLevel() >= this.lvl)
 		{
 			list.add(EnumChatFormatting.GREEN + "Level Required: " + this.lvl);
@@ -122,3 +125,4 @@ public class ItemHealingTablet extends ItemToe
 		}
 	}
 }
+

@@ -13,7 +13,7 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
 
 import com.abstractlabs.toe.world.biome.BiomeHollows;
-import com.abstractlabs.toe.world.biomedecorator.BiomeDecoratorToe;
+import com.abstractlabs.toe.world.biomedecorator.BiomeDecoratorHollows;
 
 public class ToeGenBiome extends BiomeGenBase
 {
@@ -25,7 +25,7 @@ public class ToeGenBiome extends BiomeGenBase
 	public ToeGenBiome(int biomeId)
 	{
 		super(biomeId);
-		this.theBiomeDecorator = new BiomeDecoratorToe();
+		this.theBiomeDecorator = new BiomeDecoratorHollows();
 	}
 	
 	public static void mainRegistry()

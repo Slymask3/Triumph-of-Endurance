@@ -9,9 +9,13 @@ import com.abstractlabs.toe.world.biome.BiomeGenMoon;
 
 public class ToeBiomes {
 	public static BiomeGenBase biomeMoon = new BiomeGenMoon(170).setBiomeName("Moon").setTemperatureRainfall(1.2F, 0.9F);;
+	public static BiomeGenBase biomeHollows = new BiomeGenMoon(170).setBiomeName("Hollows").setTemperatureRainfall(1.2F, 0.9F);;
 	
 	public static void init(){
 		BiomeDictionary.registerBiomeType(biomeMoon, Type.DEAD);
 		BiomeManager.addSpawnBiome(biomeMoon);
+		
+		BiomeDictionary.registerBiomeType(biomeHollows, Type.DEAD);
+		BiomeManager.addSpawnBiome(biomeHollows);
 	}
 }

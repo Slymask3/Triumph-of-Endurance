@@ -492,45 +492,5 @@ public class TeleporterHollows extends Teleporter {
 
         return true;
     }
-
-    /**
-     * called periodically to remove out-of-date portal locations from the cache list. Argument par1 is a
-     * WorldServer.getTotalWorldTime() value.
-     */
-    public void removeStalePortalLocations(long p_85189_1_)
-    {
-        if (p_85189_1_ % 100L == 0L)
-        {
-            @SuppressWarnings("rawtypes")
-			Iterator iterator = this.destinationCoordinateKeys.iterator();
-            long j = p_85189_1_ - 600L;
-
-            while (iterator.hasNext())
-            {
-                Long olong = (Long)iterator.next();
-                TeleporterHollows.PortalPosition portalposition = (TeleporterHollows.PortalPosition)this.destinationCoordinateCache.getValueByKey(olong.longValue());
-
-                if (portalposition == null || portalposition.lastUpdateTime < j)
-                {
-                    iterator.remove();
-                    this.destinationCoordinateCache.remove(olong.longValue());
-                }
-            }
-        }
-    }
-
-    public class PortalPosition extends ChunkCoordinates
-    {
-        /** The worldtime at which this PortalPosition was last verified */
-        public long lastUpdateTime;
-        @SuppressWarnings("unused")
-		private static final String __OBFID = "CL_00000154";
-
-        public PortalPosition(int p_i1962_2_, int p_i1962_3_, int p_i1962_4_, long p_i1962_5_)
-        {
-            super(p_i1962_2_, p_i1962_3_, p_i1962_4_);
-            this.lastUpdateTime = p_i1962_5_;
-        }
-    }
 }
 
