@@ -6,6 +6,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
@@ -17,11 +19,11 @@ import com.abstractlabs.toe.utility.LogHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemHealingTablet extends ItemToe
+public class ItemStrengthTablet extends ItemToe
 {
 	private int lvl;
 
-	public ItemHealingTablet(int lvl)
+	public ItemStrengthTablet(int lvl)
 	{
 		super();
 		this.maxStackSize = 1;
@@ -59,22 +61,24 @@ public class ItemHealingTablet extends ItemToe
 		{
 			if (is.stackTagCompound.getBoolean("activeAvailable"))
 			{
-				player.heal(4);
-				
+				player.addPotionEffect(new PotionEffect(5, 5*20, 2));
+				player.addPotionEffect(new PotionEffect(19, 5*20, 2));
+
 				Helper.msg(player, "Tablet activated!", Color.magenta);
-				
+				Helper.msg(player, "The gods are displeased with your decision!", Color.red);
+
 				//ticks = 2000
 				is.stackTagCompound.setInteger("ticks", 4800); //4min
 				is.stackTagCompound.setBoolean("activeAvailable", false);
-				
-				LogHelper.info("onItemUse HealingTab");
-				
+
+				LogHelper.info("onItemUse strTab_crs");
+
 				return true;
 			}
 			else 
 			{
-				Helper.msg(player, "Healing Tablet is on cooldown.", Color.red);
-		        return true;
+				Helper.msg(player, "Cursed Strength Tablet is on cooldown.", Color.red);
+				return true;
 			}
 		}
 		return false;
@@ -96,14 +100,15 @@ public class ItemHealingTablet extends ItemToe
 		if (is.stackTagCompound != null) 
 		{
 			boolean active = is.stackTagCompound.getBoolean("activeAvailable");
-			
+
 			int ticks = is.stackTagCompound.getInteger("ticks");
-			
+
 			if (active) 
 			{
 				list.add(EnumChatFormatting.AQUA + "Active Available: Yes");
 				list.add(EnumChatFormatting.GOLD + "Active Desccription: User is");
-				list.add(EnumChatFormatting.GOLD + "healed 2 hearts.");
+				list.add(EnumChatFormatting.GOLD + "given Strength III for");
+				list.add(EnumChatFormatting.GOLD + "5 seconds");
 			} 
 			else if(!active) 
 			{
@@ -111,7 +116,7 @@ public class ItemHealingTablet extends ItemToe
 				list.add(EnumChatFormatting.RED + "Active Cooldown: " + ticks/20);
 			}
 		}
-		
+
 		if (PrayerHelper.getProperties(player).getLevel() >= this.lvl)
 		{
 			list.add(EnumChatFormatting.GREEN + "Level Required: " + this.lvl);

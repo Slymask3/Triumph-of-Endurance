@@ -6,6 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.potion.Potion;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
@@ -17,11 +18,11 @@ import com.abstractlabs.toe.utility.LogHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemHealingTablet extends ItemToe
+public class ItemCleanseTablet extends ItemToe
 {
 	private int lvl;
 
-	public ItemHealingTablet(int lvl)
+	public ItemCleanseTablet(int lvl)
 	{
 		super();
 		this.maxStackSize = 1;
@@ -59,22 +60,40 @@ public class ItemHealingTablet extends ItemToe
 		{
 			if (is.stackTagCompound.getBoolean("activeAvailable"))
 			{
-				player.heal(4);
-				
-				Helper.msg(player, "Tablet activated!", Color.magenta);
-				
-				//ticks = 2000
-				is.stackTagCompound.setInteger("ticks", 4800); //4min
-				is.stackTagCompound.setBoolean("activeAvailable", false);
-				
-				LogHelper.info("onItemUse HealingTab");
-				
+				if (player.isBurning() == true)
+				{
+					player.extinguish();
+
+					Helper.msg(player, "Tablet activated!", Color.magenta);
+
+					//ticks = 2000
+					is.stackTagCompound.setInteger("ticks", 4800); //4min
+					is.stackTagCompound.setBoolean("activeAvailable", false);
+
+					LogHelper.info("onItemUse CleanseTab");
+				}
+				else if (player.isPotionActive(Potion.poison))
+				{
+					player.clearActivePotions();
+
+					Helper.msg(player, "Tablet activated!", Color.magenta);
+
+					//ticks = 2000
+					is.stackTagCompound.setInteger("ticks", 4800); //4min
+					is.stackTagCompound.setBoolean("activeAvailable", false);
+
+					LogHelper.info("onItemUse CleanseTab");
+				}
+				else
+				{
+					Helper.msg(player, "You are not on fire or poisoned!", Color.red);
+				}
 				return true;
 			}
 			else 
 			{
-				Helper.msg(player, "Healing Tablet is on cooldown.", Color.red);
-		        return true;
+				Helper.msg(player, "Cleanse Tablet is on cooldown.", Color.red);
+				return true;
 			}
 		}
 		return false;
@@ -96,14 +115,14 @@ public class ItemHealingTablet extends ItemToe
 		if (is.stackTagCompound != null) 
 		{
 			boolean active = is.stackTagCompound.getBoolean("activeAvailable");
-			
+
 			int ticks = is.stackTagCompound.getInteger("ticks");
-			
+
 			if (active) 
 			{
 				list.add(EnumChatFormatting.AQUA + "Active Available: Yes");
 				list.add(EnumChatFormatting.GOLD + "Active Desccription: User is");
-				list.add(EnumChatFormatting.GOLD + "healed 2 hearts.");
+				list.add(EnumChatFormatting.GOLD + "cleansed of fire or poison.");
 			} 
 			else if(!active) 
 			{
@@ -111,7 +130,7 @@ public class ItemHealingTablet extends ItemToe
 				list.add(EnumChatFormatting.RED + "Active Cooldown: " + ticks/20);
 			}
 		}
-		
+
 		if (PrayerHelper.getProperties(player).getLevel() >= this.lvl)
 		{
 			list.add(EnumChatFormatting.GREEN + "Level Required: " + this.lvl);
@@ -122,3 +141,4 @@ public class ItemHealingTablet extends ItemToe
 		}
 	}
 }
+
