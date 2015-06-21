@@ -5,6 +5,7 @@ import java.util.List;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.model.ModelCow;
 import net.minecraft.client.model.ModelZombie;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.common.MinecraftForge;
@@ -16,10 +17,13 @@ import com.abstractlabs.toe.client.gui.GuiScreenOverlay;
 import com.abstractlabs.toe.client.model.ModelScorpion;
 import com.abstractlabs.toe.client.renderer.entity.RenderFlashbang;
 import com.abstractlabs.toe.client.renderer.entity.RenderGrenade;
+import com.abstractlabs.toe.client.renderer.entity.mob.RenderAlien;
+import com.abstractlabs.toe.client.renderer.entity.mob.RenderAlienCow;
 import com.abstractlabs.toe.client.renderer.entity.mob.RenderBoi;
 import com.abstractlabs.toe.client.renderer.entity.mob.RenderMummy;
 import com.abstractlabs.toe.client.renderer.entity.mob.RenderScorpion;
 import com.abstractlabs.toe.client.renderer.tileentity.RenderATM;
+import com.abstractlabs.toe.client.renderer.tileentity.RenderDisplayCase;
 import com.abstractlabs.toe.client.renderer.tileentity.RenderFurnaceDiamond;
 import com.abstractlabs.toe.client.renderer.tileentity.RenderFurnaceEmerald;
 import com.abstractlabs.toe.client.renderer.tileentity.RenderFurnaceGold;
@@ -27,9 +31,12 @@ import com.abstractlabs.toe.client.renderer.tileentity.RenderFurnaceIron;
 import com.abstractlabs.toe.client.renderer.tileentity.RenderFurnaceRedstone;
 import com.abstractlabs.toe.client.renderer.tileentity.RenderLandmine;
 import com.abstractlabs.toe.client.renderer.tileentity.RenderLockedChest;
+import com.abstractlabs.toe.client.renderer.tileentity.RenderPedestalStonebrick;
 import com.abstractlabs.toe.client.renderer.tileentity.RenderStatueBiped;
+import com.abstractlabs.toe.entity.monster.EntityAlien;
 import com.abstractlabs.toe.entity.monster.EntityMummy;
 import com.abstractlabs.toe.entity.monster.EntityScorpion;
+import com.abstractlabs.toe.entity.passive.EntityAlienCow;
 import com.abstractlabs.toe.entity.passive.EntityBoi;
 import com.abstractlabs.toe.entity.projectile.EntityFlashbang;
 import com.abstractlabs.toe.entity.projectile.EntityGrenade;
@@ -55,8 +62,10 @@ import com.abstractlabs.toe.skill.swords.SwordsGUI;
 import com.abstractlabs.toe.skill.theiving.ThievingGUI;
 import com.abstractlabs.toe.skill.woodcutting.WoodcuttingGUI;
 import com.abstractlabs.toe.tileentity.TileEntityATM;
+import com.abstractlabs.toe.tileentity.TileEntityDisplayCase;
 import com.abstractlabs.toe.tileentity.TileEntityLandmine;
 import com.abstractlabs.toe.tileentity.TileEntityLockedChest;
+import com.abstractlabs.toe.tileentity.TileEntityPedestalStonebrick;
 import com.abstractlabs.toe.tileentity.TileEntityStatueBiped;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -98,11 +107,15 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityMummy.class, new RenderMummy(new ModelZombie(), 0.5F));
 		RenderingRegistry.registerEntityRenderingHandler(EntityScorpion.class, new RenderScorpion(new ModelScorpion(), 0.5F));
 		RenderingRegistry.registerEntityRenderingHandler(EntityBoi.class, new RenderBoi(new ModelBiped(), 0.5F));
+		RenderingRegistry.registerEntityRenderingHandler(EntityAlien.class, new RenderAlien(new ModelBiped(), 0.5F));
+		RenderingRegistry.registerEntityRenderingHandler(EntityAlienCow.class, new RenderAlienCow(new ModelCow(), 0.5F));
 
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLockedChest.class, new RenderLockedChest());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityLandmine.class, new RenderLandmine());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityStatueBiped.class, new RenderStatueBiped());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityATM.class, new RenderATM());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityDisplayCase.class, new RenderDisplayCase());
+		//ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPedestalStonebrick.class, new RenderPedestalStonebrick());
 		
 		//ClientRegistry.bindTileEntitySpecialRenderer(TileEntityFurnaceIron.class, new RenderFurnaceIron());
 		RenderingRegistry.registerBlockHandler(Smelting.furnaceRenderID_Iron, new RenderFurnaceIron());
@@ -113,7 +126,14 @@ public class ClientProxy extends CommonProxy {
 
 		RenderingRegistry.registerBlockHandler(7356, new RenderATM());
 		
+//		RenderingRegistry.registerBlockHandler(new RenderPedestalStonebrick());
+//		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPedestalStonebrick.class, new RenderPedestalStonebrick());
+		
+        RenderingRegistry.registerBlockHandler(9130, new RenderPedestalStonebrick());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityPedestalStonebrick.class, new RenderPedestalStonebrick());
+		
 		//MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ToeBlocks.atm), new ItemRenderATM(new RenderATM(), new TileEntityATM()));
+		//MinecraftForgeClient.registerItemRenderer(Item.getItemById(Block.getIdFromBlock(ToeBlocks.pedestalStonebrick)), new ItemRenderPedestalStonebrick());
 		
 		registerKeys();
 		

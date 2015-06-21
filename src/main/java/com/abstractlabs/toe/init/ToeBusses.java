@@ -2,6 +2,7 @@ package com.abstractlabs.toe.init;
 
 import net.minecraftforge.common.MinecraftForge;
 
+import com.abstractlabs.toe.handler.AxepickHandler;
 import com.abstractlabs.toe.handler.BlockHandler;
 import com.abstractlabs.toe.handler.ConfigHandler;
 import com.abstractlabs.toe.handler.ConnectionHandler;
@@ -9,6 +10,7 @@ import com.abstractlabs.toe.handler.EntityHandler;
 import com.abstractlabs.toe.handler.MobHandler;
 import com.abstractlabs.toe.handler.NBTRespawnHandler;
 import com.abstractlabs.toe.handler.PlayerHandler;
+import com.abstractlabs.toe.handler.PortalHandler;
 import com.abstractlabs.toe.handler.TickHandler;
 import com.abstractlabs.toe.handler.skill.MiningHandler;
 import com.abstractlabs.toe.handler.skill.PrayerHandler;
@@ -24,15 +26,15 @@ public class ToeBusses {
 		addEventBus(new MobHandler());
 		addEventBus(new BlockHandler());
 		addEventBus(new EntityHandler());
-//		addEventBus(new PlayerDeathHandler());
 		addEventBus(new MiningHandler());
 		addEventBus(new WoodcuttingHandler());
 		addEventBus(new PrayerHandler());
+		addEventBus(new AxepickHandler());
+		addEventBus(new PortalHandler());
 		
 		addSpecialEventBus(new ConfigHandler());
 		addSpecialEventBus(new ConnectionHandler());
 		addSpecialEventBus(new TickHandler());
-//		addSpecialEventBus(new PlayerRespawnHandler());
 		addSpecialEventBus(new SmeltingHandler());
 		
 		addEventAndSpecialEventBus(new NBTRespawnHandler());

@@ -25,7 +25,7 @@ public class PrayerHandler
 		if (event.entity instanceof EntityPlayer)
 		{
 			EntityPlayer player = (EntityPlayer) event.entity;
-			LogHelper.info("test2");
+			//LogHelper.info("test2");
 			if (!event.world.isRemote && (player.getHeldItem() != null && player.getHeldItem().getItem() instanceof ItemBone))
 			{
 				//LogHelper.info("test2");
@@ -42,7 +42,7 @@ public class PrayerHandler
 
 						if (helper.getLevel() < lvl)
 						{
-							LogHelper.info("test4");
+							//LogHelper.info("test4");
 							//Helper.msgClean(player, "You have to have level " + BoneType.boneLvl + " prayer to bury this bone.", Color.red);
 							Helper.msgClean(player, "You have to have level " + BoneType.undeadbatBoneLvl + " prayer to bury this bone.", Color.red);
 							return false;

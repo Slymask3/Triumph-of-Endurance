@@ -10,7 +10,6 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import com.abstractlabs.toe.client.gui.GuiScreenOverlay;
 import com.abstractlabs.toe.reference.Reference;
 
 import cpw.mods.fml.relauncher.Side;
@@ -88,10 +87,10 @@ public class BlockBeam extends BlockToe {
 //        	Toe.packetPipeline.sendTo(new PacketScreenOverlay(5, 1), (EntityPlayerMP) entity);
 //        }
         
-        if(world.isRemote) {
-        	GuiScreenOverlay.showTicks = 5;
-    		GuiScreenOverlay.image = 1;
-        }
+//        if(world.isRemote) {
+//        	GuiScreenOverlay.showTicks = 5;
+//    		GuiScreenOverlay.image = 1;
+//        }
     }
     
     public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
