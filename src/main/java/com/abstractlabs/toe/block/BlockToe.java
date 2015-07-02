@@ -72,6 +72,19 @@ public class BlockToe extends Block {
 		this.quantityDropped = 1;
 	}
 	
+	public BlockToe(String name, BlockTexture texture, Material material, SoundType sound, float hardness, float resistance, float slipperness) {
+		super(material);
+		setCreativeTab(ToeTab.TOE_TAB);
+		setBlockName(Reference.MOD_ID + ":" + name);
+		setStepSound(sound);
+		setHardness(hardness);
+		setResistance(resistance);
+		this.name = name;
+		this.texture = texture;
+		this.quantityDropped = 1;
+		this.slipperiness = slipperness;
+	}
+	
 	public BlockToe(String name, BlockTexture texture, Material material, SoundType sound, float hardness, float resistance, int quantityDropped) {
 		super(material);
 		setCreativeTab(ToeTab.TOE_TAB);
@@ -85,12 +98,12 @@ public class BlockToe extends Block {
 	}
 	
 	public void registerBlockIcons(IIconRegister ir) {
-		top = ir.registerIcon(Reference.MOD_ID + ":" + texture.getTop());
-		bottom = ir.registerIcon(Reference.MOD_ID + ":" + texture.getBottom());
-		left = ir.registerIcon(Reference.MOD_ID + ":" + texture.getLeft());
-		right = ir.registerIcon(Reference.MOD_ID + ":" + texture.getRight());
-		front = ir.registerIcon(Reference.MOD_ID + ":" + texture.getFront());
-		back = ir.registerIcon(Reference.MOD_ID + ":" + texture.getBack());
+		top = ir.registerIcon(texture.getTop());
+		bottom = ir.registerIcon(texture.getBottom());
+		left = ir.registerIcon(texture.getLeft());
+		right = ir.registerIcon(texture.getRight());
+		front = ir.registerIcon(texture.getFront());
+		back = ir.registerIcon(texture.getBack());
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -115,4 +128,9 @@ public class BlockToe extends Block {
 	public int quantityDropped(Random rand) {
 		return quantityDropped;
     }
+	
+	public BlockToe setSlipperiness(float slipperiness) {
+		this.slipperiness = slipperiness;
+		return this;
+	}
 }

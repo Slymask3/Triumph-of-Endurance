@@ -85,12 +85,12 @@ public class BlockToeAlpha extends BlockGlass {
 	}
 	
 	public void registerBlockIcons(IIconRegister ir) {
-		top = ir.registerIcon(Reference.MOD_ID + ":" + texture.getTop());
-		bottom = ir.registerIcon(Reference.MOD_ID + ":" + texture.getBottom());
-		left = ir.registerIcon(Reference.MOD_ID + ":" + texture.getLeft());
-		right = ir.registerIcon(Reference.MOD_ID + ":" + texture.getRight());
-		front = ir.registerIcon(Reference.MOD_ID + ":" + texture.getFront());
-		back = ir.registerIcon(Reference.MOD_ID + ":" + texture.getBack());
+		top = ir.registerIcon(texture.getTop());
+		bottom = ir.registerIcon(texture.getBottom());
+		left = ir.registerIcon(texture.getLeft());
+		right = ir.registerIcon(texture.getRight());
+		front = ir.registerIcon(texture.getFront());
+		back = ir.registerIcon(texture.getBack());
 	}
 	
 	@SideOnly(Side.CLIENT)

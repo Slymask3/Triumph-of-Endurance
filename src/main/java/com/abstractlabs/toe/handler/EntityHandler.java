@@ -4,14 +4,19 @@ import java.util.Random;
 
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.entity.monster.EntitySnowman;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
+import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 
+import com.abstractlabs.toe.init.ToeDimensions;
 import com.abstractlabs.toe.init.ToeItems;
+import com.abstractlabs.toe.utility.LogHelper;
 
+import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class EntityHandler 
@@ -71,6 +76,16 @@ public class EntityHandler
 					player.getCurrentArmor(3) != null && player.getCurrentArmor(3).getItem().equals(ToeItems.magmaHelmet))
 			{
 					event.source.getEntity().setFire(10);
+			}
+		}
+	}
+	
+	@SubscribeEvent
+	public void checkSpawn(LivingSpawnEvent.CheckSpawn e) {
+		if(e.world.provider.dimensionId == ToeDimensions.neptune && e.world.getBlock((int)e.x, (int)e.y, (int)e.z) == Blocks.air) {
+			if(e.entity instanceof EntitySnowman) {
+				LogHelper.info("checkSpawn - " + e.world.getBlock((int)e.x, (int)e.y, (int)e.z));
+				e.setResult(Result.ALLOW);
 			}
 		}
 	}

@@ -1,17 +1,15 @@
 package com.abstractlabs.toe.network;
 
-import com.abstractlabs.toe.init.ToeBlocks;
-import com.abstractlabs.toe.init.ToeItems;
-import com.abstractlabs.toe.item.ItemToe;
-import com.abstractlabs.toe.utility.LogHelper;
-
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
-import net.minecraftforge.common.DimensionManager;
+
+import com.abstractlabs.toe.init.ToeBlocks;
+import com.abstractlabs.toe.init.ToeItems;
+import com.abstractlabs.toe.utility.LogHelper;
+
 import cpw.mods.fml.common.network.ByteBufUtils;
 
 public class PacketUtility extends AbstractPacket 
@@ -72,7 +70,7 @@ public class PacketUtility extends AbstractPacket
 		} 
 		else if(_utility.equalsIgnoreCase("landMine")) 
 		{
-			player.inventory.addItemStackToInventory(new ItemStack(ToeBlocks.landMine));
+			player.inventory.addItemStackToInventory(new ItemStack(ToeBlocks.landmine));
 		} 
 		else if(_utility.equalsIgnoreCase("grenade")) 
 		{

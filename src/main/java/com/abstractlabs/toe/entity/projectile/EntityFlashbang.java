@@ -1,11 +1,12 @@
 package com.abstractlabs.toe.entity.projectile;
 
-import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+
+import com.abstractlabs.toe.client.particle.ParticleEffects;
 
 public class EntityFlashbang extends EntityThrowable {
     public EntityFlashbang(World world) {
@@ -30,9 +31,9 @@ public class EntityFlashbang extends EntityThrowable {
 
         //spawnParticlesCube(this.worldObj, this.posX, this.posY, this.posZ, "largesmoke", 3);
         
-        spawnParticlesSphere(this.worldObj, (int)this.posX, (int)this.posY, (int)this.posZ, "largesmoke", 3, 3, 3, true);
+        //spawnParticlesSphere(this.worldObj, (int)this.posX, (int)this.posY, (int)this.posZ, "largesmoke", 3, 3, 3, true);
         
-        
+        ParticleEffects.spawnParticle("smokebomb", (int)this.posX, (int)this.posY, (int)this.posZ, 0, 0, 0);
         
         if (!this.worldObj.isRemote) {
             this.setDead();

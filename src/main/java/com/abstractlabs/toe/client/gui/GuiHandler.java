@@ -10,6 +10,7 @@ import com.abstractlabs.toe.inventory.ContainerFurnaceEmerald;
 import com.abstractlabs.toe.inventory.ContainerFurnaceGold;
 import com.abstractlabs.toe.inventory.ContainerFurnaceIron;
 import com.abstractlabs.toe.inventory.ContainerFurnaceRedstone;
+import com.abstractlabs.toe.inventory.ContainerTransmutation;
 import com.abstractlabs.toe.reference.GuiID;
 import com.abstractlabs.toe.tileentity.TileEntityATM;
 import com.abstractlabs.toe.tileentity.TileEntityBlockArmoury;
@@ -20,6 +21,7 @@ import com.abstractlabs.toe.tileentity.TileEntityFurnaceGold;
 import com.abstractlabs.toe.tileentity.TileEntityFurnaceIron;
 import com.abstractlabs.toe.tileentity.TileEntityFurnaceRedstone;
 import com.abstractlabs.toe.tileentity.TileEntityRecall;
+import com.abstractlabs.toe.tileentity.TileEntityTransmutation;
 import com.abstractlabs.toe.tileentity.TileEntityUtility;
 import com.abstractlabs.toe.tileentity.TileEntityWeaponry;
 
@@ -47,6 +49,8 @@ public class GuiHandler implements IGuiHandler {
         	return new ContainerFurnaceRedstone(player.inventory, (TileEntityFurnaceRedstone) e);
         } else if (ID == GuiID.DISPLAY_CASE.ordinal()) {
         	return new ContainerDisplayCase(player.inventory, (TileEntityDisplayCase) e);
+        } else if (ID == GuiID.TRANSMUTATION.ordinal()) {
+        	return new ContainerTransmutation(player.inventory, (TileEntityTransmutation) e);
         }
     	
         return null;
@@ -81,6 +85,8 @@ public class GuiHandler implements IGuiHandler {
         	return new GuiFurnaceRedstone(player.inventory, (TileEntityFurnaceRedstone) e);
         } else if (ID == GuiID.DISPLAY_CASE.ordinal()) {
         	return new GuiDisplayCase(player.inventory, (TileEntityDisplayCase) e);
+        } else if (ID == GuiID.TRANSMUTATION.ordinal()) {
+        	return new GuiTransmutation(player.inventory, (TileEntityTransmutation) e);
         }
 
         return null;

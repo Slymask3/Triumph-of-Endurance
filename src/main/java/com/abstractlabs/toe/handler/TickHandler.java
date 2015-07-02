@@ -6,6 +6,7 @@ import net.minecraft.world.EnumDifficulty;
 
 import com.abstractlabs.toe.init.ToeDimensions;
 import com.abstractlabs.toe.init.ToeItems;
+import com.abstractlabs.toe.init.ToePotions;
 import com.abstractlabs.toe.reference.Color;
 import com.abstractlabs.toe.skill.arenalism.ArenalismHelper;
 import com.abstractlabs.toe.utility.Helper;
@@ -58,10 +59,11 @@ public class TickHandler {
 	private void onPlayerSecond(PlayerTickEvent e) {
 		if(!e.player.capabilities.isCreativeMode) {
 			if(e.player.worldObj.provider.dimensionId == ToeDimensions.callisto) {
-				if(e.player.getCurrentArmor(0) != null && e.player.getCurrentArmor(0).getItem() == ToeItems.spacesuitBoots &&
+				if((e.player.getCurrentArmor(0) != null && e.player.getCurrentArmor(0).getItem() == ToeItems.spacesuitBoots &&
 				   e.player.getCurrentArmor(1) != null && e.player.getCurrentArmor(1).getItem() == ToeItems.spacesuitPants &&
 				   e.player.getCurrentArmor(2) != null && e.player.getCurrentArmor(2).getItem() == ToeItems.spacesuitPlate &&
-				   e.player.getCurrentArmor(3) != null && e.player.getCurrentArmor(3).getItem() == ToeItems.spacesuitHelmet) {
+				   e.player.getCurrentArmor(3) != null && e.player.getCurrentArmor(3).getItem() == ToeItems.spacesuitHelmet) ||
+				   (e.player.isPotionActive(ToePotions.moon))) {
 					//do nothing
 				} else {
 					e.player.setHealth(e.player.getHealth()-2);

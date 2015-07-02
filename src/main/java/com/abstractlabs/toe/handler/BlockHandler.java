@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraftforge.event.world.BlockEvent;
 
@@ -32,6 +33,40 @@ public class BlockHandler {
 				
 				helper.updateCash(helper.getCash() + amount);
 				Helper.msgClean(player, "You got $" + amount + " from breaking the cash block!", Color.gold);
+			}
+		}
+	}
+	
+	@SubscribeEvent
+	public void onHarvest(BlockEvent.HarvestDropsEvent e) {
+		EntityPlayer player = e.harvester;
+		Block block = e.block;
+		World world = e.world;
+		int x = e.x;
+		int y = e.y;
+		int z = e.z;
+		
+		if(block == ToeBlocks.glassWater) {
+			Random rand = new Random();
+			int i = rand.nextInt(5);
+			
+			//LogHelper.info(i);
+			
+			if(i == 0) {
+				e.drops.clear();
+				world.setBlock(x, y, z, Blocks.water);
+			}
+		}
+		
+		if(block == ToeBlocks.glassLava) {
+			Random rand = new Random();
+			int i = rand.nextInt(5);
+			
+			//LogHelper.info(i);
+			
+			if(i == 0) {
+				e.drops.clear();
+				world.setBlock(x, y, z, Blocks.lava);
 			}
 		}
 	}

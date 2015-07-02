@@ -38,8 +38,14 @@ public class ParticleEffects {
     			var21 = new EntityCallistoPortalFX(theWorld, par2, par4, par6, (float)par8, (float)par10, (float)par12);
     		} else if (particleName.equals("green")) {
     			var21 = new EntityGreenFX(theWorld, par2, par4, par6, (float)par8, (float)par10, (float)par12);
+    		} else if (particleName.equals("green2")) {
+    			var21 = new EntityGreenFX(theWorld, par2, par4, par6, 100, (float)par8, (float)par10, (float)par12);
     		} else if (particleName.equals("tree")) {
     			var21 = new EntityTreeFX(theWorld, par2, par4, par6, (float)par8, (float)par10, (float)par12);
+    		} else if (particleName.equals("smokebomb")) {
+    			var21 = new EntitySmokeBombFX(theWorld, par2, par4, par6, (float)par8, (float)par10, (float)par12);
+    		} else if (particleName.equals("portalNeptune")) {
+    			var21 = new EntityNeptunePortalFX(theWorld, par2, par4, par6, (float)par8, (float)par10, (float)par12);
     		}
 
     		mc.effectRenderer.addEffect(var21);

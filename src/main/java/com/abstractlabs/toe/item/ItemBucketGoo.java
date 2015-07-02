@@ -4,7 +4,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+
+import com.abstractlabs.toe.init.ToePotions;
 
 public class ItemBucketGoo extends ItemToe {
     public ItemBucketGoo() {
@@ -17,10 +20,7 @@ public class ItemBucketGoo extends ItemToe {
             --is.stackSize;
         }
 
-        if (!world.isRemote) {
-            //player.curePotionEffects(is);
-        	//TODO add potion effect to be able to breathe on the moon.
-        }
+        player.addPotionEffect(new PotionEffect(ToePotions.moon.id, 600*20)); //10min
 
         return is.stackSize <= 0 ? new ItemStack(Items.bucket) : is;
     }

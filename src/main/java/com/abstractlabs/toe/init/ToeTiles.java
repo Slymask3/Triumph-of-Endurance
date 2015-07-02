@@ -12,9 +12,10 @@ import com.abstractlabs.toe.tileentity.TileEntityFurnaceIron;
 import com.abstractlabs.toe.tileentity.TileEntityFurnaceRedstone;
 import com.abstractlabs.toe.tileentity.TileEntityLandmine;
 import com.abstractlabs.toe.tileentity.TileEntityLockedChest;
-import com.abstractlabs.toe.tileentity.TileEntityPedestalStonebrick;
+import com.abstractlabs.toe.tileentity.TileEntityPedestal;
 import com.abstractlabs.toe.tileentity.TileEntityRecall;
 import com.abstractlabs.toe.tileentity.TileEntityStatueBiped;
+import com.abstractlabs.toe.tileentity.TileEntityTransmutation;
 import com.abstractlabs.toe.tileentity.TileEntityUtility;
 import com.abstractlabs.toe.tileentity.TileEntityWeaponry;
 import com.abstractlabs.toe.world.arena.Arena;
@@ -36,6 +37,7 @@ public class ToeTiles {
 		TileEntity.addMapping(TileEntityFurnaceEmerald.class, "TileEntityFurnaceEmerald");
 		TileEntity.addMapping(TileEntityFurnaceRedstone.class, "TileEntityFurnaceRedstone");
 		TileEntity.addMapping(TileEntityDisplayCase.class, "TileEntityDisplayCase");
-		TileEntity.addMapping(TileEntityPedestalStonebrick.class, "TileEntityPedestalStonebrick");
+		TileEntity.addMapping(TileEntityPedestal.class, "TileEntityPedestal");
+		TileEntity.addMapping(TileEntityTransmutation.class, "TileEntityTransmutation");
 	}
 }

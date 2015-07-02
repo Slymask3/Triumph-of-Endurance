@@ -132,11 +132,11 @@ public class EntityAlienCow extends EntityAnimal {
         {
             if (itemstack.stackSize-- == 1)
             {
-                p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, new ItemStack(Items.milk_bucket));
+                p_70085_1_.inventory.setInventorySlotContents(p_70085_1_.inventory.currentItem, new ItemStack(ToeItems.bucketGoo));
             }
-            else if (!p_70085_1_.inventory.addItemStackToInventory(new ItemStack(Items.milk_bucket)))
+            else if (!p_70085_1_.inventory.addItemStackToInventory(new ItemStack(ToeItems.bucketGoo)))
             {
-                p_70085_1_.dropPlayerItemWithRandomChoice(new ItemStack(Items.milk_bucket, 1, 0), false);
+                p_70085_1_.dropPlayerItemWithRandomChoice(new ItemStack(ToeItems.bucketGoo, 1, 0), false);
             }
 
             return true;

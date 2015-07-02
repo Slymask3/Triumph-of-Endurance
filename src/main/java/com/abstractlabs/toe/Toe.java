@@ -15,6 +15,8 @@ import com.abstractlabs.toe.init.ToeGenBiome;
 import com.abstractlabs.toe.init.ToeItems;
 import com.abstractlabs.toe.init.ToeMobs;
 import com.abstractlabs.toe.init.ToePackets;
+import com.abstractlabs.toe.init.ToePotions;
+import com.abstractlabs.toe.init.ToeRecipes;
 import com.abstractlabs.toe.init.ToeRenders;
 import com.abstractlabs.toe.init.ToeTiles;
 import com.abstractlabs.toe.network.PacketPipeline;
@@ -51,7 +53,7 @@ public class Toe {
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GuiHandler());
 		
 		packetPipeline.init();
-
+		
 		ToePackets.init();
 		ToeBlocks.init();
 		ToeItems.init();
@@ -61,6 +63,8 @@ public class Toe {
 		ToeTiles.init();
 		ToeBiomes.init();
 		ToeDimensions.init();
+		ToePotions.init();
+		ToeRecipes.init();
 		
 		ToeGenBiome.mainRegistry();
 		
@@ -77,7 +81,7 @@ public class Toe {
 //		List<IResourcePack> defaultResourcePacks = ObfuscationReflectionHelper.getPrivateValue(Minecraft.class, Minecraft.getMinecraft(), "defaultResourcePacks", "field_110449_ao");
 //		defaultResourcePacks.add(new ResourceLoc());
 		
-		
+		//RenderingRegistry.registerEntityRenderingHandler(EntityFishingHook.class, new RenderFishHook());
 		
 		LogHelper.info("Initialization Complete!");
 	}

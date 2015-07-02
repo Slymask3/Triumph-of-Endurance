@@ -17,6 +17,7 @@ import com.abstractlabs.toe.Toe;
 import com.abstractlabs.toe.creativetab.ToeTab;
 import com.abstractlabs.toe.reference.GuiID;
 import com.abstractlabs.toe.reference.Reference;
+import com.abstractlabs.toe.reference.RenderID;
 import com.abstractlabs.toe.tileentity.TileEntityDisplayCase;
 
 public class BlockDisplayCase extends BlockContainer implements ITileEntityProvider {
@@ -29,7 +30,8 @@ public class BlockDisplayCase extends BlockContainer implements ITileEntityProvi
 		setStepSound(Block.soundTypeGlass);
 		setHardness(3.0F);
 		setResistance(5.0F);
-		setBlockBounds(0.1F, 0.0F, 0.1F, 0.9F, 0.8F, 0.9F);
+		setBlockBounds(0.075F, 0.0F, 0.075F, 0.925F, 0.875F, 0.925F);
+		setBlockTextureName("glass");
 	}
 	
 	public boolean isOpaqueCube() {
@@ -41,7 +43,7 @@ public class BlockDisplayCase extends BlockContainer implements ITileEntityProvi
     }
 
     public int getRenderType() {
-        return -1;
+        return RenderID.displayCase;
     }
 	
 	@Override

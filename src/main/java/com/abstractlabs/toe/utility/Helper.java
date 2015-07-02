@@ -373,4 +373,20 @@ public class Helper {
 			removeItemFromInventory(player, item);
 		}
 	}
+	
+	public static boolean isNight(World world) {
+		long time = world.getWorldTime();
+		long day = (time/24000L)+1; //unused atm
+		long current = time%24000L;
+
+		if(current >= 12500 && current <= 23750) {
+			return true;
+		}
+		
+		return false;
+	}
+	
+	public static boolean isDay(World world) {
+		return !isNight(world);
+	}
 }

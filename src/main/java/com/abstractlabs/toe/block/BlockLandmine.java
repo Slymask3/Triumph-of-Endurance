@@ -1,91 +1,69 @@
 package com.abstractlabs.toe.block;
 
-import java.util.Iterator;
-import java.util.List;
-
+import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
-import com.abstractlabs.toe.creativetab.ToeTab;
 import com.abstractlabs.toe.reference.Reference;
+import com.abstractlabs.toe.reference.RenderID;
 import com.abstractlabs.toe.tileentity.TileEntityLandmine;
 
-public class BlockLandmine extends BlockBaseLandmine implements ITileEntityProvider
-{
-    private BlockLandmine.Sensitivity field_150069_a;
-    private static final String __OBFID = "CL_00000289";
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
-    public BlockLandmine(String p_i45418_1_, Material p_i45418_2_, BlockLandmine.Sensitivity p_i45418_3_)
-    {
-        super(p_i45418_1_, p_i45418_2_);
-        this.setCreativeTab(ToeTab.TOE_TAB);
-        setBlockName(Reference.MOD_ID + ":landmine");
-        this.field_150069_a = p_i45418_3_;
+public class BlockLandmine extends BlockToe implements ITileEntityProvider {
+	private IIcon side;
+	
+    public BlockLandmine() {
+        super(Material.circuits, Block.soundTypePiston, "landmine");
+        setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.1F, 1.0F);
+        setBlockTextureName(Reference.MOD_ID + ":landmine");
     }
-
-    protected int func_150066_d(int p_150066_1_)
-    {
-        return p_150066_1_ > 0 ? 1 : 0;
+    
+    @SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister ir) {
+    	this.side = ir.registerIcon(Reference.MOD_ID + ":landmine");
+	}
+    
+    @SideOnly(Side.CLIENT)
+    public IIcon getIcon(int side, int meta) {
+        return this.side;
     }
-
-    protected int func_150060_c(int p_150060_1_)
-    {
-        return p_150060_1_ == 1 ? 15 : 0;
-    }
-
-    protected int func_150065_e(World world, int x, int y, int z)
-    {
-        List list = null;
-
-        if (this.field_150069_a == BlockLandmine.Sensitivity.everything)
-        {
-            list = world.getEntitiesWithinAABBExcludingEntity((Entity)null, this.func_150061_a(x, y, z));
+    
+    public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+    	world.playSoundEffect(x, y, z, "random.click", 1.0F, 1.0F);
+    	
+        if (!world.isRemote) {
+        	world.setBlock(x, y, z, Blocks.air);
+        	world.createExplosion(null, x, y, z, 3.0F, true);
         }
-
-        if (this.field_150069_a == BlockLandmine.Sensitivity.mobs)
-        {
-            list = world.getEntitiesWithinAABB(EntityLivingBase.class, this.func_150061_a(x, y, z));
-        }
-
-        if (this.field_150069_a == BlockLandmine.Sensitivity.players)
-        {
-            list = world.getEntitiesWithinAABB(EntityPlayer.class, this.func_150061_a(x, y, z));
-        }
-
-        if (list != null && !list.isEmpty())
-        {
-            Iterator iterator = list.iterator();
-
-            while (iterator.hasNext())
-            {
-                Entity entity = (Entity)iterator.next();
-
-                if (!entity.doesEntityNotTriggerPressurePlate())
-                {
-                	world.createExplosion((Entity) null, x, y, z, 2.0F, true);
-                }
-            }
-        }
-
-        return 0;
     }
-
-    public static enum Sensitivity
-    {
-        everything,
-        mobs,
-        players;
-
-        private static final String __OBFID = "CL_00000290";
+    
+    public boolean canPlaceBlockAt(World world, int x, int y, int z) {
+        return world.getBlock(x, y-1, z) != Blocks.air;
     }
-
+    
+    public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int x, int y, int z) {
+        return null;
+    }
+    
+    public boolean isOpaqueCube() {
+        return false;
+    }
+    
+    public boolean renderAsNormalBlock() {
+        return false;
+    }
+    
     public int getRenderType() {
-        return -1;
+        return RenderID.landmine;
     }
     
 	@Override

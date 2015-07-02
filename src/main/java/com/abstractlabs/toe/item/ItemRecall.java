@@ -2,22 +2,47 @@ package com.abstractlabs.toe.item;
 
 import java.util.List;
 
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.DimensionManager;
 
 import com.abstractlabs.toe.reference.Color;
+import com.abstractlabs.toe.reference.Reference;
 import com.abstractlabs.toe.utility.Helper;
 import com.abstractlabs.toe.utility.LogHelper;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
 public class ItemRecall extends ItemToe {
+	private IIcon activeIcon;
+	
 	public ItemRecall() {
 		super();
 		this.maxStackSize = 1;
 		this.setMaxDamage(29);
+		this.setTextureName(Reference.MOD_ID+":recall");
 	}
+	
+	@SideOnly(Side.CLIENT)
+    public void registerIcons(IIconRegister ir) {
+        this.itemIcon = ir.registerIcon(this.getIconString());
+        this.activeIcon = ir.registerIcon(this.getIconString()+"_active");
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public IIcon getInactiveIcon() {
+        return this.itemIcon;
+    }
+    
+    @SideOnly(Side.CLIENT)
+    public IIcon getActiveIcon() {
+        return this.activeIcon;
+    }
 	
 	public ItemStack onItemRightClick(ItemStack is, World world, EntityPlayer player) {
         if(is.stackTagCompound != null) {

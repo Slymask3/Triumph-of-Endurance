@@ -11,12 +11,12 @@ import com.abstractlabs.toe.item.ItemCane;
 import com.abstractlabs.toe.item.ItemCleanseTablet;
 import com.abstractlabs.toe.item.ItemCursedStrengthTablet;
 import com.abstractlabs.toe.item.ItemFlashbang;
-import com.abstractlabs.toe.item.ItemGhostblade;
 import com.abstractlabs.toe.item.ItemGrenade;
 import com.abstractlabs.toe.item.ItemHasteTablet;
 import com.abstractlabs.toe.item.ItemHealingTablet;
 import com.abstractlabs.toe.item.ItemHollowLighter;
 import com.abstractlabs.toe.item.ItemLockpick;
+import com.abstractlabs.toe.item.ItemLunarBlade;
 import com.abstractlabs.toe.item.ItemRecall;
 import com.abstractlabs.toe.item.ItemResistTablet;
 import com.abstractlabs.toe.item.ItemStrengthTablet;
@@ -25,11 +25,14 @@ import com.abstractlabs.toe.item.ItemToe;
 import com.abstractlabs.toe.item.ItemToeArmor;
 import com.abstractlabs.toe.item.ItemToeAxe;
 import com.abstractlabs.toe.item.ItemToeAxepick;
+import com.abstractlabs.toe.item.ItemToeClaw;
+import com.abstractlabs.toe.item.ItemToeFishingRod;
 import com.abstractlabs.toe.item.ItemToeFood;
 import com.abstractlabs.toe.item.ItemToeHoe;
 import com.abstractlabs.toe.item.ItemToePickaxe;
 import com.abstractlabs.toe.item.ItemToeShovel;
 import com.abstractlabs.toe.item.ItemToeSword;
+import com.abstractlabs.toe.item.ItemToeSwordActive;
 import com.abstractlabs.toe.reference.BoneType;
 import com.abstractlabs.toe.reference.TabletType;
 import com.abstractlabs.toe.reference.Thieving;
@@ -54,12 +57,14 @@ public class ToeItems {
 	private static ToolMaterial emeraldToolMaterial = EnumHelper.addToolMaterial("Emerald", 3, 2500, 8.0F, 3.0F, 10);
 	private static ToolMaterial rubyToolMaterial = EnumHelper.addToolMaterial("Ruby", 3, 2500, 8.0F, 3.0F, 10);
 	private static ToolMaterial sapphireToolMaterial = EnumHelper.addToolMaterial("Sapphire", 3, 2500, 8.0F, 3.0F, 10);
+	private static ToolMaterial ghostbladeMaterial = EnumHelper.addToolMaterial("Ghostblade", 3, 500, 3, 4, 10);
+	private static ToolMaterial rapierMaterial = EnumHelper.addToolMaterial("Rapier", 3, 500, 3, 4, 10);
 	
 	public static Item flashbang = new ItemFlashbang().setUnlocalizedName("flashbang");
 	public static Item grenade = new ItemGrenade().setUnlocalizedName("grenade");
 	public static Item hollowLighter = new ItemHollowLighter().setUnlocalizedName("hollowLighter");
 	public static Item recall = new ItemRecall().setUnlocalizedName("recall");
-	public static Item cane = new ItemCane("cane", caneMaterial);
+	public static Item cane = new ItemCane(caneMaterial).setUnlocalizedName("cane");
 	public static Item paperclip = new ItemLockpick(Thieving.paperclipUses-1, Thieving.paperclipLvl, Thieving.paperclipChance).setUnlocalizedName("paperclip");
 	public static Item lockpick = new ItemLockpick(Thieving.lockpickUses-1, Thieving.lockpickLvl, Thieving.lockpickChance).setUnlocalizedName("lockpick");
 	public static Item masterKey = new ItemLockpick(Thieving.masterKeyUses-1, Thieving.masterKeyLvl, Thieving.masterKeyChance).setUnlocalizedName("masterKey");
@@ -71,16 +76,13 @@ public class ToeItems {
 	public static Item veinPickaxe = new ItemToePickaxe(veinMaterial).setUnlocalizedName("veinPickaxe");
 	public static Item smeltingPickaxe = new ItemToePickaxe(smeltingMaterial).setUnlocalizedName("smeltingPickaxe");
 	public static Item stripPickaxe = new ItemToePickaxe(stripMaterial).setUnlocalizedName("stripPickaxe");
-	public static Item woodAxepick = new ItemToeAxepick(ToolMaterial.WOOD, true).setUnlocalizedName("woodAxepick");
-	public static Item goldAxepick = new ItemToeAxepick(ToolMaterial.GOLD, true).setUnlocalizedName("goldAxepick");
-	public static Item stoneAxepick = new ItemToeAxepick(ToolMaterial.STONE, true).setUnlocalizedName("stoneAxepick");
-	public static Item ironAxepick = new ItemToeAxepick(ToolMaterial.IRON, true).setUnlocalizedName("ironAxepick");
-	public static Item diamondAxepick = new ItemToeAxepick(ToolMaterial.EMERALD, true).setUnlocalizedName("diamondAxepick");
-	public static Item woodAxepick_pick = new ItemToeAxepick(ToolMaterial.WOOD, false).setUnlocalizedName("woodAxepick_pick");
-	public static Item goldAxepick_pick = new ItemToeAxepick(ToolMaterial.GOLD, false).setUnlocalizedName("goldAxepick_pick");
-	public static Item stoneAxepick_pick = new ItemToeAxepick(ToolMaterial.STONE, false).setUnlocalizedName("stoneAxepick_pick");
-	public static Item ironAxepick_pick = new ItemToeAxepick(ToolMaterial.IRON, false).setUnlocalizedName("ironAxepick_pick");
-	public static Item diamondAxepick_pick = new ItemToeAxepick(ToolMaterial.EMERALD, false).setUnlocalizedName("diamondAxepick_pick");
+	
+	public static Item woodAxepick = new ItemToeAxepick("woodAxepick", ToolMaterial.WOOD);
+	public static Item goldAxepick = new ItemToeAxepick("goldAxepick", ToolMaterial.GOLD);
+	public static Item stoneAxepick = new ItemToeAxepick("stoneAxepick", ToolMaterial.STONE);
+	public static Item ironAxepick = new ItemToeAxepick("ironAxepick", ToolMaterial.IRON);
+	public static Item diamondAxepick = new ItemToeAxepick("diamondAxepick", ToolMaterial.EMERALD);
+	
 	public static Item timberAxe = new ItemToeAxe(timberMaterial).setUnlocalizedName("timberAxe");
 	public static Item ruby = new ItemToe().setUnlocalizedName("ruby");
 	public static Item undeadbatBone = new ItemBone(BoneType.undeadbatBoneLvl).setUnlocalizedName("undeadbatBone");
@@ -91,7 +93,7 @@ public class ToeItems {
 	public static Item strTab_crs = new ItemStrengthTablet(TabletType.strLvl_crs).setUnlocalizedName("strengthTablet");
 	public static Item jumpTab = new ItemCursedStrengthTablet(TabletType.jumpLvl).setUnlocalizedName("jumpTablet");
 	
-	public static Item ghostblade = new ItemGhostblade().setUnlocalizedName("ghostblade");
+	public static Item ghostblade = new ItemToeSwordActive(ghostbladeMaterial).setUnlocalizedName("ghostblade");
 	public static Item crystal = new ItemToe().setUnlocalizedName("crystal");
 	public static Item crystalIce = new ItemToe().setUnlocalizedName("crystalIce");
 	public static Item aluminium = new ItemToe().setUnlocalizedName("aluminium");
@@ -106,24 +108,21 @@ public class ToeItems {
 	public static Item emeraldPickaxe = new ItemToePickaxe(emeraldToolMaterial).setUnlocalizedName("emeraldPickaxe");
 	public static Item emeraldShovel = new ItemToeShovel(emeraldToolMaterial).setUnlocalizedName("emeraldShovel");
 	public static Item emeraldAxe = new ItemToeAxe(emeraldToolMaterial).setUnlocalizedName("emeraldAxe");
-	public static Item emeraldAxepick = new ItemToeAxepick(emeraldToolMaterial, true).setUnlocalizedName("emeraldAxepick");
-	public static Item emeraldAxepick_pick = new ItemToeAxepick(emeraldToolMaterial, false).setUnlocalizedName("emeraldAxepick_pick");
+	public static Item emeraldAxepick = new ItemToeAxepick("emeraldAxepick", emeraldToolMaterial);
 	public static Item emeraldHoe = new ItemToeHoe(emeraldToolMaterial).setUnlocalizedName("emeraldHoe");
 	
 	public static Item rubySword = new ItemToeSword(rubyToolMaterial).setUnlocalizedName("rubySword");
 	public static Item rubyPickaxe = new ItemToePickaxe(rubyToolMaterial).setUnlocalizedName("rubyPickaxe");
 	public static Item rubyShovel = new ItemToeShovel(rubyToolMaterial).setUnlocalizedName("rubyShovel");
 	public static Item rubyAxe = new ItemToeAxe(rubyToolMaterial).setUnlocalizedName("rubyAxe");
-	public static Item rubyAxepick = new ItemToeAxepick(rubyToolMaterial, true).setUnlocalizedName("rubyAxepick");
-	public static Item rubyAxepick_pick = new ItemToeAxepick(rubyToolMaterial, false).setUnlocalizedName("rubyAxepick_pick");
+	public static Item rubyAxepick = new ItemToeAxepick("rubyAxepick", rubyToolMaterial);
 	public static Item rubyHoe = new ItemToeHoe(rubyToolMaterial).setUnlocalizedName("rubyHoe");
 	
 	public static Item sapphireSword = new ItemToeSword(sapphireToolMaterial).setUnlocalizedName("sapphireSword");
 	public static Item sapphirePickaxe = new ItemToePickaxe(sapphireToolMaterial).setUnlocalizedName("sapphirePickaxe");
 	public static Item sapphireShovel = new ItemToeShovel(sapphireToolMaterial).setUnlocalizedName("sapphireShovel");
 	public static Item sapphireAxe = new ItemToeAxe(sapphireToolMaterial).setUnlocalizedName("sapphireAxe");
-	public static Item sapphireAxepick = new ItemToeAxepick(sapphireToolMaterial, true).setUnlocalizedName("sapphireAxepick");
-	public static Item sapphireAxepick_pick = new ItemToeAxepick(sapphireToolMaterial, false).setUnlocalizedName("sapphireAxepick_pick");
+	public static Item sapphireAxepick = new ItemToeAxepick("sapphireAxepick", sapphireToolMaterial);
 	public static Item sapphireHoe = new ItemToeHoe(sapphireToolMaterial).setUnlocalizedName("sapphireHoe");
 	
 	public static Item magmaHelmet = new ItemToeArmor(magmaMaterial, "magma", 0);
@@ -158,6 +157,43 @@ public class ToeItems {
 	public static Item sapphirePlate = new ItemToeArmor(sapphireMaterial, "sapphire", 1);
 	public static Item sapphirePants = new ItemToeArmor(sapphireMaterial, "sapphire", 2);
 	public static Item sapphireBoots = new ItemToeArmor(sapphireMaterial, "sapphire", 3);
+
+	public static Item fishingRodWood = new ItemToeFishingRod("fishingRodWood", 64);
+	public static Item fishingRodIron = new ItemToeFishingRod("fishingRodIron", 128);
+	public static Item fishingRodGold = new ItemToeFishingRod("fishingRodGold", 64);
+	
+	public static Item shrimp = new ItemToeFood(1).setUnlocalizedName("shrimp");
+	public static Item shrimpCooked = new ItemToeFood(4).setUnlocalizedName("shrimpCooked");
+	public static Item sardine = new ItemToeFood(2).setUnlocalizedName("sardine");
+	public static Item sardineCooked = new ItemToeFood(5).setUnlocalizedName("sardineCooked");
+	public static Item tuna = new ItemToeFood(3).setUnlocalizedName("tuna");
+	public static Item tunaCooked = new ItemToeFood(6).setUnlocalizedName("tunaCooked");
+	public static Item trout = new ItemToeFood(3).setUnlocalizedName("trout");
+	public static Item troutCooked = new ItemToeFood(6).setUnlocalizedName("troutCooked");
+	public static Item pike = new ItemToeFood(3).setUnlocalizedName("pike");
+	public static Item pikeCooked = new ItemToeFood(6).setUnlocalizedName("pikeCooked");
+	public static Item catfish = new ItemToeFood(3).setUnlocalizedName("catfish");
+	public static Item catfishCooked = new ItemToeFood(6).setUnlocalizedName("catfishCooked");
+	public static Item bass = new ItemToeFood(3).setUnlocalizedName("bass");
+	public static Item bassCooked = new ItemToeFood(7).setUnlocalizedName("bassCooked");
+	public static Item swordfish = new ItemToeFood(4).setUnlocalizedName("swordfish");
+	public static Item swordfishCooked = new ItemToeFood(8).setUnlocalizedName("swordfishCooked");
+	public static Item monkfish = new ItemToeFood(4).setUnlocalizedName("monkfish");
+	public static Item monkfishCooked = new ItemToeFood(10).setUnlocalizedName("monkfishCooked");
+	public static Item shark = new ItemToeFood(6).setUnlocalizedName("shark");
+	public static Item sharkCooked = new ItemToeFood(20).setUnlocalizedName("sharkCooked");
+
+	public static Item lunarBlade = new ItemLunarBlade().setUnlocalizedName("lunarBlade");
+	public static Item rapier = new ItemToeSword(rapierMaterial).setUnlocalizedName("rapier");
+
+	public static Item woodClaw = new ItemToeClaw("woodClaw", ToolMaterial.WOOD);
+	public static Item goldClaw = new ItemToeClaw("goldClaw", ToolMaterial.GOLD);
+	public static Item stoneClaw = new ItemToeClaw("stoneClaw", ToolMaterial.STONE);
+	public static Item ironClaw = new ItemToeClaw("ironClaw", ToolMaterial.IRON);
+	public static Item diamondClaw = new ItemToeClaw("diamondClaw", ToolMaterial.EMERALD);
+	public static Item emeraldClaw = new ItemToeClaw("emeraldClaw", emeraldToolMaterial);
+	public static Item rubyClaw = new ItemToeClaw("rubyClaw", rubyToolMaterial);
+	public static Item sapphireClaw = new ItemToeClaw("sapphireClaw", sapphireToolMaterial);
 	
 	public static void init() {
 		//Weapons
@@ -166,7 +202,9 @@ public class ToeItems {
 		GameRegistry.registerItem(sapphireSword, "sapphireSword");
 		GameRegistry.registerItem(cane, "cane");
 		GameRegistry.registerItem(ghostblade, "ghostblade");
-
+		GameRegistry.registerItem(lunarBlade, "lunarBlade");
+		GameRegistry.registerItem(rapier, "rapier");
+		
 		//Pickaxes
 		GameRegistry.registerItem(emeraldPickaxe, "emeraldPickaxe");
 		GameRegistry.registerItem(rubyPickaxe, "rubyPickaxe");
@@ -196,14 +234,16 @@ public class ToeItems {
 		GameRegistry.registerItem(emeraldAxepick, "emeraldAxepick");
 		GameRegistry.registerItem(rubyAxepick, "rubyAxepick");
 		GameRegistry.registerItem(sapphireAxepick, "sapphireAxepick");
-		GameRegistry.registerItem(woodAxepick_pick, "woodAxepick_pick");
-		GameRegistry.registerItem(goldAxepick_pick, "goldAxepick_pick");
-		GameRegistry.registerItem(stoneAxepick_pick, "stoneAxepick_pick");
-		GameRegistry.registerItem(ironAxepick_pick, "ironAxepick_pick");
-		GameRegistry.registerItem(diamondAxepick_pick, "diamondAxepick_pick");
-		GameRegistry.registerItem(emeraldAxepick_pick, "emeraldAxepick_pick");
-		GameRegistry.registerItem(rubyAxepick_pick, "rubyAxepick_pick");
-		GameRegistry.registerItem(sapphireAxepick_pick, "sapphireAxepick_pick");
+		
+		//Claw
+		GameRegistry.registerItem(woodClaw, "woodClaw");
+		GameRegistry.registerItem(goldClaw, "goldClaw");
+		GameRegistry.registerItem(stoneClaw, "stoneClaw");
+		GameRegistry.registerItem(ironClaw, "ironClaw");
+		GameRegistry.registerItem(diamondClaw, "diamondClaw");
+		GameRegistry.registerItem(emeraldClaw, "emeraldClaw");
+		GameRegistry.registerItem(rubyClaw, "rubyClaw");
+		GameRegistry.registerItem(sapphireClaw, "sapphireClaw");
 		
 		//Hoes
 		GameRegistry.registerItem(emeraldHoe, "emeraldHoe");
@@ -212,6 +252,11 @@ public class ToeItems {
 		
 		//Magic
 		GameRegistry.registerItem(recall, "recall");
+		
+		//Fishing Rods
+		GameRegistry.registerItem(fishingRodWood, "fishingRodWood");
+		GameRegistry.registerItem(fishingRodIron, "fishingRodIron");
+		GameRegistry.registerItem(fishingRodGold, "fishingRodGold");
 		
 		//Projectiles
 		GameRegistry.registerItem(flashbang, "flashbang");
@@ -248,6 +293,28 @@ public class ToeItems {
 		//Food
 		GameRegistry.registerItem(alienBeef, "alienBeef");
 		GameRegistry.registerItem(alienSteak, "alienSteak");
+		
+		//Fish
+		GameRegistry.registerItem(shrimp, "shrimp");
+		GameRegistry.registerItem(shrimpCooked, "shrimpCooked");
+		GameRegistry.registerItem(sardine, "sardine");
+		GameRegistry.registerItem(sardineCooked, "sardineCooked");
+		GameRegistry.registerItem(tuna, "tuna");
+		GameRegistry.registerItem(tunaCooked, "tunaCooked");
+		GameRegistry.registerItem(trout, "trout");
+		GameRegistry.registerItem(troutCooked, "troutCooked");
+		GameRegistry.registerItem(pike, "pike");
+		GameRegistry.registerItem(pikeCooked, "pikeCooked");
+		GameRegistry.registerItem(catfish, "catfish");
+		GameRegistry.registerItem(catfishCooked, "catfishCooked");
+		GameRegistry.registerItem(bass, "bass");
+		GameRegistry.registerItem(bassCooked, "bassCooked");
+		GameRegistry.registerItem(swordfish, "swordfish");
+		GameRegistry.registerItem(swordfishCooked, "swordfishCooked");
+		GameRegistry.registerItem(monkfish, "monkfish");
+		GameRegistry.registerItem(monkfishCooked, "monkfishCooked");
+		GameRegistry.registerItem(shark, "shark");
+		GameRegistry.registerItem(sharkCooked, "sharkCooked");
 		
 		//Other
 		GameRegistry.registerItem(hollowLighter, "hollowLighter");

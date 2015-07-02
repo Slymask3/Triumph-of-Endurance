@@ -48,7 +48,7 @@ public class BlockBasic extends Block {
 
 		this.setBlockName(Reference.MOD_ID + ":" + name);
 		this.setCreativeTab(ToeTab.TOE_TAB);
-		this.setBlockTextureName(Reference.MOD_ID + textureName);
+		this.setBlockTextureName(Reference.MOD_ID + ":" + textureName);
 		this.setStepSound(blockSound);
 	}
 
@@ -82,7 +82,7 @@ public class BlockBasic extends Block {
 	 */
 	public void registerBlockIcons(IIconRegister iconRegister)
 	{
-		this.blockIcon = iconRegister.registerIcon(Reference.MOD_ID + blockTexture);
+		this.blockIcon = iconRegister.registerIcon(Reference.MOD_ID + ":" + blockTexture);
 	}
 
 	@Override

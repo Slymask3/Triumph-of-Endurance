@@ -15,6 +15,7 @@ import com.abstractlabs.toe.Toe;
 import com.abstractlabs.toe.creativetab.ToeTab;
 import com.abstractlabs.toe.reference.GuiID;
 import com.abstractlabs.toe.reference.Reference;
+import com.abstractlabs.toe.reference.RenderID;
 import com.abstractlabs.toe.tileentity.TileEntityATM;
 
 public class BlockATM extends BlockContainer implements ITileEntityProvider {
@@ -25,6 +26,7 @@ public class BlockATM extends BlockContainer implements ITileEntityProvider {
 		setStepSound(Block.soundTypeAnvil);
 		setHardness(3.0F);
 		setResistance(5.0F);
+		setBlockTextureName("anvil_base");
 	}
 	
 	public boolean isOpaqueCube() {
@@ -36,7 +38,7 @@ public class BlockATM extends BlockContainer implements ITileEntityProvider {
     }
 
     public int getRenderType() {
-        return 7356;
+        return RenderID.atm;
     }
 	
 	public static int getDirection(int meta) {

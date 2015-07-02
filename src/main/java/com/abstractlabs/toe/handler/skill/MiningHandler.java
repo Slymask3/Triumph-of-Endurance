@@ -5,7 +5,6 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.BlockRedstoneOre;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -13,8 +12,6 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 import net.minecraftforge.event.world.BlockEvent;
 
 import com.abstractlabs.toe.block.BlockToeOre;
@@ -45,15 +42,15 @@ public class MiningHandler {
 				Item tool = player.getHeldItem().getItem();
 				float boost = 1.00F;
 				
-				if(tool == Items.wooden_pickaxe || tool == ToeItems.woodAxepick || tool == ToeItems.woodAxepick_pick) {
+				if(tool == Items.wooden_pickaxe || tool == ToeItems.woodAxepick) {
 					boost = 1.01F;
-				} else if(tool == Items.stone_pickaxe || tool == ToeItems.stoneAxepick || tool == ToeItems.stoneAxepick_pick) {
+				} else if(tool == Items.stone_pickaxe || tool == ToeItems.stoneAxepick) {
 					boost = 1.02F;
-				} else if(tool == Items.iron_pickaxe || tool == ToeItems.ironAxepick || tool == ToeItems.ironAxepick_pick) {
+				} else if(tool == Items.iron_pickaxe || tool == ToeItems.ironAxepick) {
 					boost = 1.05F;
-				} else if(tool == Items.golden_pickaxe || tool == ToeItems.goldAxepick || tool == ToeItems.goldAxepick_pick) {
+				} else if(tool == Items.golden_pickaxe || tool == ToeItems.goldAxepick) {
 					boost = 2.00F;
-				} else if(tool == Items.diamond_pickaxe || tool == ToeItems.diamondAxepick || tool == ToeItems.diamondAxepick_pick) {
+				} else if(tool == Items.diamond_pickaxe || tool == ToeItems.diamondAxepick) {
 					boost = 1.10F;
 				}
 				
