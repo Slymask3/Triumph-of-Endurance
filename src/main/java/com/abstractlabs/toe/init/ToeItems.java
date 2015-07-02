@@ -1,5 +1,6 @@
 package com.abstractlabs.toe.init;
 
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -15,11 +16,12 @@ import com.abstractlabs.toe.item.ItemGrenade;
 import com.abstractlabs.toe.item.ItemHasteTablet;
 import com.abstractlabs.toe.item.ItemHealingTablet;
 import com.abstractlabs.toe.item.ItemHollowLighter;
+import com.abstractlabs.toe.item.ItemJumpTablet;
 import com.abstractlabs.toe.item.ItemLockpick;
 import com.abstractlabs.toe.item.ItemLunarBlade;
 import com.abstractlabs.toe.item.ItemRecall;
 import com.abstractlabs.toe.item.ItemResistTablet;
-import com.abstractlabs.toe.item.ItemStrengthTablet;
+import com.abstractlabs.toe.item.ItemCursedStrengthTablet;
 import com.abstractlabs.toe.item.ItemTester;
 import com.abstractlabs.toe.item.ItemToe;
 import com.abstractlabs.toe.item.ItemToeArmor;
@@ -27,6 +29,7 @@ import com.abstractlabs.toe.item.ItemToeAxe;
 import com.abstractlabs.toe.item.ItemToeAxepick;
 import com.abstractlabs.toe.item.ItemToeClaw;
 import com.abstractlabs.toe.item.ItemToeFishingRod;
+import com.abstractlabs.toe.item.ItemToeBow;
 import com.abstractlabs.toe.item.ItemToeFood;
 import com.abstractlabs.toe.item.ItemToeHoe;
 import com.abstractlabs.toe.item.ItemToePickaxe;
@@ -86,12 +89,17 @@ public class ToeItems {
 	public static Item timberAxe = new ItemToeAxe(timberMaterial).setUnlocalizedName("timberAxe");
 	public static Item ruby = new ItemToe().setUnlocalizedName("ruby");
 	public static Item undeadbatBone = new ItemBone(BoneType.undeadbatBoneLvl).setUnlocalizedName("undeadbatBone");
+		
+	public static Item crystalArrow = new ItemToe().setUnlocalizedName("crystalArrow");
+	
+	public static Item crystalBow = new ItemToeBow(crystalArrow, 425, 3).setUnlocalizedName("crystalBow");
+	
 	public static Item healingTab = new ItemHealingTablet(TabletType.healLvl).setUnlocalizedName("healingTablet");
 	public static Item cleanseTab = new ItemCleanseTablet(TabletType.cleanseLvl).setUnlocalizedName("cleanseTablet");
 	public static Item resistTab = new ItemResistTablet(TabletType.resistLvl).setUnlocalizedName("resistTablet");
 	public static Item hasteTab = new ItemHasteTablet(TabletType.hasteLvl).setUnlocalizedName("hasteTablet");
-	public static Item strTab_crs = new ItemStrengthTablet(TabletType.strLvl_crs).setUnlocalizedName("strengthTablet");
-	public static Item jumpTab = new ItemCursedStrengthTablet(TabletType.jumpLvl).setUnlocalizedName("jumpTablet");
+	public static Item strTab_crs = new ItemCursedStrengthTablet(TabletType.strLvl_crs).setUnlocalizedName("strengthTablet_crs");
+	public static Item jumpTab = new ItemJumpTablet(TabletType.jumpLvl).setUnlocalizedName("jumpTablet");
 	
 	public static Item ghostblade = new ItemToeSwordActive(ghostbladeMaterial).setUnlocalizedName("ghostblade");
 	public static Item crystal = new ItemToe().setUnlocalizedName("crystal");
@@ -204,6 +212,12 @@ public class ToeItems {
 		GameRegistry.registerItem(ghostblade, "ghostblade");
 		GameRegistry.registerItem(lunarBlade, "lunarBlade");
 		GameRegistry.registerItem(rapier, "rapier");
+		
+		//Bows
+		GameRegistry.registerItem(crystalBow, "crystalBow");
+		
+		//Arrows
+		GameRegistry.registerItem(crystalArrow, "crystalArrow");
 		
 		//Pickaxes
 		GameRegistry.registerItem(emeraldPickaxe, "emeraldPickaxe");

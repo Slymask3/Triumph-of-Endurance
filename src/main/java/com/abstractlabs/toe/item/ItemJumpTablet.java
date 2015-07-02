@@ -19,11 +19,11 @@ import com.abstractlabs.toe.utility.LogHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemStrengthTablet extends ItemToe
+public class ItemJumpTablet extends ItemToe
 {
 	private int lvl;
 
-	public ItemStrengthTablet(int lvl)
+	public ItemJumpTablet(int lvl)
 	{
 		super();
 		this.maxStackSize = 1;
@@ -61,23 +61,21 @@ public class ItemStrengthTablet extends ItemToe
 		{
 			if (is.stackTagCompound.getBoolean("activeAvailable"))
 			{
-				player.addPotionEffect(new PotionEffect(5, 5*20, 2));
-				player.addPotionEffect(new PotionEffect(19, 5*20, 2));
+				player.addPotionEffect(new PotionEffect(8, 5*20, 2));
 
 				Helper.msg(player, "Tablet activated!", Color.magenta);
-				Helper.msg(player, "The gods are displeased with your decision!", Color.red);
 
 				//ticks = 2000
 				is.stackTagCompound.setInteger("ticks", 4800); //4min
 				is.stackTagCompound.setBoolean("activeAvailable", false);
 
-				LogHelper.info("onItemUse strTab_crs");
+				LogHelper.info("onItemUse strTab");
 
 				return true;
 			}
 			else 
 			{
-				Helper.msg(player, "Cursed Strength Tablet is on cooldown.", Color.red);
+				Helper.msg(player, "Strength Tablet is on cooldown.", Color.red);
 				return true;
 			}
 		}
@@ -107,8 +105,8 @@ public class ItemStrengthTablet extends ItemToe
 			{
 				list.add(EnumChatFormatting.AQUA + "Active Available: Yes");
 				list.add(EnumChatFormatting.GOLD + "Active Desccription: User is");
-				list.add(EnumChatFormatting.GOLD + "given Strength III for");
-				list.add(EnumChatFormatting.GOLD + "5 seconds");
+				list.add(EnumChatFormatting.GOLD + "given a jump boost for");
+				list.add(EnumChatFormatting.GOLD + "5 seconds.");
 			} 
 			else if(!active) 
 			{
