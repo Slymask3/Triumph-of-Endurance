@@ -12,6 +12,7 @@ import com.abstractlabs.toe.handler.PlayerHandler;
 import com.abstractlabs.toe.handler.TickHandler;
 import com.abstractlabs.toe.handler.skill.MiningHandler;
 import com.abstractlabs.toe.handler.skill.PrayerHandler;
+import com.abstractlabs.toe.handler.skill.RangedHandler;
 import com.abstractlabs.toe.handler.skill.SmeltingHandler;
 import com.abstractlabs.toe.handler.skill.WoodcuttingHandler;
 import com.abstractlabs.toe.utility.LogHelper;
@@ -28,6 +29,7 @@ public class ToeBusses {
 		addEventBus(new MiningHandler());
 		addEventBus(new WoodcuttingHandler());
 		addEventBus(new PrayerHandler());
+		addEventBus(new RangedHandler());
 		
 		addSpecialEventBus(new ConfigHandler());
 		addSpecialEventBus(new ConnectionHandler());

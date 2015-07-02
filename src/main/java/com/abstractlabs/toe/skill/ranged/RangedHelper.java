@@ -20,7 +20,7 @@ public class RangedHelper implements IExtendedEntityProperties {
 	private static final String LEVEL = "RangedLevel";
 	private static final String EXP = "RangedExp";
 	private float exp;
-	private int level;
+	public int level;
 	
 	public RangedHelper(EntityPlayer player) {
 		this.player = player;

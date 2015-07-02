@@ -62,20 +62,22 @@ public class ItemCursedStrengthTablet extends ItemToe
 			if (is.stackTagCompound.getBoolean("activeAvailable"))
 			{
 				player.addPotionEffect(new PotionEffect(5, 5*20, 2));
+				player.addPotionEffect(new PotionEffect(19, 5*20, 2));
 
 				Helper.msg(player, "Tablet activated!", Color.magenta);
+				Helper.msg(player, "The gods are displeased with your decision!", Color.red);
 
 				//ticks = 2000
 				is.stackTagCompound.setInteger("ticks", 4800); //4min
 				is.stackTagCompound.setBoolean("activeAvailable", false);
 
-				LogHelper.info("onItemUse strTab");
+				LogHelper.info("onItemUse strTab_crs");
 
 				return true;
 			}
 			else 
 			{
-				Helper.msg(player, "Strength Tablet is on cooldown.", Color.red);
+				Helper.msg(player, "Cursed Strength Tablet is on cooldown.", Color.red);
 				return true;
 			}
 		}
@@ -105,8 +107,8 @@ public class ItemCursedStrengthTablet extends ItemToe
 			{
 				list.add(EnumChatFormatting.AQUA + "Active Available: Yes");
 				list.add(EnumChatFormatting.GOLD + "Active Desccription: User is");
-				list.add(EnumChatFormatting.GOLD + "given Strength III for");
-				list.add(EnumChatFormatting.GOLD + "5 seconds");
+				list.add(EnumChatFormatting.GOLD + "given Strength III and is");
+				list.add(EnumChatFormatting.GOLD + "poisoned for 5 seconds.");
 			} 
 			else if(!active) 
 			{
