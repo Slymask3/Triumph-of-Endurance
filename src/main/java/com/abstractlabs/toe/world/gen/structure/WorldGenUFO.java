@@ -23,7 +23,7 @@ public class WorldGenUFO extends WorldGenerator {
 //		}
         
         UFO.build(world, x, y, z, Blocks.quartz_block, 0, Blocks.obsidian, 0, Blocks.glowstone, 0);
-        UFO.buildBeamAndPortal(world, x, y, z, ToeBlocks.beam, 0, ToeBlocks.hollowPortal, 0);
+        UFO.buildBeamAndPortal(world, x, y, z, ToeBlocks.beam, 0, ToeBlocks.portalCallisto, 0);
         
         LogHelper.info("UFO Generated at [" + x + ", " + y + ", " + z + "]");
         

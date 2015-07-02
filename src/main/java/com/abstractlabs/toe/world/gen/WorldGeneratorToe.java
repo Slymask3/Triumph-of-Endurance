@@ -20,7 +20,7 @@ public class WorldGeneratorToe implements IWorldGenerator  {
 	    	case 0: generateSurface(world, random, chunkX*16, chunkZ*16);
 	    	case 1: generateEnd(world, random, chunkX*16, chunkZ*16);
 	    	case 8: generateHollows(world, random, chunkX*16, chunkZ*16);
-	    	case 9: generateArenalism(world, random, chunkX*16, chunkZ*16);
+	    	case 9: generateCallisto(world, random, chunkX*16, chunkZ*16);
 		}
 	}
 	
@@ -30,14 +30,12 @@ public class WorldGeneratorToe implements IWorldGenerator  {
 
 	private void generateSurface(World world, Random random, int x, int z) {
 		generateStructure(world, random, x + random.nextInt(16), random.nextInt(60), z + random.nextInt(16), new WorldGenUFO(), 300);
-		generateOre(ToeBlocks.randomOre, world, random, x, z, 16, 16, 4 + random.nextInt(3), 5, 5, 50);
-		generateOre(ToeBlocks.rubyOre, world, random, x, z, 16, 16, 4 + random.nextInt(3), 4, 5, 30);
-	}
-
-	private void generateArena(World world, Random random, int x, int y, int z, WorldGenerator gen, int rarity) {
-		if(random.nextInt(rarity) == 0) {
-			gen.generate(world, random, x, y, z);
-		}
+		generateOre(ToeBlocks.randomOre, world, random, x, z, 16, 16, randomIntBetween(random, 4, 10), 5, 5, 50);
+		generateOre(ToeBlocks.rubyOre, world, random, x, z, 16, 16, randomIntBetween(random, 2, 6), 4, 5, 30);
+		generateOre(ToeBlocks.sapphireOre, world, random, x, z, 16, 16, randomIntBetween(random, 2, 6), 4, 5, 30);
+		generateOre(ToeBlocks.coinCopperOre, world, random, x, z, 16, 16, randomIntBetween(random, 4, 14), 4, 5, 60);
+		generateOre(ToeBlocks.coinSilverOre, world, random, x, z, 16, 16, randomIntBetween(random, 1, 3), 4, 5, 40);
+		generateOre(ToeBlocks.coinGoldOre, world, random, x, z, 16, 16, randomIntBetween(random, 1, 2), 4, 5, 20);
 	}
 	
 	private void generateEnd(World world, Random random, int x, int z) {
@@ -48,7 +46,7 @@ public class WorldGeneratorToe implements IWorldGenerator  {
 		
 	}
 	
-	private void generateArenalism(World world, Random random, int x, int z) {
+	private void generateCallisto(World world, Random random, int x, int z) {
 		
 	}
 
@@ -71,19 +69,25 @@ public class WorldGeneratorToe implements IWorldGenerator  {
 			gen.generate(world, random, x, y, z);
 		}
 	}
+
+	private void generateArena(World world, Random random, int x, int y, int z, WorldGenerator gen, int rarity) {
+		if(random.nextInt(rarity) == 0) {
+			gen.generate(world, random, x, y, z);
+		}
+	}
 	
 	/**
-	* @param The Block to spawn
-	* @param The World to spawn in
-	* @param A Random object for retrieving random positions within the world to spawn the Block
-	* @param An int for passing the X-Coordinate for the Generation method
-	* @param An int for passing the Z-Coordinate for the Generation method
-	* @param An int for setting the maximum X-Coordinate values for spawning on the X-Axis on a Per-Chunk basis
-	* @param An int for setting the maximum Z-Coordinate values for spawning on the Z-Axis on a Per-Chunk basis
-	* @param An int for setting the maximum size of a vein
-	* @param An int for the Number of chances available for the Block to spawn per-chunk
-	* @param An int for the minimum Y-Coordinate height at which this block may spawn
-	* @param An int for the maximum Y-Coordinate height at which this block may spawn
+	* @param block to spawn
+	* @param world to spawn in
+	* @param random for retrieving random positions within the world to spawn the Block
+	* @param blockXPos for passing the X-Coordinate for the Generation method
+	* @param blockZPos for passing the Z-Coordinate for the Generation method
+	* @param maxX for setting the maximum X-Coordinate values for spawning on the X-Axis on a Per-Chunk basis
+	* @param maxZ for setting the maximum Z-Coordinate values for spawning on the Z-Axis on a Per-Chunk basis
+	* @param maxVeinSize for setting the maximum size of a vein
+	* @param chancesToSpawn for the Number of chances available for the Block to spawn per-chunk
+	* @param minY for the minimum Y-Coordinate height at which this block may spawn
+	* @param maxY for the maximum Y-Coordinate height at which this block may spawn
 	**/
 	private void generateOre(Block block, World world, Random rand, int blockXPos, int blockZPos, int maxX, int maxZ, int maxVeinSize, int chancesToSpawn, int minY, int maxY) {
 		assert maxY > minY : "The maximum Y must be greater than the Minimum Y";
@@ -99,5 +103,9 @@ public class WorldGeneratorToe implements IWorldGenerator  {
 			int posZ = blockZPos + rand.nextInt(maxZ);
 			(new WorldGenMinable(block, maxVeinSize)).generate(world, rand, posX, posY, posZ);
 		}
+	}
+	
+	private int randomIntBetween(Random random, int min, int max) {
+		return random.nextInt((max-min)+1)+min;
 	}
 }

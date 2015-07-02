@@ -7,66 +7,69 @@ import com.abstractlabs.toe.block.BlockATM;
 import com.abstractlabs.toe.block.BlockArmoury;
 import com.abstractlabs.toe.block.BlockBasic;
 import com.abstractlabs.toe.block.BlockBeam;
-import com.abstractlabs.toe.block.BlockBreakableDesert;
-import com.abstractlabs.toe.block.BlockCash;
-import com.abstractlabs.toe.block.BlockCrystal;
-import com.abstractlabs.toe.block.BlockCrystalIce;
-import com.abstractlabs.toe.block.BlockCrystalIceOre;
-import com.abstractlabs.toe.block.BlockCrystalOre;
+import com.abstractlabs.toe.block.BlockDisplayCase;
 import com.abstractlabs.toe.block.BlockEntranceDesert;
-import com.abstractlabs.toe.block.BlockExteriorDesert;
-import com.abstractlabs.toe.block.BlockExteriorForest;
 import com.abstractlabs.toe.block.BlockExteriorGlass;
-import com.abstractlabs.toe.block.BlockFlatPortal;
 import com.abstractlabs.toe.block.BlockFurnaceDiamond;
 import com.abstractlabs.toe.block.BlockFurnaceEmerald;
 import com.abstractlabs.toe.block.BlockFurnaceGold;
 import com.abstractlabs.toe.block.BlockFurnaceIron;
 import com.abstractlabs.toe.block.BlockFurnaceRedstone;
-import com.abstractlabs.toe.block.BlockGlassLava;
-import com.abstractlabs.toe.block.BlockGlassWater;
 import com.abstractlabs.toe.block.BlockHollowGrass;
 import com.abstractlabs.toe.block.BlockHollowLeaf;
 import com.abstractlabs.toe.block.BlockHollowLog;
 import com.abstractlabs.toe.block.BlockHollowSapling;
 import com.abstractlabs.toe.block.BlockHollowsPortal;
 import com.abstractlabs.toe.block.BlockLandmine;
-import com.abstractlabs.toe.block.BlockLapisLamp;
 import com.abstractlabs.toe.block.BlockLockedChest;
-import com.abstractlabs.toe.block.BlockMoonRock;
+import com.abstractlabs.toe.block.BlockPedestalStonebrick;
 import com.abstractlabs.toe.block.BlockPortalCallisto;
 import com.abstractlabs.toe.block.BlockQuicksand;
 import com.abstractlabs.toe.block.BlockRandomOre;
 import com.abstractlabs.toe.block.BlockRecall;
-import com.abstractlabs.toe.block.BlockRuby;
-import com.abstractlabs.toe.block.BlockRubyOre;
 import com.abstractlabs.toe.block.BlockStatueBiped;
 import com.abstractlabs.toe.block.BlockTester;
+import com.abstractlabs.toe.block.BlockToe;
+import com.abstractlabs.toe.block.BlockToeAlpha;
 import com.abstractlabs.toe.block.BlockToeFire;
+import com.abstractlabs.toe.block.BlockToeOre;
 import com.abstractlabs.toe.block.BlockUtility;
 import com.abstractlabs.toe.block.BlockWeaponry;
-import com.abstractlabs.toe.block.HollowBlock;
+import com.abstractlabs.toe.utility.BlockTexture;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ToeBlocks {
+	private static BlockTexture texture_exteriorDesert = new BlockTexture("exteriorDesert");
+	private static BlockTexture texture_exteriorForest = new BlockTexture("exteriorForest");
+	private static BlockTexture texture_cash = new BlockTexture("cash");
+	private static BlockTexture texture_rubyBlock = new BlockTexture("rubyBlock");
+	private static BlockTexture texture_lapisLamp = new BlockTexture("lapisLamp");
+	private static BlockTexture texture_moonRock = new BlockTexture("moonRock");
+	private static BlockTexture texture_glassLava = new BlockTexture("glassLava");
+	private static BlockTexture texture_glassWater = new BlockTexture("glassWater");
+	private static BlockTexture texture_crystalBlock = new BlockTexture("crystalBlock");
+	private static BlockTexture texture_crystalIceBlock = new BlockTexture("crystalIceBlock");
+	private static BlockTexture texture_hollowBlock = new BlockTexture("hollowBlock");
+	private static BlockTexture texture_sapphireBlock = new BlockTexture("sapphireBlock");
+	private static BlockTexture texture_moonBrick = new BlockTexture("moonBrick");
+	
 	public static Block armoury = new BlockArmoury();
 	public static Block utility = new BlockUtility();
 	public static Block weaponry = new BlockWeaponry();
-	public static Block exteriorDesert = new BlockExteriorDesert();
-	public static Block exteriorForest = new BlockExteriorForest();
+	public static Block exteriorDesert = new BlockToe("exteriorDesert", texture_exteriorDesert, Material.rock, Block.soundTypeSand, -1.0F, 60000000.0F).setLightOpacity(0);
+	public static Block exteriorForest = new BlockToe("exteriorForest", texture_exteriorForest, Material.wood, Block.soundTypeWood, -1.0F, 60000000.0F).setLightOpacity(0);
 	public static Block exteriorGlass = new BlockExteriorGlass();
 	public static Block landMine = new BlockLandmine("obsidian", Material.rock, BlockLandmine.Sensitivity.everything);
 	public static Block quicksand = new BlockQuicksand();
 	public static Block entranceDesert = new BlockEntranceDesert();
-	public static Block breakableDesert = new BlockBreakableDesert();
-	public static Block cash = new BlockCash();
+	public static Block breakableDesert = new BlockToe("breakableDesert", texture_exteriorDesert, Material.rock, Block.soundTypeSand, 3.0F, 60000000.0F);
+	public static Block cash = new BlockToe("cash", texture_cash, Material.sponge, Block.soundTypeCloth, 1.0F, 60000000.0F);
 	public static BlockHollowsPortal hollowPortal = new BlockHollowsPortal("hollowPortal");
-	public static Block blockHollow = new HollowBlock();
+	public static Block blockHollow = new BlockToe("hollowBlock", texture_hollowBlock, Material.rock, Block.soundTypeStone, 3.0F, 10.0F);
 	public static BlockToeFire hollowFire = new BlockToeFire("hollowFire");
 	public static Block beam = new BlockBeam();
 	public static Block tester = new BlockTester();
-	public static Block flatPortal = new BlockFlatPortal("flatPortal");
 	public static Block hollowLog = new BlockHollowLog("hollowLog", "log");
 	public static Block hollowLeaf = new BlockHollowLeaf("hollowLeaf", "hollow");
 	public static Block hollowSapling = new BlockHollowSapling("hollowSapling", "hollow");
@@ -75,7 +78,7 @@ public class ToeBlocks {
 	public static Block destination = new BlockRecall();
 	public static Block lockedChest = new BlockLockedChest();
 	public static Block randomOre = new BlockRandomOre();
-	public static Block rubyOre = new BlockRubyOre();
+	public static Block rubyOre = new BlockToeOre("rubyOre", 3, ToeItems.ruby);
 	public static Block statueBiped = new BlockStatueBiped();
 	public static Block atm = new BlockATM();
 	public static Block furnaceIron = new BlockFurnaceIron(false);
@@ -88,16 +91,25 @@ public class ToeBlocks {
 	public static Block furnaceEmeraldLit = new BlockFurnaceEmerald(true).setLightLevel(0.875F);
 	public static Block furnaceRedstone = new BlockFurnaceRedstone(false);
 	public static Block furnaceRedstoneLit = new BlockFurnaceRedstone(true).setLightLevel(0.875F);
-	public static Block rubyBlock = new BlockRuby();
+	public static Block rubyBlock = new BlockToe("rubyBlock", texture_rubyBlock, Material.iron, Block.soundTypeMetal, 3.0F, 10.0F);
 	public static Block portalCallisto = new BlockPortalCallisto();
-	public static Block moonRock = new BlockMoonRock();
-	public static Block lapisLamp = new BlockLapisLamp();
-	public static Block crystalOre = new BlockCrystalOre();
-	public static Block crystalIceOre = new BlockCrystalIceOre();
-	public static Block crystalBlock = new BlockCrystal();
-	public static Block crystalIceBlock = new BlockCrystalIce();
-	public static Block glassLava = new BlockGlassLava();
-	public static Block glassWater = new BlockGlassWater();
+	public static Block moonRock = new BlockToe("moonRock", texture_moonRock, Material.rock, Block.soundTypeStone, 3.0F, 5.0F);
+	public static Block lapisLamp = new BlockToe("lapisLamp", texture_lapisLamp, Material.glass, Block.soundTypeGlass, 1.0F, 5.0F).setLightLevel(1.0F);
+	public static Block crystalOre = new BlockToeOre("crystalOre", 2, ToeItems.crystal);
+	public static Block crystalIceOre = new BlockToeOre("crystalIceOre", 2, ToeItems.crystalIce);
+	public static Block crystalBlock = new BlockToeAlpha("crystalBlock", texture_crystalBlock, Material.glass, Block.soundTypeGlass, 0.5F, 5.0F);
+	public static Block crystalIceBlock = new BlockToeAlpha("crystalIceBlock", texture_crystalIceBlock, Material.glass, Block.soundTypeGlass, 0.5F, 5.0F);
+	public static Block glassLava = new BlockToe("glassLava", texture_glassLava, Material.glass, Block.soundTypeGlass, 0.2F, 5.0F).setLightLevel(1.0F);
+	public static Block glassWater = new BlockToeAlpha("glassWater", texture_glassWater, Material.glass, Block.soundTypeGlass, 0.2F, 5.0F);
+	public static Block displayCase = new BlockDisplayCase();
+	public static Block pedestalStonebrick = new BlockPedestalStonebrick();
+	public static Block bauxiteOre = new BlockToeOre("bauxiteOre", 1);
+	public static Block coinCopperOre = new BlockToeOre("coinCopperOre", 1, ToeItems.coinCopper, 3, true);
+	public static Block coinSilverOre = new BlockToeOre("coinSilverOre", 1, ToeItems.coinSilver, 3, true);
+	public static Block coinGoldOre = new BlockToeOre("coinGoldOre", 1, ToeItems.coinGold, 3, true);
+	public static Block sapphireOre = new BlockToeOre("sapphireOre", 3, ToeItems.sapphire);
+	public static Block sapphireBlock = new BlockToe("sapphireBlock", texture_sapphireBlock, Material.iron, Block.soundTypeMetal, 3.0F, 10.0F);
+	public static Block moonBrick = new BlockToe("moonBrick", texture_moonBrick, Material.rock, Block.soundTypeStone, 3.0F, 5.0F);
 	
 	public static void init() {
 		//World Generation
@@ -113,12 +125,18 @@ public class ToeBlocks {
 		//Ores
 		GameRegistry.registerBlock(randomOre, "randomOre");
 		GameRegistry.registerBlock(rubyOre, "rubyOre");
+		GameRegistry.registerBlock(sapphireOre, "sapphireOre");
 		GameRegistry.registerBlock(crystalOre, "crystalOre");
 		GameRegistry.registerBlock(crystalIceOre, "crystalIceOre");
+		GameRegistry.registerBlock(coinCopperOre, "coinCopperOre");
+		GameRegistry.registerBlock(coinSilverOre, "coinSilverOre");
+		GameRegistry.registerBlock(coinGoldOre, "coinGoldOre");
+		GameRegistry.registerBlock(bauxiteOre, "bauxiteOre");
 		//moon ore ideas: lanthanum, noibium, neodymium, bismuth, antimony, lead, silver, tin
 		
 		//Ore Blocks
 		GameRegistry.registerBlock(rubyBlock, "rubyBlock");
+		GameRegistry.registerBlock(sapphireBlock, "sapphireBlock");
 		GameRegistry.registerBlock(crystalBlock, "crystalBlock");
 		GameRegistry.registerBlock(crystalIceBlock, "crystalIceBlock");
 
@@ -145,10 +163,12 @@ public class ToeBlocks {
 		GameRegistry.registerBlock(lapisLamp, "lapisLamp");
 		GameRegistry.registerBlock(glassWater, "glassWater");
 		GameRegistry.registerBlock(glassLava, "glassLava");
+		GameRegistry.registerBlock(displayCase, "displayCase");
+		GameRegistry.registerBlock(pedestalStonebrick, "pedestalStonebrick");
+		GameRegistry.registerBlock(moonBrick, "moonBrick");
 		
 		//Portal
 		GameRegistry.registerBlock(hollowPortal, "hollowPortal");
-		GameRegistry.registerBlock(flatPortal, "flatPortal");
 		GameRegistry.registerBlock(portalCallisto, "portalCallisto");
 		
 		//Arenalism

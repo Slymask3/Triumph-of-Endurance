@@ -8,8 +8,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
 import com.abstractlabs.toe.entity.player.ATM;
-import com.abstractlabs.toe.entity.player.Coins;
-import com.abstractlabs.toe.entity.player.ToeSkills;
 import com.abstractlabs.toe.reference.Color;
 import com.abstractlabs.toe.skill.agility.AgilityHelper;
 import com.abstractlabs.toe.skill.arenalism.ArenalismHelper;
@@ -27,8 +25,10 @@ import com.abstractlabs.toe.skill.smelting.SmeltingHelper;
 import com.abstractlabs.toe.skill.swords.SwordsHelper;
 import com.abstractlabs.toe.skill.theiving.ThievingHelper;
 import com.abstractlabs.toe.skill.woodcutting.WoodcuttingHelper;
+import com.abstractlabs.toe.utility.Coins;
 import com.abstractlabs.toe.utility.Helper;
 import com.abstractlabs.toe.utility.LogHelper;
+import com.abstractlabs.toe.utility.ToeSkills;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent;

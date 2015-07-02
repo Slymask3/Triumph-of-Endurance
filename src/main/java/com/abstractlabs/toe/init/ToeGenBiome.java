@@ -12,7 +12,6 @@ import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.BiomeDictionary.Type;
 import net.minecraftforge.common.BiomeManager;
 
-import com.abstractlabs.toe.world.biome.BiomeFlat;
 import com.abstractlabs.toe.world.biome.BiomeHollows;
 import com.abstractlabs.toe.world.biomedecorator.BiomeDecoratorHollows;
 
@@ -21,8 +20,7 @@ public class ToeGenBiome extends BiomeGenBase
 	/** The biome height */
     public static final BiomeGenBase.Height biomeHeight = new BiomeGenBase.Height(0.3F, 0.6F);
 
-   // public static BiomeGenBase biomeHollows;
-    public static BiomeGenBase biomeFlat;
+    public static BiomeGenBase biomeHollows;
     	
 	public ToeGenBiome(int biomeId)
 	{
@@ -56,17 +54,14 @@ public class ToeGenBiome extends BiomeGenBase
 	
 	public static void initializeBiome()
 	{
-		//biomeHollows = new BiomeHollows(137).setBiomeName("Hollows").setTemperatureRainfall(1.2F, 0.9F);
-		biomeFlat = new BiomeFlat(138).setBiomeName("Arenalism").setTemperatureRainfall(1.2F, 0.9F);
+		biomeHollows = new BiomeHollows(137).setBiomeName("Hollows").setTemperatureRainfall(1.2F, 0.9F);
 	}
 	
 	public static void registerBiome()
 	{
-		//BiomeDictionary.registerBiomeType(biomeHollows, Type.FOREST);
-		BiomeDictionary.registerBiomeType(biomeFlat, Type.DENSE);
+		BiomeDictionary.registerBiomeType(biomeHollows, Type.FOREST);
 		BiomeDictionary.registerAllBiomes();
-		//BiomeManager.addSpawnBiome(biomeHollows);
-		BiomeManager.addSpawnBiome(biomeFlat);
+		BiomeManager.addSpawnBiome(biomeHollows);
 	}
 	
 	/**

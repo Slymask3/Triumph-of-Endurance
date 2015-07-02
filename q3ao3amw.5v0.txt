@@ -1,0 +1,185 @@
+﻿Merge remote-tracking branch 'origin/master'
+
+Conflicts:
+	src/main/java/com/abstractlabs/toe/init/ToeBusses.java
+	src/main/java/com/abstractlabs/toe/init/ToeItems.java
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 1 and 2 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   src/main/java/com/abstractlabs/toe/block/BlockBeam.java
+#	deleted:    src/main/java/com/abstractlabs/toe/block/BlockBreakableDesert.java
+#	deleted:    src/main/java/com/abstractlabs/toe/block/BlockCash.java
+#	deleted:    src/main/java/com/abstractlabs/toe/block/BlockCrystal.java
+#	deleted:    src/main/java/com/abstractlabs/toe/block/BlockCrystalIce.java
+#	deleted:    src/main/java/com/abstractlabs/toe/block/BlockCrystalIceOre.java
+#	deleted:    src/main/java/com/abstractlabs/toe/block/BlockCrystalOre.java
+#	new file:   src/main/java/com/abstractlabs/toe/block/BlockDisplayCase.java
+#	deleted:    src/main/java/com/abstractlabs/toe/block/BlockExteriorDesert.java
+#	deleted:    src/main/java/com/abstractlabs/toe/block/BlockExteriorForest.java
+#	deleted:    src/main/java/com/abstractlabs/toe/block/BlockFlatPortal.java
+#	deleted:    src/main/java/com/abstractlabs/toe/block/BlockGlassLava.java
+#	deleted:    src/main/java/com/abstractlabs/toe/block/BlockGlassWater.java
+#	deleted:    src/main/java/com/abstractlabs/toe/block/BlockLapisLamp.java
+#	deleted:    src/main/java/com/abstractlabs/toe/block/BlockMoonRock.java
+#	new file:   src/main/java/com/abstractlabs/toe/block/BlockPedestalStonebrick.java
+#	modified:   src/main/java/com/abstractlabs/toe/block/BlockPortalCallisto.java
+#	modified:   src/main/java/com/abstractlabs/toe/block/BlockRandomOre.java
+#	deleted:    src/main/java/com/abstractlabs/toe/block/BlockRuby.java
+#	deleted:    src/main/java/com/abstractlabs/toe/block/BlockRubyOre.java
+#	modified:   src/main/java/com/abstractlabs/toe/block/BlockToe.java
+#	new file:   src/main/java/com/abstractlabs/toe/block/BlockToeAlpha.java
+#	modified:   src/main/java/com/abstractlabs/toe/block/BlockToeOre.java
+#	deleted:    src/main/java/com/abstractlabs/toe/block/HollowBlock.java
+#	new file:   src/main/java/com/abstractlabs/toe/client/gui/GuiDisplayCase.java
+#	modified:   src/main/java/com/abstractlabs/toe/client/gui/GuiHandler.java
+#	modified:   src/main/java/com/abstractlabs/toe/client/gui/GuiScreenOverlay.java
+#	new file:   src/main/java/com/abstractlabs/toe/client/model/ModelDisplayCase.java
+#	new file:   src/main/java/com/abstractlabs/toe/client/model/ModelPedestal.java
+#	new file:   src/main/java/com/abstractlabs/toe/client/particle/EntityCallistoPortalFX.java
+#	new file:   src/main/java/com/abstractlabs/toe/client/particle/EntityGreenFX.java
+#	new file:   src/main/java/com/abstractlabs/toe/client/particle/ParticleEffects.java
+#	new file:   src/main/java/com/abstractlabs/toe/client/renderer/entity/mob/RenderAlien.java
+#	new file:   src/main/java/com/abstractlabs/toe/client/renderer/entity/mob/RenderAlienCow.java
+#	new file:   src/main/java/com/abstractlabs/toe/client/renderer/item/ItemRenderPedestalStonebrick.java
+#	new file:   src/main/java/com/abstractlabs/toe/client/renderer/tileentity/RenderDisplayCase.java
+#	modified:   src/main/java/com/abstractlabs/toe/client/renderer/tileentity/RenderLandmine.java
+#	new file:   src/main/java/com/abstractlabs/toe/client/renderer/tileentity/RenderPedestalStonebrick.java
+#	modified:   src/main/java/com/abstractlabs/toe/command/CommandToe.java
+#	new file:   src/main/java/com/abstractlabs/toe/entity/monster/EntityAlien.java
+#	new file:   src/main/java/com/abstractlabs/toe/entity/passive/EntityAlienCow.java
+#	new file:   src/main/java/com/abstractlabs/toe/handler/AxepickHandler.java
+#	modified:   src/main/java/com/abstractlabs/toe/handler/NBTRespawnHandler.java
+#	new file:   src/main/java/com/abstractlabs/toe/handler/PortalHandler.java
+#	modified:   src/main/java/com/abstractlabs/toe/handler/TickHandler.java
+#	modified:   src/main/java/com/abstractlabs/toe/handler/skill/MiningHandler.java
+#	modified:   src/main/java/com/abstractlabs/toe/handler/skill/PrayerHandler.java
+#	modified:   src/main/java/com/abstractlabs/toe/init/ToeBlocks.java
+#	modified:   src/main/java/com/abstractlabs/toe/init/ToeBusses.java
+#	modified:   src/main/java/com/abstractlabs/toe/init/ToeDimensions.java
+#	modified:   src/main/java/com/abstractlabs/toe/init/ToeGenBiome.java
+#	modified:   src/main/java/com/abstractlabs/toe/init/ToeItems.java
+#	modified:   src/main/java/com/abstractlabs/toe/init/ToeMobs.java
+#	modified:   src/main/java/com/abstractlabs/toe/init/ToeTiles.java
+#	new file:   src/main/java/com/abstractlabs/toe/inventory/ContainerDisplayCase.java
+#	deleted:    src/main/java/com/abstractlabs/toe/item/ItemArenalismLighter.java
+#	new file:   src/main/java/com/abstractlabs/toe/item/ItemBucketGoo.java
+#	deleted:    src/main/java/com/abstractlabs/toe/item/ItemDynamicArmour.java
+#	deleted:    src/main/java/com/abstractlabs/toe/item/ItemMagmaArmour.java
+#	deleted:    src/main/java/com/abstractlabs/toe/item/ItemNimbleArmour.java
+#	new file:   src/main/java/com/abstractlabs/toe/item/ItemToeArmor.java
+#	modified:   src/main/java/com/abstractlabs/toe/item/ItemToeAxepick.java
+#	new file:   src/main/java/com/abstractlabs/toe/item/ItemToeFood.java
+#	new file:   src/main/java/com/abstractlabs/toe/item/ItemToeHoe.java
+#	new file:   src/main/java/com/abstractlabs/toe/item/ItemToeShovel.java
+#	modified:   src/main/java/com/abstractlabs/toe/proxy/ClientProxy.java
+#	modified:   src/main/java/com/abstractlabs/toe/reference/GuiID.java
+#	new file:   src/main/java/com/abstractlabs/toe/tileentity/TileEntityDisplayCase.java
+#	new file:   src/main/java/com/abstractlabs/toe/tileentity/TileEntityPedestalStonebrick.java
+#	new file:   src/main/java/com/abstractlabs/toe/utility/BlockTexture.java
+#	renamed:    src/main/java/com/abstractlabs/toe/entity/player/Coins.java -> src/main/java/com/abstractlabs/toe/utility/Coins.java
+#	renamed:    src/main/java/com/abstractlabs/toe/entity/player/ToeSkills.java -> src/main/java/com/abstractlabs/toe/utility/ToeSkills.java
+#	deleted:    src/main/java/com/abstractlabs/toe/world/biome/BiomeFlat.java
+#	modified:   src/main/java/com/abstractlabs/toe/world/biome/BiomeGenMoon.java
+#	deleted:    src/main/java/com/abstractlabs/toe/world/dimension/arenalism/ChunkProviderFlat.java
+#	deleted:    src/main/java/com/abstractlabs/toe/world/dimension/arenalism/FlatGenLayer.java
+#	deleted:    src/main/java/com/abstractlabs/toe/world/dimension/arenalism/FlatGenLayerBiome.java
+#	deleted:    src/main/java/com/abstractlabs/toe/world/dimension/arenalism/WorldProviderFlat.java
+#	modified:   src/main/java/com/abstractlabs/toe/world/gen/WorldGeneratorToe.java
+#	modified:   src/main/java/com/abstractlabs/toe/world/gen/structure/WorldGenUFO.java
+#	deleted:    src/main/java/com/abstractlabs/toe/world/teleporter/TeleporterArenalism.java
+#	modified:   src/main/java/com/abstractlabs/toe/world/teleporter/TeleporterCallisto.java
+#	new file:   src/main/resources/assets/toe/textures/armor/emerald1.png
+#	new file:   src/main/resources/assets/toe/textures/armor/emerald2.png
+#	new file:   src/main/resources/assets/toe/textures/armor/iron_layer_1.png
+#	new file:   src/main/resources/assets/toe/textures/armor/iron_layer_2.png
+#	new file:   src/main/resources/assets/toe/textures/armor/magma1.png
+#	new file:   src/main/resources/assets/toe/textures/armor/magma2.png
+#	new file:   src/main/resources/assets/toe/textures/armor/ruby1.png
+#	new file:   src/main/resources/assets/toe/textures/armor/ruby2.png
+#	new file:   src/main/resources/assets/toe/textures/armor/sapphire1.png
+#	new file:   src/main/resources/assets/toe/textures/armor/spacesuit1.png
+#	new file:   src/main/resources/assets/toe/textures/armor/spacesuit2.png
+#	new file:   src/main/resources/assets/toe/textures/blocks/bauxiteOre.png
+#	new file:   src/main/resources/assets/toe/textures/blocks/coinCopperOre.png
+#	new file:   src/main/resources/assets/toe/textures/blocks/coinGoldOre.png
+#	new file:   src/main/resources/assets/toe/textures/blocks/coinSilverOre.png
+#	new file:   src/main/resources/assets/toe/textures/blocks/moonBrick.png
+#	modified:   src/main/resources/assets/toe/textures/blocks/moonRock.png
+#	modified:   src/main/resources/assets/toe/textures/blocks/portalCallisto.png
+#	new file:   src/main/resources/assets/toe/textures/blocks/sapphireBlock.png
+#	new file:   src/main/resources/assets/toe/textures/blocks/sapphireOre.png
+#	new file:   src/main/resources/assets/toe/textures/entity/grenade.png
+#	new file:   src/main/resources/assets/toe/textures/entity/mob/alien.png
+#	new file:   src/main/resources/assets/toe/textures/entity/mob/alienCow.png
+#	new file:   src/main/resources/assets/toe/textures/gui/container/displayCase.png
+#	new file:   src/main/resources/assets/toe/textures/gui/overlay/spacesuitHelmet.png
+#	deleted:    src/main/resources/assets/toe/textures/items/Thumbs.db
+#	new file:   src/main/resources/assets/toe/textures/items/alienBeef.png
+#	new file:   src/main/resources/assets/toe/textures/items/alienSteak.png
+#	new file:   src/main/resources/assets/toe/textures/items/aluminium.png
+#	new file:   src/main/resources/assets/toe/textures/items/aluminiumSheet.png
+#	new file:   src/main/resources/assets/toe/textures/items/bucketGoo.png
+#	new file:   src/main/resources/assets/toe/textures/items/emeraldAxe.png
+#	new file:   src/main/resources/assets/toe/textures/items/emeraldAxepick.png
+#	new file:   src/main/resources/assets/toe/textures/items/emeraldAxepick_pick.png
+#	new file:   src/main/resources/assets/toe/textures/items/emeraldBoots.png
+#	new file:   src/main/resources/assets/toe/textures/items/emeraldHelmet.png
+#	new file:   src/main/resources/assets/toe/textures/items/emeraldHoe.png
+#	new file:   src/main/resources/assets/toe/textures/items/emeraldPants.png
+#	new file:   src/main/resources/assets/toe/textures/items/emeraldPickaxe.png
+#	new file:   src/main/resources/assets/toe/textures/items/emeraldPlate.png
+#	new file:   src/main/resources/assets/toe/textures/items/emeraldShovel.png
+#	new file:   src/main/resources/assets/toe/textures/items/emeraldSword.png
+#	new file:   src/main/resources/assets/toe/textures/items/greenLeather.png
+#	new file:   src/main/resources/assets/toe/textures/items/grenade.png
+#	modified:   src/main/resources/assets/toe/textures/items/magmaBoots.png
+#	modified:   src/main/resources/assets/toe/textures/items/magmaHelmet.png
+#	modified:   src/main/resources/assets/toe/textures/items/magmaPants.png
+#	modified:   src/main/resources/assets/toe/textures/items/magmaPlate.png
+#	new file:   src/main/resources/assets/toe/textures/items/rubyAxe.png
+#	new file:   src/main/resources/assets/toe/textures/items/rubyAxepick.png
+#	new file:   src/main/resources/assets/toe/textures/items/rubyAxepick_pick.png
+#	new file:   src/main/resources/assets/toe/textures/items/rubyBoots.png
+#	new file:   src/main/resources/assets/toe/textures/items/rubyHelmet.png
+#	new file:   src/main/resources/assets/toe/textures/items/rubyHoe.png
+#	new file:   src/main/resources/assets/toe/textures/items/rubyPants.png
+#	new file:   src/main/resources/assets/toe/textures/items/rubyPickaxe.png
+#	new file:   src/main/resources/assets/toe/textures/items/rubyPlate.png
+#	new file:   src/main/resources/assets/toe/textures/items/rubyShovel.png
+#	new file:   src/main/resources/assets/toe/textures/items/rubySword.png
+#	new file:   src/main/resources/assets/toe/textures/items/sapphire.png
+#	new file:   src/main/resources/assets/toe/textures/items/sapphireAxe.png
+#	new file:   src/main/resources/assets/toe/textures/items/sapphireAxepick.png
+#	new file:   src/main/resources/assets/toe/textures/items/sapphireAxepick_pick.png
+#	new file:   src/main/resources/assets/toe/textures/items/sapphireBoots.png
+#	new file:   src/main/resources/assets/toe/textures/items/sapphireHelmet.png
+#	new file:   src/main/resources/assets/toe/textures/items/sapphireHoe.png
+#	new file:   src/main/resources/assets/toe/textures/items/sapphirePants.png
+#	new file:   src/main/resources/assets/toe/textures/items/sapphirePickaxe.png
+#	new file:   src/main/resources/assets/toe/textures/items/sapphirePlate.png
+#	new file:   src/main/resources/assets/toe/textures/items/sapphireShovel.png
+#	new file:   src/main/resources/assets/toe/textures/items/sapphireSword.png
+#	new file:   src/main/resources/assets/toe/textures/items/spacesuitBoots.png
+#	new file:   src/main/resources/assets/toe/textures/items/spacesuitHelmet.png
+#	new file:   src/main/resources/assets/toe/textures/items/spacesuitPants.png
+#	new file:   src/main/resources/assets/toe/textures/items/spacesuitPlate.png
+#	deleted:    src/main/resources/assets/toe/textures/items/veinPick.png
+#	new file:   src/main/resources/assets/toe/textures/model/displayCase.png
+#	new file:   src/main/resources/assets/toe/textures/model/displayCase2.png
+#	new file:   src/main/resources/assets/toe/textures/model/pedestalStonebrick.png
+#
+

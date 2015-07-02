@@ -185,53 +185,6 @@ public class MiningHandler {
 			}
 		}
 	}
-
-	@SubscribeEvent
-	public void onLeftClick(PlayerInteractEvent e) {
-		if(e.entityPlayer.getHeldItem() != null && e.action == Action.LEFT_CLICK_BLOCK) {
-			Block block = e.world.getBlock(e.x, e.y, e.z);
-			ItemStack is = e.entityPlayer.inventory.mainInventory[e.entityPlayer.inventory.currentItem];
-//			LogHelper.info("block == " + block);
-//			LogHelper.info("is == " + is);
-//			if(block instanceof BlockOre || block instanceof BlockRedstoneOre || block instanceof BlockToeOre || block == Blocks.stone || block == Blocks.netherrack) {
-			if(block.getMaterial() == Material.rock) {
-				if(is.getItem() == ToeItems.woodAxepick) {
-					e.entityPlayer.setCurrentItemOrArmor(0, new ItemStack(ToeItems.woodAxepick_pick, 1, is.getItemDamage()));
-					Helper.msgClean(e.entityPlayer, "Switched to Pickaxe Mode.", Color.aqua);
-				} else if(is.getItem() == ToeItems.stoneAxepick) {
-					e.entityPlayer.setCurrentItemOrArmor(0, new ItemStack(ToeItems.stoneAxepick_pick, 1, is.getItemDamage()));
-					Helper.msgClean(e.entityPlayer, "Switched to Pickaxe Mode.", Color.aqua);
-				} else if(is.getItem() == ToeItems.ironAxepick) {
-					e.entityPlayer.setCurrentItemOrArmor(0, new ItemStack(ToeItems.ironAxepick_pick, 1, is.getItemDamage()));
-					Helper.msgClean(e.entityPlayer, "Switched to Pickaxe Mode.", Color.aqua);
-				} else if(is.getItem() == ToeItems.goldAxepick) {
-					e.entityPlayer.setCurrentItemOrArmor(0, new ItemStack(ToeItems.goldAxepick_pick, 1, is.getItemDamage()));
-					Helper.msgClean(e.entityPlayer, "Switched to Pickaxe Mode.", Color.aqua);
-				} else if(is.getItem() == ToeItems.diamondAxepick) {
-					e.entityPlayer.setCurrentItemOrArmor(0, new ItemStack(ToeItems.diamondAxepick_pick, 1, is.getItemDamage()));
-					Helper.msgClean(e.entityPlayer, "Switched to Pickaxe Mode.", Color.aqua);
-				}
-//			} else if(block == Blocks.log || block == Blocks.log2 || block == ToeBlocks.hollowLog) {
-			} else if(block.getMaterial() == Material.wood) {
-				if(is.getItem() == ToeItems.woodAxepick_pick) {
-					e.entityPlayer.setCurrentItemOrArmor(0, new ItemStack(ToeItems.woodAxepick, 1, is.getItemDamage()));
-					Helper.msgClean(e.entityPlayer, "Switched to Axe Mode.", Color.aqua);
-				} else if(is.getItem() == ToeItems.stoneAxepick_pick) {
-					e.entityPlayer.setCurrentItemOrArmor(0, new ItemStack(ToeItems.stoneAxepick, 1, is.getItemDamage()));
-					Helper.msgClean(e.entityPlayer, "Switched to Axe Mode.", Color.aqua);
-				} else if(is.getItem() == ToeItems.ironAxepick_pick) {
-					e.entityPlayer.setCurrentItemOrArmor(0, new ItemStack(ToeItems.ironAxepick, 1, is.getItemDamage()));
-					Helper.msgClean(e.entityPlayer, "Switched to Axe Mode.", Color.aqua);
-				} else if(is.getItem() == ToeItems.goldAxepick_pick) {
-					e.entityPlayer.setCurrentItemOrArmor(0, new ItemStack(ToeItems.goldAxepick, 1, is.getItemDamage()));
-					Helper.msgClean(e.entityPlayer, "Switched to Axe Mode.", Color.aqua);
-				} else if(is.getItem() == ToeItems.diamondAxepick_pick) {
-					e.entityPlayer.setCurrentItemOrArmor(0, new ItemStack(ToeItems.diamondAxepick, 1, is.getItemDamage()));
-					Helper.msgClean(e.entityPlayer, "Switched to Axe Mode.", Color.aqua);
-				}
-			}
-		}
-	}
 	
 	private synchronized void findAndHarvestVein(World world, int x, int y, int z, Block block, int meta, int fortune/*, int count*/, boolean silk, EntityPlayer player) {
 //		count--;

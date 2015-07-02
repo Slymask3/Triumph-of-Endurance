@@ -4,6 +4,8 @@ import java.awt.Color;
 
 import net.minecraft.world.biome.BiomeGenBase;
 
+import com.abstractlabs.toe.entity.monster.EntityAlien;
+import com.abstractlabs.toe.entity.passive.EntityAlienCow;
 import com.abstractlabs.toe.init.ToeBlocks;
 
 import cpw.mods.fml.relauncher.Side;
@@ -17,8 +19,10 @@ public class BiomeGenMoon extends BiomeGenBase {
         this.spawnableCreatureList.clear();
         this.spawnableWaterCreatureList.clear();
         this.spawnableCaveCreatureList.clear();
-		
-		//this.spawnableCreatureList.add(new SpawnListEntry(EntityMummy.class, 5, 2, 10));
+
+		this.spawnableCreatureList.add(new SpawnListEntry(EntityAlienCow.class, 8, 3, 6));
+		this.spawnableCreatureList.add(new SpawnListEntry(EntityAlien.class, 5, 3, 4));
+		//this.spawnableCaveCreatureList.add(new SpawnListEntry(EntityAlien.class, 100, 1, 2));
 		
 		this.theBiomeDecorator = new BiomeDecoratorMoon();
 		

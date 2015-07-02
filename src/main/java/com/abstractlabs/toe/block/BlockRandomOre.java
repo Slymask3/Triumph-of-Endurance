@@ -7,7 +7,9 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 
+import com.abstractlabs.toe.init.ToeItems;
 import com.abstractlabs.toe.reference.Reference;
+import com.abstractlabs.toe.utility.LogHelper;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -29,21 +31,27 @@ public class BlockRandomOre extends BlockToeOre {
     }
 	
 	public Item getItemDropped(int par1, Random rand, int par3) {
-        int r = rand.nextInt(6);
+		Item[] drops = new Item[]{Items.coal, Items.iron_ingot, Items.gold_ingot, Items.diamond, Items.redstone, Items.emerald, ToeItems.ruby, ToeItems.sapphire, ToeItems.aluminium, ToeItems.crystal};
+		int[] rarity = new int[]{        100,               80,               70,            30,            100,            20,            20,                20,                 80,               60};
+
+        boolean dropSelected = false;
         
-        if(r==0) {
-        	return Items.coal;
-        } else if(r==1) {
-        	return Items.iron_ingot;
-        } else if(r==2) {
-        	return Items.gold_ingot;
-        } else if(r==3) {
-        	return Items.diamond;
-        } else if(r==4) {
-        	return Items.redstone;
-        } else if(r==5) {
-        	return Items.emerald;
+        while(!dropSelected) {
+        	int r = rand.nextInt(drops.length);
+            int r1 = rand.nextInt(100)+1;
+        	
+	        for(int i=0; i<drops.length; i++) {
+	        	if(r==i) {
+	        		LogHelper.info("[RandomOre] " + drops[i].getUnlocalizedName() + " : " + rarity[i] + " | random rarity == " + r1);
+	        		
+	        		if(r1 <= rarity[i]) {
+	        			dropSelected = true;
+	            		return drops[i];
+	        		}
+	        	}
+        	}
         }
-        return Items.coal;
+        
+        return Items.apple; //for debugging
     }
 }
