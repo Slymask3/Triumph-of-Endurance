@@ -6,4 +6,5 @@ public class RenderID {
 	public static final int displayCase = 9132;
 	public static final int pedestal = 9133;
 	public static final int transmutation = 9134;
+	public static final int statueBiped = 9135;
 }

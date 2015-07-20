@@ -12,6 +12,7 @@ import javax.imageio.ImageIO;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -216,6 +217,13 @@ public class Helper {
 		}
 	}
 	
+    public static ResourceLocation getResourceLocationFromName(String name){
+    	ResourceLocation resourcelocation = AbstractClientPlayer.locationStevePng;
+    	resourcelocation = AbstractClientPlayer.getLocationSkin(name);
+    	AbstractClientPlayer.getDownloadImageSkin(resourcelocation, name);
+    	return resourcelocation;
+    }
+	
 	private static void createFolder(String folder) {
 		File theDir = new File(folder);
 
@@ -388,5 +396,114 @@ public class Helper {
 	
 	public static boolean isDay(World world) {
 		return !isNight(world);
+	}
+	
+	public static void addItemStacktoInventory(EntityPlayer player, ItemStack is) {
+		for (int i=0; i<player.inventory.mainInventory.length; i++) {
+			if (player.inventory.mainInventory[i] != null && player.inventory.mainInventory[i].getItem() == is.getItem() && player.inventory.mainInventory[i].stackSize < is.getItem().getItemStackLimit() /*deprecated, might cause problems later*/) {
+				player.inventory.mainInventory[i] = new ItemStack(is.getItem(), player.inventory.mainInventory[i].stackSize + 1, 0);
+				break;
+			} else if (player.inventory.mainInventory[i] == null) {
+				player.inventory.mainInventory[i] = is;
+				break;
+			}
+		}
+	}
+	
+	public static void addItemStackstoInventory(EntityPlayer player, ItemStack is) {
+		int times = is.stackSize;
+		is.stackSize = 1;
+		
+		for (int i=0; i<times; i++) {
+			addItemStacktoInventory(player, is);
+		}
+	}
+
+	public static boolean doesPlayerHaveItem(EntityPlayer player, Item item) {
+		for (int i=0; i<player.inventory.mainInventory.length; i++) {
+			if (player.inventory.mainInventory[i] != null && player.inventory.mainInventory[i].getItem() == item) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	//dirty code
+//	public static ItemStack getPlayerFirstItem(EntityPlayer player, Item item) {
+//		for (int i=0; i<player.inventory.mainInventory.length; i++) {
+//			if (player.inventory.mainInventory[i] != null && player.inventory.mainInventory[i].getItem() == item) {
+//				return player.inventory.mainInventory[i].copy();
+//			}
+//		}
+//		return null;
+//	}
+
+	//dirty
+//	public static boolean doesPlayerHaveItemStacks(EntityPlayer player, ItemStack is) {
+//		if(is == null) {
+//			return false;
+//		}
+//		
+//		Item item = is.getItem();
+//		int amount = is.stackSize;
+//		
+//		if(doesPlayerHaveItem(player, item)) {
+//			ItemStack is2 = getPlayerFirstItem(player, item);
+//		} else {
+//			
+//		}
+//	}
+	
+	//coded for entity shop
+	public static boolean doesPlayerHaveEnoughItemAmount(EntityPlayer player, ItemStack is) {
+		if(is == null) {
+			return false;
+		}
+		return doesPlayerHaveEnoughItemAmount(player, is.getItem(), is.stackSize);
+	}
+
+	//coded for entity shop
+	public static boolean doesPlayerHaveEnoughItemAmount(EntityPlayer player, Item item, int amount) {
+		int newAmount = 0;
+		
+		for (int i=0; i<player.inventory.mainInventory.length; i++) {
+			if (player.inventory.mainInventory[i] != null && player.inventory.mainInventory[i].getItem() == item) {
+				newAmount = newAmount + player.inventory.mainInventory[i].stackSize;
+			}
+		}
+		
+		return newAmount >= amount;
+	}
+
+	//coded for entity shop
+	public static boolean doesPlayerHaveEnoughSpaceForItemStacks(EntityPlayer player, ItemStack is) {
+		if(is == null) {
+			return false;
+		}
+		
+		if(doesPlayerHaveEnoughSpace(player, 1)) {
+			return true;
+		} else if(doesPlayerHaveItem(player, is.getItem())) {
+			int lowest = getLowestAmountOfItem(player, is.getItem());
+			if(lowest + is.stackSize <= is.getItem().getItemStackLimit()) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	//coded for entity shop
+	public static int getLowestAmountOfItem(EntityPlayer player, Item item) {
+		int lowestStackSize = 552;
+		
+		for (int i=0; i<player.inventory.mainInventory.length; i++) {
+			if (player.inventory.mainInventory[i] != null && player.inventory.mainInventory[i].getItem() == item) {
+				if(player.inventory.mainInventory[i].stackSize < lowestStackSize) {
+					lowestStackSize = player.inventory.mainInventory[i].stackSize;
+				}
+			}
+		}
+		
+		return lowestStackSize;
 	}
 }

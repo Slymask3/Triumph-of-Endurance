@@ -11,11 +11,18 @@ import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
+import com.abstractlabs.toe.item.crafting.RecipesClawDyes;
+import com.abstractlabs.toe.item.crafting.RecipesTopHatDyes;
 import com.abstractlabs.toe.utility.LogHelper;
+
+import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ToeRecipes {
 	public static void init() {
 		removeRecipe(new ItemStack(Items.fishing_rod));
+
+		GameRegistry.addRecipe(new RecipesClawDyes());
+		GameRegistry.addRecipe(new RecipesTopHatDyes());
 	}
 	
 	private static void removeRecipe(ItemStack resultItem) {

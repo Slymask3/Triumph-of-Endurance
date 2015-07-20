@@ -5,6 +5,7 @@ import net.minecraftforge.common.IExtendedEntityProperties;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
 
 import com.abstractlabs.toe.entity.player.ATM;
+import com.abstractlabs.toe.entity.player.GrapplingHook;
 import com.abstractlabs.toe.skill.agility.AgilityHelper;
 import com.abstractlabs.toe.skill.arenalism.ArenalismHelper;
 import com.abstractlabs.toe.skill.brewing.BrewingHelper;
@@ -148,6 +149,12 @@ public class PlayerHandler {
 				ATM.addProperties((EntityPlayer)event.entity);
 			} else {
 				ATM.getProperties((EntityPlayer)event.entity).sync();
+			}
+			
+			if(GrapplingHook.getProperties((EntityPlayer)event.entity) == null) {
+				GrapplingHook.addProperties((EntityPlayer)event.entity);
+			} else {
+				GrapplingHook.getProperties((EntityPlayer)event.entity).sync();
 			}
 			
 			LogHelper.info("[PlayerHandler] onEntityConstructing()");

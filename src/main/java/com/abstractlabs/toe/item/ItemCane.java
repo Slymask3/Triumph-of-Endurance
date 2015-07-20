@@ -12,12 +12,13 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
 import com.abstractlabs.toe.creativetab.ToeTab;
+import com.abstractlabs.toe.init.ToeMaterials;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 
 public class ItemCane extends ItemToeSword {
-	public ItemCane(ToolMaterial material) {
-		super(material);
+	public ItemCane() {
+		super(ToeMaterials.caneTool);
 		this.setCreativeTab(ToeTab.TOE_TAB);
 	}
 	

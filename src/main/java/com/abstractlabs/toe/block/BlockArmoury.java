@@ -14,7 +14,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 import com.abstractlabs.toe.Toe;
-import com.abstractlabs.toe.client.gui.GuiArmoury;
+import com.abstractlabs.toe.client.gui.screen.GuiArmoury;
 import com.abstractlabs.toe.creativetab.ToeTab;
 import com.abstractlabs.toe.reference.GuiID;
 import com.abstractlabs.toe.reference.Reference;

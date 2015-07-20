@@ -12,5 +12,8 @@ public enum GuiID {
     FURNACE_EMERALD,
     FURNACE_REDSTONE,
     DISPLAY_CASE,
-    TRANSMUTATION;
+    TRANSMUTATION,
+    STATUE,
+    DYER,
+    SHOP;
 }

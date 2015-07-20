@@ -1,10 +1,7 @@
 package com.abstractlabs.toe.init;
 
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraftforge.common.util.EnumHelper;
 
 import com.abstractlabs.toe.item.ItemBone;
 import com.abstractlabs.toe.item.ItemBucketGoo;
@@ -12,6 +9,7 @@ import com.abstractlabs.toe.item.ItemCane;
 import com.abstractlabs.toe.item.ItemCleanseTablet;
 import com.abstractlabs.toe.item.ItemCursedStrengthTablet;
 import com.abstractlabs.toe.item.ItemFlashbang;
+import com.abstractlabs.toe.item.ItemGrapplingHook;
 import com.abstractlabs.toe.item.ItemGrenade;
 import com.abstractlabs.toe.item.ItemHasteTablet;
 import com.abstractlabs.toe.item.ItemHealingTablet;
@@ -21,21 +19,22 @@ import com.abstractlabs.toe.item.ItemLockpick;
 import com.abstractlabs.toe.item.ItemLunarBlade;
 import com.abstractlabs.toe.item.ItemRecall;
 import com.abstractlabs.toe.item.ItemResistTablet;
-import com.abstractlabs.toe.item.ItemCursedStrengthTablet;
+import com.abstractlabs.toe.item.ItemStatueBiped;
 import com.abstractlabs.toe.item.ItemTester;
 import com.abstractlabs.toe.item.ItemToe;
 import com.abstractlabs.toe.item.ItemToeArmor;
 import com.abstractlabs.toe.item.ItemToeAxe;
 import com.abstractlabs.toe.item.ItemToeAxepick;
+import com.abstractlabs.toe.item.ItemToeBow;
 import com.abstractlabs.toe.item.ItemToeClaw;
 import com.abstractlabs.toe.item.ItemToeFishingRod;
-import com.abstractlabs.toe.item.ItemToeBow;
 import com.abstractlabs.toe.item.ItemToeFood;
 import com.abstractlabs.toe.item.ItemToeHoe;
 import com.abstractlabs.toe.item.ItemToePickaxe;
 import com.abstractlabs.toe.item.ItemToeShovel;
 import com.abstractlabs.toe.item.ItemToeSword;
 import com.abstractlabs.toe.item.ItemToeSwordActive;
+import com.abstractlabs.toe.item.ItemTopHat;
 import com.abstractlabs.toe.reference.BoneType;
 import com.abstractlabs.toe.reference.TabletType;
 import com.abstractlabs.toe.reference.Thieving;
@@ -43,31 +42,11 @@ import com.abstractlabs.toe.reference.Thieving;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ToeItems {
-	private static ArmorMaterial magmaMaterial = EnumHelper.addArmorMaterial("Magma Material", 33, new int[]{2, 5, 4, 2}, 10);
-	private static ArmorMaterial nimbleMaterial = EnumHelper.addArmorMaterial("Nimble Material", 33, new int[]{2, 5, 4, 2}, 10);
-	private static ArmorMaterial dynamicMaterial = EnumHelper.addArmorMaterial("Dynamic Material", 33, new int[]{2, 5, 4, 2}, 10);
-	private static ArmorMaterial spacesuitMaterial = EnumHelper.addArmorMaterial("Spacesuit Material", 33, new int[]{2, 5, 4, 2}, 10);
-	private static ArmorMaterial emeraldMaterial = EnumHelper.addArmorMaterial("Emerald Material", 33, new int[]{3, 8, 6, 3}, 10);
-	private static ArmorMaterial rubyMaterial = EnumHelper.addArmorMaterial("Ruby Material", 33, new int[]{3, 8, 6, 3}, 10);
-	private static ArmorMaterial sapphireMaterial = EnumHelper.addArmorMaterial("Sapphire Material", 33, new int[]{3, 8, 6, 3}, 10);
-	
-	private static ToolMaterial caneMaterial = EnumHelper.addToolMaterial("Cane Material", 0, 300, 2.0F, 1.0F, 30);
-	private static ToolMaterial specialMaterial = EnumHelper.addToolMaterial("Special", 3, 1561, 8.0F, 3.0F, 10);
-	private static ToolMaterial veinMaterial = EnumHelper.addToolMaterial("Vein", 3, 1561, 8.0F, 3.0F, 10);
-	private static ToolMaterial smeltingMaterial = EnumHelper.addToolMaterial("Smelting", 0, 1561, 8.0F, 3.0F, 10);
-	private static ToolMaterial stripMaterial = EnumHelper.addToolMaterial("Strip", 3, 1561, 16.0F, 3.0F, 10);
-	private static ToolMaterial timberMaterial = EnumHelper.addToolMaterial("Timber", 3, 1561, 8.0F, 3.0F, 10);
-	private static ToolMaterial emeraldToolMaterial = EnumHelper.addToolMaterial("Emerald", 3, 2500, 8.0F, 3.0F, 10);
-	private static ToolMaterial rubyToolMaterial = EnumHelper.addToolMaterial("Ruby", 3, 2500, 8.0F, 3.0F, 10);
-	private static ToolMaterial sapphireToolMaterial = EnumHelper.addToolMaterial("Sapphire", 3, 2500, 8.0F, 3.0F, 10);
-	private static ToolMaterial ghostbladeMaterial = EnumHelper.addToolMaterial("Ghostblade", 3, 500, 3, 4, 10);
-	private static ToolMaterial rapierMaterial = EnumHelper.addToolMaterial("Rapier", 3, 500, 3, 4, 10);
-	
-	public static Item flashbang = new ItemFlashbang().setUnlocalizedName("flashbang");
+    public static Item flashbang = new ItemFlashbang().setUnlocalizedName("flashbang");
 	public static Item grenade = new ItemGrenade().setUnlocalizedName("grenade");
 	public static Item hollowLighter = new ItemHollowLighter().setUnlocalizedName("hollowLighter");
 	public static Item recall = new ItemRecall().setUnlocalizedName("recall");
-	public static Item cane = new ItemCane(caneMaterial).setUnlocalizedName("cane");
+	public static Item cane = new ItemCane().setUnlocalizedName("cane");
 	public static Item paperclip = new ItemLockpick(Thieving.paperclipUses-1, Thieving.paperclipLvl, Thieving.paperclipChance).setUnlocalizedName("paperclip");
 	public static Item lockpick = new ItemLockpick(Thieving.lockpickUses-1, Thieving.lockpickLvl, Thieving.lockpickChance).setUnlocalizedName("lockpick");
 	public static Item masterKey = new ItemLockpick(Thieving.masterKeyUses-1, Thieving.masterKeyLvl, Thieving.masterKeyChance).setUnlocalizedName("masterKey");
@@ -75,10 +54,10 @@ public class ToeItems {
 	public static Item coinCopper = new ItemToe().setUnlocalizedName("coinCopper");
 	public static Item coinSilver = new ItemToe().setUnlocalizedName("coinSilver");
 	public static Item coinGold = new ItemToe().setUnlocalizedName("coinGold");
-	public static Item specialPickaxe = new ItemToePickaxe(specialMaterial).setUnlocalizedName("specialPickaxe");
-	public static Item veinPickaxe = new ItemToePickaxe(veinMaterial).setUnlocalizedName("veinPickaxe");
-	public static Item smeltingPickaxe = new ItemToePickaxe(smeltingMaterial).setUnlocalizedName("smeltingPickaxe");
-	public static Item stripPickaxe = new ItemToePickaxe(stripMaterial).setUnlocalizedName("stripPickaxe");
+	public static Item specialPickaxe = new ItemToePickaxe(ToeMaterials.specialTool).setUnlocalizedName("specialPickaxe");
+	public static Item veinPickaxe = new ItemToePickaxe(ToeMaterials.veinTool).setUnlocalizedName("veinPickaxe");
+	public static Item smeltingPickaxe = new ItemToePickaxe(ToeMaterials.smeltingTool).setUnlocalizedName("smeltingPickaxe");
+	public static Item stripPickaxe = new ItemToePickaxe(ToeMaterials.stripTool).setUnlocalizedName("stripPickaxe");
 	
 	public static Item woodAxepick = new ItemToeAxepick("woodAxepick", ToolMaterial.WOOD);
 	public static Item goldAxepick = new ItemToeAxepick("goldAxepick", ToolMaterial.GOLD);
@@ -86,7 +65,7 @@ public class ToeItems {
 	public static Item ironAxepick = new ItemToeAxepick("ironAxepick", ToolMaterial.IRON);
 	public static Item diamondAxepick = new ItemToeAxepick("diamondAxepick", ToolMaterial.EMERALD);
 	
-	public static Item timberAxe = new ItemToeAxe(timberMaterial).setUnlocalizedName("timberAxe");
+	public static Item timberAxe = new ItemToeAxe(ToeMaterials.timberTool).setUnlocalizedName("timberAxe");
 	public static Item ruby = new ItemToe().setUnlocalizedName("ruby");
 	public static Item undeadbatBone = new ItemBone(BoneType.undeadbatBoneLvl).setUnlocalizedName("undeadbatBone");
 		
@@ -101,7 +80,7 @@ public class ToeItems {
 	public static Item strTab_crs = new ItemCursedStrengthTablet(TabletType.strLvl_crs).setUnlocalizedName("strengthTablet_crs");
 	public static Item jumpTab = new ItemJumpTablet(TabletType.jumpLvl).setUnlocalizedName("jumpTablet");
 	
-	public static Item ghostblade = new ItemToeSwordActive(ghostbladeMaterial).setUnlocalizedName("ghostblade");
+	public static Item ghostblade = new ItemToeSwordActive(ToeMaterials.ghostbladeTool).setUnlocalizedName("ghostblade");
 	public static Item crystal = new ItemToe().setUnlocalizedName("crystal");
 	public static Item crystalIce = new ItemToe().setUnlocalizedName("crystalIce");
 	public static Item aluminium = new ItemToe().setUnlocalizedName("aluminium");
@@ -112,59 +91,59 @@ public class ToeItems {
 	public static Item alienSteak = new ItemToeFood(8).setUnlocalizedName("alienSteak");
 	public static Item bucketGoo = new ItemBucketGoo().setUnlocalizedName("bucketGoo");
 	
-	public static Item emeraldSword = new ItemToeSword(emeraldToolMaterial).setUnlocalizedName("emeraldSword");
-	public static Item emeraldPickaxe = new ItemToePickaxe(emeraldToolMaterial).setUnlocalizedName("emeraldPickaxe");
-	public static Item emeraldShovel = new ItemToeShovel(emeraldToolMaterial).setUnlocalizedName("emeraldShovel");
-	public static Item emeraldAxe = new ItemToeAxe(emeraldToolMaterial).setUnlocalizedName("emeraldAxe");
-	public static Item emeraldAxepick = new ItemToeAxepick("emeraldAxepick", emeraldToolMaterial);
-	public static Item emeraldHoe = new ItemToeHoe(emeraldToolMaterial).setUnlocalizedName("emeraldHoe");
+	public static Item emeraldSword = new ItemToeSword(ToeMaterials.emeraldTool).setUnlocalizedName("emeraldSword");
+	public static Item emeraldPickaxe = new ItemToePickaxe(ToeMaterials.emeraldTool).setUnlocalizedName("emeraldPickaxe");
+	public static Item emeraldShovel = new ItemToeShovel(ToeMaterials.emeraldTool).setUnlocalizedName("emeraldShovel");
+	public static Item emeraldAxe = new ItemToeAxe(ToeMaterials.emeraldTool).setUnlocalizedName("emeraldAxe");
+	public static Item emeraldAxepick = new ItemToeAxepick("emeraldAxepick", ToeMaterials.emeraldTool);
+	public static Item emeraldHoe = new ItemToeHoe(ToeMaterials.emeraldTool).setUnlocalizedName("emeraldHoe");
 	
-	public static Item rubySword = new ItemToeSword(rubyToolMaterial).setUnlocalizedName("rubySword");
-	public static Item rubyPickaxe = new ItemToePickaxe(rubyToolMaterial).setUnlocalizedName("rubyPickaxe");
-	public static Item rubyShovel = new ItemToeShovel(rubyToolMaterial).setUnlocalizedName("rubyShovel");
-	public static Item rubyAxe = new ItemToeAxe(rubyToolMaterial).setUnlocalizedName("rubyAxe");
-	public static Item rubyAxepick = new ItemToeAxepick("rubyAxepick", rubyToolMaterial);
-	public static Item rubyHoe = new ItemToeHoe(rubyToolMaterial).setUnlocalizedName("rubyHoe");
+	public static Item rubySword = new ItemToeSword(ToeMaterials.rubyTool).setUnlocalizedName("rubySword");
+	public static Item rubyPickaxe = new ItemToePickaxe(ToeMaterials.rubyTool).setUnlocalizedName("rubyPickaxe");
+	public static Item rubyShovel = new ItemToeShovel(ToeMaterials.rubyTool).setUnlocalizedName("rubyShovel");
+	public static Item rubyAxe = new ItemToeAxe(ToeMaterials.rubyTool).setUnlocalizedName("rubyAxe");
+	public static Item rubyAxepick = new ItemToeAxepick("rubyAxepick", ToeMaterials.rubyTool);
+	public static Item rubyHoe = new ItemToeHoe(ToeMaterials.rubyTool).setUnlocalizedName("rubyHoe");
 	
-	public static Item sapphireSword = new ItemToeSword(sapphireToolMaterial).setUnlocalizedName("sapphireSword");
-	public static Item sapphirePickaxe = new ItemToePickaxe(sapphireToolMaterial).setUnlocalizedName("sapphirePickaxe");
-	public static Item sapphireShovel = new ItemToeShovel(sapphireToolMaterial).setUnlocalizedName("sapphireShovel");
-	public static Item sapphireAxe = new ItemToeAxe(sapphireToolMaterial).setUnlocalizedName("sapphireAxe");
-	public static Item sapphireAxepick = new ItemToeAxepick("sapphireAxepick", sapphireToolMaterial);
-	public static Item sapphireHoe = new ItemToeHoe(sapphireToolMaterial).setUnlocalizedName("sapphireHoe");
+	public static Item sapphireSword = new ItemToeSword(ToeMaterials.sapphireTool).setUnlocalizedName("sapphireSword");
+	public static Item sapphirePickaxe = new ItemToePickaxe(ToeMaterials.sapphireTool).setUnlocalizedName("sapphirePickaxe");
+	public static Item sapphireShovel = new ItemToeShovel(ToeMaterials.sapphireTool).setUnlocalizedName("sapphireShovel");
+	public static Item sapphireAxe = new ItemToeAxe(ToeMaterials.sapphireTool).setUnlocalizedName("sapphireAxe");
+	public static Item sapphireAxepick = new ItemToeAxepick("sapphireAxepick", ToeMaterials.sapphireTool);
+	public static Item sapphireHoe = new ItemToeHoe(ToeMaterials.sapphireTool).setUnlocalizedName("sapphireHoe");
 	
-	public static Item magmaHelmet = new ItemToeArmor(magmaMaterial, "magma", 0);
-	public static Item magmaPlate = new ItemToeArmor(magmaMaterial, "magma", 1);
-	public static Item magmaPants = new ItemToeArmor(magmaMaterial, "magma", 2);
-	public static Item magmaBoots = new ItemToeArmor(magmaMaterial, "magma", 3);
-	public static Item nimbleHelmet = new ItemToeArmor(nimbleMaterial, "nimble", 0);
-	public static Item nimblePlate = new ItemToeArmor(nimbleMaterial, "nimble", 1);
-	public static Item nimblePants = new ItemToeArmor(nimbleMaterial, "nimble", 2);
-	public static Item nimbleBoots = new ItemToeArmor(nimbleMaterial, "nimble", 3);
-	public static Item dynamicHelmet = new ItemToeArmor(dynamicMaterial, "dynamic", 0);
-	public static Item dynamicPlate = new ItemToeArmor(dynamicMaterial, "dynamic", 1);
-	public static Item dynamicPants = new ItemToeArmor(dynamicMaterial, "dynamic", 2);
-	public static Item dynamicBoots = new ItemToeArmor(dynamicMaterial, "dynamic", 3);
+	public static Item magmaHelmet = new ItemToeArmor(ToeMaterials.magmaArmor, "magma", 0);
+	public static Item magmaPlate = new ItemToeArmor(ToeMaterials.magmaArmor, "magma", 1);
+	public static Item magmaPants = new ItemToeArmor(ToeMaterials.magmaArmor, "magma", 2);
+	public static Item magmaBoots = new ItemToeArmor(ToeMaterials.magmaArmor, "magma", 3);
+	public static Item nimbleHelmet = new ItemToeArmor(ToeMaterials.nimbleArmor, "nimble", 0);
+	public static Item nimblePlate = new ItemToeArmor(ToeMaterials.nimbleArmor, "nimble", 1);
+	public static Item nimblePants = new ItemToeArmor(ToeMaterials.nimbleArmor, "nimble", 2);
+	public static Item nimbleBoots = new ItemToeArmor(ToeMaterials.nimbleArmor, "nimble", 3);
+	public static Item dynamicHelmet = new ItemToeArmor(ToeMaterials.dynamicArmor, "dynamic", 0);
+	public static Item dynamicPlate = new ItemToeArmor(ToeMaterials.dynamicArmor, "dynamic", 1);
+	public static Item dynamicPants = new ItemToeArmor(ToeMaterials.dynamicArmor, "dynamic", 2);
+	public static Item dynamicBoots = new ItemToeArmor(ToeMaterials.dynamicArmor, "dynamic", 3);
 
-	public static Item spacesuitHelmet = new ItemToeArmor(spacesuitMaterial, "spacesuit", 0);
-	public static Item spacesuitPlate = new ItemToeArmor(spacesuitMaterial, "spacesuit", 1);
-	public static Item spacesuitPants = new ItemToeArmor(spacesuitMaterial, "spacesuit", 2);
-	public static Item spacesuitBoots = new ItemToeArmor(spacesuitMaterial, "spacesuit", 3);
+	public static Item spacesuitHelmet = new ItemToeArmor(ToeMaterials.spacesuitArmor, "spacesuit", 0);
+	public static Item spacesuitPlate = new ItemToeArmor(ToeMaterials.spacesuitArmor, "spacesuit", 1);
+	public static Item spacesuitPants = new ItemToeArmor(ToeMaterials.spacesuitArmor, "spacesuit", 2);
+	public static Item spacesuitBoots = new ItemToeArmor(ToeMaterials.spacesuitArmor, "spacesuit", 3);
 
-	public static Item emeraldHelmet = new ItemToeArmor(emeraldMaterial, "emerald", 0);
-	public static Item emeraldPlate = new ItemToeArmor(emeraldMaterial, "emerald", 1);
-	public static Item emeraldPants = new ItemToeArmor(emeraldMaterial, "emerald", 2);
-	public static Item emeraldBoots = new ItemToeArmor(emeraldMaterial, "emerald", 3);
+	public static Item emeraldHelmet = new ItemToeArmor(ToeMaterials.emeraldArmor, "emerald", 0);
+	public static Item emeraldPlate = new ItemToeArmor(ToeMaterials.emeraldArmor, "emerald", 1);
+	public static Item emeraldPants = new ItemToeArmor(ToeMaterials.emeraldArmor, "emerald", 2);
+	public static Item emeraldBoots = new ItemToeArmor(ToeMaterials.emeraldArmor, "emerald", 3);
 
-	public static Item rubyHelmet = new ItemToeArmor(rubyMaterial, "ruby", 0);
-	public static Item rubyPlate = new ItemToeArmor(rubyMaterial, "ruby", 1);
-	public static Item rubyPants = new ItemToeArmor(rubyMaterial, "ruby", 2);
-	public static Item rubyBoots = new ItemToeArmor(rubyMaterial, "ruby", 3);
+	public static Item rubyHelmet = new ItemToeArmor(ToeMaterials.rubyArmor, "ruby", 0);
+	public static Item rubyPlate = new ItemToeArmor(ToeMaterials.rubyArmor, "ruby", 1);
+	public static Item rubyPants = new ItemToeArmor(ToeMaterials.rubyArmor, "ruby", 2);
+	public static Item rubyBoots = new ItemToeArmor(ToeMaterials.rubyArmor, "ruby", 3);
 
-	public static Item sapphireHelmet = new ItemToeArmor(sapphireMaterial, "sapphire", 0);
-	public static Item sapphirePlate = new ItemToeArmor(sapphireMaterial, "sapphire", 1);
-	public static Item sapphirePants = new ItemToeArmor(sapphireMaterial, "sapphire", 2);
-	public static Item sapphireBoots = new ItemToeArmor(sapphireMaterial, "sapphire", 3);
+	public static Item sapphireHelmet = new ItemToeArmor(ToeMaterials.sapphireArmor, "sapphire", 0);
+	public static Item sapphirePlate = new ItemToeArmor(ToeMaterials.sapphireArmor, "sapphire", 1);
+	public static Item sapphirePants = new ItemToeArmor(ToeMaterials.sapphireArmor, "sapphire", 2);
+	public static Item sapphireBoots = new ItemToeArmor(ToeMaterials.sapphireArmor, "sapphire", 3);
 
 	public static Item fishingRodWood = new ItemToeFishingRod("fishingRodWood", 64);
 	public static Item fishingRodIron = new ItemToeFishingRod("fishingRodIron", 128);
@@ -192,16 +171,33 @@ public class ToeItems {
 	public static Item sharkCooked = new ItemToeFood(20).setUnlocalizedName("sharkCooked");
 
 	public static Item lunarBlade = new ItemLunarBlade().setUnlocalizedName("lunarBlade");
-	public static Item rapier = new ItemToeSword(rapierMaterial).setUnlocalizedName("rapier");
+	public static Item rapier = new ItemToeSword(ToeMaterials.rapierTool).setUnlocalizedName("rapier");
 
 	public static Item woodClaw = new ItemToeClaw("woodClaw", ToolMaterial.WOOD);
 	public static Item goldClaw = new ItemToeClaw("goldClaw", ToolMaterial.GOLD);
 	public static Item stoneClaw = new ItemToeClaw("stoneClaw", ToolMaterial.STONE);
 	public static Item ironClaw = new ItemToeClaw("ironClaw", ToolMaterial.IRON);
 	public static Item diamondClaw = new ItemToeClaw("diamondClaw", ToolMaterial.EMERALD);
-	public static Item emeraldClaw = new ItemToeClaw("emeraldClaw", emeraldToolMaterial);
-	public static Item rubyClaw = new ItemToeClaw("rubyClaw", rubyToolMaterial);
-	public static Item sapphireClaw = new ItemToeClaw("sapphireClaw", sapphireToolMaterial);
+	public static Item emeraldClaw = new ItemToeClaw("emeraldClaw", ToeMaterials.emeraldTool);
+	public static Item rubyClaw = new ItemToeClaw("rubyClaw", ToeMaterials.rubyTool);
+	public static Item sapphireClaw = new ItemToeClaw("sapphireClaw", ToeMaterials.sapphireTool);
+
+	public static Item randomShit = new ItemToe().setUnlocalizedName("randomShit");
+	public static Item randomBasic = new ItemToe().setUnlocalizedName("randomBasic");
+	public static Item randomCommon = new ItemToe().setUnlocalizedName("randomCommon");
+	public static Item randomUncommon = new ItemToe().setUnlocalizedName("randomUncommon");
+	public static Item randomRare = new ItemToe().setUnlocalizedName("randomRare");
+	public static Item randomEpic = new ItemToe().setUnlocalizedName("randomEpic");
+	public static Item randomSuperior = new ItemToe().setUnlocalizedName("randomSuperior");
+	public static Item randomUltimate = new ItemToe().setUnlocalizedName("randomUltimate");
+	public static Item randomLegendary = new ItemToe().setUnlocalizedName("randomLegendary");
+	public static Item randomWildcard = new ItemToe().setUnlocalizedName("randomWildcard");
+
+	public static Item statueBipedItem = new ItemStatueBiped().setUnlocalizedName("statueBipedItem");
+
+	public static Item grapplingHook = new ItemGrapplingHook("grapplingHook", 64);
+
+	public static Item tophat = new ItemTopHat();
 	
 	public static void init() {
 		//Weapons
@@ -330,11 +326,25 @@ public class ToeItems {
 		GameRegistry.registerItem(shark, "shark");
 		GameRegistry.registerItem(sharkCooked, "sharkCooked");
 		
+		//Random Rarity Rewards
+		GameRegistry.registerItem(randomShit, "randomShit");
+		GameRegistry.registerItem(randomBasic, "randomBasic");
+		GameRegistry.registerItem(randomCommon, "randomCommon");
+		GameRegistry.registerItem(randomUncommon, "randomUncommon");
+		GameRegistry.registerItem(randomRare, "randomRare");
+		GameRegistry.registerItem(randomEpic, "randomEpic");
+		GameRegistry.registerItem(randomSuperior, "randomSuperior");
+		GameRegistry.registerItem(randomUltimate, "randomUltimate");
+		GameRegistry.registerItem(randomLegendary, "randomLegendary");
+		GameRegistry.registerItem(randomWildcard, "randomWildcard");
+		
 		//Other
 		GameRegistry.registerItem(hollowLighter, "hollowLighter");
 		GameRegistry.registerItem(aluminiumSheet, "aluminiumSheet");
 		GameRegistry.registerItem(greenLeather, "greenLeather");
 		GameRegistry.registerItem(bucketGoo, "bucketGoo");
+		GameRegistry.registerItem(statueBipedItem, "statueBipedItem");
+		GameRegistry.registerItem(grapplingHook, "grapplingHook");
 		
 		//Armor
 		GameRegistry.registerItem(emeraldHelmet, "emeraldHelmet");
@@ -366,6 +376,8 @@ public class ToeItems {
 		GameRegistry.registerItem(spacesuitPlate, "spacesuitPlate");
 		GameRegistry.registerItem(spacesuitPants, "spacesuitPants");
 		GameRegistry.registerItem(spacesuitBoots, "spacesuitBoots");
+		
+		GameRegistry.registerItem(tophat, "tophat");
 
 		//To be removed
 		GameRegistry.registerItem(tester, "testerItem");

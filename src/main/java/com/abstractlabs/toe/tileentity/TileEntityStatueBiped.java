@@ -1,15 +1,15 @@
 package com.abstractlabs.toe.tileentity;
 
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTUtil;
 import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
-import com.mojang.authlib.GameProfile;
+import com.abstractlabs.toe.utility.LogHelper;
 
 public class TileEntityStatueBiped extends TileEntity {
-	private GameProfile gameprofile = null;
+	private String username = "";
 	
 	public TileEntityStatueBiped() {
 		
@@ -18,47 +18,54 @@ public class TileEntityStatueBiped extends TileEntity {
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 //		NBTTagCompound tag = nbt.getCompoundTag(NBT);
-//		this.name = tag.getString("Name");
+//		this.username = tag.getString("Username");
 //		nbt.setTag(NBT, tag);
-//		
-		//LogHelper.info("[TileEntityRecall] readFromNBT();");
 		
-		if (nbt.hasKey("Owner", 10))
-        {
-            this.gameprofile = NBTUtil.func_152459_a(nbt.getCompoundTag("Owner"));
-        }
-//        else if (nbt.hasKey("ExtraType", 8) && !StringUtils.isNullOrEmpty(nbt.getString("ExtraType")))
-//        {
-//            this.gameprofile = new GameProfile((UUID)null, nbt.getString("ExtraType"));
-//            //this.func_152109_d();
-//        }
+		super.readFromNBT(nbt);
+        this.username = nbt.getString("Username");
+
+        //Toe.packetPipeline.sendToAll(new PacketStatue(this.worldObj, this.xCoord, this.yCoord, this.zCoord, this.username));
+        
+        LogHelper.info("[TileEntityStatue] readFromNBT() | NBT == " + nbt.getString("Username") + " | var == " + this.username);
 	}
 
 	@Override
 	public void writeToNBT(NBTTagCompound nbt) {
 //		NBTTagCompound tag = nbt.getCompoundTag(NBT);
-//		tag.setString("Name", this.name);
+//		tag.setString("Username", this.username);
 //		nbt.setTag(NBT, tag);
-
-		//LogHelper.info("[TileEntityRecall] writeToNBT();");
 		
-		if (this.gameprofile != null) {
-            NBTTagCompound nbttagcompound1 = new NBTTagCompound();
-            NBTUtil.func_152460_a(nbttagcompound1, this.gameprofile);
-            nbt.setTag("Owner", nbttagcompound1);
-        }
+		super.writeToNBT(nbt);
+        nbt.setString("Username", this.username);
+        
+        //Toe.packetPipeline.sendToAll(new PacketStatue(this.worldObj, this.xCoord, this.yCoord, this.zCoord, this.username));
+        
+        LogHelper.info("[TileEntityStatue] writeToNBT() | NBT == " + nbt.getString("Username") + " | var == " + this.username);
 	}
 
+    @Override
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+        super.onDataPacket(net, pkt);
+        NBTTagCompound tag = pkt.func_148857_g();
+
+        this.username = tag.getString("Username");
+    }
+	
 	@Override
-	public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
-		readFromNBT(pkt.func_148857_g());
+    public Packet getDescriptionPacket() {
+		S35PacketUpdateTileEntity packet = (S35PacketUpdateTileEntity) super.getDescriptionPacket();
+        NBTTagCompound tag = packet != null ? packet.func_148857_g() : new NBTTagCompound();
+
+        tag.setString("Username", this.username);
+
+        return new S35PacketUpdateTileEntity(xCoord, yCoord, zCoord, 1, tag);
     }
 	
-	public GameProfile getGameProfile() {
-        return this.gameprofile;
+	public String getUsername() {
+        return this.username;
     }
 	
-	public void setGameProfile(GameProfile gameprofile) {
-        this.gameprofile = gameprofile;
+	public void setUsername(String username) {
+        this.username = username;
     }
 }

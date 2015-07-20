@@ -8,9 +8,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
+import com.abstractlabs.toe.entity.player.EntityHat;
 import com.abstractlabs.toe.reference.Reference;
-import com.abstractlabs.toe.utility.ItemRarity;
-import com.abstractlabs.toe.utility.LogHelper;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -47,15 +46,20 @@ public class BlockTester extends BlockToe {
 //		LogHelper.info("items with rarity of 1 == " + ItemRarity.getItemStringsWithRarity(1));
 //		LogHelper.info("random item with rarity of 1 == " + ItemRarity.getRandomItemWithRarity(1).getUnlocalizedName());
 
-		LogHelper.info("SHIT == " + ItemRarity.getItemStackStringsWithRarity(1));
-		LogHelper.info("BASIC == " + ItemRarity.getItemStackStringsWithRarity(2));
-		LogHelper.info("COMMON == " + ItemRarity.getItemStackStringsWithRarity(3));
-		LogHelper.info("UNCOMMON == " + ItemRarity.getItemStackStringsWithRarity(4));
-		LogHelper.info("RARE == " + ItemRarity.getItemStackStringsWithRarity(5));
-		LogHelper.info("EPIC == " + ItemRarity.getItemStackStringsWithRarity(6));
-		LogHelper.info("SUPERIOR == " + ItemRarity.getItemStackStringsWithRarity(7));
-		LogHelper.info("ULTIMATE == " + ItemRarity.getItemStackStringsWithRarity(8));
-		LogHelper.info("LEGENDARY == " + ItemRarity.getItemStackStringsWithRarity(9));
+//		LogHelper.info("SHIT == " + ItemRarity.getItemStackStringsWithRarity(1));
+//		LogHelper.info("BASIC == " + ItemRarity.getItemStackStringsWithRarity(2));
+//		LogHelper.info("COMMON == " + ItemRarity.getItemStackStringsWithRarity(3));
+//		LogHelper.info("UNCOMMON == " + ItemRarity.getItemStackStringsWithRarity(4));
+//		LogHelper.info("RARE == " + ItemRarity.getItemStackStringsWithRarity(5));
+//		LogHelper.info("EPIC == " + ItemRarity.getItemStackStringsWithRarity(6));
+//		LogHelper.info("SUPERIOR == " + ItemRarity.getItemStackStringsWithRarity(7));
+//		LogHelper.info("ULTIMATE == " + ItemRarity.getItemStackStringsWithRarity(8));
+//		LogHelper.info("LEGENDARY == " + ItemRarity.getItemStackStringsWithRarity(9));
+		
+		EntityHat hat = new EntityHat(player);
+		world.spawnEntityInWorld(hat);
+		
+		//player.addPotionEffect(new PotionEffect(ToePotions.stun.id, 5*20));
 		
 		return true;
 	}

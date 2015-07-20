@@ -11,6 +11,7 @@ import com.abstractlabs.toe.handler.ItemToeSwordActiveHandler;
 import com.abstractlabs.toe.handler.NBTRespawnHandler;
 import com.abstractlabs.toe.handler.PlayerHandler;
 import com.abstractlabs.toe.handler.PortalHandler;
+import com.abstractlabs.toe.handler.PotionHandler;
 import com.abstractlabs.toe.handler.TickHandler;
 import com.abstractlabs.toe.handler.TooltipHandler;
 import com.abstractlabs.toe.handler.skill.MiningHandler;
@@ -35,6 +36,8 @@ public class ToeBusses {
 		addEventBus(new PortalHandler());
 		addEventBus(new ItemToeSwordActiveHandler());
 		addEventBus(new TooltipHandler());
+		addEventBus(new PotionHandler());
+		//addEventBus(new PlayerRenderHandler());
 		
 		addSpecialEventBus(new ConfigHandler());
 		addSpecialEventBus(new ConnectionHandler());

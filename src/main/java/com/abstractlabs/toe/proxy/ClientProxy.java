@@ -13,20 +13,26 @@ import net.minecraftforge.common.MinecraftForge;
 
 import org.lwjgl.input.Keyboard;
 
-import com.abstractlabs.toe.client.gui.GuiArenaOverlay;
-import com.abstractlabs.toe.client.gui.GuiScreenOverlay;
+import com.abstractlabs.toe.client.gui.screen.GuiArenaOverlay;
+import com.abstractlabs.toe.client.gui.screen.GuiScreenOverlay;
 import com.abstractlabs.toe.client.model.ModelScorpion;
 import com.abstractlabs.toe.client.renderer.entity.RenderFlashbang;
+import com.abstractlabs.toe.client.renderer.entity.RenderGrapplingHook;
 import com.abstractlabs.toe.client.renderer.entity.RenderGrenade;
+import com.abstractlabs.toe.client.renderer.entity.RenderHat;
 import com.abstractlabs.toe.client.renderer.entity.mob.RenderAlien;
 import com.abstractlabs.toe.client.renderer.entity.mob.RenderAlienCow;
 import com.abstractlabs.toe.client.renderer.entity.mob.RenderBoi;
+import com.abstractlabs.toe.client.renderer.entity.mob.RenderDyer;
 import com.abstractlabs.toe.client.renderer.entity.mob.RenderMummy;
 import com.abstractlabs.toe.client.renderer.entity.mob.RenderScorpion;
+import com.abstractlabs.toe.client.renderer.entity.mob.RenderShopTest;
 import com.abstractlabs.toe.client.renderer.item.ItemRenderAxepick;
+import com.abstractlabs.toe.client.renderer.item.ItemRenderClaw;
 import com.abstractlabs.toe.client.renderer.item.ItemRenderFishingRod;
-import com.abstractlabs.toe.client.renderer.item.ItemRenderNightSword;
+import com.abstractlabs.toe.client.renderer.item.ItemRenderLunarBlade;
 import com.abstractlabs.toe.client.renderer.item.ItemRenderRecall;
+import com.abstractlabs.toe.client.renderer.item.ItemRenderStatueBiped;
 import com.abstractlabs.toe.client.renderer.tileentity.RenderATM;
 import com.abstractlabs.toe.client.renderer.tileentity.RenderDisplayCase;
 import com.abstractlabs.toe.client.renderer.tileentity.RenderFurnaceDiamond;
@@ -42,11 +48,16 @@ import com.abstractlabs.toe.client.renderer.tileentity.RenderTransmutation;
 import com.abstractlabs.toe.entity.monster.EntityAlien;
 import com.abstractlabs.toe.entity.monster.EntityMummy;
 import com.abstractlabs.toe.entity.monster.EntityScorpion;
+import com.abstractlabs.toe.entity.npc.EntityDyer;
+import com.abstractlabs.toe.entity.npc.EntityShopTest;
 import com.abstractlabs.toe.entity.passive.EntityAlienCow;
 import com.abstractlabs.toe.entity.passive.EntityBoi;
+import com.abstractlabs.toe.entity.player.EntityHat;
 import com.abstractlabs.toe.entity.projectile.EntityFlashbang;
+import com.abstractlabs.toe.entity.projectile.EntityGrapplingHook;
 import com.abstractlabs.toe.entity.projectile.EntityGrenade;
 import com.abstractlabs.toe.handler.KeyHandler;
+import com.abstractlabs.toe.handler.PlayerRenderHandler;
 import com.abstractlabs.toe.handler.ResourceLoc;
 import com.abstractlabs.toe.init.ToeItems;
 import com.abstractlabs.toe.reference.RenderID;
@@ -104,6 +115,7 @@ public class ClientProxy extends CommonProxy {
 		MinecraftForge.EVENT_BUS.register(new DescriptionGUI());
 		MinecraftForge.EVENT_BUS.register(new GuiArenaOverlay());
 		MinecraftForge.EVENT_BUS.register(new GuiScreenOverlay());
+		MinecraftForge.EVENT_BUS.register(new PlayerRenderHandler());
 		
 		RenderingRegistry.registerEntityRenderingHandler(EntityFlashbang.class, new RenderFlashbang(ToeItems.flashbang));
 		RenderingRegistry.registerEntityRenderingHandler(EntityGrenade.class, new RenderGrenade(ToeItems.grenade));
@@ -113,6 +125,11 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityBoi.class, new RenderBoi(new ModelBiped(), 0.5F));
 		RenderingRegistry.registerEntityRenderingHandler(EntityAlien.class, new RenderAlien(new ModelBiped(), 0.5F));
 		RenderingRegistry.registerEntityRenderingHandler(EntityAlienCow.class, new RenderAlienCow(new ModelCow(), 0.5F));
+		RenderingRegistry.registerEntityRenderingHandler(EntityDyer.class, new RenderDyer(new ModelBiped(), 0.5F));
+		RenderingRegistry.registerEntityRenderingHandler(EntityShopTest.class, new RenderShopTest(new ModelBiped(), 0.5F));
+
+		RenderingRegistry.registerEntityRenderingHandler(EntityHat.class, new RenderHat());
+		RenderingRegistry.registerEntityRenderingHandler(EntityGrapplingHook.class, new RenderGrapplingHook());
 		
 		RenderingRegistry.registerBlockHandler(Smelting.furnaceRenderID_Iron, new RenderFurnaceIron());
 		RenderingRegistry.registerBlockHandler(Smelting.furnaceRenderID_Gold, new RenderFurnaceGold());
@@ -133,6 +150,7 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerBlockHandler(RenderID.displayCase, new RenderDisplayCase());
         //RenderingRegistry.registerBlockHandler(RenderID.pedestal, new RenderPedestalStonebrick());
         RenderingRegistry.registerBlockHandler(RenderID.pedestal, new RenderPedestal());
+        RenderingRegistry.registerBlockHandler(RenderID.statueBiped, new RenderStatueBiped());
 		
 		MinecraftForgeClient.registerItemRenderer(ToeItems.fishingRodWood, new ItemRenderFishingRod());
 		MinecraftForgeClient.registerItemRenderer(ToeItems.fishingRodGold, new ItemRenderFishingRod());
@@ -147,7 +165,20 @@ public class ClientProxy extends CommonProxy {
 		MinecraftForgeClient.registerItemRenderer(ToeItems.sapphireAxepick, new ItemRenderAxepick());
 
 		MinecraftForgeClient.registerItemRenderer(ToeItems.recall, new ItemRenderRecall());
-		MinecraftForgeClient.registerItemRenderer(ToeItems.lunarBlade, new ItemRenderNightSword());
+		MinecraftForgeClient.registerItemRenderer(ToeItems.lunarBlade, new ItemRenderLunarBlade());
+
+		MinecraftForgeClient.registerItemRenderer(ToeItems.woodClaw, new ItemRenderClaw());
+		MinecraftForgeClient.registerItemRenderer(ToeItems.stoneClaw, new ItemRenderClaw());
+		MinecraftForgeClient.registerItemRenderer(ToeItems.ironClaw, new ItemRenderClaw());
+		MinecraftForgeClient.registerItemRenderer(ToeItems.goldClaw, new ItemRenderClaw());
+		MinecraftForgeClient.registerItemRenderer(ToeItems.diamondClaw, new ItemRenderClaw());
+		MinecraftForgeClient.registerItemRenderer(ToeItems.emeraldClaw, new ItemRenderClaw());
+		MinecraftForgeClient.registerItemRenderer(ToeItems.rubyClaw, new ItemRenderClaw());
+		MinecraftForgeClient.registerItemRenderer(ToeItems.sapphireClaw, new ItemRenderClaw());
+
+		MinecraftForgeClient.registerItemRenderer(ToeItems.statueBipedItem, new ItemRenderStatueBiped());
+		
+		//MinecraftForgeClient.registerItemRenderer(ToeItems.tophat, new ItemRenderTopHat()); //unneeded
 		
 		RenderingRegistry.registerBlockHandler(RenderID.transmutation, new RenderTransmutation());
 		

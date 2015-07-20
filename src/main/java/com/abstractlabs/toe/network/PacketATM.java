@@ -5,7 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 
-import com.abstractlabs.toe.client.gui.GuiATM;
+import com.abstractlabs.toe.client.gui.screen.GuiATM;
 import com.abstractlabs.toe.entity.player.ATM;
 import com.abstractlabs.toe.init.ToeItems;
 import com.abstractlabs.toe.reference.Color;

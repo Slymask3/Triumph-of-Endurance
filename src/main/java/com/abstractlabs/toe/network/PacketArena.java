@@ -6,7 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import net.minecraftforge.common.DimensionManager;
 
-import com.abstractlabs.toe.client.gui.GuiArenaOverlay;
+import com.abstractlabs.toe.client.gui.screen.GuiArenaOverlay;
 import com.abstractlabs.toe.utility.LogHelper;
 import com.abstractlabs.toe.world.arena.Arena;
 

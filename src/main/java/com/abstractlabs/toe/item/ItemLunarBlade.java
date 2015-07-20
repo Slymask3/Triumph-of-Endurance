@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
 
 import com.abstractlabs.toe.creativetab.ToeTab;
+import com.abstractlabs.toe.init.ToeMaterials;
 import com.abstractlabs.toe.reference.Reference;
 import com.abstractlabs.toe.utility.Helper;
 import com.google.common.collect.HashMultimap;
@@ -27,7 +28,7 @@ public class ItemLunarBlade extends ItemToeSword {
 	private IIcon activeIcon;
 	
 	public ItemLunarBlade() {
-		super(EnumHelper.addToolMaterial("Lunar", 3, 500, 3, 4, 10));
+		super(ToeMaterials.lunarBlade);
 		this.setCreativeTab(ToeTab.TOE_TAB);
 		this.setTextureName(Reference.MOD_ID+":lunarBlade");
 	}

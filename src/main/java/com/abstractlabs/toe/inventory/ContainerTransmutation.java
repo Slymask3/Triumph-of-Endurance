@@ -7,6 +7,7 @@ import net.minecraft.inventory.ICrafting;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
+import com.abstractlabs.toe.inventory.slot.SlotTransmutation;
 import com.abstractlabs.toe.tileentity.TileEntityFurnaceRedstone;
 import com.abstractlabs.toe.tileentity.TileEntityTransmutation;
 

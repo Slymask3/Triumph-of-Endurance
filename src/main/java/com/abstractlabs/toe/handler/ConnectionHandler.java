@@ -9,8 +9,10 @@ import net.minecraft.entity.player.EntityPlayerMP;
 
 import com.abstractlabs.toe.Toe;
 import com.abstractlabs.toe.entity.player.ATM;
+import com.abstractlabs.toe.entity.player.GrapplingHook;
 import com.abstractlabs.toe.init.ToePackets;
 import com.abstractlabs.toe.network.PacketATM;
+import com.abstractlabs.toe.network.PacketGrapplingHook;
 import com.abstractlabs.toe.reference.Color;
 import com.abstractlabs.toe.reference.Reference;
 import com.abstractlabs.toe.skill.agility.AgilityHelper;
@@ -132,8 +134,10 @@ public class ConnectionHandler {
 		        ToePackets.network.sendTo(new AgilityPacket(AgilityHelper.getProperties(p).getLevel(), AgilityHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
 		        ToePackets.network.sendTo(new ThievingPacket(ThievingHelper.getProperties(p).getLevel(), ThievingHelper.getProperties(p).progressPercentage()), (EntityPlayerMP)p);
 		        ToePackets.network.sendTo(new ArenalismPacket(ArenalismHelper.getProperties(p).getLevel(), ArenalismHelper.getProperties(p).progressPercentage(), ArenalismHelper.getProperties(p).inArena(), ArenalismHelper.getProperties(p).getCash()), (EntityPlayerMP)p);
-		        
+
 		        Toe.packetPipeline.sendTo(new PacketATM(2, ATM.getProperties(p).getCopperCoins(), ATM.getProperties(p).getSilverCoins(), ATM.getProperties(p).getGoldCoins()), (EntityPlayerMP)p);
+		        
+		        Toe.packetPipeline.sendTo(new PacketGrapplingHook(GrapplingHook.getProperties(p).hasHookEntity()), (EntityPlayerMP)p);
 
 				LogHelper.info("[ConnectionHandler] onPlayerLogin()");
 			}

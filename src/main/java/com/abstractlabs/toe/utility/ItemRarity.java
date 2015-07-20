@@ -625,6 +625,24 @@ public class ItemRarity {
 		new ItemRarity(ToeItems.sharkCooked, RARE),
 		new ItemRarity(ToeItems.lunarBlade, EPIC),
 		new ItemRarity(ToeItems.rapier, UNCOMMON),
+		new ItemRarity(ToeItems.woodClaw, SHIT),
+		new ItemRarity(ToeItems.goldClaw, COMMON),
+		new ItemRarity(ToeItems.stoneClaw, SHIT),
+		new ItemRarity(ToeItems.ironClaw, UNCOMMON),
+		new ItemRarity(ToeItems.diamondClaw, RARE),
+		new ItemRarity(ToeItems.emeraldClaw, RARE),
+		new ItemRarity(ToeItems.rubyClaw, RARE),
+		new ItemRarity(ToeItems.sapphireClaw, RARE),
+		new ItemRarity(ToeItems.randomShit, SHIT),
+		new ItemRarity(ToeItems.randomBasic, BASIC),
+		new ItemRarity(ToeItems.randomCommon, COMMON),
+		new ItemRarity(ToeItems.randomUncommon, UNCOMMON),
+		new ItemRarity(ToeItems.randomRare, RARE),
+		new ItemRarity(ToeItems.randomEpic, EPIC),
+		new ItemRarity(ToeItems.randomSuperior, SUPERIOR),
+		new ItemRarity(ToeItems.randomUltimate, ULTIMATE),
+		new ItemRarity(ToeItems.randomLegendary, LEGENDARY),
+		new ItemRarity(ToeItems.randomWildcard, WILD_CARD),
 		
 		//Toe Blocks
 		new ItemRarity(ToeBlocks.armoury, UNATTAINABLE, false),
@@ -887,7 +905,7 @@ public class ItemRarity {
 	}
 	
 	public static String getColoredName(ItemStack is) {
-		return getColorFromRarity(getRarityLevel(is)) + is.getDisplayName();
+		return getRarityLevel(is) == WILD_CARD ? getWildCardColor(is) : getColorFromRarity(getRarityLevel(is)) + is.getDisplayName();
 	}
 	
 	public static String getColorFromRarity(int rarity) {
@@ -908,6 +926,35 @@ public class ItemRarity {
 
 		return pre + Color.white;
 	}
+	
+	public static String getWildCardColor(ItemStack is) {
+		StringBuilder sb = new StringBuilder();
+		char[] chars = is.getDisplayName().toCharArray();
+		
+		for(int i=0; i<chars.length; i++) {
+			sb.append(getColorFromI(i) + chars[i]);
+		}
+		
+		return sb.toString();
+	}
+	
+	public static String getColorFromI(int i) {
+		String pre = "\u00a7";
+		int i2 = i%8;
+		
+		if(i2 == SHIT-1) { return pre + Color.gray;
+		} else if(i2 == BASIC-1) { return pre + Color.yellow;
+		} else if(i2 == COMMON-1) { return pre + Color.lime;
+		} else if(i2 == UNCOMMON-1) { return pre + Color.green;
+		} else if(i2 == RARE-1) { return pre + Color.blue;
+		} else if(i2 == EPIC-1) { return pre + Color.aqua;
+		} else if(i2 == SUPERIOR-1) { return pre + Color.teal;
+		} else if(i2 == ULTIMATE-1) { return pre + Color.gold;
+		} else if(i2 == LEGENDARY-1) { return pre + Color.purple;
+		}
+
+		return pre + Color.white;
+	} 
 	
 	//unused
 	public static boolean shouldColorName(ItemStack is) {
