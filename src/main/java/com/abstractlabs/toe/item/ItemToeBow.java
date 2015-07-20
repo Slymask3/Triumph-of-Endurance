@@ -31,7 +31,7 @@ public class ItemToeBow extends ItemToe
 	private Item ammo;
 	public float damage;
 
-	public ItemToeBow(Item parAmmo, int durability, float damage)
+	public ItemToeBow(String name, Item parAmmo, int durability, float damage)
 	{
 		super();
 		this.maxStackSize = 1;
@@ -39,6 +39,7 @@ public class ItemToeBow extends ItemToe
 		this.setMaxDamage(durability);
 		this.ammo = parAmmo;
 		this.damage = damage;
+		this.setTextureName(Reference.MOD_ID + ":" + name);
 	}
 
 	@Override
@@ -122,12 +123,12 @@ public class ItemToeBow extends ItemToe
 	@Override
 	public void registerIcons(IIconRegister icons)
 	{
-		this.itemIcon = icons.registerIcon(Reference.MOD_ID + ":" + "_standby");
+		this.itemIcon = icons.registerIcon(this.getIconString() + "_standby");
 		this.iconArray = new IIcon[bowPullIconNames.length];
 
 		for (int i = 0; i < this.iconArray.length; ++i)
 		{
-			this.iconArray[i] = icons.registerIcon(Reference.MOD_ID + ":" + "_" + bowPullIconNames[i]);
+			this.iconArray[i] = icons.registerIcon(this.getIconString() + "_" + bowPullIconNames[i]);
 		}
 	}
 

@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
 import com.abstractlabs.toe.block.BlockATM;
+import com.abstractlabs.toe.block.BlockAltar;
 import com.abstractlabs.toe.block.BlockArmoury;
 import com.abstractlabs.toe.block.BlockBasic;
 import com.abstractlabs.toe.block.BlockBeam;
@@ -128,6 +129,8 @@ public class ToeBlocks {
 	public static Block iceSolid = new BlockToe("iceSolid", texture_iceSolid, Material.rock, Block.soundTypeGlass, 3.0F, 5.0F).setSlipperiness(0.98F);
 	//public static Block iceSolid = new BlockIceSolid();
 
+	public static Block altar = new BlockAltar().setBlockName("altarBlock");
+	
 	public static Block pedestalStonebrick = new BlockPedestal("stonebrick", Material.rock);
 	public static Block pedestalPlanks = new BlockPedestal("planks", Material.wood);
 	public static Block pedestalBrick = new BlockPedestal("brick", Material.rock);
@@ -223,6 +226,9 @@ public class ToeBlocks {
 		GameRegistry.registerBlock(entranceDesert, "entranceDesert");
 		GameRegistry.registerBlock(breakableDesert, "breakableDesert");
 		GameRegistry.registerBlock(cash, "cash");
+		
+		//Prayer
+		GameRegistry.registerBlock(altar, "altar");
 		
 		//To be removed
 		GameRegistry.registerBlock(tester, "tester");

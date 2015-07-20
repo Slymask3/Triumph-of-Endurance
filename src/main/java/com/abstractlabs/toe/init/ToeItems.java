@@ -92,7 +92,7 @@ public class ToeItems {
 		
 	public static Item crystalArrow = new ItemToe().setUnlocalizedName("crystalArrow");
 	
-	public static Item crystalBow = new ItemToeBow(crystalArrow, 425, 3).setUnlocalizedName("crystalBow");
+	public static Item crystalBow = new ItemToeBow("crystalBow", crystalArrow, 425, 3).setUnlocalizedName("crystalBow");
 	
 	public static Item healingTab = new ItemHealingTablet(TabletType.healLvl).setUnlocalizedName("healingTablet");
 	public static Item cleanseTab = new ItemCleanseTablet(TabletType.cleanseLvl).setUnlocalizedName("cleanseTablet");
